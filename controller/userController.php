@@ -9,7 +9,7 @@ function accountRegister()
     require '../public/js/phpmailer/PHPMailer.php';
     require '../public/js/phpmailer/SMTP.php';
 
-    require("../model/user.php");
+    require("../model/userEntity.php");
 
     if(!empty($_POST['submit']))
     {
@@ -81,7 +81,7 @@ function accountRegister()
 }
 function accountLogin()
 {
-    require("../model/user.php");
+    require("../model/userEntity.php");
     if(isset($_POST['submit']))
     {
         $result = loginUser();
@@ -114,5 +114,12 @@ function accountLogout()
     session_destroy();
     header("Location: ./register");
     die();
+}
+function forgotPassword()
+{
+    if(!empty($_POST['submit']))
+    {
+    }
+    require ('frontEnd/forgotPassword.php');
 }
 ?>
