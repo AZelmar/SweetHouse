@@ -1,41 +1,12 @@
-<?php
-include 'config.php';
-if(isset($_POST['submit']))
-{
-	$request = $pdo->prepare('SELECT * FROM user WHERE email = ?');
-	$request->execute(array($_POST['email']));
-	$result = $request->fetch();
-	if($result['lastName'] != null)
-	{
-		if(password_verify($_POST['password'], $result['password']))
-		{
-			$_SESSION["email"] = $result['email'];
-			if(isset($_POST['remember']))
-			{	
-				$_SESSION = array();
-				session_destroy();
-			}
-		}
-		else
-		{
-			$notification = array("type" => "error","message" => "Mot de passe incorrect !");
-		}
-	}
-	else
-	{
-		$notification = array("type" => "error","message" => "Aucun compte lié à cet email trouvé !");
-	}
-}
-?>
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="style.css" /> 
+	<link rel="stylesheet" href="./public/css/style.css" /> 
 	<title>SweetHouse | Connexion</title>
 </head>
 <body>
-	<?php include 'header.php' ?>
-	<?PHP include 'notification.php' ?>
+	<?php include 'backEnd/header.php' ?>
+	<?PHP include 'backEnd/notification.php' ?>
 	<div id="form-container">
 		<form method="POST">
 			<h2 id="title">Connexion</h2>
