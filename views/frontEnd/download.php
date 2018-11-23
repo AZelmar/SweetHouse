@@ -1,26 +1,11 @@
-<?php
-if(isset($_GET["file"])){
-    $filepath = "application-pdf/individual.pdf";
-    // Process download
-    if(file_exists($filepath)) {
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="te"');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($filepath));
-        flush(); // Flush system output buffer
-        readfile($filepath);
-        exit;
-    }
-    else
-    {
-        echo $filepath;
-    }
-}
-else
-{
-    echo 'test';
-}
-?>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./public/css/style.css" /> 
+    <title>SweetHouse | Télechargement de fichier</title>
+</head>
+<body>
+    <?php include 'backEnd/header.php' ?>
+    <?PHP include 'backEnd/notification.php' ?>
+</body>
+</html>

@@ -16,6 +16,9 @@ switch ($request) {
     case '/logout' :
         accountLogout();
         break;
+    case '/download':
+        downloadFile();
+        break;
     default:
         require __DIR__ . '/views/404.php';
         break;

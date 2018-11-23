@@ -22,7 +22,7 @@ function accountRegister()
                     $errorInfo = registerUser();
                     if($errorInfo != ""){
                         $error_parameters = array();
-                        preg_match("/for key '(\w+)'$/", $request->errorInfo()[2], $error_parameters);
+                        preg_match("/for key '(\w+)'$/", $errorInfo, $error_parameters);
                         if(sizeof($error_parameters) == 2 && $error_parameters[1] == "email")
                         {
                             $notification = array("type" => "error","message" => "Email déja pris !");
@@ -114,5 +114,31 @@ function accountLogout()
     session_destroy();
     header("Location: ./register");
     die();
+}
+function downloadFile()
+{
+    if(isset($_GET["file"])){
+        $filepath = "backEnd/application-pdf/".$_GET["file"];
+        if(file_exists($filepath)) 
+        {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachement; filename="'.$_GET["file"].'"');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($filepath));
+            flush(); // Flush system output buffer
+            readfile($filepath);
+        }
+        else
+        {
+            $notification = array("type" => "error","message" => "Aucun fichier ne correspond à cette url !");
+        }
+    }
+    else
+    {
+        $notification = array("type" => "error","message" => "Aucun fichier renseigné !");
+    }
+    require ('frontEnd/download.php');
 }
 ?>
