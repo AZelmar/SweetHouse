@@ -1,7 +1,8 @@
 <?php
-require("../controller/user.php");
+require("../controller/userController.php");
 $request = $_SERVER['REDIRECT_URL'];
-$request = str_replace("/eleves/SweetHouse", "",$request);
+//$request = str_replace("/eleves/SweetHouse", "",$request);
+$request = str_replace("/SweetHouse", "",$request);
 switch ($request) {
     case '/' :
         break;
@@ -18,6 +19,8 @@ switch ($request) {
         break;
     case '/download':
         downloadFile();
+    case '/forgotPassword' :
+        forgotPassword();
         break;
     default:
         require __DIR__ . '/views/404.php';

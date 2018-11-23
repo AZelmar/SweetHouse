@@ -9,7 +9,7 @@ function accountRegister()
     require '../public/js/phpmailer/PHPMailer.php';
     require '../public/js/phpmailer/SMTP.php';
 
-    require("../model/user.php");
+    require("../model/userEntity.php");
 
     if(!empty($_POST['submit']))
     {
@@ -81,7 +81,7 @@ function accountRegister()
 }
 function accountLogin()
 {
-    require("../model/user.php");
+    require("../model/userEntity.php");
     if(isset($_POST['submit']))
     {
         $result = loginUser();
@@ -140,5 +140,12 @@ function downloadFile()
         $notification = array("type" => "error","message" => "Aucun fichier renseigné !");
     }
     require ('frontEnd/download.php');
+}
+function forgotPassword()
+{
+    if(!empty($_POST['submit']))
+    {
+    }
+    require ('frontEnd/forgotPassword.php');
 }
 ?>

@@ -1,29 +1,19 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./public/css/style.css" /> 
-	<title>SweetHouse | Connexion</title>
+	<title>SweetHouse | Mot de passe oublié </title>
 </head>
 <body>
 	<?php include 'backEnd/header.php' ?>
 	<?PHP include 'backEnd/notification.php' ?>
 	<div id="form-container">
 		<form method="POST">
-			<h2 id="title">Connexion</h2>
+			<h2 id="title">Mot de passe oublié</h2>
 			<hr>
 			<div class="input-group">
 				<label for="email">Adresse email :</label>
 				<input type="email" name="email" value="test@test.fr">
-			</div>
-
-			<div class="input-group">
-				<label for="password">Mot de passe :</label>
-				<input type="password" name="password" value="test">
-			</div>
-			<div class="input-group">
-				<label for="remember">Se souvenir de moi :</label>
-				<input type="checkbox" name="remember">
 			</div>
 			<div class="input-group">
 				<input type="submit" name="submit" value="Valider" id="validate-button">
