@@ -117,8 +117,8 @@ function accountLogout()
 }
 function downloadFile()
 {
-    if(isset($_GET["file"])){
-        $filepath = "backEnd/application-pdf/".$_GET["file"];
+    if(isset($_GET["file"]) && $_GET["file"] != ""){
+        $filepath = "../public/files/".$_GET["file"];
         if(file_exists($filepath)) 
         {
             header('Content-Description: File Transfer');

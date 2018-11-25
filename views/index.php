@@ -19,6 +19,7 @@ switch ($request) {
         break;
     case '/download':
         downloadFile();
+        break;
     case '/forgotPassword' :
         forgotPassword();
         break;
