@@ -13,7 +13,7 @@
 			<hr>
 			<div class="input-group">
 				<label for="email">Adresse email :</label>
-				<input type="email" name="email" value="test@test.fr">
+				<input type="email" name="email" value="test@yopmail.com">
 			</div>
 			<div class="input-group">
 				<input type="submit" name="submit" value="Valider" id="validate-button">

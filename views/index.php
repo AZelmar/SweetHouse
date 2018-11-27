@@ -2,7 +2,7 @@
 require("../controller/userController.php");
 $request = $_SERVER['REDIRECT_URL'];
 //$request = str_replace("/eleves/SweetHouse", "",$request);
-$request = str_replace("/SweetHouse", "",$request);
+$request = str_replace("/eleves/SweetHouse", "",$request);
 switch ($request) {
     case '/' :
         break;

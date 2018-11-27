@@ -39,7 +39,6 @@ function accountRegister()
                     else
                     {
                         $notification = array("type" => "success","message" => "Utilisateur enregistré !");
-                        $notification = array("type" => "success","message" => "Utilisateur enregistré !");
                         $mail = new PHPMailer;
                         $mail -> CharSet = "UTF-8";
                         $mail->isSMTP(); 
@@ -84,17 +83,24 @@ function accountLogin()
     require("../model/userEntity.php");
     if(isset($_POST['submit']))
     {
-        $result = loginUser();
+        $result = getUser();
         if($result['lastName'] != null)
         {
             if(password_verify($_POST['password'], $result['password']))
             {
+                if($result['active'] == 1)
+                {
                 $_SESSION["email"] = $result['email'];
                 if(isset($_POST['remember']))
                 {   
                     $_SESSION = array();
                     session_destroy();
                 }
+            }
+            else
+            {
+                $notification = array("type" => "error","message" => "Votre compte n'est pas activé !");
+            }
             }
             else
             {
@@ -143,8 +149,49 @@ function downloadFile()
 }
 function forgotPassword()
 {
-    if(!empty($_POST['submit']))
+    require("../model/userEntity.php");
+    if(!isset($_GET["token"]))
     {
+        if(!empty($_POST['submit']))
+        {
+            $result = getUser();
+            if($result['lastName'] != null)
+            {
+                $errorInfo = addResetRequest();
+                if($errorInfo != ""){
+                        $error_parameters = array();
+                        preg_match("/for key '(\w+)'$/", $errorInfo, $error_parameters);
+                        if(sizeof($error_parameters) == 2 && $error_parameters[1] == "email")
+                        {
+                            $notification = array("type" => "error","message" => "Vous avez déja fais une demande de reset !");
+                        }
+                        else
+                        {
+                            $notification = array("type" => "error","message" => "Une erreur est survenue !");
+                        }
+                }
+                else
+                {
+                    $notification = array("type" => "success","message" => "Demande de reset prise en compte !");
+                }
+            }
+            else
+            {
+                $notification = array("type" => "error","message" => "Aucun compte lié à cet email trouvé !");   
+            }
+        }
+    }
+    else
+    {
+        $result = checkResetRequest();
+        if($result['email'] != null)
+        {
+            echo 'test';
+        }
+        else
+        {
+           $notification = array("type" => "error","message" => "Aucune demande lié à ce token !"); 
+        }
     }
     require ('frontEnd/forgotPassword.php');
 }
