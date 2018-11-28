@@ -86,7 +86,6 @@ li a:focus {
 }
 #validate-button{
     margin:0 auto;
-    display:block;
     background-color: #4CAF50;
     border: none;
     color: white;

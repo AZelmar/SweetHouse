@@ -18,11 +18,10 @@ function getUser()
     $result = $request->fetch();
     return $result;
 }
-function addResetRequest()
+function addResetRequest($token)
 {
     require("../views/backEnd/config.php");
     $date = date('Y/m/d H:i:s', time());
-    $token = bin2hex(openssl_random_pseudo_bytes(16));
     $request = $pdo->prepare("INSERT INTO resetRQ (requestDate,email,token) VALUES (:requestDate,:email,:token)");
     $request->execute(array("requestDate" => $date,"email" => $_POST['email'],"token" => $token));  
     return $request->errorInfo()[2];
@@ -38,9 +37,11 @@ function checkResetRequest()
 function validateResetRequest()
 {
     require("../views/backEnd/config.php");
-    $request = $pdo->prepare('SELECT * FROM resetRQ WHERE token = ?');
+    $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $request = $pdo->prepare('UPDATE user INNER JOIN resetRQ ON user.email = resetRQ.email SET password = :password WHERE resetRQ.token = :token');
+    $request->execute(array("password" => $hash,"token" => $_GET['token']));
+    $request = $pdo->prepare('DELETE FROM resetRQ WHERE token = ?');
     $request->execute(array($_GET['token']));
-    $result = $request->fetch();
-    return $result;
+    return $request->errorInfo()[2];
 }
 ?>
