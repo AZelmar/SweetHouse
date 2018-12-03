@@ -18,6 +18,21 @@ function getUser()
     $result = $request->fetch();
     return $result;
 }
+function addLoginCookie($expirationDate,$userId,$userEmail,$ip)
+{
+    require("../views/backEnd/config.php");
+    $request = $pdo->prepare("INSERT INTO cookieLogin (expirationDate,userId,userEmail,ip) VALUES (:expirationDate,:userId,:userEmail,:ip)");
+    $request->execute(array("expirationDate" => $expirationDate,"userId" => $userId,"userEmail" => $userEmail,"ip" => $ip));  
+    return $request->errorInfo()[2];
+}
+function checkLoginCookie($userEmail)
+{
+    require("../views/backEnd/config.php");
+    $request = $pdo->prepare("SELECT * FROM cookieLogin INNER JOIN user ON user.userId = cookieLogin.userId WHERE cookieLogin.userEmail = :userEmail");
+    $request->execute(array("userEmail" => $userEmail));  
+    $result = $request->fetch();
+    return $result;
+}
 function addResetRequest($token)
 {
     require("../views/backEnd/config.php");
@@ -31,6 +46,14 @@ function checkResetRequest()
     require("../views/backEnd/config.php");
     $request = $pdo->prepare('SELECT * FROM resetRQ WHERE token = ?');
     $request->execute(array($_GET['token']));
+    $result = $request->fetch();
+    return $result;
+}
+function checkResendResetRequest()
+{
+    require("../views/backEnd/config.php");
+    $request = $pdo->prepare('SELECT * FROM resetRQ WHERE email = ?');
+    $request->execute(array($_POST['emailHidden']));
     $result = $request->fetch();
     return $result;
 }

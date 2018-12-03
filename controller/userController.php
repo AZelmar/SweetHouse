@@ -3,13 +3,21 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 session_start();
+require("../model/userEntity.php");
+$cookieLogin = json_decode($_COOKIE['keep_log'],true);
+if($cookieLogin != null)
+{
+    $result = checkLoginCookie($cookieLogin["userEmail"]);
+    if($result['email'] != null)
+    {
+         $_SESSION["email"] = $result['email'];   
+    } 
+}
 function accountRegister()
 {
     require '../public/js/phpmailer/Exception.php';
     require '../public/js/phpmailer/PHPMailer.php';
     require '../public/js/phpmailer/SMTP.php';
-    
-    require("../model/userEntity.php");
     
     if (!empty($_POST['submit'])) {
         if (!empty($_POST['cgu'])) {
@@ -72,7 +80,6 @@ function accountRegister()
 }
 function accountLogin()
 {
-    require("../model/userEntity.php");
     if (isset($_POST['submit'])) {
         $result = getUser();
         if ($result['lastName'] != null) {
@@ -80,8 +87,16 @@ function accountLogin()
                 if ($result['active'] == 1) {
                     $_SESSION["email"] = $result['email'];
                     if (isset($_POST['remember'])) {
-                        $_SESSION = array();
-                        session_destroy();
+                        $ip = hash('sha512',$_SERVER['REMOTE_ADDR']);
+                        $userId = $result['userId'];
+                        $userEmail = hash('sha512',$result['email']);
+                        $expireDate = date('Y/m/d H:i:s', time()+60*60*24*365);
+                        $cookie = array(
+                                'ip'       =>   $ip,
+                                'userEmail' => $userEmail
+                            );
+                        setcookie('keep_log', json_encode($cookie), time()+60*60*24*365);
+                        addLoginCookie($expireDate,$userId,$userEmail,$ip);
                     }
                 } else {
                     $notification = array(
@@ -144,8 +159,24 @@ function forgotPassword()
     require '../public/js/phpmailer/PHPMailer.php';
     require '../public/js/phpmailer/SMTP.php';
     
-    require("../model/userEntity.php");
     if (!isset($_GET["token"])) {
+        if(!empty($_POST['resend'])){
+            $result = checkResendResetRequest();
+            if ($result['email'] != null && $result['reset'] == 1) {
+                $send = sendMail($result['email'], "SweetHouse - Mot de passe oublié", "Vous avez fais une nouvelle demande de réinitialisation de mot de passe.<br><br>Cliquez <a href='http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "?token=" . $result['token'] . "'>ici</a> pour changer votre mot de passe. ");
+                if ($send) {
+                        $notification = array(
+                            "type" => "success",
+                            "message" => "Votre demande a bien été prise en compte ! Un email vous a été envoyé pour réinitialiser votre mot de passe"
+                        );
+                    } else {
+                        $notification = array(
+                            "type" => "error",
+                            "message" => "Une erreur est survenue !"
+                        );
+                }
+            }
+        }
         if (!empty($_POST['submit'])) {
             $result = getUser();
             if ($result['lastName'] != null) {
@@ -157,7 +188,7 @@ function forgotPassword()
                     if (sizeof($error_parameters) == 2 && $error_parameters[1] == "email") {
                         $notification = array(
                             "type" => "error",
-                            "message" => "Vous avez déja fais une demande de réinitialisation de mot de passe !"
+                            "message" => "Vous avez déja fais une demande de réinitialisation de mot de passe ! <form method='POST'><input type='submit' name='resend' value='Renvoyer' id='resend-button'></button><input type='hidden' name='emailHidden' value='".$_POST['email']."'></form>"
                         );
                     } else {
                         $notification = array(

@@ -46,4 +46,14 @@ label{
 hr{
 	margin-bottom: 20px;
 }
+#resend-button{
+    margin:0 auto;
+    background-color: #ff9800;
+    border: none;
+    color: white;
+    padding: 9px 24px;
+    text-align: center;
+    text-decoration: none;
+        font-size: 14px;
+}
 </style>

@@ -14,7 +14,7 @@
 			<hr>
 			<div class="input-group">
 				<label for="email">Adresse email :</label>
-				<input type="email" name="email" value="test@test.fr">
+				<input type="email" name="email" value="test@yopmail.com">
 			</div>
 
 			<div class="input-group">
