@@ -1,10 +1,11 @@
 <!DOCTYPE>
 <html>
-<link rel="stylesheet" type="text/css" href="style_FAQ.css">
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="style_FAQ.css">
 
-
+<head>
+    <link rel="stylesheet" type="text/css" href="style_FAQ.css">
+    <meta charset="UTF-8">
+    <link rel="./public/css/style.css">
+</head>
 <body>
 
 <?php
