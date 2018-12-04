@@ -1,2 +1,2 @@
 # SweetHouse
-C'est notre projet
+Parce que c'est notre projet
