@@ -78,7 +78,11 @@
 
 			<div class="input-group">
 				<label for="country">Pays :</label>
-				<input type="text" name="country" value="france">
+				<select name="country">
+					<option value="france">France</option>
+					<option value="spain">Espagne</option>
+					<option value="canada">Canada</option>
+				</select>
 			</div>
 			<div class="input-group">
 				<label for="cgu">Acceptez les CGU :</label>

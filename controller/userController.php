@@ -16,10 +16,13 @@ function accountRegister()
     require '../public/js/phpmailer/Exception.php';
     require '../public/js/phpmailer/PHPMailer.php';
     require '../public/js/phpmailer/SMTP.php';
-    
+    $validGender = array("male","female");
+    $validType = array("individual","professional");
+    $validCountry = array("france","spain","canada");
     if (!empty($_POST['submit'])) {
         if (!empty($_POST['cgu'])) {
             if (!empty($_POST['lastName']) && !empty($_POST['firstName']) && !empty($_POST['age']) && !empty($_POST['password']) && !empty($_POST['password2']) && !empty($_POST['gender']) && !empty($_POST['type']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['adress']) && !empty($_POST['zipCode']) && !empty($_POST['city']) && !empty($_POST['country'])) {
+                if(in_array($_POST['gender'], $validGender) && in_array($_POST['type'], $validType) && in_array($_POST['country'], $validCountry)){
                 if ($_POST['password'] == $_POST['password2']) {
                     $errorInfo = registerUser();
                     if ($errorInfo != "") {
@@ -61,6 +64,14 @@ function accountRegister()
                         "message" => "Les mots de passes ne correspondent pas !"
                     );
                 }
+            }
+            else
+            {
+                     $notification = array(
+                        "type" => "error",
+                        "message" => "Formulaire corrompu !"
+                    );               
+            }
             } else {
                 $notification = array(
                     "type" => "error",
