@@ -1,17 +1,15 @@
- <?php
+<?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 session_start();
 require("../model/userEntity.php");
-$cookieLogin = json_decode($_COOKIE['keep_log'],true);
-if($cookieLogin != null)
-{
-    $result = checkLoginCookie($cookieLogin["userEmail"]);
-    if($result['email'] != null)
-    {
-         $_SESSION["email"] = $result['email'];   
-    } 
+if (isset($_COOKIE['keep_log'])) {
+    $cookieLogin = json_decode($_COOKIE['keep_log'], true);
+    $result      = checkLoginCookie($cookieLogin["userEmail"]);
+    if ($result['email'] != null) {
+        $_SESSION["email"] = $result['email'];
+    }
 }
 function accountRegister()
 {
@@ -87,16 +85,16 @@ function accountLogin()
                 if ($result['active'] == 1) {
                     $_SESSION["email"] = $result['email'];
                     if (isset($_POST['remember'])) {
-                        $ip = hash('sha512',$_SERVER['REMOTE_ADDR']);
-                        $userId = $result['userId'];
-                        $userEmail = hash('sha512',$result['email']);
-                        $expireDate = date('Y/m/d H:i:s', time()+60*60*24*365);
-                        $cookie = array(
-                                'ip'       =>   $ip,
-                                'userEmail' => $userEmail
-                            );
-                        setcookie('keep_log', json_encode($cookie), time()+60*60*24*365);
-                        addLoginCookie($expireDate,$userId,$userEmail,$ip);
+                        $ip         = hash('sha512', $_SERVER['REMOTE_ADDR']);
+                        $userId     = $result['userId'];
+                        $userEmail  = hash('sha512', $result['email']);
+                        $expireDate = date('Y/m/d H:i:s', time() + 60 * 60 * 24 * 365);
+                        $cookie     = array(
+                            'ip' => $ip,
+                            'userEmail' => $userEmail
+                        );
+                        setcookie('keep_log', json_encode($cookie), time() + 60 * 60 * 24 * 365);
+                        addLoginCookie($expireDate, $userId, $userEmail, $ip);
                     }
                 } else {
                     $notification = array(
@@ -121,10 +119,30 @@ function accountLogin()
 }
 function accountLogout()
 {
-    $_SESSION = array();
-    session_destroy();
-    header("Location: ./register");
-    die();
+    if (isset($_COOKIE['keep_log'])) {
+        $userEmail = hash('sha512', $_SESSION['email']);
+        $errorInfo = removeLoginCookie($userEmail);
+        if ($errorInfo != "") {
+            $error_parameters = array();
+            preg_match("/for key '(\w+)'$/", $errorInfo, $error_parameters);
+            $notification = array(
+                "type" => "error",
+                "message" => "Une erreur est survenue !"
+            );
+            require('frontEnd/empty.php');
+        } else {
+            setcookie('keep_log', '', time() - 3600); // empty value and old timestamp
+            $_SESSION = array();
+            session_destroy();
+            header("Location: ./login");
+        }
+    }
+    else
+    {
+        $_SESSION = array();
+        session_destroy();
+        header("Location: ./login");       
+    }
 }
 function downloadFile()
 {
@@ -160,20 +178,20 @@ function forgotPassword()
     require '../public/js/phpmailer/SMTP.php';
     
     if (!isset($_GET["token"])) {
-        if(!empty($_POST['resend'])){
+        if (!empty($_POST['resend'])) {
             $result = checkResendResetRequest();
             if ($result['email'] != null && $result['reset'] == 1) {
                 $send = sendMail($result['email'], "SweetHouse - Mot de passe oublié", "Vous avez fais une nouvelle demande de réinitialisation de mot de passe.<br><br>Cliquez <a href='http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "?token=" . $result['token'] . "'>ici</a> pour changer votre mot de passe. ");
                 if ($send) {
-                        $notification = array(
-                            "type" => "success",
-                            "message" => "Votre demande a bien été prise en compte ! Un email vous a été envoyé pour réinitialiser votre mot de passe"
-                        );
-                    } else {
-                        $notification = array(
-                            "type" => "error",
-                            "message" => "Une erreur est survenue !"
-                        );
+                    $notification = array(
+                        "type" => "success",
+                        "message" => "Votre demande a bien été prise en compte ! Un email vous a été envoyé pour réinitialiser votre mot de passe"
+                    );
+                } else {
+                    $notification = array(
+                        "type" => "error",
+                        "message" => "Une erreur est survenue !"
+                    );
                 }
             }
         }
@@ -188,7 +206,7 @@ function forgotPassword()
                     if (sizeof($error_parameters) == 2 && $error_parameters[1] == "email") {
                         $notification = array(
                             "type" => "error",
-                            "message" => "Vous avez déja fais une demande de réinitialisation de mot de passe ! <form method='POST'><input type='submit' name='resend' value='Renvoyer' id='resend-button'></button><input type='hidden' name='emailHidden' value='".$_POST['email']."'></form>"
+                            "message" => "Vous avez déja fais une demande de réinitialisation de mot de passe ! <form method='POST'><input type='submit' name='resend' value='Renvoyer' id='resend-button'></button><input type='hidden' name='emailHidden' value='" . $_POST['email'] . "'></form>"
                         );
                     } else {
                         $notification = array(

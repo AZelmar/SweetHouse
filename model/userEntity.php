@@ -25,6 +25,13 @@ function addLoginCookie($expirationDate,$userId,$userEmail,$ip)
     $request->execute(array("expirationDate" => $expirationDate,"userId" => $userId,"userEmail" => $userEmail,"ip" => $ip));  
     return $request->errorInfo()[2];
 }
+function removeLoginCookie($userEmail)
+{
+    require("../views/backEnd/config.php");
+    $request = $pdo->prepare('DELETE FROM cookieLogin WHERE userEmail = ?');
+    $request->execute(array($userEmail));
+    return $request->errorInfo()[2];
+}
 function checkLoginCookie($userEmail)
 {
     require("../views/backEnd/config.php");

@@ -19,7 +19,7 @@
 
 			<div class="input-group">
 				<label for="password">Mot de passe :</label>
-				<input type="password" name="password" value="test">
+				<input type="password" name="password" value="yolo">
 			</div>
 			<div class="input-group">
 				<label for="remember">Se souvenir de moi :</label>
