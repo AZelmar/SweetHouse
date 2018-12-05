@@ -17,10 +17,6 @@ function homePage()
   	require('frontEnd/home.php')
 }
 
-function userProfile()
-{
-  	require('frontEnd/userprofile.php')
-}
 
 function accountRegister()
 {
