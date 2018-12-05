@@ -11,6 +11,17 @@ if (isset($_COOKIE['keep_log'])) {
         $_SESSION["email"] = $result['email'];
     }
 }
+
+function homePage()
+{
+  	return('frontEnd/home.php')
+}
+
+function userProfile()
+{
+  	return('frontEnd/userprofile.php')
+}
+
 function accountRegister()
 {
     require '../public/js/phpmailer/Exception.php';

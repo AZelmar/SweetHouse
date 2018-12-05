@@ -23,6 +23,12 @@ switch ($request) {
     case '/forgotPassword' :
         forgotPassword();
         break;
+    case '/home':
+        homePage();
+        break;
+    case '/userprofile' :
+        userProfile();
+        break;
     default:
         require __DIR__ . '/views/404.php';
         break;
