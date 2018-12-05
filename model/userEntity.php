@@ -74,4 +74,17 @@ function validateResetRequest()
     $request->execute(array($_GET['token']));
     return $request->errorInfo()[2];
 }
+
+function getUserData()
+
+{
+  require("config.php");
+  $request = $pdo->prepare('SELECT * FROM user WHERE email= ? ');
+  $request->execute(array($_SESSION['email']));
+  $result = $request->fetch();
+  return $result;
+  
+}
+
+
 ?>
