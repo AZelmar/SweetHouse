@@ -15,7 +15,7 @@ $resultat = getUserData();
 </head>
   
 <body>
-<?php include 'header.php' ?>
+<?php include 'backEnd/header.php' ?>
 	<div id="Profil">
 	<h2 id="title">Gestion du profil</h2>
 		<hr>
