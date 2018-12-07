@@ -24,9 +24,9 @@ switch ($request) {
         forgotPassword();
         break;
     case '/home':
-        homePage();
+        home();
         break;
-    case '/userprofile' :
+    case '/userprofile':
         userProfile();
         break;
     default:

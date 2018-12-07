@@ -12,11 +12,15 @@ if (isset($_COOKIE['keep_log'])) {
     }
 }
 
-function homePage()
+function home()
 {
   	require('frontEnd/home.php')
 }
 
+function userProfile()
+{
+  require('frontEnd/userprofile.php');
+}
 
 function accountRegister()
 {
