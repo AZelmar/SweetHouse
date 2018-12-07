@@ -20,7 +20,7 @@
 
     <h2> Poser sa question </h2>
 
-	<form method="post" action="form_receiver.php">
+	<form method="post" action="forumControler.php">
 		<label>
 			Sujet : 
 			<select name="subject">
@@ -46,15 +46,15 @@
 
 		<label>
 			Adresse e-mail
-			<input type="email" name="email" placeholder="Entrez votre e-mail" required="required">
+			<input type="email" name="mail" placeholder="Entrez votre e-mail" required="required">
 		</label>
 
 		<label>
 			Message : 
-			<textarea name = "text" placeholder="Tapez votre message ici" required="required"></textarea>
+			<textarea name = "commentaire" placeholder="Tapez votre message ici" required="required"></textarea>
 		</label>
 
-		<div class="bouton" ><input type="submit" value="Envoyer"></div>
+		<divclass="bouton" ><input type="submit" value="Envoyer" name="submit"></div>
 
 	</form>
 
@@ -106,7 +106,7 @@
         font-family: 'Lato', sans-serif;
         font-weight: 100;
         background-color: #65c0ba;
-        padding: 8px;
+        padding: 30px;
     }
 
 
@@ -122,6 +122,7 @@
         box-sizing: border-box;
         border : 1px solid #999;
         margin: 10px;
+        padding: 6px;
 
     }
 
@@ -139,5 +140,5 @@
 </style>
 
 <?php
-	include 'form_receivers.php';
+	include 'forumControler.php';
 ?>
