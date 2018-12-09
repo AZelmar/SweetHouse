@@ -16,17 +16,41 @@ function formSubmit(){
         }
 
         else{
-            echo $_POST['numéro_client'];
             submitFormulaire($_POST['numéro_client'], $_POST['pseudo'], $_POST['mail'],$_POST[ 'subject'], $_POST['commentaire']);
+            ?>
+            <html>
+            <body>
+            Merci <strong> <?php echo $_POST['pseudo'] ?> </strong>, ton message a bien été intégré ! Un administrateur te répondra bientôt !
+            </body>
+            </html>
+
+            <style>
+                body{
+                    font-family: 'Lato', sans-serif;
+                    text-align: center;
+                    margin-top: 20%;
+                    font-size: 2.5em;
+                    margin-bottom: 15%;
+                }
+            </style>
+
+            <?php
+            echo  '</br>';
+            echo '</br>';
+            echo '</br>';
+            require 'index.php';
+
         }
     }
 
-    else{
-        echo 'test';
-    }
+
 }
 
 formSubmit();
 
+function afficherFormulaire (){
+    displayFormulaire();
+
+}
 
 

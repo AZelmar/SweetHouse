@@ -3,63 +3,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>SweetHouse</title>
+    <meta charset="utf-8">
+    <title>SweetHouse</title>
     <link href="style.css" rel="stylesheet" media="all">
-	<link href="style_forum.css" rel="stylesheet" media="all">
+    <link href="style_forum.css" rel="stylesheet" media="all">
 
 </head>
 <body>
 <?php
-    include 'header.php';
+include 'header.php';
 ?>
-    <a href="index.php" <button class="button">Retour à la page précédente</button> </a>
+<a href="index.php" <button class="button">Retour à la page précédente</button> </a>
 
 
-    <h1>Forum </h1>
+<h1>Forum </h1>
 
-    <h2> Poser sa question </h2>
+<h2> Poser sa question </h2>
 
-	<form method="post" action="forumControler.php">
-		<label>
-			Sujet : 
-			<select name="subject">
-				<option value="Technique"> Problème technique (capteurs, site internet, connexion, installation,...</option>
-				<option value="Conseils"> Conseils & Astuces, demander des conseils pour optimiser la gestion de vos capteurs</option>
-				<option value = "Entreprise "> Questions Entreprise, pour les solutions destinées aux entreprises </option>
-				<option value="Autres "> Autres, pour toutes autres questions ne rentrant pas dans les précédents choix </option>
-			</select>
-		</label>
+<form method="post" action="forumControler.php">
+    <label>
+        Sujet :
+        <select name="subject">
+            <option value="Technique"> Problème technique (capteurs, site internet, connexion, installation,...</option>
+            <option value="Conseils"> Conseils & Astuces, demander des conseils pour optimiser la gestion de vos capteurs</option>
+            <option value = "Entreprise "> Questions Entreprise, pour les solutions destinées aux entreprises </option>
+            <option value="Autres "> Autres, pour toutes autres questions ne rentrant pas dans les précédents choix </option>
+        </select>
+    </label>
 
-		<label>
-			<div class="numéro_client">
-			Numéro client
-			<input type="text" name="numéro_client" placeholder="Votre numéro client" required="required">
-		</div>
-		</label>
-
-
-		<label>
-			Pseudo : 
-			<input type="text" name="pseudo" placeholder="Votre pseudo" required="required">
-		</label>
-
-		<label>
-			Adresse e-mail
-			<input type="email" name="mail" placeholder="Entrez votre e-mail" required="required">
-		</label>
-
-		<label>
-			Message : 
-			<textarea name = "commentaire" placeholder="Tapez votre message ici" required="required"></textarea>
-		</label>
-
-		<divclass="bouton" ><input type="submit" value="Envoyer" name="submit"></div>
-
-	</form>
+    <label>
+        <div class="numéro_client">
+            Numéro client
+            <input type="text" name="numéro_client" placeholder="Votre numéro client" required="required">
+        </div>
+    </label>
 
 
-    <h2> Observer les questions déjà posées </h2>
+    <label>
+        Pseudo :
+        <input type="text" name="pseudo" placeholder="Votre pseudo" required="required">
+    </label>
+
+    <label>
+        Adresse e-mail
+        <input type="email" name="mail" placeholder="Entrez votre e-mail" required="required">
+    </label>
+
+    <label>
+        Message :
+        <textarea name = "commentaire" placeholder="Tapez votre message ici" required="required"></textarea>
+    </label>
+
+    <div class="bouton" > <input type="submit" value="Envoyer" name="submit"> </div>
+
+</form>
+
+
+<h2> Observer les questions déjà posées </h2>
+
+<?php
+include 'forumControler.php'
+?>
 
 
 </body>
@@ -137,8 +141,18 @@
         border-color: #216583;
     }
 
+
 </style>
 
+<body>
+
+
+
 <?php
-	include 'forumControler.php';
+afficherFormulaire();
+
 ?>
+
+
+
+</body>
