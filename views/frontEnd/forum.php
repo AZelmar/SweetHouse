@@ -11,16 +11,16 @@
 </head>
 <body>
 <?php
-include 'header.php';
+    include 'header.php';
 ?>
-<a href="index.php" <button class="button">Retour à la page précédente</button> </a>
+<a href="../views/index.php" <button class="button">Retour à la page précédente</button> </a>
 
 
 <h1>Forum </h1>
 
 <h2> Poser sa question </h2>
 
-<form method="post" action="forumControler.php">
+<form method="post" action="../controller/forumControler.php">
     <label>
         Sujet :
         <select name="subject">
@@ -62,7 +62,7 @@ include 'header.php';
 <h2> Observer les questions déjà posées </h2>
 
 <?php
-include 'forumControler.php'
+    require '../controller/forumControler.php'
 ?>
 
 
@@ -149,8 +149,7 @@ include 'forumControler.php'
 
 
 <?php
-afficherFormulaire();
-
+    afficherFormulaire();
 ?>
 
 

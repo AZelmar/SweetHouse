@@ -8,7 +8,8 @@ session_start();
 
 function formSubmit(){
 
-    require ('forumEntity.php');
+    require ('../model/forumEntity.php');
+    require ('../views/backEnd/notification.php');
 
     if (!empty($_POST['submit'])) {
         if (!empty($_POST['subject']) && !empty($_POST['numéro_client']) && !empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['text'])) {
@@ -38,7 +39,7 @@ function formSubmit(){
             echo  '</br>';
             echo '</br>';
             echo '</br>';
-            require 'index.php';
+            echo '<a href="../views/frontEnd/home.php">  Cliquez sur ce lien pour retourner à la page d acceuil </a>';
 
         }
     }
