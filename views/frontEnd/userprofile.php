@@ -48,6 +48,10 @@ $email=$_SESSION['email'];
 				   value="Pierre Louis, 0684759562, pierrelouis158@gmail.com"
 				   size="50">
 		</div>
+        <div class="input-group">
+          <label>Supprimer son compte: (Écrivez "OUI" si vous voulez supprimez votre compte)</label>
+          <input type="text" name="delaccount" value=" <? echo htmlentities($resultat['delaccount']) ?>" placeholder="Compte supprimé en moins de 7 jours" >
+        </div>
        <input type="submit" name="valider" value="modifier"/>
       	</form>
   </div>
@@ -59,10 +63,10 @@ $email=$_SESSION['email'];
 {
   if ((!empty($_POST['adress'])) && (!empty($_POST['gender'])) && (!empty($_POST['first-name'])) && (!empty($_POST['last-name'])))
      {
-          $req= 'UPDATE user SET firstName = :firstName, lastName = :lastName, gender =:gender, adress =:adress 
+          $req= 'UPDATE user SET firstName = :firstName, lastName = :lastName, gender =:gender, adress =:adress, delaccount=:delaccount
           		WHERE email = "'.$email.'"';
           $reqp= $pdo->prepare($req);
-          $reqp ->execute(array('lastName'=>$_POST['last-name'],'firstName'=>$_POST['first-name'],'gender'=>$_POST['gender'], 'adress'=>$_POST['adress']));
+          $reqp ->execute(array('lastName'=>$_POST['last-name'],'firstName'=>$_POST['first-name'],'gender'=>$_POST['gender'], 'adress'=>$_POST['adress'], 'delaccount'=>$_POST['delaccount']));
          }
   else
   {

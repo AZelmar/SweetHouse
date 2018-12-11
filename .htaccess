@@ -1,8 +1,8 @@
 RewriteEngine On
-RewriteBase /views
+RewriteBase /SweetHouse/views
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ index.php [QSA,L]
-RewriteCond %{HTTP_HOST} ^(www.)?sweethouse.co.at$
-RewriteRule ^(/)?$ index.php [L]
+#RewriteCond %{HTTP_HOST} ^(www.)?sweethouse.co.at$
+#RewriteRule ^(/)?$ index.php [L]
 

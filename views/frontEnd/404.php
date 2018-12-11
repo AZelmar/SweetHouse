@@ -7,6 +7,6 @@
 </head>
 <body>
 	<?php include 'backEnd/header.php' ?>
-	<?PHP include 'backEnd/notification.php' ?>
+	<?php include 'backEnd/notification.php' ?>
 </body>
 </html>
