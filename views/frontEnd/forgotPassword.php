@@ -1,3 +1,4 @@
+<?php include('../public/locale/'.$locale.'.php');?>
 <!DOCTYPE html>
 <html>
 <head>

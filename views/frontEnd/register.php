@@ -1,9 +1,10 @@
+<?php include('../public/locale/'.$locale.'.php');?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./public/css/style.css" /> 
-	<title>SweetHouse | Inscription</title>
+	<title><?= base::websiteName ?>| Inscription</title>
 </head>
 <body>
 	<?php include 'backEnd/header.php' ?>
