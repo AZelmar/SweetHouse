@@ -39,7 +39,7 @@ function formSubmit(){
             echo  '</br>';
             echo '</br>';
             echo '</br>';
-            echo '<a href="../views/frontEnd/home.php">  Cliquez sur ce lien pour retourner à la page d acceuil </a>';
+            echo '<a href="frontEnd/home.php">  Cliquez sur ce lien pour retourner à la page d acceuil </a>';
 
         }
     }

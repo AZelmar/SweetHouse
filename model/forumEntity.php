@@ -2,7 +2,7 @@
 
 function submitFormulaire($id_client, $pseudo, $mail, $subject, $commentaire){
 
-        require("../views/backEnd/config.php");
+    require("../views/backEnd/config.php");
 
     try{
 

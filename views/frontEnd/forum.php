@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <title>SweetHouse</title>
-    <link href="style.css" rel="stylesheet" media="all">
+    <link href="../public/css/style.css" rel="stylesheet" media="all">
     <link href="style_forum.css" rel="stylesheet" media="all">
 
 </head>
@@ -20,7 +20,7 @@
 
 <h2> Poser sa question </h2>
 
-<form method="post" action="../controller/forumControler.php">
+<form method="post">
     <label>
         Sujet :
         <select name="subject">
@@ -61,11 +61,6 @@
 
 <h2> Observer les questions déjà posées </h2>
 
-<?php
-    require '../controller/forumControler.php'
-?>
-
-
 </body>
 </html>
 
@@ -98,8 +93,6 @@
         cursor: pointer;
         font-family: Lato, Helvetica, sans-serif;
         font-weight: lighter;
-
-
     }
 
     form {

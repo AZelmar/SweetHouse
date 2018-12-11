@@ -29,6 +29,8 @@ switch ($request) {
     case '/userprofile':
         userProfile();
         break;
+    case '/forum':
+        forum();
     default:
         require __DIR__ . '/views/404.php';
         break;
