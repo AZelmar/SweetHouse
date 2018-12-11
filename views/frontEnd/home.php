@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css" /> 
+	<link rel="stylesheet" href="public/css/style.css" /> 
     <title>SweetHouse</title>
 </head>
 
