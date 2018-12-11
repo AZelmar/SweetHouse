@@ -2,27 +2,29 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-session_start();
 require("../model/userEntity.php");
 if (isset($_COOKIE['keep_log'])) {
     $cookieLogin = json_decode($_COOKIE['keep_log'], true);
-    $result      = checkLoginCookie($cookieLogin["userEmail"]);
-    if ($result['email'] != null) {
-        $_SESSION["email"] = $result['email'];
+    $results      = checkLoginCookie($cookieLogin["userEmail"]);
+    foreach($results as $result)
+    {
+      if ($result['email'] != null && $result['ip'] == hash('sha512', $_SERVER['REMOTE_ADDR'])) {
+          $_SESSION["email"] = $result['email'];
+      }
     }
 }
 
-function home()
+function home($locale)
 {
-  	require('frontEnd/home.php')
+  	require('frontEnd/home.php');
 }
 
-function userProfile()
+function userProfile($locale)
 {
   require('frontEnd/userprofile.php');
 }
 
-function accountRegister()
+function accountRegister($locale)
 {
     require '../public/js/phpmailer/Exception.php';
     require '../public/js/phpmailer/PHPMailer.php';
@@ -98,7 +100,7 @@ function accountRegister()
     }
     require('frontEnd/register.php');
 }
-function accountLogin()
+function accountLogin($locale)
 {
     if (isset($_POST['submit'])) {
         $result = getUser();
@@ -139,7 +141,7 @@ function accountLogin()
     }
     require('frontEnd/login.php');
 }
-function accountLogout()
+function accountLogout($locale)
 {
     if (isset($_COOKIE['keep_log'])) {
         $userEmail = hash('sha512', $_SESSION['email']);
@@ -166,7 +168,7 @@ function accountLogout()
         header("Location: ./login");       
     }
 }
-function downloadFile()
+function downloadFile($locale)
 {
     if (isset($_GET["file"]) && $_GET["file"] != "") {
         $filepath = "../public/files/" . $_GET["file"];
@@ -193,7 +195,7 @@ function downloadFile()
     }
     require('frontEnd/download.php');
 }
-function forgotPassword()
+function forgotPassword($locale)
 {
     require '../public/js/phpmailer/Exception.php';
     require '../public/js/phpmailer/PHPMailer.php';
