@@ -1,6 +1,4 @@
-<?php
-include 'backEnd/config.php'
-  ?>
+
 <!DOCTYPE html>
 <html>
 <head>
