@@ -47,6 +47,8 @@ switch ($route) {
         header("Location: ".$basename."/".$route."");
         die();
         break;
+    case '/forum':
+        forum();
     default:
         error404($locale);
         break;
