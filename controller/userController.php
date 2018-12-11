@@ -37,39 +37,49 @@ function accountRegister($locale)
             if (!empty($_POST['lastName']) && !empty($_POST['firstName']) && !empty($_POST['age']) && !empty($_POST['password']) && !empty($_POST['password2']) && !empty($_POST['gender']) && !empty($_POST['type']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['adress']) && !empty($_POST['zipCode']) && !empty($_POST['city']) && !empty($_POST['country'])) {
                 if(in_array($_POST['gender'], $validGender) && in_array($_POST['type'], $validType) && in_array($_POST['country'], $validCountry)){
                 if ($_POST['password'] == $_POST['password2']) {
-                    $errorInfo = registerUser();
-                    if ($errorInfo != "") {
-                        $error_parameters = array();
-                        preg_match("/for key '(\w+)'$/", $errorInfo, $error_parameters);
-                        if (sizeof($error_parameters) == 2 && $error_parameters[1] == "email") {
-                            $notification = array(
-                                "type" => "error",
-                                "message" => "Email déja pris !"
-                            );
-                        } elseif (sizeof($error_parameters) == 2 && $error_parameters[1] == "phone") {
-                            $notification = array(
-                                "type" => "error",
-                                "message" => "Numéro de télephone déja pris !"
-                            );
+                    if(strlen($_POST['password']) >= 8)
+                    {
+                        $errorInfo = registerUser();
+                        if ($errorInfo != "") {
+                            $error_parameters = array();
+                            preg_match("/for key '(\w+)'$/", $errorInfo, $error_parameters);
+                            if (sizeof($error_parameters) == 2 && $error_parameters[1] == "email") {
+                                $notification = array(
+                                    "type" => "error",
+                                    "message" => "Email déja pris !"
+                                );
+                            } elseif (sizeof($error_parameters) == 2 && $error_parameters[1] == "phone") {
+                                $notification = array(
+                                    "type" => "error",
+                                    "message" => "Numéro de télephone déja pris !"
+                                );
+                            } else {
+                                $notification = array(
+                                    "type" => "error",
+                                    "message" => "Une erreur est survenue !"
+                                );
+                            }
                         } else {
-                            $notification = array(
-                                "type" => "error",
-                                "message" => "Une erreur est survenue !"
-                            );
+                            $send = sendMail($_POST['email'], "SweetHouse - Inscription", "Bienvenue chez SweetHouse.<br><br>Vous trouverez-ci dessous le lien de télechargement du formulaire correspondant à votre statut de " . $_POST['type'] . " qu'il faudra renvoyer complété et renvoyer par pièce jointe à cette adresse mail.<br><br> Cordialement, toutes l'équipe de SweetHouse<br><br> <a href=\"http://www.sweethouse.co.at/download?file=" . $_POST['type'] . ".pdf\">Télecharger le formulaire</a>");
+                            if ($send) {
+                                $notification = array(
+                                    "type" => "success",
+                                    "message" => "Vous avez bien été enregistré ! Un email vous a été envoyé pour continuer votre inscription."
+                                );
+                            } else {
+                                $notification = array(
+                                    "type" => "error",
+                                    "message" => "Une erreur est survenue !"
+                                );
+                            }
                         }
-                    } else {
-                        $send = sendMail($_POST['email'], "SweetHouse - Inscription", "Bienvenue chez SweetHouse.<br><br>Vous trouverez-ci dessous le lien de télechargement du formulaire correspondant à votre statut de " . $_POST['type'] . " qu'il faudra renvoyer complété et renvoyer par pièce jointe à cette adresse mail.<br><br> Cordialement, toutes l'équipe de SweetHouse<br><br> <a href=\"http://www.sweethouse.co.at/download?file=" . $_POST['type'] . ".pdf\">Télecharger le formulaire</a>");
-                        if ($send) {
-                            $notification = array(
-                                "type" => "success",
-                                "message" => "Vous avez bien été enregistré ! Un email vous a été envoyé pour continuer votre inscription."
-                            );
-                        } else {
-                            $notification = array(
-                                "type" => "error",
-                                "message" => "Une erreur est survenue !"
-                            );
-                        }
+                    }
+                    else
+                    {
+                        $notification = array(
+                            "type" => "error",
+                            "message" => "Le mot de passe est trop court !"
+                        );                        
                     }
                 } else {
                     $notification = array(

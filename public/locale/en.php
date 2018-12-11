@@ -2,7 +2,7 @@
 class base{
 
 }
-class menu{
+class header{
 const home = "Home";
 const register= "Register";
 const login = "Login";
