@@ -1,10 +1,4 @@
 <?php
-
-session_start();
-
-/**
- *
- */
 function forum(){
     require ('frontEnd/forum.php');
 }
@@ -42,7 +36,7 @@ function formSubmit(){
             echo  '</br>';
             echo '</br>';
             echo '</br>';
-            echo '<a href="frontEnd/home.php">  Cliquez sur ce lien pour retourner à la page d acceuil </a>';
+            echo '<a href="/home">  Cliquez sur ce lien pour retourner à la page d acceuil </a>';
 
         }
     }
