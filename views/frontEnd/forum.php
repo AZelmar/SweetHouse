@@ -11,9 +11,9 @@
 </head>
 <body>
 <?php
-    include 'header.php';
+    include '../views/backEnd/header.php';
 ?>
-<a href="../views/index.php" <button class="button">Retour à la page précédente</button> </a>
+<a href="/home" <button class="button">Retour à la page d'accueil</button> </a>
 
 
 <h1>Forum </h1>

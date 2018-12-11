@@ -5,6 +5,9 @@ session_start();
 /**
  *
  */
+function forum(){
+    require ('frontEnd/forum.php');
+}
 
 function formSubmit(){
 
