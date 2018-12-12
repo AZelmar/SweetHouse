@@ -43,9 +43,6 @@ function formSubmit(){
 
 
 }
-
-formSubmit();
-
 function afficherFormulaire (){
     displayFormulaire();
 

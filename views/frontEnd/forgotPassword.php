@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./public/css/style.css" /> 
-	<title>SweetHouse | Mot de passe oublié </title>
+	<title><?= base::websiteName ?>| <?= forgotPassword::pageName ?></title>
 </head>
 <body>
 	<?php include 'backEnd/header.php' ?>

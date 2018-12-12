@@ -15,4 +15,19 @@ const logout = "Déconnexion";
 class register{
 const pageName = "Inscription";
 }
+class login{
+const pageName = "Connexion";	
+}
+class forgotPassword{
+const pageName = "Mot de passe oublié";	
+}
+class resetPassword{
+const pageName = "Réinitialiser mot de passe";	
+}
+class error404{
+const pageName = "Erreur 404";	
+}
+class emptyPage{
+const pageName = "";	
+}
 ?>

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./public/css/style.css" /> 
-	<title>SweetHouse | Réinitialiser mot de passe </title>
+	<title><?= base::websiteName ?>| <?= resetPassword::pageName ?></title>
 </head>
 <body>
 	<?php include 'backEnd/header.php' ?>

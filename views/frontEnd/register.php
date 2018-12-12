@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./public/css/style.css" /> 
-	<title><?= base::websiteName ?>| Inscription</title>
+	<title><?= base::websiteName ?>| <?= register::pageName ?></title>
 </head>
 <body>
 	<?php include 'backEnd/header.php' ?>
