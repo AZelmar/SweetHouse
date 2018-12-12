@@ -20,6 +20,15 @@ function submitFormulaire($id_client, $pseudo, $mail, $subject, $commentaire){
 }
 
 
+function getInfos(){
+    $mail = $_SESSION[email];
+    $req = $pdo -> query ('SELECT id_client FROM formulaire WHERE mail = $mail');
+    $num_client = $req ->fetchAll(PDO::FETCH_ASSOC);
+    $getInfos = array($num_client,$mail);
+    return $getInfos;
+}
+
+
 
 function displayFormulaire (){
 
@@ -40,13 +49,29 @@ function displayFormulaire (){
         $commentaire = $line['commentaire'];
         $reponse_administrateur = $line['admin_answer'];
 
-
-
         if (($line['admin_answer']) == null) {
             $reponse_administrateur = ' L administrateur n a pas encore répondu à ce post :/';
         } else {
             $line['admin_answer'] . '</br>';
+
         }
+
+        $line = array();
+        $list = array ();
+
+        $list.add($numero_commentaire);
+        $list.add($numero_client);
+        $list.add($pseudo);
+        $list.add($mail);
+        $list.add($subject);
+        $list.add($date);
+        $list.add($commentaire);
+        $list.add($reponse_administrateur);
+
+        $line.add($list);
+
+
+        return $line;
 
         ?>
 
