@@ -3,8 +3,7 @@
   {
   ?>
   <ul class="navigation">
-  <li id="logo-li"><img id="logo" src="./public/images/logo.png"></li>
-  <li><a href="././home"><p><?= header::home ?></p></a></li>
+  <a href="././home"><li id="logo-li"><img id="logo" src="./public/images/logo.png"></li></a>
   <li><a href="././register"><p><?= header::register ?></p></a></li>
   <li><a href="././login"><p><?= header::login ?></p></a></li>
   <li class="toggleSubMenu"><a><p><?= header::help ?> <i class="fas fa-arrow-left"></i></p></a>
@@ -20,13 +19,12 @@
 else
 {
   ?>
-    <ul>
-  <li id="logo-li"><img id="logo" src="./public/images/logo.png"></li>
-  <li><a href="././home"><p><?= header::home ?></p></a></li>
+  <ul class="navigation">
+   <a href="././home"><li id="logo-li"><img id="logo" src="./public/images/logo.png"></li></a>
   <li><a href="././userprofile"><p><?= header::houseControl ?></p></a></li>
   <li><a href="#connexion"><p><?= header::profileControl ?></p></a></li>
   <li><a href="././logout"><p><?= header::logout ?></p></a></li>
-  <li class="toggleSubMenu"><a><p><?= header::help ?></p></a>
+   <li class="toggleSubMenu"><a><p><?= header::help ?> <i class="fas fa-arrow-left"></i></p></a>
     <ul class="subMenu">
       <li><a href="././forum"><p><?= header::faq ?></p></a></li>
       <li><a href="././faq"><p><?= header::forum ?></p></a></li>
