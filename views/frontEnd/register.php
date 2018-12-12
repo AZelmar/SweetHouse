@@ -122,3 +122,8 @@ hr{
 	margin-bottom: 20px;
 }
 </style>
+<script>
+$("#validate-button").click(function(){
+	return false;
+});
+</script>
