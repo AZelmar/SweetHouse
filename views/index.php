@@ -51,6 +51,12 @@ switch ($route) {
     case 'forum':
         forum($locale);
         break;
+    case 'forum/post':
+        formSubmit($locale);
+        break;
+    case 'faq':
+        faq($locale);
+        break;
     default:
         error404($locale);
         break;

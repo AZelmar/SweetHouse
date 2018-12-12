@@ -4,12 +4,15 @@ function forum ($locale){
     require ('../views/frontEnd/forum.php');
 }
 
+function faq ($locale){
+    require('../views/frontEnd/FAQ.php');
+}
+
 
 function formSubmit($locale){
 
     require ('../model/forumEntity.php');
     require ('../views/backEnd/notification.php');
-    require('../views/backEnd/notification.php');
 
     if (!empty($_POST['submit'])) {
         if (!empty($_POST['subject']) && !empty($_POST['numéro_client']) && !empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['text'])) {

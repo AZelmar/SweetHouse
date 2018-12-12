@@ -128,67 +128,6 @@ function displayFormulaire (){
     ?>
 
 
-
-    <style>
-        td,th  {
-            border: 2px solid #216583;
-            width: 25%;
-            font-size: 0.8em;
-        }
-
-        table{
-            border-collapse: collapse;
-            font-family: 'Lato', sans-serif;
-            text-align: center;
-            margin-left: 1%;
-            table-layout: fixed;
-            margin-right: 1%;
-
-
-        }
-
-        .commentaire{
-            border: 2px solid #f76262 ;
-            border-radius: 5px;
-            margin-left: 1%;
-            margin-right: 50%;
-            padding: 8px;
-            font-family: Lato, Helvetica, sans-serif;
-            font-weight: 300;
-            font-size: 0.95em;
-            margin-top: 2%;
-        }
-
-        .reponse_administrateur{
-            border: 2px solid #65c0ba ;
-            border-radius: 5px;
-            margin-left: 51%;
-            margin-right: 1%;
-            padding: 8px;
-            font-family: Lato, Helvetica, sans-serif;
-            font-weight: 300;
-            font-size: 0.95em;
-
-        }
-
-        .titre1{
-            font-family: Lato, Helvetica, sans-serif;
-            font-size: 1em;
-            text-align: center;
-            padding-bottom: 3px;
-        }
-
-        hr{
-            color : black;
-            background-color: black;
-            border-color: black;
-            height: 1px;
-            margin-left: 5%;
-            margin-right: 5%;
-        }
-
-    </style>
-
     <?php
 
 }

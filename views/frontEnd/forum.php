@@ -1,3 +1,8 @@
+
+<?php
+include('../public/locale/'.$locale.'.php');
+//include ('../controller/forumControler.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +14,7 @@
 
 <body>
 <?php
-    //include '../views/backEnd/header.php';
+    include '../views/backEnd/header.php';
 ?>
 <a href="./home" <button class="button">Retour à la page d'acceuil</button> </a>
 
@@ -48,6 +53,8 @@
 </form>
 
 <h2> Observer les questions déjà posées </h2>
+
+Vous pouvez répondre lire ou compléter les questions ci-dessous. Attention à ne pas répéter régulièrement la même question et faite un tour sur la FAq avant !
 
 </body>
 </html>

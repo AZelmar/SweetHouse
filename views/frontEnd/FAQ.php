@@ -1,3 +1,5 @@
+<?php include('../public/locale/'.$locale.'.php');?>
+
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +10,7 @@
 <body>
 
 <?php
-    include "header.php";
+    include "../views/backEnd/header.php";
 ?>
 
 <h1><div class="titre-question">
