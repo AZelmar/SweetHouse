@@ -1,16 +1,15 @@
-
+<?php include('../public/locale/'.$locale.'.php');?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="public/css/style.css" /> 
+	<link rel="stylesheet" href="./public/css/style.css" /> 
     <title>SweetHouse</title>
 </head>
 
 <body> 
 <?php
   include 'backEnd/header.php';
-  include('../public/locale/'.$locale.'.php');
   ?>
 <header>  
 <div class="titre">
