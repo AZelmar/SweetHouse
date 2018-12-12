@@ -1,17 +1,17 @@
+<?php include('../public/locale/'.$locale.'.php');?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="./public/css/style.css" /> 
+	<link rel="stylesheet" href="./public/css/style.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">  
 	<title>SweetHouse</title>
 </head>
 <?php 
-include 'controller/userController.php';
-include 'backEnd/config.php';
-include 'model/userEntity.php';
 include 'backEnd/header.php';
-$resultat = getUserData();
 $email=$_SESSION['email'];
+$resultat = getUserData($email);
+changeUserData($email);
 
 ?>
 
@@ -24,7 +24,7 @@ $email=$_SESSION['email'];
         
 		<div class="input-group">
 			<label> Modifier votre adresse de domicile :</label>
-			<input type="text" name="adress" value= "<? echo htmlentities($resultat['adress']) ?>" >
+			<input type="text" name="adress" value= "<?php echo htmlentities($resultat['adress']) ?>" >
 		</div>
 		<div class="input-group">
 			<label>Modifier votre adresse bureau:</label>
@@ -32,15 +32,15 @@ $email=$_SESSION['email'];
 		</div>
 		<div class="input-group">
 			<label>Modifier votre nom:</label>
-			<input type="text" name="last-name" value= "<? echo htmlentities($resultat['lastName']) ?>" >
+			<input type="text" name="last-name" value= "<?php echo htmlentities($resultat['lastName']) ?>" >
 		</div>
 		<div class="input-group">
 			<label>Modifier votre prénom:</label>
-			<input type="text" name="first-name" value= "<? echo htmlentities($resultat['firstName']) ?>" >
+			<input type="text" name="first-name" value= "<?php echo htmlentities($resultat['firstName']) ?>" >
 		</div>
 		<div class="input-group">
 			<label>Modifier votre sexe:</label>
-			<input type="text" name="gender" value= "<? echo htmlentities($resultat['gender']) ?>" >
+			<input type="text" name="gender" value= "<?php echo htmlentities($resultat['gender']) ?>" >
 		</div>
 		<div class="input-group">
 			<label>Contacter son technicien:</label>
@@ -50,47 +50,30 @@ $email=$_SESSION['email'];
 		</div>
         <div class="input-group">
           <label>Supprimer son compte: (Écrivez "OUI" si vous voulez supprimez votre compte)</label>
-          <input type="text" name="delaccount" value=" <? echo htmlentities($resultat['delaccount']) ?>" placeholder="Compte supprimé en moins de 7 jours" >
+          <input type="text" name="delaccount" value=" <?php echo htmlentities($resultat['delaccount']) ?>" placeholder="Compte supprimé en moins de 7 jours" >
         </div>
        <input type="submit" name="valider" value="modifier"/>
       	</form>
   </div>
     
     <div id="aside">
-<?php
-  
- if (isset($_POST['valider']) )
-{
-  if ((!empty($_POST['adress'])) && (!empty($_POST['gender'])) && (!empty($_POST['first-name'])) && (!empty($_POST['last-name'])))
-     {
-          $req= 'UPDATE user SET firstName = :firstName, lastName = :lastName, gender =:gender, adress =:adress, delaccount=:delaccount
-          		WHERE email = "'.$email.'"';
-          $reqp= $pdo->prepare($req);
-          $reqp ->execute(array('lastName'=>$_POST['last-name'],'firstName'=>$_POST['first-name'],'gender'=>$_POST['gender'], 'adress'=>$_POST['adress'], 'delaccount'=>$_POST['delaccount']));
-         }
-  else
-  {
-    echo 'Vous devez remplir tous les champs !';
-  }
-}
-                   
-?>
+
       </div>    
 	<div id="Infos">
-	<h2 id="title">Informations générales</h2>
+	<h2 id="title">Informations générales 😱 </h2>
 		<hr>
 		<div class="infos-group">
-			<h1 id="titreinfos"> Bonjour <? echo htmlentities($resultat['firstName']) ?> </h1>
+			<h1 id="titreinfos"> Bonjour <?php echo htmlentities($resultat['firstName']) ?> 🙌 </h1>
 			<p id="texteinfos"> 
-				Vos lieux domotisés: 
+				Vos lieux domotisés 🤙 : 
 				<br><br>
-				 Maison: <? echo htmlentities($resultat['adress']) ?>  
+				Maison 🏠 : <?php echo htmlentities($resultat['adress']) ?>  
 				<br><br> 
-				Entreprise:
+				Entreprise 🏢 :
 				<br><br><br>
-				Pas de problemes techniques
+				Pas de problemes techniques 😊
 				<br>
-				Pas d'intrusions
+				Pas d'intrusions 👍
 			</p>
 		</div>
 	</div>
@@ -135,11 +118,12 @@ hr{
 	width: 35%;
 
 
+
 }
 
 #Infos {
 	float:left;
-	margin-left: 200px;
+	margin-left: 100px;
 	border: 3px solid black;
 	padding: 10px;
 	margin-top: 30px;

@@ -75,31 +75,25 @@ function validateResetRequest()
     return $request->errorInfo()[2];
 }
 
-function getUserData()
+function getUserData($email)
 
 {
   require("config.php");
   $request = $pdo->prepare('SELECT * FROM user WHERE email= ? ');
-  $request->execute(array($_SESSION['email']));
+  $request->execute(array($email));
   $result = $request->fetch();
   return $result;
   
 }
 
-function changeUserData()
+function changeUser($email)
 
 {
-  if ((!empty($_POST['adress'])) && (!empty($_POST['gender'])) && (!empty($_POST['first-name'])) && (!empty($_POST['last-name'])))
-     {
-          $req= 'UPDATE user SET firstName = :firstName, lastName = :lastName, gender =:gender, adress =:adress 
-          		WHERE email = "'.$email.'"';
-          $reqp= $pdo->prepare($req);
-          $reqp ->execute(array('lastName'=>$_POST['last-name'],'firstName'=>$_POST['first-name'],'gender'=>$_POST['gender'], 'adress'=>$_POST['adress']));
-         }
-  else
-  {
-    echo 'Vous devez remplir tous les champs !';
-  }
-}
+  require("config.php");
+  $req= 'UPDATE user SET firstName = :firstName, lastName = :lastName, gender =:gender, adress =:adress, delaccount=:delaccount
+                WHERE email = "'.$email.'"';
+  $reqp= $pdo->prepare($req);
+  $reqp ->execute(array('lastName'=>$_POST['last-name'],'firstName'=>$_POST['first-name'],'gender'=>$_POST['gender'], 'adress'=>$_POST['adress'], 'delaccount'=>$_POST['delaccount']));
 
+}
 ?>

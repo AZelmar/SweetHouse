@@ -334,4 +334,19 @@ function sendMail($email, $subject, $message)
     $mail->AltBody = 'HTML messaging not supported';
     return $mail->send();
 }
+
+function changeUserData($email)
+{
+    if (isset($_POST['valider']) )
+        {
+            if ((!empty($_POST['adress'])) && (!empty($_POST['gender'])) && (!empty($_POST['first-name'])) && (!empty($_POST['last-name'])))
+                {
+                changeUser($email);
+                }
+            else
+                {
+                echo 'Vous devez remplir tous les champs !';
+                }
+        }
+}
 ?> 
