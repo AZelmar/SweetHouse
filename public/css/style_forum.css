@@ -1,0 +1,100 @@
+h1{
+    font-family: Lato, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 4em;
+    text-align: center;
+}
+
+h2{
+    font-family: Lato, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 3em;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.button {
+    background-color: #216583;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Lato, Helvetica, sans-serif;
+    font-weight: lighter;
+
+
+}
+
+form {
+    margin: 20px auto;
+    width: 800px;
+    border-radius: 1em;
+    border : 2px solid black;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    background-color: #65c0ba;
+    padding: 20px;
+}
+
+
+label {
+    display: inline-block 1em;
+    width: 230px;
+    text-align: right;
+    margin-left: 15px;
+}
+
+
+
+textarea {
+    width: 300px;
+    box-sizing: border-box;
+    border : 1px solid #999;
+    margin: 10px;
+    padding: 6px;
+    vertical-align: top;
+    height: 10em;
+    width: 70em;
+
+}
+
+input:focus, textarea:focus {
+    border-color: #216583;
+}
+
+.id_client{
+    padding-top: 5px;
+    padding-bottom: 2px;
+    margin-left: 15px;
+
+.email{
+    padding-top: 5px;
+    padding-bottom: 2px;
+    margin-left: 15px;
+}
+
+.boutton{
+    text-align: center;
+
+}
+
+.case{
+    padding: 4px;
+    margin-top: 10px;
+}
+
+.norm{
+    width: 300px;
+    box-sizing: border-box;
+    border : 1px solid #999;
+    margin: 10px;
+    padding: 6px;
+}
+
+
+
