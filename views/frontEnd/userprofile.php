@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./public/css/style.css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">  
-	<title>SweetHouse</title>
+	<title><?= base::websiteName ?>| <?= profile::pageName ?></title>
 </head>
 <?php 
 include 'backEnd/header.php';
@@ -17,42 +17,42 @@ changeUserData($email);
 
 <body>
 	<div id="Profil">
-	<h2 id="title">Gestion du profil</h2>
+	<h2 id="title"><?= profile::profileMan ?></h2>
       <hr>
       <form method="post" action="userprofile">
         <p>
         
 		<div class="input-group">
-			<label> Modifier votre adresse de domicile :</label>
+			<label><?= profile::modifyHome ?></label>
 			<input type="text" name="adress" value= "<?php echo htmlentities($resultat['adress']) ?>" >
 		</div>
 		<div class="input-group">
-			<label>Modifier votre adresse bureau:</label>
+			<label><?= profile::modifyWork ?></label>
 			<input type="text" name="adressbur" >
 		</div>
 		<div class="input-group">
-			<label>Modifier votre nom:</label>
+			<label><?= profile::modifyName ?></label>
 			<input type="text" name="last-name" value= "<?php echo htmlentities($resultat['lastName']) ?>" >
 		</div>
 		<div class="input-group">
-			<label>Modifier votre prénom:</label>
+			<label><?= profile::modifySurname ?></label>
 			<input type="text" name="first-name" value= "<?php echo htmlentities($resultat['firstName']) ?>" >
 		</div>
 		<div class="input-group">
-			<label>Modifier votre sexe:</label>
+			<label><?= profile::modifySex ?></label>
 			<input type="text" name="gender" value= "<?php echo htmlentities($resultat['gender']) ?>" >
 		</div>
 		<div class="input-group">
-			<label>Contacter son technicien:</label>
+			<label><?= profile::contact ?></label>
 			<input type="text" 
 				   value="Pierre Louis, 0684759562, pierrelouis158@gmail.com"
 				   size="50">
 		</div>
         <div class="input-group">
-          <label>Supprimer son compte: (Écrivez "OUI" si vous voulez supprimez votre compte)</label>
-          <input type="text" name="delaccount" value=" <?php echo htmlentities($resultat['delaccount']) ?>" placeholder="Compte supprimé en moins de 7 jours" >
+          <label><?= profile::delAcc ?></label>
+          <input type="text" name="delaccount" value=" <?php echo htmlentities($resultat['delaccount']) ?>" placeholder= <?= profile::suppAcc ?> >
         </div>
-       <input type="submit" name="valider" value="modifier"/>
+       <input type="submit" name="valider" value=<?= profile::del ?>>
       	</form>
   </div>
     
@@ -60,20 +60,20 @@ changeUserData($email);
 
       </div>    
 	<div id="Infos">
-	<h2 id="title">Informations générales 😱 </h2>
+	<h2 id="title"><?= profile::infosGen ?></h2>
 		<hr>
 		<div class="infos-group">
-			<h1 id="titreinfos"> Bonjour <?php echo htmlentities($resultat['firstName']) ?> 🙌 </h1>
+			<h1 id="titreinfos"><?= profile::hello ?> <?php echo htmlentities($resultat['firstName']) ?>  </h1>
 			<p id="texteinfos"> 
-				Vos lieux domotisés 🤙 : 
+				<?= profile::domHouse ?>
 				<br><br>
-				Maison 🏠 : <?php echo htmlentities($resultat['adress']) ?>  
+				<?= profile::house ?> <?php echo htmlentities($resultat['adress']) ?>  
 				<br><br> 
-				Entreprise 🏢 :
+				<?= profile::work ?>
 				<br><br><br>
-				Pas de problemes techniques 😊
+				<?= profile::tech ?>
 				<br>
-				Pas d'intrusions 👍
+				<?= profile::intrus?>
 			</p>
 		</div>
 	</div>
