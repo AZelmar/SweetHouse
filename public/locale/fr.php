@@ -6,6 +6,8 @@ class header{
 const home = "Accueil";
 const register= "Inscription";
 const login = "Connexion";
+const help = "Aide";
+const faq = "FAQ";
 const forum = "Forum";
 const contact = "Contactez-nous !";
 const houseControl = "Gestion Maison";
