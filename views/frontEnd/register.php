@@ -124,6 +124,20 @@ hr{
 </style>
 <script>
 $("#validate-button").click(function(){
+	var lastName = $("input[name=lastName]").val();
+	var firstName = $("input[name=firstName]").val();
+	var age = $("input[name=age]").val();
+	var password = $("input[name=password]").val();
+	var password2 = $("input[name=password2]").val();
+	var gender = $("select[name=gender]").val();
+	var type = $("select[name=type]").val();
+	var email = $("input[name=email]").val();
+	var phone = $("input[name=phone]").val();
+	var adress = $("input[name=adress]").val();
+	var zipCode = $("input[name=zipCode]").val();
+	var city = $("input[name=city]").val();
+	var country = $("select[name=country]").val();
+	console.log(type);
 	return false;
 });
 </script>
