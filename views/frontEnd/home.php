@@ -10,6 +10,7 @@
 <body> 
 <?php
   include 'backEnd/header.php';
+  include('../public/locale/'.$locale.'.php');
   ?>
 <header>  
 <div class="titre">
