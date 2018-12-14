@@ -21,7 +21,7 @@ function home($locale)
 
 function userProfile($locale)
 {
-  require('frontEnd/userprofile.php');
+  require('frontEnd/userProfile.php');
 }
 
 function accountRegister($locale)
