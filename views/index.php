@@ -41,7 +41,7 @@ switch ($route) {
     case 'home':
         home($locale);
         break;
-    case 'userprofile':
+    case 'userProfile':
         userProfile($locale);
         break;
     case strpos($route, "public/"):

@@ -137,7 +137,92 @@ $("#validate-button").click(function(){
 	var zipCode = $("input[name=zipCode]").val();
 	var city = $("input[name=city]").val();
 	var country = $("select[name=country]").val();
-	console.log(type);
-	return false;
+	var cgu = $("input[name=cgu]").is(':checked');
+	var valid = true;
+	var error_message ="";
+	if(lastName.length < 2)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> Le nom ne peut être vide<br>";
+		valid = false;
+	}
+	if(firstName.length < 2)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> Le prénom ne peut être vide<br>";
+		valid = false;
+	}
+	if(!$.isNumeric(age))
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> L'âge ne peut être composé de chiffres<br>";
+		valid = false;		
+	}
+	if(password.length < 8)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> Le mot de passe doit comporter au moins 8 caractères<br>";
+		valid = false;
+	}
+	if(password2.length < 8)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> Le mot de passe de confirmation doit comporter au moins 8 caractères<br>";
+		valid = false;
+	}
+	if(password != password2)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> Les mots de passes doivent concorder<br>";
+		valid = false;
+	}
+	if(email.length == 0)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> L'email ne peut être vide<br>";
+		valid = false;
+	}
+	if(!$.isNumeric(phone) && phone.length == 0)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> Le numéro de télephone ne peut être vide et doit être composé que de chiffres<br>";
+		valid = false;
+	}
+	if(adress.length == 0)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> L'adresse ne peut être vide<br>";
+		valid = false;
+	}
+	if(zipCode.length == 0)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> Le code postal ne peut être vide<br>";
+		valid = false;
+	}
+	if(city.length == 0)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> La ville ne peut être vide<br>";
+		valid = false;
+	}
+	if(country.length == 0)
+	{
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> Le pays ne peut pas être vide<br>";
+		valid = false;
+	}
+	if(!cgu)
+	{	
+		error_message+= "<i class='fas fa-exclamation-triangle'></i> Veuillez accepter les CGU<br>";
+		valid = false;
+	}
+	if(valid == false)
+	{
+		if(!$(".notification").length)
+		{
+			$('<div class="notification notification_error">'+error_message+'</div>').insertBefore('#form-container');
+		}
+		else
+		{
+			$('.notification').html(error_message);
+		}
+	}
+	else
+	{
+		if(!$(".notification").length)
+		{
+			$(".notification").remove();
+		}
+	}
+	return valid;
 });
 </script>

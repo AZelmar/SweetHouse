@@ -6,13 +6,13 @@ if(isset($notification))
 	if($type == "error")
 	{
 		?>
-		<div class="notification notification_error"><?php echo $message?></div>
+		<div class="notification notification_error"><i class='fas fa-exclamation-triangle'></i> <?php echo $message?></div>
 		<?php
 	}
 	elseif($type == "success")
 	{
 		?>
-		<div class="notification notification_success"><?php echo $message?></div>
+		<div class="notification notification_success"><i class="fas fa-check-circle"></i> <?php echo $message?></div>
 		<?php
 	}
 }
