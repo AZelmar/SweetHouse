@@ -24,6 +24,10 @@ function userProfile($locale)
   require('frontEnd/userProfile.php');
 }
 
+function gestion_capteurs($locale){
+    require ('frontEnd/GestionCapteurs.php');
+}
+
 function accountRegister($locale)
 {
     require '../public/js/phpmailer/Exception.php';

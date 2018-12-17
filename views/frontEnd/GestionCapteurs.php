@@ -1,46 +1,5 @@
+<?php include('../public/locale/'.$locale.'.php'); ?>
 <!DOCTYPE html>
-
-<?php
-      
-  if (isset($_POST['Chambres'])) {
-    if (<input type="boutton" name="Chambres" value="Chambres">) {
-
-        header('Location:/Chambres.php');
-    
-        exit();
-      }
-  }
-
-  if (isset($_POST['Cuisine'])) {
-    if (<input type="boutton" name="Cuisine" value="Cuisine">) {
-    
-        header('Location:/Cuisine.php');
-    
-        exit();
-      }
-  }
-
-  if (isset($_POST['Salon'])) {
-    if (<input type="boutton" name="Salon" value="Salon">) {
-    
-        header('Location:/salon.php');
-  
-        exit();
-      }    
-  }
-
-  if (isset($_POST['Salle'])) {
-    if (<input type="boutton" name="Salle" value="Salle">) {
-    
-        header('Location:/Salle%20de%20bain.php');
-    
-        exit();
-      }
-  }
-}
- 
-?>
-
 <html>
 
 <head>
@@ -49,6 +8,85 @@
 <link rel="stylesheet" href="./public/css/style.css" />
 
 </head>
+
+<body>
+
+<?php include '../views/backEnd/header.php'; ?>
+
+<div class="sidenav">
+
+  <button type="button" id="1" onclick="myfunction(id)" value="1"> Chambres</button>
+ 
+  <button type="button" id="2" onclick="myfunction(id)" value="2">Cuisine</button>
+  
+  <button type="button" id="3" onclick="myfunction(id)" value="3">Salle de bain</button>
+   
+  <button type="button" id="4" onclick="myfunction(id)" value="4">Salon</button>
+
+</div>
+
+<p id="demo"> </p>
+
+<script type="text/javascript">
+  function myfunction(id){
+    
+    document.getElementById("demo").innerHTML="./Cuisine " + document.getElementById(id).value; 
+  }
+
+</script>
+
+
+ 
+<div class="main" >
+  <h2>Capteurs</h2>
+  
+
+  <p>
+    <img src="smoke.png" id="smoke">
+  </p>  
+ 
+ <p>
+   <img src="humidity.jpg" id ="humidity">
+ </p>
+
+ <p>
+   <img src="security.png" id="security">
+ </p>
+
+ <p>
+   <img src="lumen.png" id="lumen">
+ </p>
+
+  <p>
+   <img src="temperature.png" id="temperature">
+ </p>
+
+</div>     
+
+<label class="switch1">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+<label class="switch2">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+<label class="switch3">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+<label class="switch4">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+
+<label class="switch5">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+
+</label>
 
 <style>
 
@@ -350,69 +388,6 @@ input:checked + .slider:before {
 }          
 
 </style>
-<body>
-
-<div class="sidenav">
-  <a href="/Chambres">Chambres</a>
-  <a href="/Cuisine">Cuisine</a>
-  <a href="/Salle de bain">Salle de bain</a>
-  <a href="/Salon">Salon</a>
-</div>
- 
-<div class="main" >
-  <h2>Capteurs</h2>
-  
-
-  <p>
-    <img src="smoke.png" id="smoke">
-  </p>  
- 
- <p>
-   <img src="humidity.jpg" id ="humidity">
- </p>
-
- <p>
-   <img src="security.png" id="security">
- </p>
-
- <p>
-   <img src="lumen.png" id="lumen">
- </p>
-
-  <p>
-   <img src="temperature.png" id="temperature">
- </p>
-
-
-</div>     
-
-<label class="switch1">
-  <input type="checkbox" checked>
-  <span class="slider round"></span>
-</label>
-
-<label class="switch2">
-  <input type="checkbox" checked>
-  <span class="slider round"></span>
-</label>
-
-<label class="switch3">
-  <input type="checkbox" checked>
-  <span class="slider round"></span>
-</label>
-
-<label class="switch4">
-  <input type="checkbox" checked>
-  <span class="slider round"></span>
-
-<label class="switch5">
-  <input type="checkbox" checked>
-  <span class="slider round"></span>
-
-</label>
-
-             
 </body>
 </html>
-
 
