@@ -13,7 +13,9 @@ div.gallery {
   margin: 7px;
   border: 1px solid gray;
   float: left;
-  width: 200px;
+  width: 300px;
+  margin-top: 30px;
+  background-color: #f76262;
 }
 
 div.gallery:hover {
@@ -30,42 +32,48 @@ div.desc {
   text-align: center;
 }
 
-.tab {
+#tabs {
   overflow: hidden;
   border: 2px solid black;
   background-color: #216583;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
 }
 
+#tabs a:hover {
+
+    background: #cffdf8;
+    transition-duration: 0.4s;
+  }
 /* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 15px 15px;
-  transition: 0.5s;
-  font-size: 20px;
-}
+
 
 /* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #65c0ba;
+#tabs li {
+  float: left;
+  margin: 1px;
 }
 
 /* Create an active/current tablink class */
-.tab button.active {
-  background-color: #cffdf8;
+#tabs a {
+    position: relative;
+    background-image: linear-gradient(to bottom, #65c0ba, #cffdf8); 
+    padding:7px 15px;
+    float: left;
+    color: #444;
 }
 
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 3px solid black;
-  border-top: none;
-  background-image: "https://www.sfcollege.edu/Assets/sf/about/images/sf-icon.png" ;
+#content {
+    width: 100%;
+    position: relative;
+    z-index: 2; 
 
+
+  }
+/* Style the tab content */
 </style>
 </head>
 
@@ -75,21 +83,23 @@ div.desc {
   include 'backEnd/header.php';
   ?>
 
-<div class="tab">
-		<button class="tabButton" onclick="openTab(event, 'Salon')">Salon</button>
-		<button class="tabButton" onclick="openTab(event, 'Chambre')">Chambre</button>
-		<button class="tabButton" onclick="openTab(event, 'Cuisine')">Cuisine</button>
-		<button class="tabButton" onclick="openTab(event, 'Salle de bain')">Salle de bain</button>
-</div>	
+<ul id="tabs">
+    <li><a href="#" name="tab1">Salon</a></li>
+    <li><a href="#" name="tab2">Chambre</a></li>
+    <li><a href="#" name="tab3">Cuisine</a></li>
+    <li><a href="#" name="tab4">Salle de bain</a></li>
+</ul>	
 	
-		<div id="Salon" class="tabcontent">
-			<p>iuhiuhiu</p>
-			<div class="gallery">
-  				<a target="_blank" href="capteurLumiere.png">
-    			<img src="capteurLumiere.png" alt="capteurLumiere" width="800" height="800">
+		<div id="content">
+			<div id="tab1">
+        <div class="gallery">
+  				<a target="_blank">
+    			<img src="./public/images/capteurLumiere.png" alt="capteurLumiere" width="800" height="800">
   				</a>
   				<div class="desc">
   					<label>
+              <h3>Capteur de lumière</h3>
+              <br>
     					Nombre de capteurs :
     					<input
         				type="number"
@@ -98,16 +108,18 @@ div.desc {
         				max="20"
         				step="1"
    						>
-					</label>
+					  </label>
   				</div>
-			</div>
+			  </div>
 
 			<div class="gallery">
-  				<a target="_blank" href="capteurTemperature.png">
-    			<img src="capteurTemperature.png" alt="capteurTemperature" width="800" height="800">
+  				<a target="_blank">
+    			<img src="./public/images/capteurTemperature.png" alt="capteurTemperature" width="800" height="800">
   				</a>
   				<div class="desc">
   					<label>
+              <h3>Capteur de température</h3>
+              <br>
     					Nombre de capteurs :
     					<input
         				type="number"
@@ -116,16 +128,18 @@ div.desc {
         				max="20"
         				step="1"
    						>
-					</label>
+					  </label>
   				</div>
 			</div>
 
 			<div class="gallery">
-  				<a target="_blank" href="capteurMouvement.png">
-    			<img src="capteurMouvement.png" alt="capteurMouvement" width="800" height="800">
+  				<a target="_blank">
+    			<img src="./public/images/capteurMouvement.png" alt="capteurMouvement" width="800" height="800">
   				</a>
   				<div class="desc">
   					<label>
+              <h3>Capteur de mouvement</h3>
+              <br>
     					Nombre de capteurs :
     					<input
         				type="number"
@@ -134,16 +148,18 @@ div.desc {
         				max="20"
         				step="1"
    						>
-					</label>
+					  </label>
   				</div>
 			</div>
 
 			<div class="gallery">
-  				<a target="_blank" href="capteurCO2.png">
-    			<img src="capteurCO2.png" alt="capteurCO2" width="800" height="800">
+  				<a target="_blank">
+    			<img src="./public/images/capteurCO2.png" alt="capteurCO2" width="800" height="800">
   				</a>
   				<div class="desc">
   					<label>
+              <h3>Capteur de fumée</h3>
+              <br>
     					Nombre de capteurs :
     					<input
         				type="number"
@@ -152,38 +168,290 @@ div.desc {
         				max="20"
         				step="1"
    						>
-					</label>
+					  </label>
   				</div>
 			</div>
-
-		</div>
-
-		<div id="tab2" class="tabcontent">></div>
-		<div id="tab3" class="tabcontent">></div>
-		<div id="tab4" class="tabcontent">></div>
+      </div>
 
 
 
-<style>
+		<div id="tab2">
+
+       <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurLumiere.png" alt="capteurLumiere" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de lumière</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_0"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+        </div>
+
+      <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurTemperature.png" alt="capteurTemperature" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de température</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_1"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+      </div>
 
 
+      <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurCO2.png" alt="capteurCO2" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de fumée</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_3"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+      </div>
+      </div>
 
-<script>
 
-function openTab(evt, tabName) {
-  var i, tabcontent, tabButton;
-  gallery = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tabButton = document.getElementsByClassName("tabButton");
-  for (i = 0; i < tabButton.length; i++) {
-    tabButton[i].className = tabButton[i].className.replace(" active", "");
-  }
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+		<div id="tab3">
 
+
+       <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurLumiere.png" alt="capteurLumiere" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de lumière</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_0"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+        </div>
+
+      <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurTemperature.png" alt="capteurTemperature" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de température</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_1"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+      </div>
+
+      <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurHumidité.png" alt="capteurHumidité" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur d'humidité</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_2"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+      </div>
+
+      <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurDebitEau.png" alt="capteurDebitEau" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de débit</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_2"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+      </div>
+
+      <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurCO2.png" alt="capteurCO2" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de fumée</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_3"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+      </div>
+      </div>
+
+
+		<div id="tab4">
+
+      <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurLumiere.png" alt="capteurLumiere" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de lumière</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_0"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+        </div>
+
+      <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurTemperature.png" alt="capteurTemperature" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de température</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_1"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+      </div>
+
+      <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurDebitEau.png" alt="capteurDebitEau" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de débit</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_2"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+      </div>
+
+      <div class="gallery">
+          <a target="_blank">
+          <img src="./public/images/capteurCO2.png" alt="capteurCO2" width="800" height="800">
+          </a>
+          <div class="desc">
+            <label>
+              <h3>Capteur de fumée</h3>
+              <br>
+              Nombre de capteurs :
+              <input
+                type="number"
+                name="number1_3"
+                min="0"
+                max="20"
+                step="1"
+              >
+            </label>
+          </div>
+      </div>
+      </div>
+
+
+</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#content").find("[id^='tab']").hide(); // Hide all content
+    $("#tabs li:first").attr("id","current");
+    $("#content #tab1").fadeIn(); // Show first tab's content
+    
+    $('#tabs a').click(function(e) {
+      e.preventDefault();
+      if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
+       return;       
+      }
+      else{            
+        $("#content").find("[id^='tab']").hide(); // Hide all content
+        $("#tabs li").attr("id",""); //Reset id's
+        $(this).parent().attr("id","current"); // Activate this
+        $('#' + $(this).attr('name')).fadeIn(); // Show content for the current tab
+      }
+    });
+  });
 
 </script>
 </body>
