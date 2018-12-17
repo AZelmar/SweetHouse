@@ -24,6 +24,10 @@ function userProfile($locale)
   require('frontEnd/userProfile.php');
 }
 
+function userShop($locale)
+{
+    require('frontEnd/shop.php');
+}
 function accountRegister($locale)
 {
     require '../public/js/phpmailer/Exception.php';

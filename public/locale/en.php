@@ -13,6 +13,7 @@ const contact = "Contact us !";
 const houseControl = "House Management";
 const profileControl = "Profile Management";
 const logout = "Logout";
+const shop= "Shop";
 }
 class register{
 const pageName = "Register";
@@ -51,5 +52,9 @@ const tech=" No technical problems";
 const intrus= " No intrusions";
 const suppAcc="Account deleted in less than 7 days";
 const del="Modify";
+}
+
+class shop{
+const pageName = "Shop";
 }
 ?>

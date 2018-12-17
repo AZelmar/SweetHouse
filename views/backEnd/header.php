@@ -6,6 +6,7 @@
   <a href="././home"><li id="logo-li"><img id="logo" src="./public/images/logo.png"></li></a>
   <li><a href="././register"><p><?= header::register ?></p></a></li>
   <li><a href="././login"><p><?= header::login ?></p></a></li>
+  <li><a href="././shop"><p><?= header::shop ?></p></a></li>
   <li class="toggleSubMenu"><a><p><?= header::help ?> <i class="fas fa-arrow-left"></i></p></a>
     <ul class="subMenu">
       <li><a href="././faq"><p><?= header::faq ?></p></a></li>
@@ -23,6 +24,7 @@ else
    <a href="././home"><li id="logo-li"><img id="logo" src="./public/images/logo.png"></li></a>
   <li><a href=""><p><?= header::houseControl ?></p></a></li>
   <li><a href="././userProfile"><p><?= header::profileControl ?></p></a></li>
+  <li><a href="././shop"><p><?= header::shop ?></p></a></li>
   <li><a href="././logout"><p><?= header::logout ?></p></a></li>
    <li class="toggleSubMenu"><a><p><?= header::help ?> <i class="fas fa-arrow-left"></i></p></a>
     <ul class="subMenu">

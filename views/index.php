@@ -57,6 +57,9 @@ switch ($route) {
     case 'faq':
         faq($locale);
         break;
+    case 'shop':
+        userShop($locale);
+        break;
     default:
         error404($locale);
         break;
