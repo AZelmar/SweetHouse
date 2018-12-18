@@ -12,19 +12,19 @@
 	<?PHP include 'backEnd/notification.php' ?>
 	<div id="form-container">
 		<form method="POST">
-			<h2 id="title">Réinitialiser mot de passe</h2>
+			<h2 id="title"><?= resetPassword::pageName ?></h2>
 			<hr>
 			<div class="input-group">
-				<label for="password">Nouveau mot de passe :</label>
+				<label for="password"><?= resetPassword::inputPassword ?></label>
 				<input type="password" name="password" value="test">
 			</div>
 
 			<div class="input-group">
-				<label for="password2">Répetez nouveau mot de passe :</label>
+				<label for="password2"><?= resetPassword::inputPasswordConfirm ?></label>
 				<input type="password" name="password2" value="test">
 			</div>
 			<div class="input-group" style="display: inline;">
-				<input type="submit" name="submit" value="Valider" id="validate-button">
+				<input type="submit" name="submit" value="<?= resetPassword::inputSubmit ?>" id="validate-button">
 			</div>
 		</form>
 	</div>

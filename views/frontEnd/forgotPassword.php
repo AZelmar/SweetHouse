@@ -12,14 +12,14 @@
 	<?PHP include 'backEnd/notification.php' ?>
 	<div id="form-container">
 		<form method="POST">
-			<h2 id="title">Mot de passe oublié</h2>
+			<h2 id="title"><?= forgotPassword::pageName ?></h2>
 			<hr>
 			<div class="input-group">
-				<label for="email">Adresse email :</label>
+				<label for="email"><?= forgotPassword::inputEmail ?></label>
 				<input type="email" name="email" value="test@yopmail.com">
 			</div>
 			<div class="input-group">
-				<input type="submit" name="submit" value="Valider" id="validate-button">
+				<input type="submit" name="submit" value="<?= forgotPassword::inputSubmit ?>" id="validate-button">
 			</div>
 		</form>
 	</div>
