@@ -9,9 +9,11 @@
 
 </head>
 
+
 <body>
 
 <?php include '../views/backEnd/header.php'; ?>
+
 
 
 <script type="text/javascript">
@@ -80,6 +82,7 @@ function openTab(evt, tabName) {
  <p>
    <img src="lumen.png" id="lumen">
  </p>
+
 
   <p>
    <img src="temperature.png" id="temperature">
@@ -416,6 +419,4 @@ input:checked + .slider:before {
 </style>
 </body>
 </html>
-
-
 
