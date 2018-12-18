@@ -52,6 +52,9 @@ const tech=" No technical problems";
 const intrus= " No intrusions";
 const suppAcc="Account deleted in less than 7 days";
 const del="Modify";
+const man="man";
+const woman="woman";
+const other="other";
 }
 
 class shop{

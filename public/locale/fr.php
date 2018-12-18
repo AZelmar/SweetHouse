@@ -52,6 +52,9 @@ const tech=" Pas de problemes techniques ";
 const intrus= " Pas d'intrusions ";
 const suppAcc= " Compte supprimé en moins de 7 jours";
 const del="Modifier";
+const man="Homme";
+const woman="Femme";
+const other="Autre";
 }
 
 class shop{

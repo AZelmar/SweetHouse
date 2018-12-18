@@ -12,14 +12,13 @@ include 'backEnd/header.php';
 $email=$_SESSION['email'];
 $resultat = getUserData($email);
 changeUserData($email);
-
 ?>
 
 <body>
 	<div id="Profil">
 	<h2 id="title"><?= profile::profileMan ?></h2>
       <hr>
-      <form method="post" action="userprofile">
+      <form method="post" action="userProfile">
         <p>
         
 		<div class="input-group">
@@ -40,7 +39,12 @@ changeUserData($email);
 		</div>
 		<div class="input-group">
 			<label><?= profile::modifySex ?></label>
-			<input type="text" name="gender" value= "<?php echo htmlentities($resultat['gender']) ?>" >
+			<select name="gender">
+					<option value="gender" selected="selected"><?php echo htmlentities($resultat['gender']) ?></option>
+					<option value="male"><?= profile::man ?></option>
+					<option value="female"><?= profile::woman ?></option>
+					<option value="other"><?= profile::other ?></option>
+			</select>
 		</div>
 		<div class="input-group">
 			<label><?= profile::contact ?></label>

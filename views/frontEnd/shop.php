@@ -93,9 +93,7 @@ div.desc {
 		<div id="content">
 			<div id="tab1">
         <div class="gallery">
-  				<a target="_blank">
     			<img src="./public/images/capteurLumiere.png" alt="capteurLumiere" width="800" height="800">
-  				</a>
   				<div class="desc">
   					<label>
               <h3>Capteur de lumière</h3>
@@ -113,9 +111,7 @@ div.desc {
 			  </div>
 
 			<div class="gallery">
-  				<a target="_blank">
     			<img src="./public/images/capteurTemperature.png" alt="capteurTemperature" width="800" height="800">
-  				</a>
   				<div class="desc">
   					<label>
               <h3>Capteur de température</h3>
@@ -133,9 +129,7 @@ div.desc {
 			</div>
 
 			<div class="gallery">
-  				<a target="_blank">
     			<img src="./public/images/capteurMouvement.png" alt="capteurMouvement" width="800" height="800">
-  				</a>
   				<div class="desc">
   					<label>
               <h3>Capteur de mouvement</h3>
@@ -153,9 +147,7 @@ div.desc {
 			</div>
 
 			<div class="gallery">
-  				<a target="_blank">
     			<img src="./public/images/capteurCO2.png" alt="capteurCO2" width="800" height="800">
-  				</a>
   				<div class="desc">
   					<label>
               <h3>Capteur de fumée</h3>
@@ -178,9 +170,7 @@ div.desc {
 		<div id="tab2">
 
        <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurLumiere.png" alt="capteurLumiere" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de lumière</h3>
@@ -198,9 +188,7 @@ div.desc {
         </div>
 
       <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurTemperature.png" alt="capteurTemperature" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de température</h3>
@@ -219,9 +207,7 @@ div.desc {
 
 
       <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurCO2.png" alt="capteurCO2" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de fumée</h3>
@@ -244,9 +230,7 @@ div.desc {
 
 
        <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurLumiere.png" alt="capteurLumiere" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de lumière</h3>
@@ -264,9 +248,7 @@ div.desc {
         </div>
 
       <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurTemperature.png" alt="capteurTemperature" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de température</h3>
@@ -284,9 +266,7 @@ div.desc {
       </div>
 
       <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurHumidité.png" alt="capteurHumidité" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur d'humidité</h3>
@@ -304,9 +284,7 @@ div.desc {
       </div>
 
       <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurDebitEau.png" alt="capteurDebitEau" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de débit</h3>
@@ -324,9 +302,7 @@ div.desc {
       </div>
 
       <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurCO2.png" alt="capteurCO2" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de fumée</h3>
@@ -348,9 +324,7 @@ div.desc {
 		<div id="tab4">
 
       <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurLumiere.png" alt="capteurLumiere" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de lumière</h3>
@@ -368,9 +342,7 @@ div.desc {
         </div>
 
       <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurTemperature.png" alt="capteurTemperature" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de température</h3>
@@ -388,9 +360,7 @@ div.desc {
       </div>
 
       <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurDebitEau.png" alt="capteurDebitEau" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de débit</h3>
