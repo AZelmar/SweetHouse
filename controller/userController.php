@@ -353,4 +353,20 @@ function changeUserData($email)
                 }
         }
 }
+
+function addShopItems($email)
+{
+    if (isset($_POST['validerMagasin']) )
+        {
+            if(!isset($_SESSION["email"]))
+                {
+                    echo 'Vous devez être connecté !';
+                }
+            else
+                {
+                    echo ' Ajout de capteurs réussis !';
+                }
+        }
+}
+
 ?> 

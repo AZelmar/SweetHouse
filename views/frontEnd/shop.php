@@ -74,6 +74,29 @@ div.desc {
 
   }
 /* Style the tab content */
+
+.buttonShop {
+  float: right;
+  margin-top: 650px;
+  margin-right: 100px;
+  border: 2px solid black;
+  padding: 30px 50px;
+  font-size: 16px;
+  text-align:center;
+  display: inline-block;
+  color: white;
+  border-radius: 20px;
+  background-color: #f76262;
+}
+
+.buttonShop:hover {
+  background-color: #db2d43;
+  transition-duration:0.5s;
+
+}
+
+
+}
 </style>
 </head>
 
@@ -82,6 +105,7 @@ div.desc {
 <?php
   include 'backEnd/header.php';
   ?>
+
 
 <ul id="tabs">
     <li><a href="#" name="tab1">Salon</a></li>
@@ -378,9 +402,7 @@ div.desc {
       </div>
 
       <div class="gallery">
-          <a target="_blank">
           <img src="./public/images/capteurCO2.png" alt="capteurCO2" width="800" height="800">
-          </a>
           <div class="desc">
             <label>
               <h3>Capteur de fumée</h3>
@@ -400,6 +422,13 @@ div.desc {
 
 
 </div>
+
+<button class="buttonShop" name="validerMagasin">Ajout des capteurs</button>
+
+<?php 
+$email=$_SESSION['email'];
+addShopItems($email);
+?>
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
