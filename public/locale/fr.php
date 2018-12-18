@@ -13,21 +13,57 @@ const contact = "Contactez-nous !";
 const houseControl = "Gestion Maison";
 const profileControl = "Gestion Profil";
 const logout = "Déconnexion";
+const shop ="Magasin";
 }
 class register{
 const pageName = "Inscription";
+const inputFirstName = "Nom:";
+const inputLastName = "Prénom:";
+const inputAge = "Age:";
+const inputPassword = "Mot de passe :";
+const inputPasswordConfirm = "Répetez mot de passe :";
+const inputGender = "Genre :";
+const optionGenderMale = "Homme";
+const optionGenderFemale = "Femme";
+const inputType = "Type :";
+const optionTypeIndividual = "Particulier";
+const optionTypeProfessional = "Professionel";
+const inputEmail = "Adresse email :";
+const inputPhone = "Numéro de télephone:";
+const inputAdress = "Adresse :";
+const inputZipCode = "Code postal :";
+const inputCity = "Ville :";
+const inputCountry = "Pays :";
+const optionCountryFrance = "France";
+const optionCountryCanada = "Canada";
+const optionCountrySpain = "Espagne";
+const inputCGU = "Acceptez les CGU :";
+const inputSubmit = "Valider";
 }
 class login{
-const pageName = "Connexion";	
+const pageName = "Connexion";
+const inputEmail = "Votre adresse email :";
+const inputPassword = "Votre mot de passe :";
+const inputRemember = "Se souvenir de moi :";
+const inputSubmit = "Valider";
+const inputForgot = "Mot de passe oublié ?";
 }
 class forgotPassword{
-const pageName = "Mot de passe oublié";	
+const pageName = "Mot de passe oublié";
+const inputEmail = "Votre adresse email :";
+const inputSubmit = "Valider";
 }
 class resetPassword{
-const pageName = "Réinitialiser mot de passe";	
+const pageName = "Réinitialiser mot de passe";
+const inputPassword = "Nouveau mot de passe :";
+const inputPasswordConfirm = "Répetez nouveau mot de passe :";
+const inputSubmit = "Valider";
 }
 class error404{
 const pageName = "Erreur 404";	
+}
+class download{
+const pageName = "Télechargement de fichier";	
 }
 class emptyPage{
 const pageName = "";	
@@ -51,5 +87,12 @@ const tech=" Pas de problemes techniques ";
 const intrus= " Pas d'intrusions ";
 const suppAcc= " Compte supprimé en moins de 7 jours";
 const del="Modifier";
+const man="Homme";
+const woman="Femme";
+const other="Autre";
+}
+
+class shop{
+const pageName ="Magasin";
 }
 ?>

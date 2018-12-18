@@ -9,6 +9,7 @@
 
 </head>
 
+
 <body>
 
 <?php include '../views/backEnd/header.php'; ?>
@@ -57,6 +58,81 @@
    <img src="lumen.png" id="lumen">
  </p>
 
+
+
+<body>
+
+<?php include '../views/backEnd/header.php'; ?>
+
+
+<script type="text/javascript">
+function openTab(evt, tabName) {
+  var i, tabcontent, tabButton;
+  gallery = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tabButton = document.getElementsByClassName("tabButton");
+  for (i = 0; i < tabButton.length; i++) {
+    tabButton[i].className = tabButton[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+ 
+
+<div class="sidenav">
+  <button class="tabButton" onclick="openTab(event, 'Chambres')">Chambres</button>
+  <button class="tabButton" onclick="openTab(event, 'Cuisine')">Cuisine</button>
+  <button class="tabButton" onclick="openTab(event, 'Salle de bain')">Salle de bain</button>
+  <button class="tabButton" onclick="openTab(event, 'Salon')">Salon</button>
+</div>
+
+
+<div class="gallery">
+  
+</div>
+
+<div class="gallery">
+  
+</div>
+
+<div class="gallery">
+  
+</div>
+
+<div class="gallery">
+  
+</div>
+
+<div id="tab2" class="tabcontent">></div>
+<div id="tab3" class="tabcontent">></div>
+<div id="tab4" class="tabcontent">></div>
+
+ 
+<div class="main" >
+  
+  <h2>Capteurs</h2>
+  
+
+ <p>
+    <img src="smoke.png" id="smoke">
+ </p>  
+ 
+ <p>
+   <img src="humidity.jpg" id ="humidity">
+ </p>
+
+ <p>
+   <img src="security.png" id="security">
+ </p>
+
+ <p>
+   <img src="lumen.png" id="lumen">
+ </p>
+
+
   <p>
    <img src="temperature.png" id="temperature">
  </p>
@@ -89,6 +165,8 @@
 </label>
 
 <style>
+
+
 
 body {
     font-family: "Lato", sans-serif;

@@ -24,8 +24,15 @@ function userProfile($locale)
   require('frontEnd/userProfile.php');
 }
 
+
 function gestion_capteurs($locale){
     require ('frontEnd/GestionCapteurs.php');
+}
+
+
+function userShop($locale)
+{
+    require('frontEnd/shop.php');
 }
 
 function accountRegister($locale)
