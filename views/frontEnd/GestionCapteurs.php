@@ -14,55 +14,6 @@
 
 <?php include '../views/backEnd/header.php'; ?>
 
-<div class="sidenav">
-
-  <button type="button" id="1" onclick="myfunction(id)" value="1"> Chambres</button>
- 
-  <button type="button" id="2" onclick="myfunction(id)" value="2">Cuisine</button>
-  
-  <button type="button" id="3" onclick="myfunction(id)" value="3">Salle de bain</button>
-   
-  <button type="button" id="4" onclick="myfunction(id)" value="4">Salon</button>
-
-</div>
-
-<p id="demo"> </p>
-
-<script type="text/javascript">
-  function myfunction(id){
-    
-    document.getElementById("demo").innerHTML="./Cuisine " + document.getElementById(id).value; 
-  }
-
-</script>
-
-
- 
-<div class="main" >
-  <h2>Capteurs</h2>
-  
-
-  <p>
-    <img src="smoke.png" id="smoke">
-  </p>  
- 
- <p>
-   <img src="humidity.jpg" id ="humidity">
- </p>
-
- <p>
-   <img src="security.png" id="security">
- </p>
-
- <p>
-   <img src="lumen.png" id="lumen">
- </p>
-
-
-
-<body>
-
-<?php include '../views/backEnd/header.php'; ?>
 
 
 <script type="text/javascript">
