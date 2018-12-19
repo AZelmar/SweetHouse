@@ -15,80 +15,217 @@
 <?php include '../views/backEnd/header.php'; ?>
 
 
+ 
 
-<script type="text/javascript">
-function openTab(evt, tabName) {
-  var i, tabcontent, tabButton;
-  gallery = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tabButton = document.getElementsByClassName("tabButton");
-  for (i = 0; i < tabButton.length; i++) {
-    tabButton[i].className = tabButton[i].className.replace(" active", "");
-  }
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#content").find("[id^='tab']").hide(); // Hide all content
+    $("#tabs li:first").attr("id","current");
+    $("#content #tab1").fadeIn(); // Show first tab's content
+    
+    $('#tabs a').click(function(e) {
+      e.preventDefault();
+      if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
+       return;       
+      }
+      else{            
+        $("#content").find("[id^='tab']").hide(); // Hide all content
+        $("#tabs li").attr("id",""); //Reset id's
+        $(this).parent().attr("id","current"); // Activate this
+        $('#' + $(this).attr('name')).fadeIn(); // Show content for the current tab
+      }
+    });
+  });
+
 </script>
- 
 
-<div class="sidenav">
-  <button class="tabButton" onclick="openTab(event, 'Chambres')">Chambres</button>
-  <button class="tabButton" onclick="openTab(event, 'Cuisine')">Cuisine</button>
-  <button class="tabButton" onclick="openTab(event, 'Salle de bain')">Salle de bain</button>
-  <button class="tabButton" onclick="openTab(event, 'Salon')">Salon</button>
+
+
+<div id="tabs" class="tabs">
+    <li><a href="#" name="tab1">Chambres</a></li>
+    <li><a href="#" name="tab2">Cuisine</a></li>
+    <li><a href="#" name="tab3">Salle de bain</a></li>
+    <li><a href="#" name="tab4">Salon</a></li>
 </div>
-
-
-<div class="gallery">
-  
-</div>
-
-<div class="gallery">
-  
-</div>
-
-<div class="gallery">
-  
-</div>
-
-<div class="gallery">
-  
-</div>
-
-<div id="tab2" class="tabcontent">></div>
-<div id="tab3" class="tabcontent">></div>
-<div id="tab4" class="tabcontent">></div>
 
  
-<div class="main" >
+  <div class="main" >
   
   <h2>Capteurs</h2>
+ 
+<div id="content">
+
+      <div id="tab1">
+        <h4>Chambres</h4>
+        <div class="gallery">
+          <img src="./public/images/smoke.png" id="smoke" > 
+          <div class="desc"></div>
+        </div>
+          
+        
+
+  <div class="gallery">
+          <img src="./public/images/lumen.png" id="lumen" >
+          <div class="desc"></div>
+      </div>
+ 
+
+
+<div class="gallery">
+          <img src="./public/images/temperature.png" id="temperature" >
+          <div class="desc"></div>
+      </div>
+
+    
   
 
- <p>
-    <img src="smoke.png" id="smoke">
- </p>  
+<label class="switch1">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+<label class="switch2">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+<label class="switch3">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+</div>
+
+
+<div id="tab2">
+  <h4>Cuisine</h4>
+  <div class="gallery">
+          <img src="./public/images/smoke.png" id="smoke" > 
+          <div class="desc"></div>
+        </div>
+          
+        
+
+  <div class="gallery">
+          <img src="./public/images/lumen.png" id="lumen" >
+          <div class="desc"></div>
+      </div>
  
- <p>
-   <img src="humidity.jpg" id ="humidity">
- </p>
-
- <p>
-   <img src="security.png" id="security">
- </p>
-
- <p>
-   <img src="lumen.png" id="lumen">
- </p>
 
 
-  <p>
-   <img src="temperature.png" id="temperature">
- </p>
+<div class="gallery">
+          <img src="./public/images/temperature.png" id="temperature" >
+          <div class="desc"></div>
+      </div>
 
-</div>     
+
+<div class="gallery">
+          <img src="./public/images/humidity.jpg" id="humidity" >
+          <div class="desc"></div>
+      </div>
+
+
+<label class="switch1">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+
+<label class="switch2">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+<label class="switch3">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+
+<label class="switch4">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+  </div>
+
+
+<div id="tab3">
+  <h4>Salle de bain</h4>
+      <div class="gallery">
+          <img src="./public/images/lumen.png" id="lumen"  >
+          <div class="desc"></div>
+      </div>
+ 
+
+
+<div class="gallery">
+          <img src="./public/images/temperature.png" id="temperature" >
+          <div class="desc"></div>
+      </div>
+
+
+<div class="gallery">
+          <img src="./public/images/humidity.jpg" id="humidity" >
+          <div class="desc"></div>
+      </div>
+
+<label class="switch1">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+<label class="switch2">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+
+<label class="switch3">
+  <input type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+
+</div>
+
+
+
+
+
+
+<div id="tab4">
+  <h4>Salon</h4>
+        <div class="gallery">
+          <img src="./public/images/smoke.png" id="smoke" > 
+          <div class="desc"></div>
+        </div>
+
+
+
+<div class="gallery">
+          <img src="./public/images/lumen.png" id="lumen"  >
+          <div class="desc"></div>
+      </div>
+ 
+
+
+<div class="gallery">
+          <img src="./public/images/temperature.png" id="temperature" >
+          <div class="desc"></div>
+      </div>
+
+
+<div class="gallery">
+          <img src="./public/images/humidity.jpg" id="humidity" >
+          <div class="desc"></div>
+      </div>
+
+<div class="gallery">
+          <img src="./public/images/security.png" id="security">
+          <div class="desc"></div>
+      </div>
+
 
 <label class="switch1">
   <input type="checkbox" checked>
@@ -114,6 +251,9 @@ function openTab(evt, tabName) {
   <span class="slider round"></span>
 
 </label>
+</div>
+</div>
+
 
 <style>
 
@@ -225,7 +365,7 @@ li a:focus {
   display: inline-block;
   width: 60px;
   height: 33px;
-  margin-top: 18%;
+  margin-top: 32%;
   margin-left:  45%; 
 
  } 
@@ -241,7 +381,7 @@ li a:focus {
   display: inline-block;
   width: 60px;
   height: 33px;
-  margin-top: 24%;
+  margin-top: 37%;
   margin-left:  45%; 
 
  } 
@@ -256,7 +396,7 @@ li a:focus {
   display: inline-block;
   width: 60px;
   height: 33px;
-  margin-top: 31%;
+  margin-top: 42%;
   margin-left:  45%; 
 
  } 
@@ -272,7 +412,7 @@ li a:focus {
   display: inline-block;
   width: 60px;
   height: 33px;
-  margin-top: 38%;
+  margin-top: 47%;
   margin-left:  45%; 
 
  } 
@@ -287,8 +427,8 @@ li a:focus {
   display: inline-block;
   width: 60px;
   height: 33px;
-  top: 93px;
-  left:  3px; 
+  top: 78px;
+  left:  2px; 
 
  } 
 .switch5 input { 
@@ -345,7 +485,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.sidenav {
+.tabs {
     margin-top: 22%;
     height: 25%;
     width: 160px;
@@ -360,60 +500,79 @@ input:checked + .slider:before {
     border-radius: 15px;
 }
 
-.sidenav a {
+.tabs a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
     display: block;
 }
 
-.sidenav a:hover {
+.tabs a:hover {
     color: #216583;
 }
 
 .main {
-    text-decoration-color: black;
+    text-decoration-color: #C0C0C0;
     background-color: #65c0ba;
     border: 4px solid black;
-    margin-top: 7%; 
+    margin-top: 9%; 
     margin-left: 26%;
-    font-size: 28px; 
-    padding: 5px 35px;
+    font-size: 30px; 
+    padding: 18px 35px;
 }
 
+h2 {
+  text-align: left;
+
+}
+
+h4 {
+  text-align: center;
+  bottom:100px;
+  color: #f76262;
+
+}
+
+
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 30%}
-    .sidenav a {font-size: 18%}
+    .tabs {padding-top: 30%}
+    .tabs a {font-size: 18%}
 }
 
 
 #smoke{
-    height: 7vh;
-    width: 7vw;
+    height: 8vh;
+    width: 8vw;
+    top:60px;
   }
 
 
 #humidity{
     height: 8vh;
     width: 8vw;
+    top: 60px;
   }
 
 
 #security{
     height: 8vh;
     width: 8vw;
+    top: 60px;
+
 }
 
 #lumen{
 
     height: 8vh;
     width: 8vw;
+    top: 60px;
 }
 
 #temperature{
 
     height: 8vh;
-    width: 8vw;  
+    width: 8vw;
+    top: 60px;  
 }          
 
 </style>
