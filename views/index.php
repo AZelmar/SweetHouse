@@ -59,9 +59,9 @@ switch ($route) {
         break;
     case 'gestion-capteurs':
         gestion_capteurs($locale);
+        break;
     case 'shop':
         userShop($locale);
-     
         break;
     default:
         error404($locale);

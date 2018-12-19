@@ -32,6 +32,20 @@ function gestion_capteurs($locale){
 
 function userShop($locale)
 {
+    if (!empty($_POST['validerMagasin']) )
+        {
+            if(!isset($_SESSION["email"])) {
+                $notification = array(
+                    "type" => "error",
+                    "message" => "Vous devez être connecté !");
+                }
+            else {
+                $notification = array(
+                    "type" => "success",
+                    "message" => "Ajout de capteurs réussis !");
+                }
+
+        }
     require('frontEnd/shop.php');
 }
 
@@ -365,15 +379,23 @@ function addShopItems($email)
 {
     if (isset($_POST['validerMagasin']) )
         {
-            if(!isset($_SESSION["email"]))
-                {
-                    echo 'Vous devez être connecté !';
+            if(!isset($_SESSION["email"])) {
+                $notification = array(
+                    "type" => "error",
+                    "message" => "Vous devez être connecté !");
                 }
-            else
-                {
-                    echo ' Ajout de capteurs réussis !';
+            else {
+                $resultat=getUserData($email);
+                $idShop=$resultat['userId'];
+                changeUserShop($idShop);
+
+                $notification = array(
+                    "type" => "success",
+                    "message" => "Ajout de capteurs réussis !");
                 }
+
         }
+
 }
 
 ?> 

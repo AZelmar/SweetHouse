@@ -3,8 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="./public/css/style.css" />
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+  <?php include 'backEnd/globalHead.php'; ?>
 	<title> SweetHouse | Magasin </title>  
 
 <style>
@@ -69,13 +68,13 @@ div.desc {
 #content {
     width: 100%;
     position: relative;
-    z-index: 2; 
+
 
 
   }
 /* Style the tab content */
 
-.buttonShop {
+#validerMagasin {
   float: right;
   margin-top: 650px;
   margin-right: 100px;
@@ -87,9 +86,10 @@ div.desc {
   color: white;
   border-radius: 20px;
   background-color: #f76262;
+  position: absolute;
 }
 
-.buttonShop:hover {
+#validerMagasin:hover {
   background-color: #db2d43;
   transition-duration:0.5s;
 
@@ -102,10 +102,10 @@ div.desc {
 
 <body>
   
-<?php
-  include 'backEnd/header.php';
-  ?>
+<?php include 'backEnd/header.php' ?>
+<?PHP include 'backEnd/notification.php' ?>
 
+<form method="POST">
 
 <ul id="tabs">
     <li><a href="#" name="tab1">Salon</a></li>
@@ -202,7 +202,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_0"
+                name="number2_0"
                 min="0"
                 max="20"
                 step="1"
@@ -220,7 +220,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_1"
+                name="number2_1"
                 min="0"
                 max="20"
                 step="1"
@@ -239,7 +239,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_3"
+                name="number2_3"
                 min="0"
                 max="20"
                 step="1"
@@ -262,7 +262,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_0"
+                name="number3_0"
                 min="0"
                 max="20"
                 step="1"
@@ -280,7 +280,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_1"
+                name="number3_1"
                 min="0"
                 max="20"
                 step="1"
@@ -298,7 +298,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_2"
+                name="number3_2"
                 min="0"
                 max="20"
                 step="1"
@@ -316,7 +316,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_2"
+                name="number3_3"
                 min="0"
                 max="20"
                 step="1"
@@ -334,7 +334,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_3"
+                name="number3_4"
                 min="0"
                 max="20"
                 step="1"
@@ -356,7 +356,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_0"
+                name="number4_0"
                 min="0"
                 max="20"
                 step="1"
@@ -374,7 +374,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_1"
+                name="number4_1"
                 min="0"
                 max="20"
                 step="1"
@@ -392,7 +392,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_2"
+                name="number4_2"
                 min="0"
                 max="20"
                 step="1"
@@ -410,7 +410,7 @@ div.desc {
               Nombre de capteurs :
               <input
                 type="number"
-                name="number1_3"
+                name="number4_3"
                 min="0"
                 max="20"
                 step="1"
@@ -422,14 +422,13 @@ div.desc {
 
 
 </div>
+<input type="submit" name="validerMagasin" value="Ajout des capteurs" id="validerMagasin">
+</form>
 
-<button class="buttonShop" name="validerMagasin">Ajout des capteurs</button>
-
-<?php 
+<?php
 $email=$_SESSION['email'];
 addShopItems($email);
 ?>
-
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript">
@@ -453,5 +452,6 @@ addShopItems($email);
   });
 
 </script>
+<?php include 'backEnd/footer.php' ?>
 </body>
 </html>
