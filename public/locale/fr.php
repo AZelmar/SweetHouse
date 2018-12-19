@@ -15,6 +15,16 @@ const profileControl = "Gestion Profil";
 const logout = "Déconnexion";
 const shop ="Magasin";
 }
+class footer{
+const copyright = "©SweetHouse 2018";
+}
+class modalContact{
+const pageName = "Contactez nous";
+const contactFacebook = "Notre Facebook";
+const contactTwitter = "Notre Twitter";
+const contactInstagram = "Notre Instagram";
+const contactEmail = "Notre adresse email de support";
+}
 class register{
 const pageName = "Inscription";
 const inputFirstName = "Nom:";
