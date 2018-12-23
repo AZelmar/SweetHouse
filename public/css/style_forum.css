@@ -13,6 +13,14 @@ h2{
     margin-top: 5%;
 }
 
+h3 {
+    font-family: Lato, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    text-align: center;
+}
+
+
 .button {
     background-color: #216583;
     border: none;
@@ -26,8 +34,6 @@ h2{
     cursor: pointer;
     font-family: Lato, Helvetica, sans-serif;
     font-weight: lighter;
-
-
 }
 
 form {
@@ -153,6 +159,7 @@ hr{
     margin-left: 5%;
     margin-right: 5%;
 }
+
 
 
 

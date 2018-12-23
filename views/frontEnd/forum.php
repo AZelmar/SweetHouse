@@ -1,7 +1,6 @@
 
 <?php
 include('../public/locale/'.$locale.'.php');
-//include ('../controller/forumControler.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,6 +14,7 @@ include('../public/locale/'.$locale.'.php');
 <body>
 <?php
     include '../views/backEnd/header.php';
+    include '../views/backEnd/notification.php';
 ?>
 <a href="./home" <button class="button">Retour à la page d'acceuil</button> </a>
 
@@ -22,7 +22,7 @@ include('../public/locale/'.$locale.'.php');
 
 <h2> Poser sa question </h2>
 
-<form method="post" action="/forum/post">
+<form method="post">
     <label>
         Sujet :
         <select name="subject">
@@ -33,9 +33,9 @@ include('../public/locale/'.$locale.'.php');
         </select>
     </label>
     <br><br>
-    <div class = id_client> Votre numéro client :<?php echo $num_client ?> </div>
+    <div class = id_client> Votre numéro client : <?php echo $resultat ?> </div>
     <br>
-    <div class = email> Votre adresse mail : <?php echo $mail ?> </div>
+    <div class = email> Votre adresse mail : <?php echo $_SESSION['email'] ?> </div>
     <br>
     <label>
         Pseudo :
@@ -47,23 +47,64 @@ include('../public/locale/'.$locale.'.php');
         <textarea name = "commentaire" placeholder="Tapez votre message ici" required="required"></textarea>
     </label>
 
-
     <div class="boutton"> <input type="submit" value="Envoyer" name="submit"> </div>
 
 </form>
 
 <h2> Observer les questions déjà posées </h2>
 
-Vous pouvez répondre lire ou compléter les questions ci-dessous. Attention à ne pas répéter régulièrement la même question et faite un tour sur la FAq avant !
+<h3> Vous pouvez répondre lire les questions ci-dessous. Attention à ne pas répéter régulièrement la même question et faites un tour sur la FAQ avant !</h3>
 
+
+
+<!---------------------------------- Affichage commentaire ------------------------------------------>
+
+
+<table>
+    <tr>
+        <th>
+            Numéro du commentaire
+        </th>
+        <th>
+            Numéro Client
+        </th>
+        <th >
+            Pseudo
+        </th>
+        <th>
+            Adresse mail
+        </th>
+        <th>
+            Sujet
+        </th>
+
+        <th>
+            Date de publication
+        </th>
+    </tr>
+    <tr>
+        <td><?php echo $numero_commentaire?></td>
+        <td><?php echo$numero_client?> </td>
+        <td><?php echo $pseudo?></td>
+        <td><?php echo $mail?></td>
+        <td><?php echo $subject?></td>
+        <td><?php echo $date?></td>
+    </tr>
+</table>
+</br>
+
+<p class="titre1"> Question </p>
+
+<p class="commentaire">
+    <?php echo $commentaire;?>
+</p>
+
+<p class="reponse_administrateur">
+    <?php echo $reponse_administrateur;?>
+</p>
+
+</br>
+<hr>
+</br>
 </body>
 </html>
-
-<?php
-    include '../controller/forumControler.php'
-?>
-
-
-<?php
- afficherFormulaire();
-?>
