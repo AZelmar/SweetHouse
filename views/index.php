@@ -41,7 +41,7 @@ switch ($route) {
     case 'home':
         home($locale);
         break;
-    case 'userprofile':
+    case 'userProfile':
         userProfile($locale);
         break;
     case strpos($route, "public/"):
@@ -53,6 +53,12 @@ switch ($route) {
         break;
     case 'faq':
         faq($locale);
+        break;
+    case 'gestion-capteurs':
+        gestion_capteurs($locale);
+        break;
+    case 'shop':
+        userShop($locale);
         break;
     default:
         error404($locale);

@@ -3,8 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="./public/css/style.css" /> 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous"> 
+	<?php include 'backEnd/globalHead.php'; ?>
 	<title><?= base::websiteName ?>| <?= forgotPassword::pageName ?></title>
 </head>
 <body>
@@ -12,17 +11,18 @@
 	<?PHP include 'backEnd/notification.php' ?>
 	<div id="form-container">
 		<form method="POST">
-			<h2 id="title">Mot de passe oublié</h2>
+			<h2 id="title"><?= forgotPassword::pageName ?></h2>
 			<hr>
 			<div class="input-group">
-				<label for="email">Adresse email :</label>
+				<label for="email"><?= forgotPassword::inputEmail ?></label>
 				<input type="email" name="email" value="test@yopmail.com">
 			</div>
 			<div class="input-group">
-				<input type="submit" name="submit" value="Valider" id="validate-button">
+				<input type="submit" name="submit" value="<?= forgotPassword::inputSubmit ?>" id="validate-button">
 			</div>
 		</form>
 	</div>
+	<?php include 'backEnd/footer.php' ?>
 </body>
 </html>
 <style>

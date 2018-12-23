@@ -21,7 +21,32 @@ function home($locale)
 
 function userProfile($locale)
 {
-  require('frontEnd/userprofile.php');
+  require('frontEnd/userProfile.php');
+}
+
+
+function gestion_capteurs($locale){
+    require ('frontEnd/GestionCapteurs.php');
+}
+
+
+function userShop($locale)
+{
+    if (!empty($_POST['validerMagasin']) )
+        {
+            if(!isset($_SESSION["email"])) {
+                $notification = array(
+                    "type" => "error",
+                    "message" => "Vous devez être connecté !");
+                }
+            else {
+                $notification = array(
+                    "type" => "success",
+                    "message" => "Ajout de capteurs réussis !");
+                }
+
+        }
+    require('frontEnd/shop.php');
 }
 
 function accountRegister($locale)
@@ -349,4 +374,28 @@ function changeUserData($email)
                 }
         }
 }
+
+function addShopItems($email)
+{
+    if (isset($_POST['validerMagasin']) )
+        {
+            if(!isset($_SESSION["email"])) {
+                $notification = array(
+                    "type" => "error",
+                    "message" => "Vous devez être connecté !");
+                }
+            else {
+                $resultat=getUserData($email);
+                $idShop=$resultat['userId'];
+                changeUserShop($idShop);
+
+                $notification = array(
+                    "type" => "success",
+                    "message" => "Ajout de capteurs réussis !");
+                }
+
+        }
+
+}
+
 ?> 

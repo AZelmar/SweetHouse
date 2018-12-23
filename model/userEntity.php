@@ -96,4 +96,23 @@ function changeUser($email)
   $reqp ->execute(array('lastName'=>$_POST['last-name'],'firstName'=>$_POST['first-name'],'gender'=>$_POST['gender'], 'adress'=>$_POST['adress'], 'delaccount'=>$_POST['delaccount']));
 
 }
+
+function getUserShop($idShop)
+{
+    require("config.php");
+    $request = $pdo->prepare('SELECT * FROM userShop WHERE id_userShop = "'.$idShop.'"');
+    $request->execute(array());
+    $result = $request->fetch();
+    return $result;
+}
+
+function changeUserShop($idShop)
+{
+  require("config.php");
+  $req= 'UPDATE userShop SET lumière = :lumière + lumière, température = :température + température, fumée = :fumée + fumée, mouvement = :mouvement + mouvement
+                WHERE id_userShop = "'.$idShop.'"';
+  $reqp= $pdo->prepare($req);
+  $reqp ->execute(array('lumière'=>$_POST['number1_0'], 'température'=>$_POST['number1_1'],'mouvement'=>$_POST['number1_2'],'fumée'=>$_POST['number1_3']));
+
+}
 ?>

@@ -3,8 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="./public/css/style.css" />
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">  
+	<?php include 'backEnd/globalHead.php'; ?>
 	<title><?= base::websiteName ?>| <?= profile::pageName ?></title>
 </head>
 <?php 
@@ -12,14 +11,13 @@ include 'backEnd/header.php';
 $email=$_SESSION['email'];
 $resultat = getUserData($email);
 changeUserData($email);
-
 ?>
 
 <body>
 	<div id="Profil">
 	<h2 id="title"><?= profile::profileMan ?></h2>
       <hr>
-      <form method="post" action="userprofile">
+      <form method="post" action="userProfile">
         <p>
         
 		<div class="input-group">
@@ -40,7 +38,12 @@ changeUserData($email);
 		</div>
 		<div class="input-group">
 			<label><?= profile::modifySex ?></label>
-			<input type="text" name="gender" value= "<?php echo htmlentities($resultat['gender']) ?>" >
+			<select name="gender">
+					<option value="gender" selected="selected"><?php echo htmlentities($resultat['gender']) ?></option>
+					<option value="male"><?= profile::man ?></option>
+					<option value="female"><?= profile::woman ?></option>
+					<option value="other"><?= profile::other ?></option>
+			</select>
 		</div>
 		<div class="input-group">
 			<label><?= profile::contact ?></label>
@@ -77,6 +80,7 @@ changeUserData($email);
 			</p>
 		</div>
 	</div>
+	<?php include 'backEnd/footer.php' ?>
 </body>
 </html>
 
