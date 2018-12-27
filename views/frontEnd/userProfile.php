@@ -77,6 +77,8 @@ changeUserData($email);
 				<?= profile::tech ?>
 				<br>
 				<?= profile::intrus?>
+				<br>
+				Vous avez commandé <?php echo htmlentities($resultat2['lumiere']) ?> capteurs de lumiere, <?php echo htmlentities($resultat2['temperature']) ?> capteurs de température, <?php echo htmlentities($resultat2['mouvement']) ?> capteurs de mouvement et <?php echo htmlentities($resultat2['fumee']) ?> capteurs de fumée ! 
 			</p>
 		</div>
 	</div>
