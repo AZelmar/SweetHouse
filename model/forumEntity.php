@@ -26,17 +26,17 @@ function getUserId($email){
         echo $e;
     }
 }
-/*
 
 function displayFormulaire (){
 
-    $request = $pdo->prepare('SELECT id_commentaire, id_client, pseudo, subject, date_commentaire, commentaire, admin_answer FROM formulaire');
-    $request ->execute();
+    require '../model/config.php';
+
+    $request = $pdo->prepare('SELECT * FROM formulaire ORDER BY formulaire.id_commentaire DESC LIMIT 10');
+    $request ->execute(array());
     $result = $request->fetchAll();
     return $result;
 
-    var_dump($result);
 
 }
-*/
+
 ?>
