@@ -12,6 +12,8 @@ const forum = "Forum";
 const contact = "Contactez-nous !";
 const houseControl = "Gestion Maison";
 const profileControl = "Gestion Profil";
+const adminManagement = "Gestion Admin";
+const adminProfil = "Profil Admin";
 const logout = "Déconnexion";
 const shop ="Magasin";
 }
