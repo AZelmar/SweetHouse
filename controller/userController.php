@@ -28,6 +28,9 @@ function userProfile($locale)
   require('frontEnd/userProfile.php');
 }
 
+function gestion_rdv($locale){
+    require('frontEnd/GestionRDV.php');
+}
 
 function gestion_capteurs($locale){
     require ('frontEnd/GestionCapteurs.php');
