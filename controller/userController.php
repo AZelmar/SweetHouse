@@ -10,6 +10,7 @@ if (isset($_COOKIE['keep_log'])) {
     {
       if ($result['email'] != null && $result['ip'] == hash('sha512', $_SERVER['REMOTE_ADDR'])) {
           $_SESSION["email"] = $result['email'];
+          $_SESSION["role"] = $result['role'];
       }
     }
 }
@@ -28,6 +29,9 @@ function userProfile($locale)
   require('frontEnd/userProfile.php');
 }
 
+function gestion_rdv($locale){
+    require('frontEnd/GestionRDV.php');
+}
 
 function gestion_capteurs($locale){
     require ('frontEnd/GestionCapteurs.php');
@@ -174,6 +178,7 @@ function accountLogin($locale)
             if (password_verify($_POST['password'], $result['password'])) {
                 if ($result['active'] == 1) {
                     $_SESSION["email"] = $result['email'];
+                    $_SESSION['role'] = $result['role'];
                     if (isset($_POST['remember'])) {
                         $ip         = hash('sha512', $_SERVER['REMOTE_ADDR']);
                         $userId     = $result['userId'];

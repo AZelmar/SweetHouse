@@ -12,6 +12,8 @@ const forum = "Forum";
 const contact = "Contact us !";
 const houseControl = "House Management";
 const profileControl = "Profile Management";
+const adminManagement = "Admin Management";
+const adminProfil = "Admin Profil";
 const logout = "Logout";
 const shop= "Shop";
 }
@@ -104,5 +106,11 @@ const other="other";
 
 class shop{
 const pageName = "Shop";
+const addSensors= "Add_sensors";
+const livingRoom= "Living Room";
+const room= "Room";
+const kitchen= "kitchen";
+const bathroom= "Bathroom";
+
 }
 ?>

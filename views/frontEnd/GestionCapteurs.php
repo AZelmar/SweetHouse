@@ -6,16 +6,14 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./public/css/style.css" />
+<?php include '../views/backEnd/header.php';?> 
 
 </head>
 
 
 <body>
 
-<?php include '../views/backEnd/header.php'; ?>
 
-
- 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript">
@@ -81,17 +79,17 @@
   
 
 <label class="switch1">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['smoke']) ?>">
   <span class="slider round"></span>
 </label>
 
 <label class="switch2">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['lumen']) ?>">
   <span class="slider round"></span>
 </label>
 
 <label class="switch3">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['temperature']) ?>" >
   <span class="slider round"></span>
 </label>
 
@@ -127,24 +125,24 @@
 
 
 <label class="switch1">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['smoke']) ?>" >
   <span class="slider round"></span>
 </label>
 
 
 <label class="switch2">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['lumen']) ?>" >
   <span class="slider round"></span>
 </label>
 
 <label class="switch3">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['temperature']) ?>" >
   <span class="slider round"></span>
 </label>
 
 
 <label class="switch4">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['humidity']) ?>" >
   <span class="slider round"></span>
 </label>
 
@@ -172,18 +170,18 @@
       </div>
 
 <label class="switch1">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['lumen']) ?>" >
   <span class="slider round"></span>
 </label>
 
 <label class="switch2">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo ($resultat['temperature']) ?>">
   <span class="slider round"></span>
 </label>
 
 
 <label class="switch3">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo ($resultat['humidity']) ?>">
   <span class="slider round"></span>
 </label>
 
@@ -228,26 +226,26 @@
 
 
 <label class="switch1">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['smoke']) ?>" >
   <span class="slider round"></span>
 </label>
 
 <label class="switch2">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['lumen']) ?>" >
   <span class="slider round"></span>
 </label>
 
 <label class="switch3">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['temperature']) ?>" >
   <span class="slider round"></span>
 </label>
 
 <label class="switch4">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['humidity']) ?>" >
   <span class="slider round"></span>
 
 <label class="switch5">
-  <input type="checkbox" checked>
+  <input type="checkbox" checked value= "<?php echo($resultat['security']) ?>" >
   <span class="slider round"></span>
 
 </label>
@@ -412,7 +410,7 @@ li a:focus {
   display: inline-block;
   width: 60px;
   height: 33px;
-  margin-top: 47%;
+  margin-top: 46%;
   margin-left:  45%; 
 
  } 
@@ -530,6 +528,7 @@ h4 {
   text-align: center;
   bottom:100px;
   color: #f76262;
+  border
 
 }
 
@@ -577,5 +576,6 @@ h4 {
 
 </style>
 </body>
+<?php include 'backEnd/footer.php' ?>
 </html>
 
