@@ -73,6 +73,7 @@ const inputSubmit = "Valider";
 }
 class error404{
 const pageName = "Erreur 404";	
+const message = "Cette page n'existe pas !";
 }
 class download{
 const pageName = "Télechargement de fichier";	
@@ -106,7 +107,7 @@ const other="Autre";
 
 class shop{
 const pageName ="Magasin";
-const addSensors= "Ajout_de_capteurs";
+const addSensors= "Ajout de capteurs";
 const livingRoom= "Salon";
 const room= "Chambre";
 const kitchen= "Cuisine";
