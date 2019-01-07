@@ -35,7 +35,7 @@ else
   {
     ?>
    <li><a href="././adminManagement"><p><?= header::adminManagement ?></p></a></li>
-  <li><a href="././adminProfil"><p><?= header::adminProfil ?></p></a></li>   
+  <li><a href="././adminProfile"><p><?= header::adminProfil ?></p></a></li>   
     <?php
   }
   ?>
