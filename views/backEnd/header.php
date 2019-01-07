@@ -22,9 +22,23 @@ else
   ?>
   <ul class="navigation">
    <a href="././home"><li id="logo-li"><img id="logo" src="./public/images/logo.png"></li></a>
+   <?php
+   if($_SESSION['role'] == 0)
+   {
+   ?>
   <li><a href=""><p><?= header::houseControl ?></p></a></li>
   <li><a href="././userProfile"><p><?= header::profileControl ?></p></a></li>
-  <li><a href="././shop"><p><?= header::shop ?></p></a></li>
+    <li><a href="././shop"><p><?= header::shop ?></p></a></li>
+  <?php
+  }
+  elseif($_SESSION['role'] == 2)
+  {
+    ?>
+   <li><a href="././adminManagement"><p><?= header::adminManagement ?></p></a></li>
+  <li><a href="././adminProfil"><p><?= header::adminProfil ?></p></a></li>   
+    <?php
+  }
+  ?>
   <li><a href="././logout"><p><?= header::logout ?></p></a></li>
    <li class="toggleSubMenu"><a><p><?= header::help ?> <i class="fas fa-arrow-left"></i></p></a>
     <ul class="subMenu">
