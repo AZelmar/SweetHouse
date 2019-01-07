@@ -106,13 +106,21 @@ function getUserShop($idShop)
     return $result;
 }
 
-function changeUserShop($idShop)
+function changeUserShop($idShop,$lumiere,$temperature,$mouvement,$fumee)
 {
   require("config.php");
-  $req= 'UPDATE userShop SET lumière = :lumière + lumière, température = :température + température, fumée = :fumée + fumée, mouvement = :mouvement + mouvement
+  $req= 'UPDATE userShop SET lumiere = lumiere + "'.$lumiere.'" , temperature = temperature + "'.$temperature.'", fumee =fumee + "'.$fumee.'", mouvement = mouvement + "'.$mouvement.'"
                 WHERE id_userShop = "'.$idShop.'"';
   $reqp= $pdo->prepare($req);
-  $reqp ->execute(array('lumière'=>$_POST['number1_0'], 'température'=>$_POST['number1_1'],'mouvement'=>$_POST['number1_2'],'fumée'=>$_POST['number1_3']));
+  $reqp ->execute(array());
+
+}
+
+function createUserShop($idShop){
+    require("config.php");
+    $req= 'INSERT INTO `userShop`(`id_userShop`, `lumiere`, `temperature`, `humidite`, `fumee`, `mouvement`, `debit`) VALUES ("'.$idShop.'",0,0,0,0,0,0)';
+    $reqp= $pdo->prepare($req);
+    $reqp ->execute(array());
 
 }
 ?>

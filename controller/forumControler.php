@@ -1,5 +1,5 @@
 <?php
-
+/*
 require ('../model/forumEntity.php');
 
 function faq ($locale){
@@ -36,7 +36,7 @@ function forum ($locale){
 
     else {
         $notification = array("type" => "error", "message" => "Vous devez être connecté pour visualiser les commentaire");
-    }*/
+    }
 
 
     require ('../views/frontEnd/forum.php');
@@ -63,7 +63,7 @@ function afficherFormulaire (){
 
 function returnUserId($email){
 
-   /* try {
+    try {
 
         if ($_SESSION['email'] == null) {
             $notification = array("type" => "error", "message" => "Impossible de déterminer vos informations, vérifier que vous êtes bien connecté ! ");
@@ -82,9 +82,9 @@ function returnUserId($email){
 
     catch (Exception $e){
         echo $e;
-    }*/
+    }
 }
-
+*/
 ?>
 
 

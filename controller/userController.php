@@ -21,6 +21,10 @@ function home($locale)
 
 function userProfile($locale)
 {
+  $email=$_SESSION['email'];  
+  $resultat=getUserData($email);
+  $idShop=$resultat['userId'];
+  $resultat2=getUserShop($idShop);
   require('frontEnd/userProfile.php');
 }
 
@@ -40,12 +44,39 @@ function userShop($locale)
                     "message" => "Vous devez être connecté !");
                 }
             else {
-                $notification = array(
-                    "type" => "success",
-                    "message" => "Ajout de capteurs réussis !");
+                $email=$_SESSION['email'];
+                $resultat=getUserData($email);
+
+                $idShop=$resultat['userId'];
+
+                $resultat2=getUserShop($idShop);
+                $idShopExists=$resultat2['id_userShop'];
+
+                $lumiere = isset($_POST['number1_0']) ? $_POST['number1_0'] : NULL;
+                $temperature = isset($_POST['number1_1'])  ? $_POST['number1_1'] : NULL;
+                $mouvement= isset($_POST['number1_2'])  ? $_POST['number1_2'] : NULL;
+                $fumee = isset($_POST['number1_3'])  ? $_POST['number1_3'] : NULL;
+
+                if ($idShopExists==NULL){
+                    createUserShop($idShop);
+                    changeUserShop($idShop,$lumiere,$temperature,$mouvement,$fumee);
+
                 }
 
+                else {
+                    changeUserShop($idShop,$lumiere,$temperature,$mouvement,$fumee);
+                }
+
+
+                $notification = array(
+                    "type" => "success",
+                    "message" => "Ajout de capteurs réussis !" );
+
+                }
+
+
         }
+
     require('frontEnd/shop.php');
 }
 
@@ -375,27 +406,6 @@ function changeUserData($email)
         }
 }
 
-function addShopItems($email)
-{
-    if (isset($_POST['validerMagasin']) )
-        {
-            if(!isset($_SESSION["email"])) {
-                $notification = array(
-                    "type" => "error",
-                    "message" => "Vous devez être connecté !");
-                }
-            else {
-                $resultat=getUserData($email);
-                $idShop=$resultat['userId'];
-                changeUserShop($idShop);
 
-                $notification = array(
-                    "type" => "success",
-                    "message" => "Ajout de capteurs réussis !");
-                }
-
-        }
-
-}
 
 ?> 

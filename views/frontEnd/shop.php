@@ -76,8 +76,8 @@ div.desc {
 
 #validerMagasin {
   float: right;
-  margin-top: 650px;
-  margin-right: 100px;
+  margin-top: 500px;
+  margin-right: 200px;
   border: 2px solid black;
   padding: 30px 50px;
   font-size: 16px;
@@ -108,7 +108,7 @@ div.desc {
 <form method="POST">
 
 <ul id="tabs">
-    <li><a href="#" name="tab1">Salon</a></li>
+    <li><a href="#" name="tab1">Salon </a></li>
     <li><a href="#" name="tab2">Chambre</a></li>
     <li><a href="#" name="tab3">Cuisine</a></li>
     <li><a href="#" name="tab4">Salle de bain</a></li>
@@ -405,7 +405,7 @@ div.desc {
           <img src="./public/images/capteurCO2.png" alt="capteurCO2" width="800" height="800">
           <div class="desc">
             <label>
-              <h3>Capteur de fumée</h3>
+              <h3>Capteur de fumée </h3>
               <br>
               Nombre de capteurs :
               <input
@@ -425,10 +425,6 @@ div.desc {
 <input type="submit" name="validerMagasin" value="Ajout des capteurs" id="validerMagasin">
 </form>
 
-<?php
-$email=$_SESSION['email'];
-addShopItems($email);
-?>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript">
