@@ -76,8 +76,8 @@ div.desc {
 
 #validerMagasin {
   float: right;
-  margin-top: 650px;
-  margin-right: 100px;
+  margin-top: 500px;
+  margin-right: 200px;
   border: 2px solid black;
   padding: 30px 50px;
   font-size: 16px;
