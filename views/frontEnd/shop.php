@@ -11,15 +11,12 @@
 div.gallery {
   margin: 7px;
   border: 1px solid gray;
-  float: left;
+  display: inline-block;
   width: 300px;
   margin-top: 30px;
   background-color: #f76262;
 }
 
-div.gallery:hover {
-  border: 3px solid black;
-}
 
 div.gallery img {
   width: 100%;
@@ -35,7 +32,6 @@ div.desc {
   overflow: hidden;
   border: 2px solid black;
   background-color: #216583;
-  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -64,29 +60,17 @@ div.desc {
     float: left;
     color: #444;
 }
-
-#content {
-    width: 100%;
-    position: relative;
-
-
-
-  }
 /* Style the tab content */
 
 #validerMagasin {
-  float: right;
-  margin-top: 500px;
-  margin-right: 200px;
   border: 2px solid black;
   padding: 30px 50px;
   font-size: 16px;
-  text-align:center;
-  display: inline-block;
+  margin-top: 15px;
+  margin-left: 15px;
   color: white;
   border-radius: 20px;
   background-color: #f76262;
-  position: absolute;
 }
 
 #validerMagasin:hover {
