@@ -12,6 +12,8 @@ const forum = "Forum";
 const contact = "Contactez-nous !";
 const houseControl = "Gestion Maison";
 const profileControl = "Gestion Profil";
+const adminManagement = "Gestion Admin";
+const adminProfil = "Profil Admin";
 const logout = "Déconnexion";
 const shop ="Magasin";
 }
@@ -104,5 +106,10 @@ const other="Autre";
 
 class shop{
 const pageName ="Magasin";
+const addSensors= "Ajout_de_capteurs";
+const livingRoom= "Salon";
+const room= "Chambre";
+const kitchen= "Cuisine";
+const bathroom= "Salle de bain";
 }
 ?>

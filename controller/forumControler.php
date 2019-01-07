@@ -2,15 +2,15 @@
 /*
 require ('../model/forumEntity.php');
 
-<<<<<<< HEAD
-=======
 function faq ($locale){
     require('../views/frontEnd/faq.php');
 }
 
 
 function formSubmit($locale){
->>>>>>> 67d81d89b9cd2c737b8abec577ebd1cac79dfdbe
+
+
+}
 
 function forum ($locale){
 
