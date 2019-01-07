@@ -104,5 +104,10 @@ const other="Autre";
 
 class shop{
 const pageName ="Magasin";
+const addSensors= "Ajout_de_capteurs";
+const livingRoom= "Salon";
+const room= "Chambre";
+const kitchen= "Cuisine";
+const bathroom= "Salle de bain";
 }
 ?>

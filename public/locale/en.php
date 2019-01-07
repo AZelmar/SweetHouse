@@ -104,5 +104,11 @@ const other="other";
 
 class shop{
 const pageName = "Shop";
+const addSensors= "Add_sensors";
+const livingRoom= "Living Room";
+const room= "Room";
+const kitchen= "kitchen";
+const bathroom= "Bathroom";
+
 }
 ?>
