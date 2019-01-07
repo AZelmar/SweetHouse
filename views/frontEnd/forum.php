@@ -1,13 +1,15 @@
 
 <?php
-include('../public/locale/'.$locale.'.php');
+include ('../public/locale/'.$locale.'.php');
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>SweetHouse</title>
-    <link href="./public/css/style.css" rel="stylesheet" media="all">
+    <?php include ('../views/backEnd/globalHead.php'); ?>
+
     <link href="./public/css/style_forum.css" rel="stylesheet" media="all">
 </head>
 
@@ -15,8 +17,9 @@ include('../public/locale/'.$locale.'.php');
 <?php
     include '../views/backEnd/header.php';
     include '../views/backEnd/notification.php';
+    include '../views/backEnd/footer.php';
 ?>
-<a href="./home" <button class="button">Retour à la page d'acceuil</button> </a>
+<a href="./home" <button class="button"> Retour à la page d'acceuil</button> </a>
 
 <h1>Forum </h1>
 
@@ -32,8 +35,9 @@ include('../public/locale/'.$locale.'.php');
             <option value="Autres "> Autres, pour toutes autres questions ne rentrant pas dans les précédents choix </option>
         </select>
     </label>
-    <br><br>
-    <div class = id_client> Votre numéro client : <?php echo $resultat ?> </div>
+    <br>
+    <br>
+    <div class = id_client> Votre numéro client : <?php echo $userId ?> </div>
     <br>
     <div class = email> Votre adresse mail : <?php echo $_SESSION['email'] ?> </div>
     <br>
@@ -54,7 +58,6 @@ include('../public/locale/'.$locale.'.php');
 <h2> Observer les questions déjà posées </h2>
 
 <h3> Vous pouvez répondre lire les questions ci-dessous. Attention à ne pas répéter régulièrement la même question et faites un tour sur la FAQ avant !</h3>
-
 
 
 <!---------------------------------- Affichage commentaire ------------------------------------------>
@@ -83,12 +86,12 @@ include('../public/locale/'.$locale.'.php');
         </th>
     </tr>
     <tr>
-        <td><?php echo $numero_commentaire?></td>
-        <td><?php echo$numero_client?> </td>
-        <td><?php echo $pseudo?></td>
-        <td><?php echo $mail?></td>
-        <td><?php echo $subject?></td>
-        <td><?php echo $date?></td>
+        <td><?//php echo $numero_commentaire?></td>
+        <td><?//php echo$numero_client?> </td>
+        <td><?//php echo $pseudo?></td>
+        <td><?//php echo $mail?></td>
+        <td><?//php echo $subject?></td>
+        <td><?//php echo $date?></td>
     </tr>
 </table>
 </br>
@@ -96,11 +99,11 @@ include('../public/locale/'.$locale.'.php');
 <p class="titre1"> Question </p>
 
 <p class="commentaire">
-    <?php echo $commentaire;?>
+    <?php //echo $commentaire;?>
 </p>
 
 <p class="reponse_administrateur">
-    <?php echo $reponse_administrateur;?>
+    <?php //echo $reponse_administrateur;?>
 </p>
 
 </br>

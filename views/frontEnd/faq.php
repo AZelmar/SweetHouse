@@ -1,4 +1,5 @@
-<?php include('../public/locale/'.$locale.'.php');?>
+<?php include('../public/locale/'.$locale.'.php');
+?>
 
 <!DOCTYPE html>
 <html>
@@ -6,11 +7,14 @@
 <head>
     <title>SweetHouse | Foire aux questions</title>
     <meta charset="UTF-8">
+    <?php include ('../views/backEnd/globalHead.php'); ?>
+
 </head>
 <body>
 
 <?php
     include "../views/backEnd/header.php";
+    include '../views.backEnd/footer.php';
 ?>
 
 <h1><div class="titre-question">
