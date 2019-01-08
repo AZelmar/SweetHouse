@@ -41,7 +41,7 @@ function forum ($locale){
 }
 
 function faq ($locale){
-    require('../views/frontEnd/FAQ.php');
+    require('../views/frontEnd/faq.php');
 }
 
 /*
