@@ -52,20 +52,21 @@
     </style>
 
 <table>
+
 <?php
     $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
-    $rdv["Dimanche"]["8:00"] = "injdfv";
-    $rdv["Lundi"]["9:00"] = "nigffg";
+    $rdv["Dimanche"]["8:00"] = "henni";
+    $rdv["Lundi"]["9:00"] = "cdsjjk";
     echo "<tr><th>Heure</th>";
     for($x = 1; $x < 8; $x++)
         echo "<th>".$jour[$x]."</th>";
     echo "</tr>";
-    for($j = 0; $j < 24; $j += 0.5) {
+    for($j = 8; $j < 24; $j += 0.5) {
         echo "<tr>";
         for($i = 0; $i < 7; $i++) {
             if($i == 0) {
-                $heure = str_replace(".5", ":30", $j);
-                echo "<td class=\"time\">".$heure."</td>";
+                $heure = str_replace(".5", "h30", $j);
+                echo "<td class=\"time\">".$heure."H"."</td>";
             }
             echo "<td>";
             if(isset($rdv[$jour[$i+1]][$heure])) {
