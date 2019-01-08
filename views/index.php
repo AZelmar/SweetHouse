@@ -29,7 +29,7 @@ switch ($route) {
         accountRegister($locale);
         break;
     case 'login' :
-        accountLogin($locale);
+        accountLogin($locale,null);
         break;
     case 'logout' :
         accountLogout($locale);
