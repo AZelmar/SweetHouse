@@ -109,13 +109,45 @@ include 'backEnd/footer.php';
 
 .box {
   float: left;
-  width: 33.33%;
-  padding: 50px;
+  width: 33.3%;
+  padding: 100px;
 }
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
+
+
+body{
+	text-align: center;
+	font-weight: normal;
+    font-style:normal;
+    background-size :cover;
+    cursor:auto;
+    padding: 0;
+	margin:0;
+	background-color:#cffdf8
 }
+
+#title{
+	text-align: center;
+}
+.input-group{
+	margin-top: 10px;
+	padding:55px;
+	float:left;
+}
+label{
+	display: inline-block;
+}
+
+#Profil {
+	margin:auto;
+	border: 3px solid black;
+	padding: auto;
+	background-color: #65c0ba;
+	color: black;
+	
+
+
+
+}
+
 </style>
