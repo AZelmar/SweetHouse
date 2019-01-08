@@ -3,6 +3,8 @@ session_start();
 require("../controller/userController.php");
 require("../controller/baseController.php");
 require ("../controller/forumControler.php");
+require ("../controller/adminController.php");
+
 $request = $_SERVER['REDIRECT_URL'];
 //$request = str_replace("/eleves/SweetHouse", "",$request);
 $basename = str_replace("/views","",dirname($_SERVER["PHP_SELF"]));
@@ -60,8 +62,11 @@ switch ($route) {
     case 'shop':
         userShop($locale);
         break;
+
     case 'gestion_rdv':
         gestion_rdv($locale);
+    case 'adminProfile':
+        adminProfile($locale);
         break;
     default:
         error404($locale);

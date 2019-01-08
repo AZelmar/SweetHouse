@@ -406,7 +406,7 @@ div.desc {
 
 
 </div>
-<input type="submit" name="validerMagasin" value=<?= shop::addSensors ?> id="validerMagasin">
+<input type="submit" name="validerMagasin" value="<?= shop::addSensors ?>" id="validerMagasin">
 </form>
 
 

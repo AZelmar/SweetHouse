@@ -63,6 +63,13 @@ include ('../public/locale/'.$locale.'.php');
 <!---------------------------------- Affichage commentaire ------------------------------------------>
 
 
+
+
+    <?php
+    $counter = 0;
+    while($counter < 10){
+    ?>
+
 <table>
     <tr>
         <th>
@@ -86,28 +93,36 @@ include ('../public/locale/'.$locale.'.php');
         </th>
     </tr>
     <tr>
-        <td><?//php echo $numero_commentaire?></td>
-        <td><?//php echo$numero_client?> </td>
-        <td><?//php echo $pseudo?></td>
-        <td><?//php echo $mail?></td>
-        <td><?//php echo $subject?></td>
-        <td><?//php echo $date?></td>
+        <td><?php echo $userdata[$counter]['id_commentaire']; ?></td>
+        <td><?php echo $userdata[$counter]['id_client']; ?> </td>
+        <td><?php echo $userdata[$counter]['pseudo']; ?></td>
+        <td><?php echo $userdata[$counter]['mail']; ?></td>
+        <td><?php echo $userdata[$counter]['subject']; ?></td>
+        <td><?php echo $userdata[$counter]['date_commentaire']; ?></td>
     </tr>
+
 </table>
 </br>
 
 <p class="titre1"> Question </p>
 
 <p class="commentaire">
-    <?php //echo $commentaire;?>
+    <?php echo $userdata[$counter]['commentaire'];?>
 </p>
 
 <p class="reponse_administrateur">
-    <?php //echo $reponse_administrateur;?>
+    <?php
+
+    if ($userdata[$counter]['admin_answer'] == null){ echo "L'administrateur n'a pas encore répondu à ce commentaire, il répondra bientôt ! ";}
+    else { echo $userdata[$counter]['admin_answer']; } ?>
 </p>
 
+    <?php
+        $counter++;
+    } ?>
 </br>
 <hr>
 </br>
 </body>
+
 </html>

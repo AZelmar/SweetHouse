@@ -9,6 +9,7 @@
 <body>
 	<?php include 'backEnd/header.php' ?>
 	<?php include 'backEnd/notification.php' ?>
+	<div class="notification notification_error"><?= error404::message ?></div>
 	<?php include 'backEnd/footer.php' ?>
 </body>
 </html>

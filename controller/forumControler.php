@@ -19,6 +19,23 @@ function forum ($locale){
         }
     }
 
+    try{
+
+        if ($_SESSION['email'] == null) {
+                $notification = array("type" => "error", "message" => "Impossible de déterminer vos informations, vérifier que vous êtes bien connecté ! ");
+                $num_client = 'Inconnu';
+            }
+
+        else {
+                $userdata = displayFormulaire();
+        }
+
+    }
+
+    catch (Exception $e){
+        echo $e;
+    }
+
     require ('../views/frontEnd/forum.php');
 
 }

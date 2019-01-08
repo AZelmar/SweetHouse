@@ -72,7 +72,8 @@ const inputPasswordConfirm = "Confirm new password :";
 const inputSubmit = "Submit";
 }
 class error404{
-const pageName = "Error 404";	
+const pageName = "Error 404";
+const message = "This page doesn't exist !";
 }
 class download{
 const pageName = "Download File";	
