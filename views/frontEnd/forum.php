@@ -93,7 +93,7 @@ include ('../public/locale/'.$locale.'.php');
         </th>
     </tr>
     <tr>
-        <td><?php echo $userdata[$counter]['id_commentaire']; ?></td>
+        <td><?php echo $userdata[$counter]['id_sujet']; ?></td>
         <td><?php echo $userdata[$counter]['id_client']; ?> </td>
         <td><?php echo $userdata[$counter]['pseudo']; ?></td>
         <td><?php echo $userdata[$counter]['mail']; ?></td>
