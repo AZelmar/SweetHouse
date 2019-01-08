@@ -12,9 +12,8 @@ include 'backEnd/footer.php';
 ?>
 
 <div class="clearfix">
-  <div class="box" style="background-color:#bbb">
-  <div id="Profil">
-	<h2 id="title"> Votre profil :</h2>
+  <div class="box" >
+	<h2 id="title"> Gestion Utilisateur :</h2>
       <hr>
       <form method="post" action="adminProfile">
         <p>
@@ -38,12 +37,10 @@ include 'backEnd/footer.php';
 		<input type="submit" name="valider" value= Modifier >
       </form>
   </div>
-  </div>
 
 
-  <div class="box" style="background-color:#ccc">
-  <div id="Profil">
-	<h2 id="title"> Votre profil :</h2>
+  <div class="box">
+	<h2 id="title"> Gestion Technicien :</h2>
       <hr>
       <form method="post" action="adminProfile">
         <p>
@@ -67,12 +64,10 @@ include 'backEnd/footer.php';
 		<input type="submit" name="valider" value= Modifier >
       </form>
   </div>
-  </div>
 
 
-  <div class="box" style="background-color:#ddd">
-  <div id="Profil">
-	<h2 id="title"> Votre profil :</h2>
+  <div class="box" >
+	<h2 id="title"> Gestion Capteurs :</h2>
       <hr>
       <form method="post" action="adminProfile">
         <p>
@@ -96,7 +91,6 @@ include 'backEnd/footer.php';
 		<input type="submit" name="valider" value= Modifier >
       </form>
   </div>
-  </div>
 </div>
 
 </body>
@@ -109,8 +103,12 @@ include 'backEnd/footer.php';
 
 .box {
   float: left;
-  width: 33.3%;
-  padding: 100px;
+  width: 33.33%;
+  padding:100px;
+  margin:auto;
+  border: 3px solid black;
+  background-color: #65c0ba;
+
 }
 
 
@@ -123,7 +121,7 @@ body{
     cursor:auto;
     padding: 0;
 	margin:0;
-	background-color:#cffdf8
+	background-color:#cffdf8;
 }
 
 #title{
@@ -133,21 +131,10 @@ body{
 	margin-top: 10px;
 	padding:55px;
 	float:left;
+
 }
 label{
 	display: inline-block;
-}
-
-#Profil {
-	margin:auto;
-	border: 3px solid black;
-	padding: auto;
-	background-color: #65c0ba;
-	color: black;
-	
-
-
-
 }
 
 </style>
