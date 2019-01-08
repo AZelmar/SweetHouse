@@ -16,6 +16,7 @@ const adminManagement = "Admin Management";
 const adminProfil = "Admin Profil";
 const logout = "Logout";
 const shop= "Shop";
+const forumAdministrator = "Administrator Forum";
 }
 class footer{
 const copyright = "©SweetHouse 2018";
