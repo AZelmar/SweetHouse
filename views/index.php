@@ -60,6 +60,9 @@ switch ($route) {
     case 'shop':
         userShop($locale);
         break;
+    case 'gestion_rdv':
+        gestion_rdv($locale);
+        break;
     default:
         error404($locale);
         break;
