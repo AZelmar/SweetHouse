@@ -4,6 +4,12 @@ require ('../model/forumEntity.php');
 
 function forum ($locale){
 
+    if(!isset($_SESSION["email"])) {
+        $notification = array(
+                    "type" => "error",
+                    "message" => "Vous devez être connecté !");
+                }
+    else {
 
     $userId = returnUserId($_SESSION['email']);
 
@@ -35,7 +41,7 @@ function forum ($locale){
     catch (Exception $e){
         echo $e;
     }
-
+}
     require ('../views/frontEnd/forum.php');
 
 }

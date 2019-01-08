@@ -27,3 +27,8 @@ function adminProfile($locale)
 
     require('frontEnd/adminProfile.php');
 }
+
+function adminManagement($locale)
+{
+    require('frontEnd/adminManagement.php');
+}
