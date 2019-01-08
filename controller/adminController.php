@@ -10,6 +10,7 @@ function adminProfile($locale)
     $resultat=getAdminData($email);
     $resultatMaison=getNewHouses();
     $achatsCapteurs=getNewSensors();
+    $resultatQuestion=getNewQuestions();
 
 	if (isset($_POST['valider']) )
         	{
