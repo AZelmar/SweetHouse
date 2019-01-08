@@ -31,7 +31,7 @@ function displayFormulaire (){
 
     require '../model/config.php';
 
-    $request = $pdo->prepare('SELECT * FROM formulaire ORDER BY formulaire.id_commentaire DESC LIMIT 10');
+    $request = $pdo->prepare('SELECT * FROM formulaire ORDER BY formulaire.id_sujet DESC LIMIT 10');
     $request ->execute(array());
     $result = $request->fetchAll();
     return $result;
