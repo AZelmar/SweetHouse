@@ -93,12 +93,12 @@ include ('../public/locale/'.$locale.'.php');
         </th>
     </tr>
     <tr>
-        <td><?php echo $userdata['id_commentaire'][$counter]; ?></td>
-        <td><?php echo $userdata['id_client'][$counter]; ?> </td>
-        <td><?php echo $userdata['pseudo'][$counter]; ?></td>
-        <td><?php echo $userdata['mail'][$counter]; ?></td>
-        <td><?php echo $userdata['subject'][$counter]; ?></td>
-        <td><?php echo $userdata['date_commentaire'][$counter]; ?></td>
+        <td><?php echo $userdata[$counter]['id_commentaire']; ?></td>
+        <td><?php echo $userdata[$counter]['id_client']; ?> </td>
+        <td><?php echo $userdata[$counter]['pseudo']; ?></td>
+        <td><?php echo $userdata[$counter]['mail']; ?></td>
+        <td><?php echo $userdata[$counter]['subject']; ?></td>
+        <td><?php echo $userdata[$counter]['date_commentaire']; ?></td>
     </tr>
 
 </table>
@@ -114,11 +114,11 @@ include ('../public/locale/'.$locale.'.php');
 
     <?php
 
-    if ($userdata['admin_answer'][$counter] == null){
+    if ($userdata[$counter]['admin_answer'] == null){
         echo "L'administrateur n'a pas encore répondu à ce commentaire, il répondra bientôt ! ";
     }
     else {
-        echo $userdata['admin_answer'][$counter];
+        echo $userdata[$counter]['admin_answer'];
     }
 
     ?>
