@@ -62,6 +62,9 @@ switch ($route) {
     case 'shop':
         userShop($locale);
         break;
+
+    case 'gestionRdv':
+        gestion_rdv($locale);
     case 'adminProfile':
         adminProfile($locale);
         break;
