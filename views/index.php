@@ -70,6 +70,9 @@ switch ($route) {
     case 'adminManagement':
         adminManagement($locale);
         break;
+    case 'forumAdministrateur':
+        forumAdministrateur($locale);
+        break;
     default:
         error404($locale);
         break;

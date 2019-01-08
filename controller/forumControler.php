@@ -46,6 +46,10 @@ function forum ($locale){
 
 }
 
+function forumAdministrateur($locale){
+    require ('../views/frontEnd/forumAdministrateur.php');
+}
+
 function faq ($locale){
     require('../views/frontEnd/faq.php');
 }
