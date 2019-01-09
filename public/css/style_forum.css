@@ -85,6 +85,7 @@ input:focus, textarea:focus {
 
 .boutton{
     text-align: center;
+    padding-bottom: 15px;
 
 }
 
@@ -149,15 +150,12 @@ table{
     padding-bottom: 3px;
 }
 
-hr{
-    color : black;
+hr {
+    color: black;
     background-color: black;
     border-color: black;
     height: 1px;
     margin-left: 5%;
     margin-right: 5%;
 }
-
-
-
 

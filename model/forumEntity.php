@@ -39,4 +39,16 @@ function displayFormulaire (){
 
 }
 
+function submitAdministratorForum($admin_answer, $id_sujet){
+    try {
+        require("config.php");
+        $request = $pdo->prepare('UPDATE formulaire SET admin_answer = :admin_answer WHERE formulaire.id_sujet = :id_sujet');
+        $request->execute(array("admin_answer" => $admin_answer, "id_sujet"=>$id_sujet));
+    }
+
+    catch (Exception $e){
+        echo 'Connexion échoué : ' . $e->getMessage();
+    }
+}
+
 ?>

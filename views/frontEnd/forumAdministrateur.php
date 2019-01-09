@@ -21,8 +21,23 @@ include '../views/backEnd/footer.php';
 
 <h1>Forum </h1>
 
-<h2> Poser sa question </h2>
+<h2> Répondre aux questions des utilisateurs </h2>
 
+<form method="post">
+
+    <label>
+        Entrez le numéro du commentaire auquel vous voulez répondre :
+        <input type="text" name ="numero_commentaire" placeholder="Numéro du commentaire" required="required">
+    </label>
+    <br>
+    <br>
+    <label>
+        Réponse administrateur :
+        <br>
+        <textarea name = "commentaire_administrateur" placeholder="Tapez votre réponse ici" required="required"></textarea>
+    </label>
+    <div class="boutton"> <input type="submit" value="Envoyer" name="submit"> </div>
+</form>
 
 <?php
     $counter = 0;
@@ -37,7 +52,7 @@ include '../views/backEnd/footer.php';
         <th>
             Numéro Client
         </th>
-        <th >
+        <th>
             Pseudo
         </th>
         <th>
@@ -61,33 +76,39 @@ include '../views/backEnd/footer.php';
     </tr>
 
 </table>
+
 </br>
 
 <p class="titre1"> Question </p>
 
 <p class="commentaire">
-    <?php echo $userdata[$counter]['commentaire'];?>
+    <?php echo $userdata[$counter]['commentaire']; ?>
 </p>
 
-<p class="reponse_administrateur">
+
+<p class="reponse_administrateur" name="commentaire_administrateur">
 
     <?php
 
-    if ($userdata[$counter]['admin_answer'] == null){
-        echo "L'administrateur n'a pas encore répondu à ce commentaire, il répondra bientôt ! ";
+    if ($userdata[$counter]['admin_answer'] == null) {
+        echo "L'administrateur n'a pas encore répondu à ce commentaire, il y répondra dès que possible ! ";
     }
+
     else {
         echo $userdata[$counter]['admin_answer'];
     }
 
-    ?>
-        <div class="boutton"> <input type="submit" value="Envoyer" name="submit"> </div>
+?>
 </p>
+<?php
+    $counter++;
+    }
 
-    <?php
-        $counter++;
-    } ?>
-</br>
+        ?>
+
+
+
 <hr>
+
 </br>
 </body>
