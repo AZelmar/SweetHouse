@@ -15,6 +15,12 @@ include 'backEnd/footer.php';
   <div class="box" >
 	<h2 id="title"> Gestion Utilisateur :</h2>
       <hr>
+      <select class="chosen-select" name="maisonUtilisateur" style="width:300px" ; id="maisonUtilisateur">
+      	<?php foreach ($maisons as $output) {?>
+      	<option><?php echo $output["userId"];echo " ";echo $output["lastName"];?></option>
+      	<?php }?>
+        
+	  </select>
       <form method="post" action="adminProfile">
         <p>
         
@@ -27,12 +33,7 @@ include 'backEnd/footer.php';
 			<input type="text" name="phoneNumber" value= "zopejroi" >
 		</div>
 		<div class="input-group">
-			<label>Vos rendez-vous :</label>
-			<select name="rdv">
-					<option value="1" selected="selected">24/01: Mme Chabchoub 13:30</option>
-					<option value="2">28/01: Mme Kazi 15:00</option>
-					<option value="3">02/02: M. Feller 17:00</option>
-			</select>
+			
 		</div>
 		<input type="submit" name="valider" value= Modifier >
       </form>
@@ -92,6 +93,12 @@ include 'backEnd/footer.php';
       </form>
   </div>
 </div>
+
+<script type="text/javascript" src="./public/js/chosen/chosen.jquery.js"></script>
+<script type="text/javascript">
+    $(".chosen-select").chosen();
+</script>
+
 
 </body>
 </html>

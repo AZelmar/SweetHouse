@@ -54,4 +54,16 @@ function getNewQuestions()
 	$resultatQuestion = $reqp->fetchColumn();
 	return $resultatQuestion;
 }
+
+function getAllHouses()
+{
+
+require("config.php");
+$req = $pdo->prepare('SELECT userId,lastName FROM user');		 				      
+$req->execute();
+$maisons=$req->fetchAll();
+return $maisons;
+
+}
+
 ?>

@@ -30,5 +30,6 @@ function adminProfile($locale)
 
 function adminManagement($locale)
 {
+    $maisons=getAllHouses();
     require('frontEnd/adminManagement.php');
 }
