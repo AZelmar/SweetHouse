@@ -8,51 +8,67 @@
 </head>
 <?php 
 include 'backEnd/header.php';
+include 'backEnd/notification.php';
 include 'backEnd/footer.php';
 ?>
-
+<form method="POST">
 <div class="clearfix">
   <div class="box" >
 	<h2 id="title"> Gestion Utilisateur :</h2>
       <hr>
-      <select class="chosen-select" name="maisonUtilisateur" style="width:300px" ; id="maisonUtilisateur">
-      	<?php foreach ($maisons as $output) {?>
-      	<option><?php echo $output["userId"];echo " ";echo $output["lastName"];?></option>
+      <select class="chosen-select" name="userId" style="width:300px" id="userId">
+      	<?php foreach ($clients as $output) {?>
+      	<option value="<?= $output['userId'] ?>"><?php echo $output["userId"];echo " ";echo $output["lastName"];?></option>
       	<?php }?>
-        
 	  </select>
-      <form method="post" action="adminProfile">
         <p>
-        
+  		<div class="input-group">
+			<label>Date inscription :</label>
+			<input type="text" name="userRegistration" disabled>
+		</div>  
+		  <div class="input-group">
+			<label>Prénom :</label>
+			<input type="text" name="userFirstName" disabled>
+		</div>  
+		 <div class="input-group">
+			<label>Etat du compte :</label>
+			<input type="number" name="userActive">
+		</div>      
 		<div class="input-group">
 			<label>Modifier mail :</label>
-			<input type="text" name="mail" value= "opzejfio" >
+			<input type="text" name="userMail" value= "opzejfio" >
 		</div>
 		<div class="input-group">
 			<label>Modifier numero de telephone :</label>
-			<input type="text" name="phoneNumber" value= "zopejroi" >
+			<input type="phone" name="userPhoneNumber" value= "zopejroi" >
 		</div>
 		<div class="input-group">
 			
 		</div>
-		<input type="submit" name="valider" value= Modifier >
-      </form>
+		<input type="submit" name="userSubmit" value= Modifier >
   </div>
 
 
   <div class="box">
 	<h2 id="title"> Gestion Technicien :</h2>
       <hr>
-      <form method="post" action="adminProfile">
-        <p>
         
+              <select class="chosen-select" name="technicianId" style="width:300px" id="technicianId">
+      	<?php foreach ($technicians as $output) {?>
+      	<option value="<?= $output['userId'] ?>"><?php echo $output["userId"];echo " ";echo $output["lastName"];?></option>
+      	<?php }?>
+	  </select>
+	  		  <div class="input-group">
+			<label>Prénom :</label>
+			<input type="text" name="technicianFirstName" disabled>
+		</div>  
 		<div class="input-group">
 			<label>Modifier mail :</label>
-			<input type="text" name="mail" value= "zpoefjpozej" >
+			<input type="text" name="technicianMail">
 		</div>
 		<div class="input-group">
 			<label>Modifier numero de telephone :</label>
-			<input type="text" name="phoneNumber" value= "kijfoijo" >
+			<input type="text" name="technicianPhoneNumber" value= "kijfoijo" >
 		</div>
 		<div class="input-group">
 			<label>Vos rendez-vous :</label>
@@ -62,8 +78,7 @@ include 'backEnd/footer.php';
 					<option value="3">02/02: M. Feller 17:00</option>
 			</select>
 		</div>
-		<input type="submit" name="valider" value= Modifier >
-      </form>
+		<input type="submit" name="technicianSubmit" value= Modifier >
   </div>
 
 
@@ -93,13 +108,50 @@ include 'backEnd/footer.php';
       </form>
   </div>
 </div>
-
+</form>
 <script type="text/javascript" src="./public/js/chosen/chosen.jquery.js"></script>
 <script type="text/javascript">
-    $(".chosen-select").chosen();
+	$("#userId").chosen();
+	$("#technicianId").chosen();
+	$(document).ready(function(){
+		loadUserInfo();
+		loadTechnicianInfo();
+	    $("#userId").change(function(){
+	    	loadUserInfo();
+	    });
+	    $("#technicianId").change(function(){
+	    	loadTechnicianInfo();
+	    });
+	    function loadUserInfo(){
+	    	$.ajax({
+			    type: "POST",
+			    url: "<?= $basename ?>/ajax/getUserInfo",
+			    data: {userId:  $("#userId").val()},
+			    success: function(data){
+			    	var userData = JSON.parse(data);
+			    	$("[name='userRegistration']").val(userData[4]);
+			    	$("[name='userFirstName']").val(userData[6]);
+			    	$("[name='userActive']").val(userData[2]);
+			    	$("[name='userMail']").val(userData[11]);
+			    	$("[name='userPhoneNumber']").val(userData[12]);
+			    }
+			});
+	    }
+ 		function loadTechnicianInfo(){
+	    	$.ajax({
+			    type: "POST",
+			    url: "<?= $basename ?>/ajax/getUserInfo",
+			    data: {userId:  $("#technicianId").val()},
+			    success: function(data){
+			    	var userData = JSON.parse(data);
+			    	$("[name='technicianFirstName']").val(userData[6]);
+			    	$("[name='technicianMail']").val(userData[11]);
+			    	$("[name='technicianPhoneNumber']").val(userData[12]);
+			    }
+			});
+	    }
+	});
 </script>
-
-
 </body>
 </html>
 
@@ -113,7 +165,7 @@ include 'backEnd/footer.php';
   width: 33.33%;
   padding:100px;
   margin:auto;
-  border: 3px solid black;
+  border-right: 3px solid black;
   background-color: #65c0ba;
 
 }
@@ -135,9 +187,7 @@ body{
 	text-align: center;
 }
 .input-group{
-	margin-top: 10px;
-	padding:55px;
-	float:left;
+	padding:15px;
 
 }
 label{

@@ -9,6 +9,7 @@
 <?php 
 include 'backEnd/header.php';
 include 'backEnd/footer.php';
+include 'backEnd/notification.php';
 ?>
 
 <body>
@@ -25,6 +26,14 @@ include 'backEnd/footer.php';
 		<div class="input-group">
 			<label>Modifier numero de telephone :</label>
 			<input type="text" name="phoneNumber" value= "<?php echo htmlentities($resultat['phone']) ?>" >
+		</div>
+		<div class="input-group">
+			<label>Entrez votre ancien mot de passe ( pour le changer ):</label>
+			<input type="password" name="oldPassword" >
+		</div>
+		<div class="input-group">
+			<label>Entrez votre nouveau mot de passe :</label>
+			<input type="password" name="newPassword" >
 		</div>
 		<div class="input-group">
 			<label>Vos rendez-vous :</label>
