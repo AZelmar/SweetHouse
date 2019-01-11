@@ -425,4 +425,10 @@ function isConnected($locale){
     accountLogin($locale,$notification);
     return false;
 }
+function getUserInfo(){
+    if(isset($_POST['userId']))
+    {
+        echo json_encode(getUserById());
+    }
+}
 ?> 

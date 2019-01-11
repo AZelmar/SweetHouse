@@ -65,7 +65,13 @@ function getNewQuestions()
 	$resultatQuestion = $reqp->fetchColumn();
 	return $resultatQuestion;
 }
-
+function updateUser()
+{
+	  require("config.php");
+	  $request= $pdo->prepare('UPDATE user SET active = :active, phone = :phone , email = :email WHERE userId = :id');
+	  $request ->execute(array('active'=>$_POST['userActive'],'phone'=>$_POST['userPhoneNumber'],'email'=>$_POST['userMail'],'id'=>$_POST['userId']));
+	  return $request->errorInfo()[2];
+}
 function getAllHouses()
 {
 
