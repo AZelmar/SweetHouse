@@ -72,15 +72,24 @@ function updateUser()
 	  $request ->execute(array('active'=>$_POST['userActive'],'phone'=>$_POST['userPhoneNumber'],'email'=>$_POST['userMail'],'id'=>$_POST['userId']));
 	  return $request->errorInfo()[2];
 }
-function getAllHouses()
+function getAllClient()
 {
 
 require("config.php");
-$req = $pdo->prepare('SELECT userId,lastName FROM user');		 				      
-$req->execute();
-$maisons=$req->fetchAll();
-return $maisons;
+$req = $pdo->prepare('SELECT userId,lastName FROM user WHERE role = :role');		 				      
+$req->execute(array("role" => 0));
+$clients=$req->fetchAll();
+return $clients;
 
 }
+function getAllTechnician()
+{
 
+require("config.php");
+$req = $pdo->prepare('SELECT userId,lastName FROM user WHERE role = :role');		 				      
+$req->execute(array("role" => 1));
+$technicians=$req->fetchAll();
+return $technicians;
+
+}
 ?>

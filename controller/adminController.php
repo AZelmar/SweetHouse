@@ -92,8 +92,8 @@ function adminManagement($locale)
                                 );
 		}
 	}
-    $maisons=getAllHouses();
+    $clients=getAllCLient();
+    $technicians=getAllTechnician();
     require('frontEnd/adminManagement.php');
-}
-}
+}}
 
