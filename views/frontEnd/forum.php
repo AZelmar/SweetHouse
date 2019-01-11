@@ -93,7 +93,7 @@ include ('../public/locale/'.$locale.'.php');
         </th>
     </tr>
     <tr>
-        <td><?php echo $userdata[$counter]['id_commentaire']; ?></td>
+        <td><?php echo $userdata[$counter]['id_sujet']; ?></td>
         <td><?php echo $userdata[$counter]['id_client']; ?> </td>
         <td><?php echo $userdata[$counter]['pseudo']; ?></td>
         <td><?php echo $userdata[$counter]['mail']; ?></td>
@@ -111,10 +111,17 @@ include ('../public/locale/'.$locale.'.php');
 </p>
 
 <p class="reponse_administrateur">
+
     <?php
 
-    if ($userdata[$counter]['admin_answer'] == null){ echo "L'administrateur n'a pas encore répondu à ce commentaire, il répondra bientôt ! ";}
-    else { echo $userdata[$counter]['admin_answer']; } ?>
+    if ($userdata[$counter]['admin_answer'] == null){
+        echo "L'administrateur n'a pas encore répondu à ce commentaire, il répondra bientôt ! ";
+    }
+    else {
+        echo $userdata[$counter]['admin_answer'];
+    }
+
+    ?>
 </p>
 
     <?php

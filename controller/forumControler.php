@@ -4,6 +4,12 @@ require ('../model/forumEntity.php');
 
 function forum ($locale){
 
+    if(!isset($_SESSION["email"])) {
+        $notification = array(
+                    "type" => "error",
+                    "message" => "Vous devez être connecté !");
+                }
+    else {
 
     $userId = returnUserId($_SESSION['email']);
 
@@ -35,24 +41,42 @@ function forum ($locale){
     catch (Exception $e){
         echo $e;
     }
-
+}
     require ('../views/frontEnd/forum.php');
 
 }
 
+function forumAdministrateur($locale){
+
+    if(!isset($_SESSION["email"])) {
+        $notification = array(
+            "type" => "error",
+            "message" => "Vous devez être connecté !");
+    }
+    else {
+        $userdata = displayFormulaire();
+
+        if (!empty($_POST['submit'])) {
+            if (!empty($_POST['commentaire_administrateur'] && !empty($_POST['numero_commentaire']))) {
+                submitAdministratorForum($_POST['commentaire_administrateur'], $_POST['numero_commentaire']);
+                $notification = array("type" => "success","message" => "Votre message a bien été envoyé ! Merci ! ");
+            }
+
+            else{
+                $notification = array("type" => "error","message" => "Votre n'a pu être envoyé, veuillez réessayer... ");
+            }
+        }
+    }
+
+    require ('../views/frontEnd/forumAdministrateur.php');
+
+}
+
 function faq ($locale){
+
     require('../views/frontEnd/faq.php');
 }
 
-/*
-function formSubmit($locale){
-
-}
-
-function afficherFormulaire (){
-    displayFormulaire();
-}
-*/
 function returnUserId($email){
 
     try {
@@ -72,6 +96,8 @@ function returnUserId($email){
         echo $e;
     }
 }
+
+
 
 ?>
 

@@ -10,6 +10,7 @@ function adminProfile($locale)
     $resultat=getAdminData($email);
     $resultatMaison=getNewHouses();
     $achatsCapteurs=getNewSensors();
+    $resultatQuestion=getNewQuestions();
 
 	if (isset($_POST['valider']) )
         	{
@@ -25,4 +26,10 @@ function adminProfile($locale)
 
 
     require('frontEnd/adminProfile.php');
+}
+
+function adminManagement($locale)
+{
+    $maisons=getAllHouses();
+    require('frontEnd/adminManagement.php');
 }

@@ -14,7 +14,7 @@
 
 <?php
     include "../views/backEnd/header.php";
-    include '../views.backEnd/footer.php';
+    include '../views/backEnd/footer.php';
 ?>
 
 <h1><div class="titre-question">

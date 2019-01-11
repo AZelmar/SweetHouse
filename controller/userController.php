@@ -22,11 +22,14 @@ function home($locale)
 
 function userProfile($locale)
 {
-  $email=$_SESSION['email'];  
-  $resultat=getUserData($email);
-  $idShop=$resultat['userId'];
-  $resultat2=getUserShop($idShop);
-  require('frontEnd/userProfile.php');
+    if(isConnected($locale))
+    {
+      $email=$_SESSION['email'];  
+      $resultat=getUserData($email);
+      $idShop=$resultat['userId'];
+      $resultat2=getUserShop($idShop);
+      require('frontEnd/userProfile.php');
+    }
 }
 
 function gestion_rdv($locale){
@@ -170,7 +173,7 @@ function accountRegister($locale)
     }
     require('frontEnd/register.php');
 }
-function accountLogin($locale)
+function accountLogin($locale,$notification)
 {
     if (isset($_POST['submit'])) {
         $result = getUser();
@@ -410,7 +413,16 @@ function changeUserData($email)
                 }
         }
 }
-
-
-
+function isConnected($locale){
+    if(isset($_SESSION['email']))
+    {
+        return true;
+    }
+     $notification = array(
+        "type" => "error",
+        "message" => "Vous devez être connecté pour accéder à cette page"
+    );
+    accountLogin($locale,$notification);
+    return false;
+}
 ?> 

@@ -37,8 +37,8 @@ h3 {
 }
 
 form {
-    margin: 20px auto;
-    width: 800px;
+    margin: 75px auto;
+    width: 900px;
     border-radius: 1em;
     border : 2px solid black;
     font-family: 'Lato', sans-serif;
@@ -49,8 +49,7 @@ form {
 
 
 label {
-    display: inline-block 1em;
-    width: 230px;
+    width: 200px;
     text-align: right;
     margin-left: 15px;
 }
@@ -58,14 +57,13 @@ label {
 
 
 textarea {
-    width: 300px;
     box-sizing: border-box;
     border : 1px solid #999;
     margin: 10px;
     padding: 6px;
     vertical-align: top;
-    height: 10em;
-    width: 70em;
+    height: 15em;
+    width: 75%;
 
 }
 
@@ -87,6 +85,7 @@ input:focus, textarea:focus {
 
 .boutton{
     text-align: center;
+    padding-bottom: 15px;
 
 }
 
@@ -151,15 +150,12 @@ table{
     padding-bottom: 3px;
 }
 
-hr{
-    color : black;
+hr {
+    color: black;
     background-color: black;
     border-color: black;
     height: 1px;
     margin-left: 5%;
     margin-right: 5%;
 }
-
-
-
 

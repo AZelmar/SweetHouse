@@ -31,12 +31,24 @@ function displayFormulaire (){
 
     require '../model/config.php';
 
-    $request = $pdo->prepare('SELECT * FROM formulaire ORDER BY formulaire.id_commentaire DESC LIMIT 10');
+    $request = $pdo->prepare('SELECT * FROM formulaire ORDER BY formulaire.id_sujet DESC LIMIT 10');
     $request ->execute(array());
     $result = $request->fetchAll();
     return $result;
 
 
+}
+
+function submitAdministratorForum($admin_answer, $id_sujet){
+    try {
+        require("config.php");
+        $request = $pdo->prepare('UPDATE formulaire SET admin_answer = :admin_answer WHERE formulaire.id_sujet = :id_sujet');
+        $request->execute(array("admin_answer" => $admin_answer, "id_sujet"=>$id_sujet));
+    }
+
+    catch (Exception $e){
+        echo 'Connexion échoué : ' . $e->getMessage();
+    }
 }
 
 ?>

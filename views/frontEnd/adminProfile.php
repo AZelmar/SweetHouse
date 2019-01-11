@@ -47,7 +47,7 @@ include 'backEnd/footer.php';
 			<p id="texteinfos"> 
 				Aujourd'hui : 
 				<br><br>
-				Il y a 4 nouvelles questions dans le forum 
+				Il y a <?php echo htmlentities($resultatQuestion) ?> nouvelles questions dans le forum 
 				<br><br> 
 				Il y a <?php echo htmlentities($resultatMaison) ?> nouvelles maisons 
 				<br><br>
