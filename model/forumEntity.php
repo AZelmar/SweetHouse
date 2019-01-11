@@ -51,4 +51,9 @@ function submitAdministratorForum($admin_answer, $id_sujet){
     }
 }
 
+function deleteCommentaire($id_sujet){
+    require '../model/config.php';
+    $request = $pdo->prepare('DELETE FROM formulaire WHERE formulaire.id_sujet = :id_sujet');
+    $request->execute(array("id_sujet" => $id_sujet));
+}
 ?>

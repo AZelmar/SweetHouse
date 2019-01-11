@@ -100,13 +100,15 @@ include '../views/backEnd/footer.php';
 
 ?>
 </p>
+<label name="delete_commit">
+    Cliquez sur la case si vous voulez supprimer ce commentaire
+    <input type="checkbox">
+</label>
 <?php
     $counter++;
     }
 
         ?>
-
-
 
 <hr>
 
