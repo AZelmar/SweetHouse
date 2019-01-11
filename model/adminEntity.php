@@ -22,6 +22,17 @@ function changeAdmin($email)
 
 }
 
+function changeAdminPassword($email)
+{
+$hash1 = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+  require("config.php");
+  $req= 'UPDATE user SET password = :password
+                WHERE email = "'.$email.'"';
+  $reqp= $pdo->prepare($req);
+  $reqp ->execute(array("password" => $hash1 ));
+
+}
+
 function getNewHouses()
 {
 	require("config.php");
