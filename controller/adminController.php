@@ -72,10 +72,8 @@ function adminProfile($locale)
 
 function adminManagement($locale)
 {
-<<<<<<< HEAD
     if(isConnected($locale))
     {
-=======
 	if(isset($_POST['userSubmit']))
 	{
 		$errorInfo = updateUser();
@@ -94,7 +92,6 @@ function adminManagement($locale)
                                 );
 		}
 	}
->>>>>>> 9fffd907ab7fdbba3bc6beaf23f157e5680bbcd3
     $maisons=getAllHouses();
     require('frontEnd/adminManagement.php');
 }
