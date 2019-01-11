@@ -30,6 +30,24 @@ function adminProfile($locale)
 
 function adminManagement($locale)
 {
+	if(isset($_POST['userSubmit']))
+	{
+		$errorInfo = updateUser();
+		if ($errorInfo != "") {
+
+			                                $notification = array(
+                                    "type" => "error",
+                                    "message" => "Une erreur est survenue !"
+                                );
+		}
+		else
+		{
+                                $notification = array(
+                                    "type" => "success",
+                                    "message" => "Modification enregistrée."
+                                );
+		}
+	}
     $maisons=getAllHouses();
     require('frontEnd/adminManagement.php');
 }

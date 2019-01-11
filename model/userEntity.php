@@ -18,6 +18,14 @@ function getUser()
     $result = $request->fetch();
     return $result;
 }
+function getUserById()
+{
+    require("config.php");
+    $request = $pdo->prepare('SELECT * FROM user WHERE userId = ?');
+    $request->execute(array($_POST['userId']));
+    $result = $request->fetch();
+    return $result;
+}
 function addLoginCookie($expirationDate,$userId,$userEmail,$ip)
 {
     require("config.php");

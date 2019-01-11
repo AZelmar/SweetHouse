@@ -8,34 +8,46 @@
 </head>
 <?php 
 include 'backEnd/header.php';
+include 'backEnd/notification.php';
 include 'backEnd/footer.php';
 ?>
-
+<form method="POST">
 <div class="clearfix">
   <div class="box" >
 	<h2 id="title"> Gestion Utilisateur :</h2>
       <hr>
-      <select class="chosen-select" name="maisonUtilisateur" style="width:300px" ; id="maisonUtilisateur">
+      <select class="chosen-select" name="userId" style="width:300px" ; id="maisonUtilisateur">
       	<?php foreach ($maisons as $output) {?>
-      	<option><?php echo $output["userId"];echo " ";echo $output["lastName"];?></option>
+      	<option value="<?= $output['userId'] ?>"><?php echo $output["userId"];echo " ";echo $output["lastName"];?></option>
       	<?php }?>
         
 	  </select>
       <form method="post" action="adminProfile">
         <p>
-        
+  		<div class="input-group">
+			<label>Date inscription :</label>
+			<input type="text" name="userRegistration" disabled>
+		</div>  
+		  <div class="input-group">
+			<label>Prénom :</label>
+			<input type="text" name="userFirstName" disabled>
+		</div>  
+		 <div class="input-group">
+			<label>Etat du compte :</label>
+			<input type="number" name="userActive">
+		</div>      
 		<div class="input-group">
 			<label>Modifier mail :</label>
-			<input type="text" name="mail" value= "opzejfio" >
+			<input type="text" name="userMail" value= "opzejfio" >
 		</div>
 		<div class="input-group">
 			<label>Modifier numero de telephone :</label>
-			<input type="text" name="phoneNumber" value= "zopejroi" >
+			<input type="phone" name="userPhoneNumber" value= "zopejroi" >
 		</div>
 		<div class="input-group">
 			
 		</div>
-		<input type="submit" name="valider" value= Modifier >
+		<input type="submit" name="userSubmit" value= Modifier >
       </form>
   </div>
 
@@ -93,13 +105,32 @@ include 'backEnd/footer.php';
       </form>
   </div>
 </div>
-
+</form>
 <script type="text/javascript" src="./public/js/chosen/chosen.jquery.js"></script>
 <script type="text/javascript">
-    $(".chosen-select").chosen();
+	$(".chosen-select").chosen();
+	$(document).ready(function(){
+		loadUserInfo();
+	    $(".chosen-select").change(function(){
+	    	loadUserInfo();
+	    });
+	    function loadUserInfo(){
+	    	$.ajax({
+			    type: "POST",
+			    url: "<?= $basename ?>/ajax/getUserInfo",
+			    data: {userId:  $(".chosen-select").val()},
+			    success: function(data){
+			    	var userData = JSON.parse(data);
+			    	$("[name='userRegistration']").val(userData[4]);
+			    	$("[name='userFirstName']").val(userData[6]);
+			    	$("[name='userActive']").val(userData[2]);
+			    	$("[name='userMail']").val(userData[11]);
+			    	$("[name='userPhoneNumber']").val(userData[12]);
+			    }
+			});
+	    }
+	});
 </script>
-
-
 </body>
 </html>
 
@@ -113,7 +144,7 @@ include 'backEnd/footer.php';
   width: 33.33%;
   padding:100px;
   margin:auto;
-  border: 3px solid black;
+  border-right: 3px solid black;
   background-color: #65c0ba;
 
 }
@@ -135,9 +166,7 @@ body{
 	text-align: center;
 }
 .input-group{
-	margin-top: 10px;
-	padding:55px;
-	float:left;
+	padding:15px;
 
 }
 label{

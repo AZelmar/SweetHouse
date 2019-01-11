@@ -72,6 +72,8 @@ switch ($route) {
         break;
     case 'forumAdministrateur':
         forumAdministrateur($locale);
+    case 'ajax/getUserInfo':
+        getUserInfo();
         break;
     default:
         error404($locale);
