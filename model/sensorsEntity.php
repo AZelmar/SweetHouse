@@ -7,16 +7,20 @@
  */
 
 
-function changeStateSensor($email, $room, $sensor, $state){
+function changeStateSensor($email, $room, $sensor, $state, $user_room){
     require "config.php";
 
-    $request = $pdo->prepare('SELECT * FROM user WHERE email= ? ');
+    $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
     $request->execute(array($email));
     $userId = $request->fetch();
 
     $request2 = $pdo->prepare('SELECT id_room FROM room WHERE name_room = :room');
     $request2->execute(array($room));
     $room = $request2->fetch();
+
+    $request1 = $pdo->prepare('SELECT id_user_room FROM user_room WHERE userId = :userId AND id_room = :id_room');
+    $request1->execute(array($user_room));
+    $id_user_room = $request1->fetch();
 
     $request3 = $pdo('SELECT id_sensor FROM sensor WHERE sensor_name = :sensor');
     $request3->execute(array($sensor));
