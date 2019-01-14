@@ -82,45 +82,8 @@
 
 ?>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $("#content").find("[id^='tab']").hide(); // Hide all content
-    $("#tabs li:first").attr("td","current");
-    $("#content #tab1").fadeIn(); // Show first tab's content
-    
-    $('#tabs a').click(function(e) {
-      e.preventDefault();
-      if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
-       return;       
-      }
-      else{            
-        $("#content").find("[td^='tab']").hide(); // Hide all content
-        $("#tabs li").attr("td",""); //Reset id's
-        $(this).parent().attr("td","current"); // Activate this
-        $('#' + $(this).attr('name')).fadeIn(); // Show content for the current tab
-      }
-    });
-  });
-
-</script>
-
-<table id="tabs">
-    <label class="tabs">
-      <td type="button" onclick="" value="Enregistrer"/>
-
-    </label>
-        </table>
-
-
 
 </table>
-
-
-
-
-  
-
 
 </body>
 <?php include 'backEnd/footer.php' ?>
