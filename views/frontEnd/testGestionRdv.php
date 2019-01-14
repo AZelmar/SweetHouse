@@ -56,7 +56,7 @@
     $rdv["Dimanche"]["16:30"] = "Presentation";
     $rdv["Lundi"]["9"] = "Dab";
  	foreach ($rdvs as $test) {
-      	$rdv[$test["Jour"]][$test["Heure"]] = $test["Motif"] ;
+      	$rdv[$test['day']][$test['hour']] = $test['reason'] ;
       	}
 
     echo "<tr><th>Heure</th>";
