@@ -12,9 +12,9 @@
         caption /* Titre du tableau */
         {
            margin: auto; /* Centre le titre du tableau */
-           font-family: Arial, Times, "Times New Roman", serif;
+           font-family: Lato, serif;
            font-weight: bold;
-           font-size: 1.2em;
+           font-size: 1.3em;
            color: #009900;
            margin-bottom: 20px; /* Pour éviter que le titre ne soit trop collé au tableau en-dessous */
         }
@@ -31,14 +31,14 @@
            background-color: #006600;
            color: white;
            font-size: 1.1em;
-           font-family: Arial, "Arial Black", Times, "Times New Roman", serif;
+           font-family: Lato, serif;
            border:1px solid red;
         }
  
         td /* Les cellules normales */
         {
            border: 1px solid black;
-           font-family: "Comic Sans MS", "Trebuchet MS", Times, "Times New Roman", serif;
+           font-family: Lato, serif;
            text-align: center; /* Tous les textes des cellules seront centrés*/
            padding: 5px; /* Petite marge intérieure aux cellules pour éviter que le texte touche les bordures */
         }
@@ -46,15 +46,39 @@
         {
             width:5%;
         }
-    </style>
+
+input[type=submit] {
+  	width: 20%;
+  	background-color: #216583;
+  	color: black;
+  	padding: 14px 20px;
+  	margin: 10px 0;
+  	border: 3px solid black;
+  	border-radius: 10px;
+  	cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: white;
+  transition-duration: 0.4s;
+  color: black;
+}
+
+.input-group {
+display:inline;
+font-family: Lato, serif;
+padding: 10px;
+font-size: 20px;
+}
+
+
+</style>
  
 </head>
 <body>
 <table>
 <?php
     $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
-    $rdv["Dimanche"]["16:30"] = "Presentation";
-    $rdv["Lundi"]["9"] = "Dab";
  	foreach ($rdvs as $test) {
       	$rdv[$test['day']][$test['hour']] = $test['reason'] ;
       	}
@@ -81,5 +105,36 @@
     }
 ?>
 </table>
+<br><br>
+
+<form method="POST">
+<div class="input-group">
+	  <label>Jour : </label>
+	  <select id="day" name="day">
+      <option value="Lundi">Lundi</option>
+      <option value="Mardi">Mardi</option>
+      <option value="Mercredi">Mercredi</option>
+      <option value="Jeudi">Jeudi</option>
+      <option value="Vendredi">Vendredi</option>
+      <option value="Samedi">Samedi</option>
+      <option value="Dimanche">Dimanche</option>
+
+    </select>
+		</div>
+		<div class="input-group">
+			<label>Heure : </label>
+			<input type="time" id="hour" name="hour"
+       min="0:00" max="23:30" required step="1800">
+		</div>
+		<div class="input-group">
+			<label>Motif : </label>
+			<input type="text" name="reason" >
+		</div>
+		<div class="input-group">
+			<label>Id de l'utilisateur: </label>
+			<input type="number" step="1" name="userIdTech" >
+		</div>
+<input type="submit" name="validerRDV" value="Ajouter RDV" id="validerRDV">
+</form>
 </body>
 </html>

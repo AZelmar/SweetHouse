@@ -22,4 +22,11 @@ function getTechnicianRDV($id)
   
 }
 
+function createRDV($id,$day,$hour,$reason,$userId){
+    require("config.php");
+    $req= 'INSERT INTO `technicianRDV`(`technicianId`, `day`, `hour`, `reason`, `userId`) VALUES ("'.$id.'","'.$day.'","'.$hour.'","'.$reason.'","'.$userId.'")';
+    $reqp= $pdo->prepare($req);
+    $reqp ->execute(array());
+
+}
 ?>
