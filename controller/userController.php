@@ -431,4 +431,10 @@ function getUserInfo(){
         echo json_encode(getUserById());
     }
 }
+function getTechnicianInfo(){
+    if(isset($_POST['userId']))
+    {
+        echo json_encode(getTechnicianById());
+    }
+}
 ?> 

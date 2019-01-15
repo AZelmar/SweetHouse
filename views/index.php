@@ -4,6 +4,7 @@ require("../controller/userController.php");
 require("../controller/baseController.php");
 require ("../controller/forumControler.php");
 require ("../controller/adminController.php");
+require ('../controller/sensorsController.php');
 require ("../controller/technicianController.php");
 
 $request = $_SERVER['REDIRECT_URL'];
@@ -75,6 +76,9 @@ switch ($route) {
         forumAdministrateur($locale);
     case 'ajax/getUserInfo':
         getUserInfo();
+        break;
+    case 'ajax/getTechnicianInfo':
+        getTechnicianInfo();
         break;
     case 'testGestionRdv':
         gestionrdv($locale);

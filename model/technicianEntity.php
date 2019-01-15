@@ -21,6 +21,7 @@ function getTechnicianRDV($id)
   return $result1;
   
 }
+<<<<<<< HEAD
 
 function createRDV($id,$day,$hour,$reason,$userId){
     require("config.php");
@@ -28,5 +29,14 @@ function createRDV($id,$day,$hour,$reason,$userId){
     $reqp= $pdo->prepare($req);
     $reqp ->execute(array());
 
+=======
+function getTechnicianById()
+{
+    require("config.php");
+    $request = $pdo->prepare('SELECT * FROM user LEFT JOIN technicianRDV ON technicianRDV.technicianId = user.userId WHERE user.userId = ?');
+    $request->execute(array($_POST['userId']));
+    $result = $request->fetch();
+    return $result;
+>>>>>>> 249ee0a42898bdce576ac1c3dcfed68b40216064
 }
 ?>

@@ -18,7 +18,7 @@ include 'backEnd/footer.php';
       <hr>
       <select class="chosen-select" name="userId" style="width:300px" id="userId">
       	<?php foreach ($clients as $output) {?>
-      	<option value="<?= $output['userId'] ?>"><?php echo htmlentities($output["userId"]);echo " ";echo htmlentities($output["lastName"]);?></option>
+      	<option value="<?= $output['userId'] ?>"><?php echo $output["userId"];echo " ";echo $output["lastName"];?></option>
       	<?php }?>
 	  </select>
         <p>
@@ -36,11 +36,11 @@ include 'backEnd/footer.php';
 		</div>      
 		<div class="input-group">
 			<label>Modifier mail :</label>
-			<input type="text" name="userMail">
+			<input type="text" name="userMail" value= "opzejfio" >
 		</div>
 		<div class="input-group">
 			<label>Modifier numero de telephone :</label>
-			<input type="phone" name="userPhoneNumber">
+			<input type="phone" name="userPhoneNumber" value= "zopejroi" >
 		</div>
 		<div class="input-group">
 			
@@ -55,7 +55,7 @@ include 'backEnd/footer.php';
         
               <select class="chosen-select" name="technicianId" style="width:300px" id="technicianId">
       	<?php foreach ($technicians as $output) {?>
-      	<option value="<?= $output['userId'] ?>"><?php echo htmlentities($output["userId"]);echo " ";echo htmlentities($output["lastName"]);?></option>
+      	<option value="<?= $output['userId'] ?>"><?php echo $output["userId"];echo " ";echo $output["lastName"];?></option>
       	<?php }?>
 	  </select>
 	  		  <div class="input-group">
@@ -68,7 +68,7 @@ include 'backEnd/footer.php';
 		</div>
 		<div class="input-group">
 			<label>Modifier numero de telephone :</label>
-			<input type="text" name="technicianPhoneNumber">
+			<input type="text" name="technicianPhoneNumber" value= "kijfoijo" >
 		</div>
 		<div class="input-group">
 			<label>Vos rendez-vous :</label>
@@ -129,10 +129,10 @@ include 'backEnd/footer.php';
 			    data: {userId:  $("#userId").val()},
 			    success: function(data){
 			    	var userData = JSON.parse(data);
-			    	$("[name='userRegistration']").val(encodeURIComponent(userData[4]));
+			    	$("[name='userRegistration']").val(userData[4]);
 			    	$("[name='userFirstName']").val(encodeURIComponent(userData[6]));
 			    	$("[name='userActive']").val(encodeURIComponent(userData[2]));
-			    	$("[name='userMail']").val(encodeURIComponent(userData[11]));
+			    	$("[name='userMail']").val(encodeURI(userData[11]));
 			    	$("[name='userPhoneNumber']").val("0"+encodeURIComponent(userData[12]));
 			    }
 			});
@@ -140,12 +140,13 @@ include 'backEnd/footer.php';
  		function loadTechnicianInfo(){
 	    	$.ajax({
 			    type: "POST",
-			    url: "<?= $basename ?>/ajax/getUserInfo",
+			    url: "<?= $basename ?>/ajax/getTechnicianInfo",
 			    data: {userId:  $("#technicianId").val()},
 			    success: function(data){
 			    	var userData = JSON.parse(data);
+			    	console.log(userData);
 			    	$("[name='technicianFirstName']").val(encodeURIComponent(userData[6]));
-			    	$("[name='technicianMail']").val(encodeURIComponent(userData[11]));
+			    	$("[name='technicianMail']").val(encodeURI(userData[11]));
 			    	$("[name='technicianPhoneNumber']").val("0"+encodeURIComponent(userData[12]));
 			    }
 			});
