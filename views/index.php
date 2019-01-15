@@ -77,6 +77,9 @@ switch ($route) {
     case 'ajax/getUserInfo':
         getUserInfo();
         break;
+    case 'ajax/getTechnicianInfo':
+        getTechnicianInfo();
+        break;
     case 'testGestionRdv':
         gestionrdv($locale);
         break;

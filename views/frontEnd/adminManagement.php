@@ -130,23 +130,24 @@ include 'backEnd/footer.php';
 			    success: function(data){
 			    	var userData = JSON.parse(data);
 			    	$("[name='userRegistration']").val(userData[4]);
-			    	$("[name='userFirstName']").val(userData[6]);
-			    	$("[name='userActive']").val(userData[2]);
-			    	$("[name='userMail']").val(userData[11]);
-			    	$("[name='userPhoneNumber']").val(userData[12]);
+			    	$("[name='userFirstName']").val(encodeURIComponent(userData[6]));
+			    	$("[name='userActive']").val(encodeURIComponent(userData[2]));
+			    	$("[name='userMail']").val(encodeURI(userData[11]));
+			    	$("[name='userPhoneNumber']").val("0"+encodeURIComponent(userData[12]));
 			    }
 			});
 	    }
  		function loadTechnicianInfo(){
 	    	$.ajax({
 			    type: "POST",
-			    url: "<?= $basename ?>/ajax/getUserInfo",
+			    url: "<?= $basename ?>/ajax/getTechnicianInfo",
 			    data: {userId:  $("#technicianId").val()},
 			    success: function(data){
 			    	var userData = JSON.parse(data);
-			    	$("[name='technicianFirstName']").val(userData[6]);
-			    	$("[name='technicianMail']").val(userData[11]);
-			    	$("[name='technicianPhoneNumber']").val(userData[12]);
+			    	console.log(userData);
+			    	$("[name='technicianFirstName']").val(encodeURIComponent(userData[6]));
+			    	$("[name='technicianMail']").val(encodeURI(userData[11]));
+			    	$("[name='technicianPhoneNumber']").val("0"+encodeURIComponent(userData[12]));
 			    }
 			});
 	    }
