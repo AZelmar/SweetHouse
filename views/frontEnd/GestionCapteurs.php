@@ -28,7 +28,7 @@
 
     <div id="content">
 
-        <div id="tab1">
+        <div id="tab1" value='chambres'>
             <h4>Chambres</h4>
 
 
@@ -128,7 +128,7 @@
         </div>
 
 
-        <div id="tab3">
+        <div id="tab3" >
 
             <h4>Salle de bain</h4>
 
