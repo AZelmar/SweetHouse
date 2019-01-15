@@ -13,13 +13,14 @@
 
 
 <body>
-
-<div id="tabs" class="tabs">
-    <li><a href="#" name="tab1">Chambres</a></li>
+<form method="post">
+<div id="tabs" class="tabs" name ="tabs">
+    <li><a href="#" name="tab1" id="tab1"> Chambres</a></li>
     <li><a href="#" name="tab2">Cuisine</a></li>
     <li><a href="#" name="tab3">Salle de bain</a></li>
     <li><a href="#" name="tab4">Salon</a></li>
 </div>
+
 
 
 <div class="main" >
@@ -28,7 +29,7 @@
 
     <div id="content">
 
-        <div id="tab1">
+        <div id="tab1" name = "tab1">
             <h4>Chambres</h4>
 
 
@@ -233,14 +234,15 @@
                 </label>
         </div>
     </div>
+    <input type ="hidden" name="room" id="room">
+</form>
 
 </body>
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("#content").find("[id^='tab']").hide(); // Hide all content
+    $(document).ready(function() { $("#content").find("[id^='tab']").hide(); // Hide all content
         $("#tabs li:first").attr("id","current");
         $("#content #tab1").fadeIn(); // Show first tab's content
 
@@ -256,6 +258,14 @@
                 $('#' + $(this).attr('name')).fadeIn(); // Show content for the current tab
             }
         });
+    });
+
+    //----------------------------------------------Fonction pour récupérer le type de room------------------------------//
+
+    $('#tab1').click(function() {
+        console.log('test');
+    $('#room').val("Chambre");
+    console.log( $('#room').val());
     });
 
 </script>

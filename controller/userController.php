@@ -36,9 +36,7 @@ function gestion_rdv($locale){
     require('frontEnd/GestionRDV.php');
 }
 
-function gestion_capteurs($locale){
-    require ('frontEnd/GestionCapteurs.php');
-}
+
 
 
 function userShop($locale)
