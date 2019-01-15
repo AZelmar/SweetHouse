@@ -5,7 +5,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./public/css/style.css" />
-<?php include 'backEnd/globalHead.php'; ?>
+<?php include '../views/backEnd/header.php';?> 
 
     <title> Emploi du temps</title>
     
@@ -23,7 +23,7 @@
         }
  
         table /* Le tableau */
-        {
+        { 
            margin: auto; 
            border: 4px outset #A9A9A9; 
            border-collapse: collapse; 
@@ -51,21 +51,24 @@
         }
     </style>
 
-<table>
+
+<table id="tabs" class="tabs">
+
+
 
 <?php
     $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
-    $rdv["Dimanche"]["8:00"] = "henni";
-    $rdv["Lundi"]["9:00"] = "cdsjjk";
+    $rdv["Dimanche"]["8H"] = "henni";
+    $rdv["Lundi"]["9H"] = "cdsjjk";
     echo "<tr><th>Heure</th>";
     for($x = 1; $x < 8; $x++)
         echo "<th>".$jour[$x]."</th>";
     echo "</tr>";
-    for($j = 8; $j < 24; $j += 0.5) {
+    for($j = 8; $j <=20; $j += 0.5) {
         echo "<tr>";
         for($i = 0; $i < 7; $i++) {
             if($i == 0) {
-                $heure = str_replace(".5", "h30", $j);
+                $heure = str_replace(".5", ":30", $j);
                 echo "<td class=\"time\">".$heure."H"."</td>";
             }
             echo "<td>";
@@ -76,10 +79,11 @@
         }
         echo "</tr>";
     }
+
 ?>
 
-</table>
 
+</table>
 
 </body>
 <?php include 'backEnd/footer.php' ?>

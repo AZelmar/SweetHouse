@@ -5,6 +5,7 @@ require("../controller/baseController.php");
 require ("../controller/forumControler.php");
 require ("../controller/adminController.php");
 require ('../controller/sensorsController.php');
+require ("../controller/technicianController.php");
 
 $request = $_SERVER['REDIRECT_URL'];
 //$request = str_replace("/eleves/SweetHouse", "",$request);
@@ -75,6 +76,9 @@ switch ($route) {
         forumAdministrateur($locale);
     case 'ajax/getUserInfo':
         getUserInfo();
+        break;
+    case 'testGestionRdv':
+        gestionrdv($locale);
         break;
     default:
         error404($locale);
