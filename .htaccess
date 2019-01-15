@@ -1,9 +1,6 @@
 RewriteEngine On
-<<<<<<< HEAD
 RewriteBase /SweetHouse/views
-=======
 RewriteBase SweetHouse/views
->>>>>>> 249ee0a42898bdce576ac1c3dcfed68b40216064
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ index.php [QSA,L]
