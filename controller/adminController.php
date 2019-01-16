@@ -141,5 +141,7 @@ function adminManagement($locale)
     $technicians=getAllTechnician();
     require('frontEnd/adminManagement.php');
 }}
+?>
+
 
 
