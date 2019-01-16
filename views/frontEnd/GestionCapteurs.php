@@ -236,7 +236,7 @@
     <input type ="hidden" name="room" id="room">
 
     <div class="boutton"> <input type="submit" value="Modifier mes l'état de mes capteurs" name="submit"> </div>
-
+</div>
 </form>
 
 </body>
@@ -285,7 +285,6 @@
     //----------------------------------------------Fonction pour récupérer le type de room------------------------------//
 
 
-<<<<<<< HEAD
     $('#tab1').click(function() {
         console.log('test');
     $('room').val("Chambres");
@@ -295,9 +294,6 @@
     //document.write ("<iframe src='traitement.php?room="+chambres+"' scrolling='no' frameborder='0' width='0' height='0' ><iframe>");
 
     //});
-
-=======
->>>>>>> 1418bda4e891a2ab7ef303fbc9b119a455e8d05e
 
 </script>
 

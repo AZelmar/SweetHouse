@@ -93,15 +93,11 @@ function getAllTechnician()
 {
 
 require("config.php");
-$req = $pdo->prepare('SELECT userId,lastName FROM user WHERE role = :role');		 				      
+$req = $pdo->prepare('SELECT userId,lastName FROM user WHERE role = :role'); 
 $req->execute(array("role" => 1));
 $technicians=$req->fetchAll();
 return $technicians;
-
-<<<<<<< HEAD
-}
-=======
 }
 
 ?>
->>>>>>> 1418bda4e891a2ab7ef303fbc9b119a455e8d05e
+

@@ -136,16 +136,4 @@ function adminManagement($locale)
         require('frontEnd/adminManagement.php');
     }
 }
-
-<<<<<<< HEAD
-    $clients=getAllCLient();
-    $technicians=getAllTechnician();
-    require('frontEnd/adminManagement.php');
-}}
 ?>
-
-
-
-=======
-?>
->>>>>>> 1418bda4e891a2ab7ef303fbc9b119a455e8d05e
