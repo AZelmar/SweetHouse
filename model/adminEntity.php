@@ -99,8 +99,3 @@ $technicians=$req->fetchAll();
 return $technicians;
 
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 14d74feaf7d42fd651b6990c0b833cfc0ac0c1fc
-?>
