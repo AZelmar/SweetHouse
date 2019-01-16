@@ -11,7 +11,7 @@ function gestion_capteurs($locale){
     if(isConnected($locale)) {
         require ('../views/frontEnd/GestionCapteurs.php');
 
-<<<<<<< HEAD
+
        if (!empty($_POST['submit'])){
            var_dump($_POST['room']);
            if($_POST['room'] == "Chambre"){
@@ -92,13 +92,4 @@ function gestion_capteurs($locale){
     }
 
 }
-=======
-       var_dump($_POST['#tab1']);
 
-        if($'#tab1' = $_GET['chambres']){
-          echo "ceci est ma variable javascript dans du code PHP : ".$chambres;
-       }
-       else{
-          echo 'didier';
-       
->>>>>>> 0e98b8d68bd2f45dfe78d0e1bd15cc306d079677
