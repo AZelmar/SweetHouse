@@ -14,11 +14,12 @@
 
 <body>
 <form method="post">
-<div id="tabs" class="tabs" name ="tabs">
-    <li><a href="#" name="tab1" id="tab1"> Chambres</a></li>
-    <li><a href="#" name="tab2">Cuisine</a></li>
-    <li><a href="#" name="tab3">Salle de bain</a></li>
-    <li><a href="#" name="tab4">Salon</a></li>
+<div id="tabs" class="tabs">
+    <li><a href="#" name="tab1" id="1"> Chambres</a></li>
+    <li><a href="#" name="tab2" id="2">Cuisine</a></li>
+    <li><a href="#" name="tab3" id="3">Salle de bain</a></li>
+    <li><a href="#" name="tab4" id="4">Salon</a></li>
+
 </div>
 
 
@@ -29,11 +30,10 @@
 
     <div id="content">
 
-<<<<<<< HEAD
         <div id="tab1" value='chambres'>
-=======
-        <div id="tab1" name = "tab1">
->>>>>>> 518812ed2ec6cadfc6c5c0838e913ae0d409413a
+
+       
+
             <h4>Chambres</h4>
 
 
@@ -61,17 +61,17 @@
 
 
             <label class="switch1">
-                <input type="checkbox" checked value= "<?php echo($resultat['smoke']) ?>">
+                <input type="checkbox" name ="chambre_smoke">
                 <span class="slider round"></span>
             </label>
 
             <label class="switch2">
-                <input type="checkbox" checked value= "<?php echo($resultat['lumen']) ?>">
+                <input type="checkbox" name = "chambre_lumen">
                 <span class="slider round"></span>
             </label>
 
             <label class="switch3">
-                <input type="checkbox" checked value= "<?php echo($resultat['temperature']) ?>" >
+                <input type="checkbox" name="chambre_temperature">
                 <span class="slider round"></span>
             </label>
 
@@ -109,24 +109,24 @@
 
 
             <label class="switch1">
-                <input type="checkbox" checked value= "<?php echo($resultat['smoke']) ?>" >
+                <input type="checkbox" name="cuisine_smoke" >
                 <span class="slider round"></span>
             </label>
 
 
             <label class="switch2">
-                <input type="checkbox" checked value= "<?php echo($resultat['lumen']) ?>" >
+                <input type="checkbox" name="cuisine_lumen" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch3">
-                <input type="checkbox" checked value= "<?php echo($resultat['temperature']) ?>" >
+                <input type="checkbox" name="cuisine_temperature" >
                 <span class="slider round"></span>
             </label>
 
 
             <label class="switch4">
-                <input type="checkbox" checked value= "<?php echo($resultat['humidity']) ?>" >
+                <input type="checkbox" name="cuisine_humidity" >
                 <span class="slider round"></span>
             </label>
 
@@ -138,7 +138,7 @@
             <h4>Salle de bain</h4>
 
             <div class="gallery">
-                <img src="./public/images/lumen.png" id="lumen"  >
+                <img src="./public/images/lumen.png" id="lumen">
                 <div class="desc"></div>
             </div>
 
@@ -157,26 +157,21 @@
 
 
             <label class="switch1">
-                <input type="checkbox" checked value= "<?php echo($resultat['lumen']) ?>" >
+                <input type="checkbox" name="sdb_lumen">
                 <span class="slider round"></span>
             </label>
 
             <label class="switch2">
-                <input type="checkbox" checked value= "<?php echo ($resultat['temperature']) ?>">
+                <input type="checkbox" name="sdb_temperature">
                 <span class="slider round"></span>
             </label>
 
-
             <label class="switch3">
-                <input type="checkbox" checked value= "<?php echo ($resultat['humidity']) ?>">
+                <input type="checkbox" name="sdb_humidity">
                 <span class="slider round"></span>
             </label>
 
         </div>
-
-
-
-
 
 
         <div id="tab4">
@@ -192,7 +187,6 @@
                 <img src="./public/images/lumen.png" id="lumen"  >
                 <div class="desc"></div>
             </div>
-
 
 
             <div class="gallery">
@@ -213,39 +207,64 @@
 
 
             <label class="switch1">
-                <input type="checkbox" checked value= "<?php echo($resultat['smoke']) ?>" >
+                <input type="checkbox" name="salon_smoke" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch2">
-                <input type="checkbox" checked value= "<?php echo($resultat['lumen']) ?>" >
+                <input type="checkbox" name="salon_lumen">
                 <span class="slider round"></span>
             </label>
 
             <label class="switch3">
-                <input type="checkbox" checked value= "<?php echo($resultat['temperature']) ?>" >
+                <input type="checkbox" name="salon_temperature" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch4">
-                <input type="checkbox" checked value= "<?php echo($resultat['humidity']) ?>" >
+                <input type="checkbox" name="salon_humidity" >
+                <span class="slider round"></span>
+            </label>
+
+            <label class="switch5">
+                <input type="checkbox" name="salon_security">
                 <span class="slider round"></span>
 
-                <label class="switch5">
-                    <input type="checkbox" checked value= "<?php echo($resultat['security']) ?>" >
-                    <span class="slider round"></span>
-
-                </label>
+            </label>
         </div>
     </div>
+
     <input type ="hidden" name="room" id="room">
+
+    <div class="boutton"> <input type="submit" value="Modifier mes l'état de mes capteurs" name="submit"> </div>
+
 </form>
 
 </body>
 
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
+
+    $('#1').click(function() {
+        $('#room').val("Chambre");
+        console.log('Chambre')
+    });
+
+    $('#2').click(function() {
+        $('#room').val("Cuisine");
+        console.log('Cuisine');
+    });
+
+    $('#3').click(function() {
+        $('#room').val("Salle de bain");
+        console.log('SSDB');
+    });
+
+    $('#4').click(function() {
+        $('#room').val("Salon");
+        console.log('Ssalon');
+    })
+
     $(document).ready(function() { $("#content").find("[id^='tab']").hide(); // Hide all content
         $("#tabs li:first").attr("id","current");
         $("#content #tab1").fadeIn(); // Show first tab's content
@@ -266,11 +285,7 @@
 
     //----------------------------------------------Fonction pour récupérer le type de room------------------------------//
 
-    $('#tab1').click(function() {
-        console.log('test');
-    $('#room').val("Chambre");
-    console.log( $('#room').val());
-    });
+
 
 </script>
 

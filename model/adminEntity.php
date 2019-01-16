@@ -72,6 +72,13 @@ function updateUser()
 	  $request ->execute(array('active'=>$_POST['userActive'],'phone'=>$_POST['userPhoneNumber'],'email'=>$_POST['userMail'],'id'=>$_POST['userId']));
 	  return $request->errorInfo()[2];
 }
+function updateTechnician()
+{
+	  require("config.php");
+	  $request= $pdo->prepare('UPDATE user SET phone = :phone , email = :email WHERE userId = :id');
+	  $request ->execute(array('phone'=>$_POST['technicianPhoneNumber'],'email'=>$_POST['technicianMail'],'id'=>$_POST['technicianId']));
+	  return $request->errorInfo()[2];
+}
 function getAllClient()
 {
 
