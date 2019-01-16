@@ -29,11 +29,10 @@
 
     <div id="content">
 
-<<<<<<< HEAD
         <div id="tab1" value='chambres'>
-=======
-        <div id="tab1" name = "tab1">
->>>>>>> 518812ed2ec6cadfc6c5c0838e913ae0d409413a
+
+       
+
             <h4>Chambres</h4>
 
 
@@ -266,10 +265,14 @@
 
     //----------------------------------------------Fonction pour récupérer le type de room------------------------------//
 
+
     $('#tab1').click(function() {
         console.log('test');
-    $('#room').val("Chambre");
+    $('room').val("Chambres");
     console.log( $('#room').val());
+    //var '#tab1' = 'chambres';
+    //document.write ("<iframe src='traitement.php?room="+chambres+"' scrolling='no' frameborder='0' width='0' height='0' ><iframe>");
+
     });
 
 </script>
