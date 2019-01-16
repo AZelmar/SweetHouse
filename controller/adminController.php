@@ -137,9 +137,5 @@ function adminManagement($locale)
     }
 }
 
-    $clients=getAllCLient();
-    $technicians=getAllTechnician();
-    require('frontEnd/adminManagement.php');
-}}
 
-
+?>
