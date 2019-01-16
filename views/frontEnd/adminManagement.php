@@ -54,7 +54,7 @@ include 'backEnd/footer.php';
       <hr>
         
               <select class="chosen-select" name="technicianId" style="width:300px" id="technicianId">
-      	<?php foreach ($technicians as $output) ?>
+      	<?php foreach ($technicians as $output) {?>
       	<option value="<?= $output['userId'] ?>"><?php echo htmlentities($output["userId"]);echo " ";echo htmlentities($output["lastName"]);?></option>
       	<?php }?>
 	  </select>
