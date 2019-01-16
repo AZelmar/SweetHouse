@@ -57,7 +57,7 @@
 
 
 <?php
-    $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+    $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
     $rdv["Dimanche"]["8H"] = "henni";
     $rdv["Lundi"]["9H"] = "cdsjjk";
     echo "<tr><th>Heure</th>";

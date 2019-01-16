@@ -79,6 +79,7 @@ function adminManagement($locale)
     		$errorInfo = updateUser();
     		if ($errorInfo != "") {
 
+
     			                                $notification = array(
                                         "type" => "error",
                                         "message" => "Une erreur est survenue !"
@@ -97,6 +98,25 @@ function adminManagement($locale)
             $errorInfo = updateTechnician();
             if ($errorInfo != "") {
 
+
+			                                $notification = array(
+                                    "type" => "error",
+                                    "message" => "Une erreur est survenue !"
+                                );
+		}
+		else
+		{
+                                $notification = array(
+                                    "type" => "success",
+                                    "message" => "Modification enregistrée."
+                                );
+		}
+	}
+      if(isset($_POST['technicianSubmit']))
+        {
+            $errorInfo = updateTechnician();
+            if ($errorInfo != "") {
+
                                                 $notification = array(
                                         "type" => "error",
                                         "message" => "Une erreur est survenue !"
@@ -110,9 +130,16 @@ function adminManagement($locale)
                                     );
             }
         }
+
         $clients=getAllCLient();
         $technicians=getAllTechnician();
         require('frontEnd/adminManagement.php');
     }
 }
+
+    $clients=getAllCLient();
+    $technicians=getAllTechnician();
+    require('frontEnd/adminManagement.php');
+}}
+
 

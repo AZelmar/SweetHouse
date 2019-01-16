@@ -17,6 +17,10 @@ const adminProfil = "Admin Profil";
 const logout = "Logout";
 const shop= "Shop";
 const forumAdministrator = "Administrator Forum";
+const technicianProfileControl = "Technician Profile";
+const technicianHouseControl = "Technician House";
+const technicianRdv = "Technician Calendar";
+const technicianForum = "Technician Forum";
 }
 class footer{
 const copyright = "©SweetHouse 2018";

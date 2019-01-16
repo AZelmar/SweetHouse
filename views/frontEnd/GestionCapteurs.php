@@ -30,7 +30,10 @@
 
     <div id="content">
 
-        <div id="tab1" name = "tab1">
+        <div id="tab1" value='chambres'>
+
+       
+
             <h4>Chambres</h4>
 
 
@@ -130,7 +133,7 @@
         </div>
 
 
-        <div id="tab3">
+        <div id="tab3" >
 
             <h4>Salle de bain</h4>
 
@@ -283,6 +286,17 @@
     //----------------------------------------------Fonction pour récupérer le type de room------------------------------//
 
 
+<<<<<<< HEAD
+=======
+    $('#tab1').click(function() {
+        console.log('test');
+    $('room').val("Chambres");
+    console.log( $('#room').val());
+    //var '#tab1' = 'chambres';
+    //document.write ("<iframe src='traitement.php?room="+chambres+"' scrolling='no' frameborder='0' width='0' height='0' ><iframe>");
+
+    });
+>>>>>>> 0e98b8d68bd2f45dfe78d0e1bd15cc306d079677
 
 </script>
 
