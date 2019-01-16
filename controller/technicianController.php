@@ -6,10 +6,12 @@ require("../model/technicianEntity.php");
 
 function gestionrdv($locale) 
 {
-	if(isConnected($locale))
-    {
-	$email=$_SESSION['email'];
-    $resultat=getTechnicianData($email);
+	if(isConnected($locale)) {
+        $email = $_SESSION['email'];
+        $resultat = getTechnicianData($email);
+
+
+
     $id=htmlentities($resultat['userId']);
     $rdvs=getTechnicianRDV($id);
 
