@@ -3,7 +3,6 @@
 <html>
 
 <head>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./public/css/style.css" />
     <link href="./public/css/style_gestion_capteurs.css" rel="stylesheet" media="all">

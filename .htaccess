@@ -1,13 +1,5 @@
 RewriteEngine On
-<<<<<<< HEAD
 RewriteBase /SweetHouse/views
-=======
-
-RewriteBase /SweetHouse/views
-
-RewriteBase /SweetHouse/views
-
->>>>>>> 0e98b8d68bd2f45dfe78d0e1bd15cc306d079677
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ index.php [QSA,L]

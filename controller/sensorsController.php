@@ -10,7 +10,7 @@ function gestion_capteurs($locale){
 
     if(isConnected($locale)) {
         require ('../views/frontEnd/GestionCapteurs.php');
-
+/*
 
        if (!empty($_POST['submit'])){
            var_dump($_POST['room']);
@@ -88,7 +88,7 @@ function gestion_capteurs($locale){
            else if($_POST['room'] == ""){
                $room  = 'Chambres';
            }
-       }
+       }*/
     }
 
 }
