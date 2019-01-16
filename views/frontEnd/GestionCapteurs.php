@@ -270,10 +270,12 @@
         console.log('test');
     $('room').val("Chambres");
     console.log( $('#room').val());
+    window.location.href="tapage.php?#tab1=1"
     //var '#tab1' = 'chambres';
     //document.write ("<iframe src='traitement.php?room="+chambres+"' scrolling='no' frameborder='0' width='0' height='0' ><iframe>");
 
-    });
+    //});
+
 
 </script>
 
