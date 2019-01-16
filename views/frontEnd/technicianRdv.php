@@ -4,10 +4,10 @@
 <head>
 	<meta charset="utf-8" content="width=device-width, initial-scale=1">
   <?php include 'backEnd/globalHead.php'; ?>
-  	<title> SweetHouse | Test RDV </title>  
+  	<title> SweetHouse | RDV </title>  
 <?php include 'backEnd/header.php' ?>
+<?php include 'backEnd/footer.php' ?>
 <?PHP include 'backEnd/notification.php' ?>
-<title>Mon super emploi du temps</title>
     <style type="text/css">
         caption /* Titre du tableau */
         {
@@ -87,7 +87,7 @@ font-size: 20px;
     for($x = 1; $x < 8; $x++)
         echo "<th>".$jour[$x]."</th>";
     echo "</tr>";
-    for($j = 0; $j < 24; $j += 0.5) {
+    for($j = 4; $j < 24; $j += 0.5) {
         echo "<tr>";
         for($i = 0; $i < 7; $i++) {
             if($i == 0) {
@@ -124,7 +124,7 @@ font-size: 20px;
 		<div class="input-group">
 			<label>Heure : </label>
 			<input type="time" id="hour" name="hour"
-       min="0:00" max="23:30" required step="1800">
+       min="04:00" max="23:30" step="1800" required>
 		</div>
 		<div class="input-group">
 			<label>Motif : </label>

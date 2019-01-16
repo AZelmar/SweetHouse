@@ -36,4 +36,35 @@ function getTechnicianById()
     $result = $request->fetch();
     return $result;
 }
+
+function changeTechnician($email)
+
+{
+  require("config.php");
+  $req= 'UPDATE user SET phone = :phone , email = :email
+                WHERE email = "'.$email.'"';
+  $reqp= $pdo->prepare($req);
+  $reqp ->execute(array('phone'=>$_POST['phoneNumber'],'email'=>$_POST['mail']));
+
+}
+
+function changeTechnicianPassword($email)
+{
+$hash1 = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+  require("config.php");
+  $req= 'UPDATE user SET password = :password
+                WHERE email = "'.$email.'"';
+  $reqp= $pdo->prepare($req);
+  $reqp ->execute(array("password" => $hash1 ));
+
+}
+
+function findTechnicianHouses()
+{
+  require("config.php");
+  $request = $pdo->prepare('SELECT COUNT(DISTINCT userId) FROM user_room WHERE userId <= 12');
+  $request->execute(array());
+  $result1 = $request->fetchColumn();
+  return $result1;
+}
 ?>

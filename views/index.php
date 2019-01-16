@@ -80,8 +80,11 @@ switch ($route) {
     case 'ajax/getTechnicianInfo':
         getTechnicianInfo();
         break;
-    case 'testGestionRdv':
+    case 'technicianRdv':
         gestionrdv($locale);
+        break;
+    case 'technicianProfile':
+        technicianProfile($locale);
         break;
     default:
         error404($locale);

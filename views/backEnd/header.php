@@ -31,6 +31,15 @@ else
     <li><a href="././shop"><p><?= header::shop ?></p></a></li>
   <?php
   }
+  elseif($_SESSION['role'] == 1)
+   {
+   ?>
+  <li><a href=""><p><?= header::technicianHouseControl ?></p></a></li>
+  <li><a href="././technicianProfile"><p><?= header::technicianProfileControl ?></p></a></li>
+  <li><a href="././technicianRdv"><p><?= header::technicianRdv ?></p></a></li>
+  <li><a href=""><p><?= header::technicianForum ?></p></a></li>
+  <?php
+  }
   elseif($_SESSION['role'] == 2)
   {
     ?>
