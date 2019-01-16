@@ -74,26 +74,45 @@ function adminManagement($locale)
 {
     if(isConnected($locale))
     {
-	if(isset($_POST['userSubmit']))
-	{
-		$errorInfo = updateUser();
-		if ($errorInfo != "") {
+    	if(isset($_POST['userSubmit']))
+    	{
+    		$errorInfo = updateUser();
+    		if ($errorInfo != "") {
 
-			                                $notification = array(
-                                    "type" => "error",
-                                    "message" => "Une erreur est survenue !"
-                                );
-		}
-		else
-		{
-                                $notification = array(
-                                    "type" => "success",
-                                    "message" => "Modification enregistrée."
-                                );
-		}
-	}
-    $clients=getAllCLient();
-    $technicians=getAllTechnician();
-    require('frontEnd/adminManagement.php');
-}}
+    			                                $notification = array(
+                                        "type" => "error",
+                                        "message" => "Une erreur est survenue !"
+                                    );
+    		}
+    		else
+    		{
+                                    $notification = array(
+                                        "type" => "success",
+                                        "message" => "Modification pour cet utilisateur enregistrée."
+                                    );
+    		}
+    	}
+        if(isset($_POST['technicianSubmit']))
+        {
+            $errorInfo = updateTechnician();
+            if ($errorInfo != "") {
+
+                                                $notification = array(
+                                        "type" => "error",
+                                        "message" => "Une erreur est survenue !"
+                                    );
+            }
+            else
+            {
+                                    $notification = array(
+                                        "type" => "success",
+                                        "message" => "Modification pour ce technicien enregistrée."
+                                    );
+            }
+        }
+        $clients=getAllCLient();
+        $technicians=getAllTechnician();
+        require('frontEnd/adminManagement.php');
+    }
+}
 
