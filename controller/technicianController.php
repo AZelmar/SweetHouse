@@ -10,13 +10,6 @@ function gestionrdv($locale)
     {
 	$email=$_SESSION['email'];
     $resultat=getTechnicianData($email);
-
-    $id=$resultat['userId'];
-    $rdvs=getTechnicianRDV($id);
-	require('frontEnd/testGestionRdv.php');
-}
-}
-
     $id=htmlentities($resultat['userId']);
     $rdvs=getTechnicianRDV($id);
 

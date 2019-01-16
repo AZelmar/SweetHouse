@@ -99,11 +99,5 @@ $technicians=$req->fetchAll();
 return $technicians;
 
 }
-function updateTechnician()
-{
-	  require("config.php");
-	  $request= $pdo->prepare('UPDATE user SET phone = :phone , email = :email WHERE userId = :id');
-	  $request ->execute(array('phone'=>$_POST['technicianPhoneNumber'],'email'=>$_POST['technicianMail'],'id'=>$_POST['technicianId']));
-	  return $request->errorInfo()[2];
-}
+
 ?>
