@@ -77,8 +77,14 @@ switch ($route) {
     case 'ajax/getUserInfo':
         getUserInfo();
         break;
-    case 'testGestionRdv':
+    case 'ajax/getTechnicianInfo':
+        getTechnicianInfo();
+        break;
+    case 'technicianRdv':
         gestionrdv($locale);
+        break;
+    case 'technicianProfile':
+        technicianProfile($locale);
         break;
     default:
         error404($locale);
