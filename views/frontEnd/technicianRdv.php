@@ -79,9 +79,9 @@ font-size: 20px;
 <table>
 <?php
     $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
- 	foreach ($rdvs as $test) {
-      	$rdv[$test['day']][$test['hour']] = $test['reason'] ;
-      	}
+      foreach ($rdvs as $test) {
+        $rdv[$test['day']][$test['hour']] = $test['reason'] ;
+        }
 
     echo "<tr><th>Heure</th>";
     for($x = 1; $x < 8; $x++)
@@ -95,12 +95,14 @@ font-size: 20px;
                 if(substr($heure,-3,3) != ":30")
                     echo "<td class=\"time\" rowspan=\"2\">".$heure."h</td>";
             }
+
             echo "<td>";
             if(isset($rdv[$jour[$i+1]][$heure])) {
                 echo $rdv[$jour[$i+1]][$heure];
             }
             echo "</td>";
         }
+
         echo "</tr>";
     }
 ?>
