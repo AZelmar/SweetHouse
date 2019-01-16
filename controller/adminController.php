@@ -92,6 +92,23 @@ function adminManagement($locale)
                                 );
 		}
 	}
+      if(isset($_POST['technicianSubmit']))
+        {
+            $errorInfo = updateTechnician();
+            if ($errorInfo != "") {
+                                                $notification = array(
+                                        "type" => "error",
+                                        "message" => "Une erreur est survenue !"
+                                    );
+            }
+            else
+            {
+                                    $notification = array(
+                                        "type" => "success",
+                                        "message" => "Modification pour ce technicien enregistrée."
+                                    );
+            }
+        }
     $clients=getAllCLient();
     $technicians=getAllTechnician();
     require('frontEnd/adminManagement.php');

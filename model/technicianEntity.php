@@ -31,9 +31,9 @@ function createRDV($id,$day,$hour,$reason,$userId){
 function getTechnicianById()
 {
     require("config.php");
-    $request = $pdo->prepare('SELECT * FROM user LEFT JOIN technicianRDV ON technicianRDV.technicianId = user.userId WHERE user.userId = ?');
+    $request = $pdo->prepare('SELECT user1.firstName as technicianFirstName,user1.email as technicianEmail,user1.phone as technicianPhone,user2.firstName as userFirstName,technicianRDV.day,technicianRDV.hour,technicianRDV.reason FROM ((user AS user1 LEFT JOIN technicianRDV ON technicianRDV.technicianId = user1.userId) LEFT JOIN user AS user2 ON technicianRDV.userId = user2.userId) WHERE user1.userId = ?');
     $request->execute(array($_POST['userId']));
-    $result = $request->fetch();
+    $result = $request->fetchAll();
     return $result;
 }
 

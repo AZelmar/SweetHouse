@@ -68,14 +68,12 @@ include 'backEnd/footer.php';
 		</div>
 		<div class="input-group">
 			<label>Modifier numero de telephone :</label>
-			<input type="text" name="technicianPhoneNumber" value= "kijfoijo" >
+			<input type="text" name="technicianPhoneNumber">
 		</div>
 		<div class="input-group">
-			<label>Vos rendez-vous :</label>
-			<select name="rdv">
-					<option value="1" selected="selected">24/01: Mme Chabchoub 13:30</option>
-					<option value="2">28/01: Mme Kazi 15:00</option>
-					<option value="3">02/02: M. Feller 17:00</option>
+			<label>Récapitulatif de ses rendez-vous :</label>
+			<select name="technicianRdv" style="width: 100%">
+				<option>Aucun RDV trouvé</option>
 			</select>
 		</div>
 		<input type="submit" name="technicianSubmit" value= Modifier >
@@ -113,16 +111,9 @@ include 'backEnd/footer.php';
 <script type="text/javascript">
 	$("#userId").chosen();
 	$("#technicianId").chosen();
-	$(document).ready(function(){
-		loadUserInfo();
-		loadTechnicianInfo();
-	    $("#userId").change(function(){
-	    	loadUserInfo();
-	    });
-	    $("#technicianId").change(function(){
-	    	loadTechnicianInfo();
-	    });
-	    function loadUserInfo(){
+	loadUserInfo();
+	loadTechnicianInfo();
+	  function loadUserInfo(){
 	    	$.ajax({
 			    type: "POST",
 			    url: "<?= $basename ?>/ajax/getUserInfo",
@@ -144,13 +135,35 @@ include 'backEnd/footer.php';
 			    data: {userId:  $("#technicianId").val()},
 			    success: function(data){
 			    	var userData = JSON.parse(data);
-			    	console.log(userData);
-			    	$("[name='technicianFirstName']").val(encodeURIComponent(userData[6]));
-			    	$("[name='technicianMail']").val(encodeURI(userData[11]));
-			    	$("[name='technicianPhoneNumber']").val("0"+encodeURIComponent(userData[12]));
+			    	if(userData.length > 0)
+			    	{
+			    		$("[name='technicianFirstName']").val(encodeURIComponent(userData[0]["technicianFirstName"]));
+			    		$("[name='technicianMail']").val(encodeURI(userData[0]["technicianEmail"]));
+			    		$("[name='technicianPhoneNumber']").val("0"+encodeURIComponent(userData[0]["technicianPhone"]));
+			    		var empty = true;
+			    		$("[name='technicianRdv']").empty();
+				    	$.each(userData,function(i){
+				    		if(userData[i]["day"])
+				    		{
+								empty = false;
+								$("[name='technicianRdv']").append('<option>[ '+userData[i]["day"]+" "+userData[i]["hour"]+" ] RDV avec "+userData[i]["userFirstName"]+" pour "+userData[i]["reason"]+'</option>');
+				    		}
+				    	})
+				    	if(empty)
+				    	{
+				    		$("[name='technicianRdv']").append('<option>Aucun RDV trouvé</option>');
+				    	}
+			    	}
 			    }
 			});
 	    }
+	$(document).ready(function(){
+	    $("#userId").change(function(){
+	    	loadUserInfo();
+	    });
+	    $("#technicianId").change(function(){
+	    	loadTechnicianInfo();
+	    });
 	});
 </script>
 </body>
