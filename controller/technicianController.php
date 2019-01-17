@@ -1,7 +1,7 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require("../model/technicianEntity.php");
+require("./model/technicianEntity.php");
 
 
 function gestionrdv($locale) 
@@ -34,7 +34,7 @@ function gestionrdv($locale)
                                             "message" => "Vous devez ajouter un motif et un Id utilisateur ! ");
     	}
     }
-	require('frontEnd/technicianRdv.php');
+	require('./views/frontEnd/technicianRdv.php');
 }
 }
 
@@ -100,7 +100,7 @@ function technicianProfile($locale)
             }
 
 
-    require('frontEnd/technicianProfile.php');
+    require('./views/frontEnd/technicianProfile.php');
 }
 }
 

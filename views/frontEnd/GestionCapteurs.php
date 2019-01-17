@@ -1,4 +1,4 @@
-<?php include('../public/locale/'.$locale.'.php'); ?>
+<?php include('./public/locale/'.$locale.'.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./public/css/style.css" />
     <link href="./public/css/style_gestion_capteurs.css" rel="stylesheet" media="all">
-    <?php include '../views/backEnd/header.php';?>
+    <?php include './views/backEnd/header.php';?>
 
 </head>
 
@@ -297,6 +297,6 @@
 
 </script>
 
-<?php include 'backEnd/footer.php' ?>
+<?php include './views/backEnd/footer.php' ?>
 </html>
 

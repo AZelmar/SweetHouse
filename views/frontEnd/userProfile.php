@@ -1,13 +1,13 @@
-<?php include('../public/locale/'.$locale.'.php');?>
+<?php include('./public/locale/'.$locale.'.php');?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<?php include 'backEnd/globalHead.php'; ?>
+	<?php include './views/backEnd/globalHead.php'; ?>
 	<title><?= base::websiteName ?>| <?= profile::pageName ?></title>
 </head>
 <?php 
-include 'backEnd/header.php';
+include './views/backEnd/header.php';
 $email=$_SESSION['email'];
 $resultat = getUserData($email);
 changeUserData($email);
@@ -82,7 +82,7 @@ changeUserData($email);
 			</p>
 		</div>
 	</div>
-	<?php include 'backEnd/footer.php' ?>
+	<?php include './views/backEnd/footer.php' ?>
 </body>
 </html>
 

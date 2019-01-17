@@ -29,7 +29,7 @@ function getUserId($email){
 
 function displayFormulaire (){
 
-    require '../model/config.php';
+    require 'config.php';
 
     $request = $pdo->prepare('SELECT * FROM formulaire ORDER BY formulaire.id_sujet DESC LIMIT 10');
     $request ->execute(array());
@@ -52,7 +52,7 @@ function submitAdministratorForum($admin_answer, $id_sujet){
 }
 
 function deleteCommentaire($id_sujet){
-    require '../model/config.php';
+    require 'config.php';
     $request = $pdo->prepare('DELETE FROM formulaire WHERE formulaire.id_sujet = :id_sujet');
     $request->execute(array("id_sujet" => $id_sujet));
 }

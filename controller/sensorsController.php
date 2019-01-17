@@ -9,7 +9,7 @@
 function gestion_capteurs($locale){
 
     if(isConnected($locale)) {
-        require ('../views/frontEnd/GestionCapteurs.php');
+        require ('./views/frontEnd/GestionCapteurs.php');
 
        //var_dump($_POST['#tab1']);
 

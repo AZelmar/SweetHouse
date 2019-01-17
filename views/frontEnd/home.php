@@ -1,16 +1,16 @@
-<?php include('../public/locale/'.$locale.'.php');?>
+<?php include('./public/locale/'.$locale.'.php');?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" content="width=device-width, initial-scale=1">
-    <?php include 'backEnd/globalHead.php'; ?>
+    <?php include './views/backEnd/globalHead.php'; ?>
 
     <title>SweetHouse</title>
 </head>
 
 <body> 
 <?php
-  include 'backEnd/header.php';
+  include './views/backEnd/header.php';
   ?>
 <header>  
 <div class="titre">
@@ -22,7 +22,7 @@
   <h2>ATTENTION !</h2>
   <p>Site bientôt disponible!</p>
 </main>
-<?php include 'backEnd/footer.php' ?>
+<?php include './views/backEnd/footer.php' ?>
 </body>
 </html>
 <style>

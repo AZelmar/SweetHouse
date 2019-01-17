@@ -1,9 +1,9 @@
-<?php include('../public/locale/'.$locale.'.php');?>
+<?php include('./public/locale/'.$locale.'.php');?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" content="width=device-width, initial-scale=1">
-  <?php include 'backEnd/globalHead.php'; ?>
+  <?php include './views/backEnd/globalHead.php'; ?>
 	<title> SweetHouse | Magasin </title>  
 
 <style>
@@ -86,8 +86,8 @@ div.desc {
 
 <body>
   
-<?php include 'backEnd/header.php' ?>
-<?PHP include 'backEnd/notification.php' ?>
+<?php include './views/backEnd/header.php' ?>
+<?PHP include './views/backEnd/notification.php' ?>
 
 <form method="POST">
 
@@ -432,6 +432,6 @@ div.desc {
   });
 
 </script>
-<?php include 'backEnd/footer.php' ?>
+<?php include './views/backEnd/footer.php' ?>
 </body>
 </html>

@@ -2,7 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require("../model/userEntity.php");
+require("./model/userEntity.php");
 if (isset($_COOKIE['keep_log'])) {
     $cookieLogin = json_decode($_COOKIE['keep_log'], true);
     $results      = checkLoginCookie($cookieLogin["userEmail"]);
@@ -17,7 +17,7 @@ if (isset($_COOKIE['keep_log'])) {
 
 function home($locale)
 {
-  	require('frontEnd/home.php');
+  	require('./views/frontEnd/home.php');
 }
 
 function userProfile($locale)
@@ -28,12 +28,12 @@ function userProfile($locale)
       $resultat=getUserData($email);
       $idShop=$resultat['userId'];
       $resultat2=getUserShop($idShop);
-      require('frontEnd/userProfile.php');
+      require('./views/frontEnd/userProfile.php');
     }
 }
 
 function gestion_rdv($locale){
-    require('frontEnd/GestionRDV.php');
+    require('./views/frontEnd/GestionRDV.php');
 }
 
 
@@ -82,14 +82,14 @@ function userShop($locale)
 
         }
 
-    require('frontEnd/shop.php');
+    require('./views/frontEnd/shop.php');
 }
 
 function accountRegister($locale)
 {
-    require '../public/js/phpmailer/Exception.php';
-    require '../public/js/phpmailer/PHPMailer.php';
-    require '../public/js/phpmailer/SMTP.php';
+    require './addon/phpmailer/Exception.php';
+    require './addon/phpmailer/PHPMailer.php';
+    require './addon/phpmailer/SMTP.php';
     $validGender = array("male","female");
     $validType = array("individual","professional");
     $validCountry = array("france","spain","canada");
@@ -169,7 +169,7 @@ function accountRegister($locale)
             );
         }
     }
-    require('frontEnd/register.php');
+    require('./views/frontEnd/register.php');
 }
 function accountLogin($locale,$notification)
 {
@@ -211,7 +211,7 @@ function accountLogin($locale,$notification)
             );
         }
     }
-    require('frontEnd/login.php');
+    require('./views/frontEnd/login.php');
 }
 function accountLogout($locale)
 {
@@ -225,7 +225,7 @@ function accountLogout($locale)
                 "type" => "error",
                 "message" => "Une erreur est survenue !"
             );
-            require('frontEnd/empty.php');
+            require('./views/frontEnd/empty.php');
         } else {
             setcookie('keep_log', '', time() - 3600); // empty value and old timestamp
             $_SESSION = array();
@@ -265,13 +265,13 @@ function downloadFile($locale)
             "message" => "Aucun fichier renseigné !"
         );
     }
-    require('frontEnd/download.php');
+    require('./views/frontEnd/download.php');
 }
 function forgotPassword($locale)
 {
-    require '../public/js/phpmailer/Exception.php';
-    require '../public/js/phpmailer/PHPMailer.php';
-    require '../public/js/phpmailer/SMTP.php';
+    require './addon/phpmailer/Exception.php';
+    require './addon/phpmailer/PHPMailer.php';
+    require './addon/phpmailer/SMTP.php';
     
     if (!isset($_GET["token"])) {
         if (!empty($_POST['resend'])) {
@@ -331,7 +331,7 @@ function forgotPassword($locale)
                 );
             }
         }
-        require('frontEnd/forgotPassword.php');
+        require('./views/frontEnd/forgotPassword.php');
     } else {
         $result = checkResetRequest();
         if ($result['email'] == null) {
@@ -340,7 +340,7 @@ function forgotPassword($locale)
                 "message" => "Aucune demande lié à ce token !"
             );
             $title        = "Réinitialiser mot de passe";
-            require('frontEnd/empty.php');
+            require('./views/frontEnd/empty.php');
         } else {
             if (!empty($_POST['submit'])) {
                 if (!empty($_POST['password']) && !empty($_POST['password2'])) {
@@ -372,7 +372,7 @@ function forgotPassword($locale)
                     );
                 }
             }
-            require('frontEnd/resetPassword.php');
+            require('./views/frontEnd/resetPassword.php');
         }
     }
 }
