@@ -79,6 +79,11 @@ switch ($route) {
         break;
     case 'ajax/getTechnicianInfo':
         getTechnicianInfo();
+    case 'test/testChargeRdv':
+        testChargeRdv();
+        break;
+    case 'test/resetChargeRdv':
+        resetChargeRdv();
         break;
     case 'technicianRdv':
         gestionrdv($locale);
