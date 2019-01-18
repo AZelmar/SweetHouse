@@ -1,11 +1,11 @@
-<?php include('../public/locale/'.$locale.'.php'); ?>
+<?php include('./public/locale/'.$locale.'.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./public/css/style.css" />
-<?php include '../views/backEnd/header.php';?> 
+<?php include './views/backEnd/header.php';?> 
 
     <title> Emploi du temps</title>
     

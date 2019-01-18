@@ -1,14 +1,14 @@
-<?php include('../public/locale/'.$locale.'.php');?>
+<?php include('./public/locale/'.$locale.'.php');?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<?php include 'backEnd/globalHead.php'; ?>
+	<?php include './views/backEnd/globalHead.php'; ?>
 	<title><?= base::websiteName ?>| <?= resetPassword::pageName ?></title>
 </head>
 <body>
-	<?php include 'backEnd/header.php' ?>
-	<?PHP include 'backEnd/notification.php' ?>
+	<?php include './views/backEnd/header.php' ?>
+	<?PHP include './views/backEnd/notification.php' ?>
 	<div id="form-container">
 		<form method="POST">
 			<h2 id="title"><?= resetPassword::pageName ?></h2>
@@ -27,7 +27,7 @@
 			</div>
 		</form>
 	</div>
-	<?php include 'backEnd/footer.php' ?>
+	<?php include './views/backEnd/footer.php' ?>
 </body>
 </html>
 <style>

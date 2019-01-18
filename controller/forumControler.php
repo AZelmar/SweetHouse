@@ -1,6 +1,6 @@
 <?php
 
-require ('../model/forumEntity.php');
+require ('./model/forumEntity.php');
 
 function forum ($locale){
 
@@ -42,7 +42,7 @@ function forum ($locale){
         echo $e;
     }
 }
-    require ('../views/frontEnd/forum.php');
+    require ('./views/frontEnd/forum.php');
 
 }
 
@@ -68,13 +68,13 @@ function forumAdministrateur($locale){
         }
     }
 
-    require ('../views/frontEnd/forumAdministrateur.php');
+    require ('./views/frontEnd/forumAdministrateur.php');
 
 }
 
 function faq ($locale){
 
-    require('../views/frontEnd/faq.php');
+    require('./views/frontEnd/faq.php');
 }
 
 function returnUserId($email){

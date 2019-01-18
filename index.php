@@ -1,15 +1,15 @@
 <?php
 session_start();
-require("../controller/userController.php");
-require("../controller/baseController.php");
-require ("../controller/forumControler.php");
-require ("../controller/adminController.php");
-require ('../controller/sensorsController.php');
-require ("../controller/technicianController.php");
+require("./controller/userController.php");
+require("./controller/baseController.php");
+require ("./controller/forumControler.php");
+require ("./controller/adminController.php");
+require ('./controller/sensorsController.php');
+require ("./controller/technicianController.php");
 
 $request = $_SERVER['REDIRECT_URL'];
 //$request = str_replace("/eleves/SweetHouse", "",$request);
-$basename = str_replace("/views","",dirname($_SERVER["PHP_SELF"]));
+$basename = dirname($_SERVER["PHP_SELF"]);
 $request = str_replace($basename,"",$request);
 //preg_match("/^\/(fr|en)?\//m", $request,$parameters);
 preg_match("/^(?(?=\/(?>fr|en)\/)(?>\/(fr|en)\/)(.*)|\/(.*))$/m", $request,$parameters);
@@ -79,6 +79,11 @@ switch ($route) {
         break;
     case 'ajax/getTechnicianInfo':
         getTechnicianInfo();
+    case 'test/testChargeRdv':
+        testChargeRdv();
+        break;
+    case 'test/resetChargeRdv':
+        resetChargeRdv();
         break;
     case 'technicianRdv':
         gestionrdv($locale);

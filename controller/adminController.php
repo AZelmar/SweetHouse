@@ -1,7 +1,7 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require("../model/adminEntity.php");
+require("./model/adminEntity.php");
 
 
 function adminProfile($locale)
@@ -66,7 +66,7 @@ function adminProfile($locale)
         	}
 
 
-    require('frontEnd/adminProfile.php');
+    require('./views/frontEnd/adminProfile.php');
 }
 }
 
@@ -133,7 +133,7 @@ function adminManagement($locale)
 
         $clients=getAllCLient();
         $technicians=getAllTechnician();
-        require('frontEnd/adminManagement.php');
+        require('./views/frontEnd/adminManagement.php');
     }
 }
 ?>

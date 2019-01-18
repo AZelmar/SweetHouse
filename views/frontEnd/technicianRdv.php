@@ -1,13 +1,13 @@
-<?php include('../public/locale/'.$locale.'.php');?>
+<?php include('./public/locale/'.$locale.'.php');?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" content="width=device-width, initial-scale=1">
-  <?php include 'backEnd/globalHead.php'; ?>
+  <?php include './views/backEnd/globalHead.php'; ?>
   	<title> SweetHouse | RDV </title>  
-<?php include 'backEnd/header.php' ?>
-<?php include 'backEnd/footer.php' ?>
-<?PHP include 'backEnd/notification.php' ?>
+<?php include './views/backEnd/header.php' ?>
+<?PHP include './views/backEnd/notification.php' ?>
+<?php include './views/backEnd/footer.php' ?>
     <style type="text/css">
         caption /* Titre du tableau */
         {
