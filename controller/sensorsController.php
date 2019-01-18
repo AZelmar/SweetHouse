@@ -10,10 +10,15 @@ function gestion_capteurs($locale){
 
     if(isConnected($locale)) {
         require ('./views/frontEnd/GestionCapteurs.php');
+        require ('./model/sensorsEntity.php');
 
        //var_dump($_POST['#tab1']);
+        getStateSensor($_SESSION['email'], "salon", "temperature");
+        changeStateSensor($_SESSION['email'], "salon", "temperature", 1);
 
-       if (!empty($_POST['submit'])){
+
+
+      /*if (!empty($_POST['submit'])){
            var_dump($_POST['room']);
            if($_POST['room'] == "Chambre"){
                $room = 'Chambres';
@@ -89,7 +94,7 @@ function gestion_capteurs($locale){
            else if($_POST['room'] == ""){
                $room  = 'Chambres';
            }
-       }
+       }*/
     }
 
 }

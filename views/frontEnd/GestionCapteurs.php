@@ -21,8 +21,6 @@
 
 </div>
 
-
-
 <div class="main" >
 
     <h2>Capteurs</h2>
