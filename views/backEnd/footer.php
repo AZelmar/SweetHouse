@@ -30,6 +30,9 @@
 }
 </style>
 <script>
+function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 $(document).ready(function(){
   $('.flag-icon').click(function(){
     var page = $(location).attr('pathname').match(/\w+$/)[0];

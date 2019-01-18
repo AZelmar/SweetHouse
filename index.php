@@ -6,6 +6,7 @@ require ("./controller/forumControler.php");
 require ("./controller/adminController.php");
 require ('./controller/sensorsController.php');
 require ("./controller/technicianController.php");
+require ("./controller/testController.php");
 
 $request = $_SERVER['REDIRECT_URL'];
 //$request = str_replace("/eleves/SweetHouse", "",$request);

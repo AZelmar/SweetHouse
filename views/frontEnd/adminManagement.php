@@ -121,17 +121,17 @@ include './views/backEnd/footer.php';
 			    success: function(data){
 			    	var userData = JSON.parse(data);
 
-			    	$("[name='userRegistration']").val(encodeURIComponent(userData[4]));
-			    	$("[name='userFirstName']").val(encodeURIComponent(userData[6]));
-			    	$("[name='userActive']").val(encodeURIComponent(userData[2]));
-			    	$("[name='userMail']").val(encodeURIComponent(userData[11]));
+			    	$("[name='userRegistration']").val(htmlEntities(userData[4]));
+			    	$("[name='userFirstName']").val(htmlEntities(userData[6]));
+			    	$("[name='userActive']").val(htmlEntities(userData[2]));
+			    	$("[name='userMail']").val(htmlEntities(userData[11]));
 
-			    	$("[name='userRegistration']").val(userData[4]);
-			    	$("[name='userFirstName']").val(encodeURIComponent(userData[6]));
-			    	$("[name='userActive']").val(encodeURIComponent(userData[2]));
-			    	$("[name='userMail']").val(encodeURI(userData[11]));
+			    	$("[name='userRegistration']").val(htmlEntities(userData[4]));
+			    	$("[name='userFirstName']").val(htmlEntities(userData[6]));
+			    	$("[name='userActive']").val(htmlEntities(userData[2]));
+			    	$("[name='userMail']").val(htmlEntities(userData[11]));
 
-			    	$("[name='userPhoneNumber']").val("0"+encodeURIComponent(userData[12]));
+			    	$("[name='userPhoneNumber']").val("0"+htmlEntities(userData[12]));
 			    }
 			});
 	    }
@@ -141,24 +141,25 @@ include './views/backEnd/footer.php';
 			    url: "<?= $basename ?>/ajax/getTechnicianInfo",
 			    data: {userId:  $("#technicianId").val()},
 			    success: function(data){
+			    	console.log(userData);
 			    	var userData = JSON.parse(data);
 
-			    	$("[name='technicianFirstName']").val(encodeURIComponent(userData[6]));
-			    	$("[name='technicianMail']").val(encodeURIComponent(userData[11]));
-			    	$("[name='technicianPhoneNumber']").val("0"+encodeURIComponent(userData[12]));
+			    	$("[name='technicianFirstName']").val(htmlEntities(userData[6]));
+			    	$("[name='technicianMail']").val(htmlEntities(userData[11]));
+			    	$("[name='technicianPhoneNumber']").val("0"+htmlEntities(userData[12]));
 
 			    	if(userData.length > 0)
 			    	{
-			    		$("[name='technicianFirstName']").val(encodeURIComponent(userData[0]["technicianFirstName"]));
-			    		$("[name='technicianMail']").val(encodeURI(userData[0]["technicianEmail"]));
-			    		$("[name='technicianPhoneNumber']").val("0"+encodeURIComponent(userData[0]["technicianPhone"]));
+			    		$("[name='technicianFirstName']").val(htmlEntities(userData[0]["technicianFirstName"]));
+			    		$("[name='technicianMail']").val(htmlEntities(userData[0]["technicianEmail"]));
+			    		$("[name='technicianPhoneNumber']").val("0"+htmlEntities(userData[0]["technicianPhone"]));
 			    		var empty = true;
 			    		$("[name='technicianRdv']").empty();
 				    	$.each(userData,function(i){
 				    		if(userData[i]["day"])
 				    		{
 								empty = false;
-								$("[name='technicianRdv']").append('<option>[ '+userData[i]["day"]+" "+userData[i]["hour"]+" ] RDV avec "+userData[i]["userFirstName"]+" pour "+userData[i]["reason"]+'</option>');
+								$("[name='technicianRdv']").append('<option>[ '+htmlEntities(userData[i]["day"])+" "+htmlEntities(userData[i]["hour"])+" ] RDV avec "+htmlEntities(userData[i]["userFirstName"])+" pour "+htmlEntities(userData[i]["reason"])+'</option>');
 				    		}
 				    	})
 				    	if(empty)
