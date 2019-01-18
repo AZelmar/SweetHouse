@@ -37,9 +37,9 @@ include ('./public/locale/'.$locale.'.php');
     </label>
     <br>
     <br>
-    <div class = id_client> Votre numéro client : <?php echo $userId ?> </div>
+    <div class = id_client> Votre numéro client : <?php echo htmlentities($userId) ?> </div>
     <br>
-    <div class = email> Votre adresse mail : <?php echo $_SESSION['email'] ?> </div>
+    <div class = email> Votre adresse mail : <?php echo htmlentities($_SESSION['email']) ?> </div>
     <br>
     <label>
         Pseudo :
@@ -93,12 +93,12 @@ include ('./public/locale/'.$locale.'.php');
         </th>
     </tr>
     <tr>
-        <td><?php echo $userdata[$counter]['id_sujet']; ?></td>
-        <td><?php echo $userdata[$counter]['id_client']; ?> </td>
-        <td><?php echo $userdata[$counter]['pseudo']; ?></td>
-        <td><?php echo $userdata[$counter]['mail']; ?></td>
-        <td><?php echo $userdata[$counter]['subject']; ?></td>
-        <td><?php echo $userdata[$counter]['date_commentaire']; ?></td>
+        <td><?php echo htmlentities($userdata[$counter]['id_sujet']); ?></td>
+        <td><?php echo htmlentities($userdata[$counter]['id_client']); ?> </td>
+        <td><?php echo htmlentities($userdata[$counter]['pseudo']); ?></td>
+        <td><?php echo htmlentities($userdata[$counter]['mail']); ?></td>
+        <td><?php echo htmlentities($userdata[$counter]['subject']); ?></td>
+        <td><?php echo htmlentities($userdata[$counter]['date_commentaire']); ?></td>
     </tr>
 
 </table>
@@ -107,18 +107,18 @@ include ('./public/locale/'.$locale.'.php');
 <p class="titre1"> Question </p>
 
 <p class="commentaire">
-    <?php echo $userdata[$counter]['commentaire'];?>
+    <?php echo htmlentities($userdata[$counter]['commentaire']);?>
 </p>
 
 <p class="reponse_administrateur">
 
     <?php
 
-    if ($userdata[$counter]['admin_answer'] == null){
+    if (htmlentities($userdata[$counter]['admin_answer']) == null){
         echo "L'administrateur n'a pas encore répondu à ce commentaire, il répondra bientôt ! ";
     }
     else {
-        echo $userdata[$counter]['admin_answer'];
+        echo htmlentities($userdata[$counter]['admin_answer']);
     }
 
     ?>
