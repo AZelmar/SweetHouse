@@ -47,6 +47,7 @@ function technicianProfile($locale)
     $id=htmlentities($resultat['userId']);
     $resultatQuestion=getNewQuestions();
     $resultatMaisonsTechnicien=findTechnicianHouses();
+    $resultatProblemesTechnicien=findTechnicianProblems();
 
     if (isset($_POST['validerTechnicianProfile']) )
             {

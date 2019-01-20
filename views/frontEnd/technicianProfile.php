@@ -52,7 +52,7 @@ include './views/backEnd/footer.php';
 				<br><br> 
 				Vous avez <?php echo htmlentities($resultatMaisonsTechnicien) ?> maisons à gerer 
 				<br><br>
-				Il y a 3 problemes à gerer 
+				Il y a <?php echo htmlentities($resultatProblemesTechnicien) ?> problemes à gerer 
 			</p>
 		</div>
 	</div>
