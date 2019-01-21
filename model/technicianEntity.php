@@ -69,4 +69,12 @@ function findTechnicianHouses()
   return $result1;
 }
 
+function findTechnicianProblems()
+{
+  require("config.php");
+  $request = $pdo->prepare('SELECT COUNT(functional) FROM user_sensor WHERE functional = 0');
+  $request->execute(array());
+  $result1 = $request->fetchColumn();
+  return $result1;
+}
 ?>

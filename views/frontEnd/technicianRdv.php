@@ -87,19 +87,22 @@ font-size: 20px;
     for($x = 1; $x < 8; $x++)
         echo "<th>".$jour[$x]."</th>";
     echo "</tr>";
-    for($j = 4; $j < 24; $j += 0.5) {
+    for($j = 4; $j < 23.5; $j += 0.5) {
         echo "<tr>";
-        for($i = 0; $i < 7; $i++) {
-            if($i == 0) {
+        for($i = 0; $i < 7; $i++) 
+        {
+                if($i == 0) {
                 $heure = str_replace(".5", ":30", $j);
-                if(substr($heure,-3,3) != ":30")
-                    echo "<td class=\"time\" rowspan=\"2\">".$heure."h</td>";
-            }
+                echo "<td class=\"time\">".$heure."</td>";
+              }
+        
+        
 
             echo "<td>";
             if(isset($rdv[$jour[$i+1]][$heure])) {
                 echo $rdv[$jour[$i+1]][$heure];
             }
+
             echo "</td>";
         }
 
@@ -125,8 +128,47 @@ font-size: 20px;
 		</div>
 		<div class="input-group">
 			<label>Heure : </label>
-			<input type="time" id="hour" name="hour"
-       min="04:00" max="23:30" step="1800" required>
+			<select id="hour" name="hour">
+          <option value="4">4</option>
+          <option value="04:30">4:30</option>
+          <option value="5">5</option>
+          <option value="05:30">5:30</option>
+          <option value="6">6</option>
+          <option value="06:30">6:30</option>
+          <option value="7">7</option>
+          <option value="07:30">7:30</option>
+          <option value="8">8</option>
+          <option value="08:30">8:30</option>
+          <option value="9">9</option>
+          <option value="09:30">9:30</option>
+          <option value="10">10</option>
+          <option value="10:30">10:30</option>
+          <option value="11">11</option>
+          <option value="11:30">11:30</option>
+          <option value="12">12</option>
+          <option value="12:30">12:30</option>
+          <option value="13">13</option>
+          <option value="13:30">13:30</option>
+          <option value="14">14</option>
+          <option value="14:30">14:30</option>
+          <option value="15">15</option>
+          <option value="15:30">15:30</option>
+          <option value="16">16</option>
+          <option value="16:30">16:30</option>
+          <option value="17">17</option>
+          <option value="17:30">17:30</option>
+          <option value="18">18</option>
+          <option value="18:30">18:30</option>
+          <option value="19">19</option>
+          <option value="19:30">19:30</option>
+          <option value="20">20</option>
+          <option value="20:30">20:30</option>
+          <option value="21">21</option>
+          <option value="21:30">21:30</option>
+          <option value="22">22</option>
+          <option value="22:30">22:30</option>
+          <option value="23">23</option>
+    </select>
 		</div>
 		<div class="input-group">
 			<label>Motif : </label>
