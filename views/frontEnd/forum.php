@@ -114,7 +114,7 @@ include ('./public/locale/'.$locale.'.php');
     <?php
 
     if (htmlentities($userdata[$counter]['admin_answer']) == null){
-        echo "L'administrateur n'a pas encore répondu à ce commentaire, il répondra bientôt ! ";
+        echo forum::administratorAnswer;
     }
     else {
         echo htmlentities($userdata[$counter]['admin_answer']);

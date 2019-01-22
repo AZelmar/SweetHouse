@@ -179,6 +179,8 @@ class forum{
 
     const boutton = "Retour à la page d'acceuil";
 
+    const administratorAnswer = "L'administrateur n'a pas encore répondu à ce commentaire, il répondra bientôt ! ";
+
 
 }
 ?>

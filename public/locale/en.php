@@ -181,6 +181,9 @@ class forum{
 
     const boutton = "Back to the homepage";
 
+    const administratorAnswer = "The administrator has not yet replied to this comment, he will reply soon!";
+
+
 
 
 
