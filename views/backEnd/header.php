@@ -26,7 +26,7 @@ else
    if($_SESSION['role'] == 0)
    {
    ?>
-  <li><a href=""><p><?= header::houseControl ?></p></a></li>
+  <li><a href="././gestionSensor"><p><?= header::houseControl ?></p></a></li>
   <li><a href="././userProfile"><p><?= header::profileControl ?></p></a></li>
    <li> <a href="././gestion-capteurs"><p><?= header::gestionCapteurs ?> </p></a> </li>
    <li><a href="././shop"><p><?= header::shop ?></p></a></li>

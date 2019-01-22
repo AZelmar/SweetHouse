@@ -119,4 +119,12 @@ const room= "Chambre";
 const kitchen= "Cuisine";
 const bathroom= "Salle de bain";
 }
+class GestionCapteurs{
+const pageName ="Gestion maison";
+const Sensors= "capteurs";
+const livingRoom= "Salon";
+const room= "Chambre";
+const kitchen= "Cuisine";
+const bathroom= "Salle de bain";
+}
 ?>

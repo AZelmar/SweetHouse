@@ -35,14 +35,6 @@ include './views/backEnd/notification.php';
 			<label>Entrez votre nouveau mot de passe :</label>
 			<input type="password" name="newPassword" >
 		</div>
-		<div class="input-group">
-			<label>Vos rendez-vous :</label>
-			<select name="rdv">
-					<option value="1" selected="selected">24/01: Mme Chabchoub 13:30</option>
-					<option value="2">28/01: Mme Kazi 15:00</option>
-					<option value="3">02/02: M. Feller 17:00</option>
-			</select>
-		</div>
 		<input type="submit" name="valider" value= Modifier >
       </form>
   </div>
