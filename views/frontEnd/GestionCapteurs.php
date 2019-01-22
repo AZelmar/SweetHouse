@@ -14,9 +14,9 @@
 <body>
 <form method="post">
 <div id="tabs" class="tabs">
-    <li><a href="#" name="tab1" id="1"> Chambres</a></li>
-    <li><a href="#" name="tab2" id="2">Cuisine</a></li>
-    <li><a href="#" name="tab3" id="3">Salle de bain</a></li>
+    <li><a href="#" name="tab1" id="1"> Chambugkjres</a></li>
+    <li><a href="#" name="tab2" id="2">Cuifdbvsine</a></li>
+    <li><a href="#" name="tab3" id="3">Sallebdfc de bain</a></li>
     <li><a href="#" name="tab4" id="4">Salon</a></li>
 
 </div>
