@@ -3,7 +3,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require("./model/userEntity.php");
-require("./model/sensorEntity.php");
 if (isset($_COOKIE['keep_log'])) {
     $cookieLogin = json_decode($_COOKIE['keep_log'], true);
     $results      = checkLoginCookie($cookieLogin["userEmail"]);
