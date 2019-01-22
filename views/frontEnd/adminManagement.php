@@ -82,28 +82,6 @@ include './views/backEnd/footer.php';
 
   <div class="box" >
 	<h2 id="title"> Gestion Capteurs :</h2>
-      <hr>
-      <form method="post" action="adminProfile">
-        <p>
-        
-		<div class="input-group">
-			<label>Modifier mail :</label>
-			<input type="text" name="mail" value= "oiazjroiz" >
-		</div>
-		<div class="input-group">
-			<label>Modifier numero de telephone :</label>
-			<input type="text" name="phoneNumber" value="iosjfiod" >
-		</div>
-		<div class="input-group">
-			<label>Vos rendez-vous :</label>
-			<select name="rdv">
-					<option value="1" selected="selected">24/01: Mme Chabchoub 13:30</option>
-					<option value="2">28/01: Mme Kazi 15:00</option>
-					<option value="3">02/02: M. Feller 17:00</option>
-			</select>
-		</div>
-		<input type="submit" name="valider" value= Modifier >
-      </form>
   </div>
 </div>
 </form>
