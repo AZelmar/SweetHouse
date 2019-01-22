@@ -18,46 +18,51 @@
 ?>
 
 <h1><div class="titre-question">
-	Questions classique & Forum
+	Questions classiques & Forum
 	</div>
 </h1>
 
 <p>
 	<div class="presentation-questions">
-		Rem et adfectant figmentis haberet quam haberet armisque factorum meruerim consiliis rem armisque consiliis quidam curant commendari Glabrioni de malo praemii cur rem superasset Ascraeus consiliis delatum est qui meruerim est memorat interrogatus quam ambigere ob ascensus gloriae eas ob arduos autem adepturi praemii quam cur recteque longos inbracteari sensu quasi inquit quam aestimantes ob interrogatus ascensus longos sensu aeternitati Cato quam Antiochum consiliis posse commendari quasi id longos inquit quam conscientia posse malo pulchrum plus spernentem quam cur factorum aestimantes quam mussitare conscientia vates ardenter curant non et Ascraeus ob quasi rem interrogatus posse rem Antiochum Censorius quam gravius.
-	</div>
+    Dans cette Foire Aux Questions vous pourrez retrouver toutes les questions classiques que les utilisateurs peuvent se poser quant à l’utilisation de la plateforme de gestion des capteurs ou les capteurs eux-mêmes. Un Forum est également à la disposition des utilisateurs dans le cas où la réponse aux questions des utilisateurs ne serait pas déjà mentionnée dans la FAQ. Les administrateurs de la plateforme prendront soin d’actualiser les questions traitées dans la FAQ afin de s’adapter aux questions les plus fréquentes. Néanmoins, nous sommes tout à fait ouverts à la suggestion de question récurrentes que d’autres utilisateurs pourraient venir à se poser. N’hésitez donc pas à nous contacter grâce à l’onglet Contactez-Nous, nous ferons tout notre possible pour vous répondre dans de plus brefs délais. 	</div>
 </p>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <button class="collapsible">Comment gérer ma maison</button>
 <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
+    <p>La plateforme Sweet House est là pour vous proposer une gestion complète de votre maison domotisée ainsi que l’ensemble des capteurs que vous pourriez posséder dans cette maison. La gestion des capteurs est disponible via l’onglet Gestions Capteurs où vous pourrez retrouver l’ensemble des capteurs présents dans votre maison avec la possibilité de modifier l’état de ceux-ci.</p> </div>
 <button class="collapsible">Pourquoi mon capteur ne fonctionne pas ? </button>
 <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>La raison la plus fréquente lié au disfonctionnement d’un capteur est un problème de batterie. Veillez donc à regarder si les témoins lumineux de votre capteur sont allumés. Si ce n’est pas le cas, tentez de remplacer les piles de votre capteur en prenant soin de disposées celles-ci dans le sens correct. Si malgré cette tentative le capteur ne fonctionne toujours pas, vous pouvez prendre RDV avec un technicien de manière à ce que celui-ci remplace au plus vite votre capteur. Sinon, vous pouvez bien évidemment passer par la boutique afin de commander un nouveau capteur adéquat. </p>
 </div>
-<button class="collapsible">Comment ajouter une option </button>
+<button class="collapsible">Comment ajouter un capteur ?</button>
 <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Pour ajouter un capteur, une demande à l’administrateur est nécessaire. En effet, la mise en place de capteurs est gérée par l’administrateur afin d’éviter tous surchargement de la plateforme. Vous pouvez donc entrer en contact avec celui-ci de différentes manières et celui-ci vous répondra dans les plus brefs délais. Un RDV avec un technicien sera par la suite nécessaire dans le cas où l’installation d’un capteur serait  nécessaire. </p>
 </div>
 <button class="collapsible">Pourquoi mon actionneur ne fonctionne plus ? </button>
 <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Pour répondre à cette question, nous vous invitons à vous référer à la section « Pourquoi mon capteur ne fonctionne plus ». .</p>
 </div>
 <button class="collapsible">Comment ajouter un actionneur </button>
 <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Pour répondre à cette question nous vous invitons à vous référer à la section « Comment ajouter une option ».</p>
 </div>
 <button class="collapsible">Comment mes informations sont-elles sécurisées ? </button>
 <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>L’ensemble de vos informations sont contenues dans un serveur sécurisé physiquement et technologiquement au sein des locaux de DomIsep. Les développeurs de la plateforme Sweet House ont mis en place de nombreux protocoles de sécurité afin que vous seul et l’administrateur lié à votre compte soit les seuls maître de vos informations. Votre mot de passe a donc été crypté au sein de la base de données et l’ensemble des données personnelles sont protégées par nos Conditions Générales d’Utilisation que ces informations ne seront en aucun cas utilisé à des fins autres que la gestion domostisée de votre maison. Si vous avez quelconque question à ce sujet n’hésitez pas à contacter un administrateur grâce à l’onglet « Contactez nous ». </p>
 </div>
 <button class="collapsible">Comment contacter le service client ? </button>
 <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Toutes les informations pour le contact du service client sont contenues dans l’onglet Contactez Nous dasn l'onglet Aide</p>
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <style>
 

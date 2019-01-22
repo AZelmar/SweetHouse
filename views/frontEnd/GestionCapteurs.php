@@ -106,7 +106,7 @@
 
 
             <label class="switch1">
-                <input type="checkbox" name="cuisine_smoke" <?php  echo (displayStateSensor('cuisine', 'fumee'));  ?> >
+                <input type="checkbox" name="cuisine_smoke" <?php echo (displayStateSensor('cuisine', 'fumee'));  ?> >
                 <span class="slider round"></span>
             </label>
 
@@ -236,7 +236,11 @@
     <div class="boutton"> <input type="submit" value="Modifier mes l'état de mes capteurs" name="submit"> </div>
 </div>
 </form>
-
+<br>
+<br>
+<br>
+<br>
+<br>
 </body>
 
 

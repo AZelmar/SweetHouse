@@ -21,6 +21,7 @@ const technicianProfileControl = "Profil Technicien";
 const technicianHouseControl = "Maison Technicien";
 const technicianRdv = "RDV Technicien";
 const technicianForum = "Forum Technicien";
+const gestionCapteurs = "Gestion Capteurs";
 }
 class footer{
 const copyright = "©SweetHouse 2018";

@@ -39,8 +39,6 @@ function getStateSensor($email, $room, $sensortype){
 
 
     $request1 = $pdo->prepare('SELECT id_user_room FROM user_room WHERE userId = ? AND id_room = ?');
-    //$request1->bindParam('userId', $userId[0]);
-    //$request1->bindParam('id_room', $room[0]);
     $request1->execute(array($userId[0], $room[0]));
     $id_user_room = $request1->fetch();
 
@@ -53,7 +51,40 @@ function getStateSensor($email, $room, $sensortype){
     $state = $request4->fetch();
 
     return $state[0];
-} 
+}
+
+
+function addSensorBDD($email){
+
+    require "config.php";
+
+    $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
+    $request->execute(array($email));
+    $userId = $request->fetch();
+
+    for ($i = 1 ; $i < 5 ; $i++) {
+       $request1 = $pdo->prepare('INSERT INTO user_room (id_user_room, userId, id_room) VALUES (NULL, ?, ?); ');
+       $request1->execute(array($userId[0], $i));
+
+        $request2 = $pdo->prepare('SELECT id_user_room FROM user_room WHERE userId = ? AND id_room = ?');
+        $request2->execute(array ($userId[0], $i));
+        $id_user_room = $request2->fetch();
+
+        $a = 0;
+        $b = 1;
+
+        for ($j = 1 ; $j < 7; $j++){
+            $request3 = $pdo->prepare('INSERT INTO user_sensor (id_user_room,id_sensor,state,functional) VALUES (?,?,?,?)');
+            $request3->execute(array($id_user_room[0], $j, $a, $b));
+        }
+
+    }
+
+
+
+
+
+}
 
 ?>
 
