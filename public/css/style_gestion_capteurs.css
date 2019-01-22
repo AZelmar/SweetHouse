@@ -163,11 +163,12 @@ li a:active{
 
 .switch5 {
     position: absolute;
+
     display: inline-block;
     width: 60px;
     height: 33px;
-    top: 78px;
-    left:  2px;
+    top: 49%;
+    left:  45%;
 
 }
 .switch5 input {
@@ -254,8 +255,8 @@ input:checked + .slider:before {
     text-decoration-color: #C0C0C0;
     background-color: #65c0ba;
     border: 4px solid black;
-    margin-top: 9%;
-    margin-left: 26%;
+    top: 5%;
+    left: 20%;
     font-size: 30px;
     padding: 18px 35px;
 }
