@@ -119,4 +119,16 @@ const kitchen= "kitchen";
 const bathroom= "Bathroom";
 
 }
+
+class shop{
+const pageName = "Sensors Management";
+const Sensors= "sensors";
+const livingRoom= "Living Room";
+const room= "Room";
+const kitchen= "kitchen";
+const bathroom= "Bathroom";
+
+}
+
+
 ?>
