@@ -121,8 +121,10 @@ function accountRegister($locale)
                                 );
                             }
                         } else {
+                            addSensorBDD($_POST['email']);
                             $send = sendMail($_POST['email'], "SweetHouse - Inscription", "Bienvenue chez SweetHouse.<br><br>Vous trouverez-ci dessous le lien de télechargement du formulaire correspondant à votre statut de " . $_POST['type'] . " qu'il faudra renvoyer complété et renvoyer par pièce jointe à cette adresse mail.<br><br> Cordialement, toutes l'équipe de SweetHouse<br><br> <a href=\"http://www.sweethouse.co.at/download?file=" . $_POST['type'] . ".pdf\">Télecharger le formulaire</a>");
                             if ($send) {
+
                                 $notification = array(
                                     "type" => "success",
                                     "message" => "Vous avez bien été enregistré ! Un email vous a été envoyé pour continuer votre inscription."
