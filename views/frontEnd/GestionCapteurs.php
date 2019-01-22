@@ -4,22 +4,20 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./public/css/style.css" />
+    <?php include './views/backEnd/globalHead.php'; ?>
     <link href="./public/css/style_gestion_capteurs.css" rel="stylesheet" media="all">
-    <?php include './views/backEnd/header.php';?>
 
 </head>
 
-
 <body>
+        <?php include './views/backEnd/header.php';?>
 <form method="post">
-<div id="tabs" class="tabs">
-    <li><a href="#" name="tab1" id="1"> Chambugkjres</a></li>
-    <li><a href="#" name="tab2" id="2">Cuifdbvsine</a></li>
-    <li><a href="#" name="tab3" id="3">Sallebdfc de bain</a></li>
-    <li><a href="#" name="tab4" id="4">Salon</a></li>
-
-</div>
+<ul id="tabs">
+    <li><a href="#" name="tab1" id="1"><?= shop::livingRoom ?></a></li>
+    <li><a href="#" name="tab2" id="2"><?= shop::room ?></a></li>
+    <li><a href="#" name="tab3" id="3"><?= shop::kitchen ?></a></li>
+    <li><a href="#" name="tab4" id="4"><?= shop::bathroom ?></a></li>
+</ul>   
 
 <div class="main" >
 
@@ -39,7 +37,10 @@
                 <div class="desc"></div>
             </div>
 
-
+            <label class="switch1">
+                <input type="checkbox" name ="chambre_smoke" <?php  echo (displayStateSensor('chambres', 'fumee'));  ?>>
+                <span class="slider round"></span>
+            </label>
 
             <div class="gallery">
                 <img src="./public/images/lumen.png" id="lumen" >
@@ -54,13 +55,6 @@
 
             </div>
 
-
-
-
-            <label class="switch1">
-                <input type="checkbox" name ="chambre_smoke" <?php  echo (displayStateSensor('chambres', 'fumee'));  ?>>
-                <span class="slider round"></span>
-            </label>
 
             <label class="switch2">
                 <input type="checkbox" name = "chambre_lumen" <?php echo displayStateSensor('chambres', 'lumiere')?>>

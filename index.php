@@ -59,7 +59,7 @@ switch ($route) {
     case 'faq':
         faq($locale);
         break;
-    case 'gestion-capteurs':
+    case 'gestionSensor':
         gestion_capteurs($locale);
         break;
     case 'shop':

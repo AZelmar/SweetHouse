@@ -120,7 +120,7 @@ const bathroom= "Bathroom";
 
 }
 
-class shop{
+class GestionCapteurs{
 const pageName = "Sensors Management";
 const Sensors= "sensors";
 const livingRoom= "Living Room";
