@@ -127,4 +127,58 @@ const room= "Chambre";
 const kitchen= "Cuisine";
 const bathroom= "Salle de bain";
 }
+
+class faq{
+
+    const title = "Questions classiques & FAQ ";
+    const presentationFAQ = "Dans cette Foire Aux Questions vous pourrez retrouver toutes les questions classiques que les utilisateurs peuvent se poser quant à l’utilisation de la plateforme de gestion des capteurs ou les capteurs eux-mêmes. Un Forum est également à la disposition des utilisateurs dans le cas où la réponse aux questions des utilisateurs ne serait pas déjà mentionnée dans la FAQ. Les administrateurs de la plateforme prendront soin d’actualiser les questions traitées dans la FAQ afin de s’adapter aux questions les plus fréquentes. Néanmoins, nous sommes tout à fait ouverts à la suggestion de question récurrentes que d’autres utilisateurs pourraient venir à se poser. N’hésitez donc pas à nous contacter grâce à l’onglet Contactez-Nous, nous ferons tout notre possible pour vous répondre dans de plus brefs délais.";
+    const gererMaison = "La plateforme Sweet House est là pour vous proposer une gestion complète de votre maison domotisée ainsi que l’ensemble des capteurs que vous pourriez posséder dans cette maison. La gestion des capteurs est disponible via l’onglet Gestions Capteurs où vous pourrez retrouver l’ensemble des capteurs présents dans votre maison avec la possibilité de modifier l’état de ceux-ci.";
+    const malfonctionnementCapteur = "La raison la plus fréquente liée au disfonctionnement d’un capteur est un problème de batterie. Veillez donc à regarder si les témoins lumineux de votre capteur sont allumés. Si ce n’est pas le cas, tentez de remplacer les piles de votre capteur en prenant soin de disposées celles-ci dans le sens correct. Si malgré cette tentative le capteur ne fonctionne toujours pas, vous pouvez prendre RDV avec un technicien de manière à ce que celui-ci remplace au plus vite votre capteur. Sinon, vous pouvez bien évidemment passer par la boutique afin de commander un nouveau capteur adéquat.";
+    const ajouterCapteur = "Pour ajouter un capteur, une demande à l’administrateur est nécessaire. En effet, la mise en place de capteurs est gérée par l’administrateur afin d’éviter tous surchargement de la plateforme. Vous pouvez donc entrer en contact avec celui-ci de différentes manières et celui-ci vous répondra dans les plus brefs délais. Un RDV avec un technicien sera par la suite nécessaire dans le cas où l’installation d’un capteur serait nécessaire.";
+    const malfonctionnementActionneur = "Pour répondre à cette question, nous vous invitons à vous référer à la section « Pourquoi mon capteur ne fonctionne plus ».";
+    const ajouterActionneur = "Pour répondre à cette question nous vous invitons à vous référer à la section « Comment ajouter une option ».";
+    const informationSecurity = "L’ensemble de vos informations sont contenues dans un serveur sécurisé physiquement et technologiquement au sein des locaux de DomIsep. Les développeurs de la plateforme Sweet House ont mis en place de nombreux protocoles de sécurité afin que vous seul et l’administrateur lié à votre compte soit les seuls maître de vos informations. Votre mot de passe a donc été crypté au sein de la base de données et l’ensemble des données personnelles sont protégées par nos Conditions Générales d’Utilisation que ces informations ne seront en aucun cas utilisé à des fins autres que la gestion domostisée de votre maison. Si vous avez quelconque question à ce sujet n’hésitez pas à contacter un administrateur grâce à l’onglet « Contactez nous ».";
+    const serviceClient = "Toutes les informations pour le contact du service client sont contenues dans l’onglet Contactez Nous dans l'onglet Aide";
+
+    const gererMaisonTitle = "Comment gérer ma maison ? ";
+    const malfonctionnementCapteurTitle  = "Pourquoi on capteur ne fonctionne pas ? ";
+    const ajouterCapteurTitle = "Comment ajouter un capteur ? ";
+    const malfonctionnementActionneurTitle = "Pourquoi mon actionneur ne fonctionne plus ? ";
+    const ajouterActionneurTitle = "Comment ajouter un actionneur ? ";
+    const informationSecurityTitle = "Comment mes informations sont-elles sécurisées ? ";
+    const serviceClientTitle = "Comment contacter le service client ? ";
+}
+
+class forum{
+
+    const title2 = "Poser sa question";
+    const sujet = "Sujet";
+    const technique = "Problème technique (capteurs, site internet, connexion, installation,...";
+    const conseil = "Conseils & Astuces, demander des conseils pour optimiser la gestion de vos capteurs";
+    const entreprise = "Questions Entreprise, pour les solutions destinées aux entreprises";
+    const other = " Autres, pour toutes autres questions ne rentrant pas dans les précédents choix";
+
+    const numeroClient = "Votre numéro client : ";
+    const adresseEmail = "Votre adresse mail : ";
+    const pseudo = " Pseudo : ";
+    const pseudoPlacefolder = "Votre pseudo";
+    const message = "Message : ";
+    const messagePlaceholder = "Tapez votre message ici";
+    const buttonSubmit = "Envoyer";
+
+    const title3 = "Observer les questions déjà posées";
+    const presentationForum = "Vous pouvez répondre lire les questions ci-dessous. Attention à ne pas répéter régulièrement la même question et faites un tour sur la FAQ avant !";
+
+
+    const numeroCommentaireForum = " Numéro du commentaire ";
+    const numeroClientForum = "Numéro Client ";
+    const pseudoForum = "Pseudo";
+    const mailForum = "Adresse mail";
+    const sujetForum = "Sujet";
+    const dateForum = "Date de publication ";
+
+    const boutton = "Retour à la page d'acceuil";
+
+
+}
 ?>

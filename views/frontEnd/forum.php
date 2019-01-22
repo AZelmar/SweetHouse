@@ -19,45 +19,45 @@ include ('./public/locale/'.$locale.'.php');
     include './views/backEnd/notification.php';
     include './views/backEnd/footer.php';
 ?>
-<a href="./home" <button class="button"> Retour à la page d'acceuil</button> </a>
+<a href="./home" <button class="button"> <?= forum::boutton?></button> </a>
 
 <h1>Forum </h1>
 
-<h2> Poser sa question </h2>
+<h2> <?= forum::title2 ?> </h2>
 
 <form method="post">
     <label>
-        Sujet :
+        <?= forum::sujet ?>
         <select name="subject">
-            <option value="Technique"> Problème technique (capteurs, site internet, connexion, installation,...</option>
-            <option value="Conseils"> Conseils & Astuces, demander des conseils pour optimiser la gestion de vos capteurs</option>
-            <option value = "Entreprise "> Questions Entreprise, pour les solutions destinées aux entreprises </option>
-            <option value="Autres "> Autres, pour toutes autres questions ne rentrant pas dans les précédents choix </option>
+            <option value="Technique"> <?= forum::technique ?></option>
+            <option value="Conseils"><?= forum::conseil ?></option>
+            <option value = "Entreprise "><?= forum::entreprise ?></option>
+            <option value="Autres "> <?= forum::other ?></option>
         </select>
     </label>
     <br>
     <br>
-    <div class = id_client> Votre numéro client : <?php echo htmlentities($userId) ?> </div>
+    <div class = id_client> <?= forum::numeroClient ?><?php echo htmlentities($userId) ?> </div>
     <br>
-    <div class = email> Votre adresse mail : <?php echo htmlentities($_SESSION['email']) ?> </div>
+    <div class = email> <?= forum::adresseEmail ?><?php echo htmlentities($_SESSION['email']) ?> </div>
     <br>
     <label>
-        Pseudo :
-        <input  class = "norm" type="text" name="pseudo" placeholder="Votre pseudo" required="required">
+        <?= forum::pseudo ?>
+        <input  class = "norm" type="text" name="pseudo" placeholder="<?= forum::pseudoPlacefolder ?>" required="required">
     </label>
     <br>
     <label>
         Message :
-        <textarea name = "commentaire" placeholder="Tapez votre message ici" required="required"></textarea>
+        <textarea name = "commentaire" placeholder="<?= forum::messagePlaceholder ?>" required="required"></textarea>
     </label>
 
-    <div class="boutton"> <input type="submit" value="Envoyer" name="submit"> </div>
+    <div class="boutton"> <input type="submit" value="<?= forum::buttonSubmit ?>" name="submit"> </div>
 
 </form>
 
-<h2> Observer les questions déjà posées </h2>
+<h2><?= forum::title3 ?></h2>
 
-<h3> Vous pouvez répondre lire les questions ci-dessous. Attention à ne pas répéter régulièrement la même question et faites un tour sur la FAQ avant !</h3>
+<h3> <?= forum::presentationForum ?></h3>
 
 
 <!---------------------------------- Affichage commentaire ------------------------------------------>
@@ -72,24 +72,23 @@ include ('./public/locale/'.$locale.'.php');
 
 <table>
     <tr>
-        <th>
-            Numéro du commentaire
+        <th><?= forum::numeroCommentaireForum ?>
         </th>
         <th>
-            Numéro Client
+            <?= forum::numeroClientForum ?>
         </th>
         <th >
-            Pseudo
+           <?= forum::pseudoForum ?>
         </th>
         <th>
-            Adresse mail
+           <?= forum::mailForum ?>
         </th>
         <th>
-            Sujet
+            <?= forum::sujetForum ?>
         </th>
 
         <th>
-            Date de publication
+           <?= forum::dateForum ?>
         </th>
     </tr>
     <tr>
