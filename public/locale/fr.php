@@ -183,4 +183,20 @@ class forum{
 
 
 }
+
+class forumAmdmin{
+    const button ="Retour à la page s'acceuil";
+    const title ="Répondre aux questions des utilisateurs";
+    const numeroCommentaire ="Entrez le numéro du commentaire auquel vous voulez répondre :";
+    const reponseAdmin ="Réponse administrateur : ";
+    const submit ="Envoyer";
+    const numeroCommentaireForumAdmin ="Numéro du commentaire";
+    const numeroClientForumAdmin = "Numéro Client";
+    const pseudoForumAdmin = "Pseudo";
+    const mailForumAdmin ="Adresse mail";
+    const subjectForumAdmin ="Sujet";
+    const dateForumAdmin ="Date de publication";
+    const adminAnswerForumAdmin = "L'administrateur n'a pas encore répondu à ce commentaire, il y répondra dès que possible !";
+    const supprimerCommentaireForumAdmin = "Cliquez sur la case si vous voulez supprimer ce commentaire ";
+}
 ?>

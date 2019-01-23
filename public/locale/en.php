@@ -123,10 +123,10 @@ const bathroom= "Bathroom";
 
 class GestionCapteurs{
 const pageName = "Sensors Management";
-const Sensors= "sensors";
+const Sensors= "Sensors";
 const livingRoom= "Living Room";
 const room= "Room";
-const kitchen= "kitchen";
+const kitchen= "Kitchen";
 const bathroom= "Bathroom";
 
 }
@@ -183,10 +183,22 @@ class forum{
 
     const administratorAnswer = "The administrator has not yet replied to this comment, he will reply soon!";
 
+}
 
-
-
-
+class forumAmdmin{
+    const button ="Back to the homepage";
+    const title ="Answer users' questions";
+    const numeroCommentaire ="Enter the number of the comment you want to answer:";
+    const reponseAdmin ="Administrator response :";
+    const submit ="Submit";
+    const numeroCommentaireForumAdmin ="Comment number";
+    const numeroClientForumAdmin = "Client number";
+    const pseudoForumAdmin = "Pseudo";
+    const mailForumAdmin ="Email adress";
+    const subjectForumAdmin ="Subject";
+    const dateForumAdmin ="Publication date";
+    const adminAnswerForumAdmin = "The administrator has not yet responded to this comment, he will respond as soon as possible!";
+    const supprimerCommentaireForumAdmin = "Click on the box if you want to delete this comment";
 }
 
 

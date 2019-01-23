@@ -87,7 +87,7 @@ function gestion_capteurs($locale){
 
            else if($_POST['room'] == "Salon"){
                $room = 'salon';
-               if(getValueOfSensor($_POST['salon_fumee'] )!= getStateSensor($_SESSION['email'], $room, "fumee")){
+               if(getValueOfSensor($_POST['salon_smoke'] )!= getStateSensor($_SESSION['email'], $room, "fumee")){
                    changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor($_POST['salon_fumee']));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 

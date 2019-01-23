@@ -17,26 +17,26 @@ include './views/backEnd/header.php';
 include './views/backEnd/notification.php';
 include './views/backEnd/footer.php';
 ?>
-<a href="./home" <button class="button"> Retour à la page d'acceuil</button> </a>
+<a href="./home" <button class="button"> <?= forumAmdmin::button ?></button> </a>
 
 <h1>Forum </h1>
 
-<h2> Répondre aux questions des utilisateurs </h2>
+<h2> <?= forumAmdmin::title ?> </h2>
 
 <form method="post">
 
     <label>
-        Entrez le numéro du commentaire auquel vous voulez répondre :
+        <?= forumAmdmin::numeroCommentaire ?>
         <input type="text" name ="numero_commentaire" placeholder="Numéro du commentaire" required="required">
     </label>
     <br>
     <br>
     <label>
-        Réponse administrateur :
+        <?= forumAmdmin::reponseAdmin ?>
         <br>
         <textarea name = "commentaire_administrateur" placeholder="Tapez votre réponse ici" required="required"></textarea>
     </label>
-    <div class="boutton"> <input type="submit" value="Envoyer" name="submit"> </div>
+    <div class="boutton"> <input type="submit" value="<?= forumAmdmin::submit ?>" name="submit"> </div>
 </form>
 
 <?php
@@ -47,23 +47,23 @@ include './views/backEnd/footer.php';
 <table>
     <tr>
         <th>
-            Numéro du commentaire
+           <?= forumAmdmin::numeroCommentaireForumAdmin ?>
         </th>
         <th>
-            Numéro Client
+           <?= forumAmdmin::numeroClientForumAdmin ?>
         </th>
         <th>
-            Pseudo
+           <?= forumAmdmin::pseudoForumAdmin ?>
         </th>
         <th>
-            Adresse mail
+           <?= forumAmdmin::mailForumAdmin ?>
         </th>
         <th>
-            Sujet
+           <?= forumAmdmin::subjectForumAdmin ?>
         </th>
 
         <th>
-            Date de publication
+            <?= forumAmdmin::dateForumAdmin ?>
         </th>
     </tr>
     <tr>
@@ -91,7 +91,7 @@ include './views/backEnd/footer.php';
     <?php
 
     if ($userdata[$counter]['admin_answer'] == null) {
-        echo "L'administrateur n'a pas encore répondu à ce commentaire, il y répondra dès que possible ! ";
+        echo forumAmdmin::adminAnswerForumAdmin;
     }
 
     else {
@@ -101,7 +101,7 @@ include './views/backEnd/footer.php';
 ?>
 </p>
 <label name="delete_commit">
-    Cliquez sur la case si vous voulez supprimer ce commentaire
+    <?= forumAmdmin::supprimerCommentaireForumAdmin ?>
     <input type="checkbox">
 </label>
 <?php
