@@ -233,6 +233,31 @@
 <br>
 </body>
 
+<style>
+
+.switch1 {
+    margin-top: 28%;
+
+}
+.switch2 {
+    margin-top: 33%;
+
+}
+.switch3 {
+    margin-top: 38%;
+
+}
+.switch4 {
+    margin-top: 43%;
+
+}
+.switch5 {
+    margin-top: 44%;
+    margin-left: 73%;
+
+}
+
+</style>
 
 <script type="text/javascript">
 
