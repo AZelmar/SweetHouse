@@ -245,7 +245,7 @@ function accountLogout($locale)
 function downloadFile($locale)
 {
     if (isset($_GET["file"]) && $_GET["file"] != "") {
-        $filepath = "../public/files/" . $_GET["file"];
+        $filepath = "./public/files/" . $_GET["file"];
         if (file_exists($filepath)) {
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
@@ -278,7 +278,7 @@ function forgotPassword($locale)
     if (!isset($_GET["token"])) {
         if (!empty($_POST['resend'])) {
             $result = checkResendResetRequest();
-            if ($result['email'] != null && $result['reset'] == 1) {
+            if ($result['email'] != null) {
                 $send = sendMail($result['email'], "SweetHouse - Mot de passe oublié", "Vous avez fais une nouvelle demande de réinitialisation de mot de passe.<br><br>Cliquez <a href='http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . "?token=" . $result['token'] . "'>ici</a> pour changer votre mot de passe. ");
                 if ($send) {
                     $notification = array(
@@ -347,19 +347,29 @@ function forgotPassword($locale)
             if (!empty($_POST['submit'])) {
                 if (!empty($_POST['password']) && !empty($_POST['password2'])) {
                     if ($_POST['password'] == $_POST['password2']) {
-                        $errorInfo = validateResetRequest();
-                        if ($errorInfo != "") {
-                            $error_parameters = array();
-                            preg_match("/for key '(\w+)'$/", $errorInfo, $error_parameters);
-                            $notification = array(
-                                "type" => "error",
-                                "message" => "Une erreur est survenue !"
-                            );
-                        } else {
-                            $notification = array(
-                                "type" => "success",
-                                "message" => "Votre mot de passe a bien été modifié. Vous pouvez à présent vous connectez avec ce dernier"
-                            );
+                        if(strlen($_POST['password']) >= 8)
+                        {
+                            $errorInfo = validateResetRequest();
+                            if ($errorInfo != "") {
+                                $error_parameters = array();
+                                preg_match("/for key '(\w+)'$/", $errorInfo, $error_parameters);
+                                $notification = array(
+                                    "type" => "error",
+                                    "message" => "Une erreur est survenue !"
+                                );
+                            } else {
+                                $notification = array(
+                                    "type" => "success",
+                                    "message" => "Votre mot de passe a bien été modifié. Vous pouvez à présent vous connectez avec ce dernier"
+                                );
+                            }
+                        }
+                        else
+                        {
+                         $notification = array(
+                            "type" => "error",
+                            "message" => "Le mot de passe doit comporter au moins 8 caractères !"
+                        );                           
                         }
                     } else {
                         $notification = array(
