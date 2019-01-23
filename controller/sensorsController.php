@@ -21,12 +21,12 @@ function gestion_capteurs($locale){
            if($_POST['room'] == "Chambre"){
                $room = 'chambres';
 
-               if(getValueOfSensor($_POST['chambre_smoke']) != getStateSensor($_SESSION['email'], $room, "fumee" )){
+               if($_POST['chambre_smoke'] != null && getValueOfSensor($_POST['chambre_smoke']) != getStateSensor($_SESSION['email'], $room, "fumee" )){
                    changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor($_POST['chambre_smoke']));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
                }
 
-               if (getValueOfSensor($_POST['chambre_lumen']) != getStateSensor($_SESSION['email'], $room, "lumiere")){
+               if ($_POST['chambre_lumen'] != null &&  getValueOfSensor($_POST['chambre_lumen']) != getStateSensor($_SESSION['email'], $room, "lumiere")){
                    changeStateSensor($_SESSION['email'], $room, "lumiere", getValueOfSensor($_POST['chambre_lumen']));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
                }
