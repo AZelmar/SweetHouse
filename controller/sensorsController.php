@@ -10,10 +10,6 @@ require ('./model/sensorsEntity.php');
 function gestion_capteurs($locale){
 
     if(isConnected($locale)) {
-        getStateSensor($_SESSION['email'], "salon", "temperature");
-        //(changeStateSensor($_SESSION['email'], "salon", "temperature", 1));
-        //displayStateSensor('chambres', 'fumee');
-        //print_r($_POST);
         require ('./views/frontEnd/GestionCapteurs.php');
 
         if (!empty($_POST['submit'])){
@@ -87,7 +83,7 @@ function gestion_capteurs($locale){
            else if($_POST['room'] == "Salon"){
                $room = 'salon';
                if(isset($_POST['salon_smoke'] )!= null && getValueOfSensor($_POST['salon_smoke'] )!= getStateSensor($_SESSION['email'], $room, "fumee")){
-                   changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor($_POST['salon_fumee']));
+                   changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor($_POST['salon_smoke']));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                }
