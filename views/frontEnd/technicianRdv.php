@@ -78,12 +78,12 @@ font-size: 20px;
 <body>
 <table>
 <?php
-    $jour = array(null, "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+    $jour = array(null, rdv::monday , rdv::tuesday, rdv::wednesday, rdv::thursday, rdv::friday, rdv::saturday, rdv::sunday);
       foreach ($rdvs as $test) {
         $rdv[$test['day']][$test['hour']] = $test['reason'] ;
         }
 
-    echo "<tr><th>Heure</th>";
+    echo "<tr><th>";echo rdv::hour;echo "</th>";
     for($x = 1; $x < 8; $x++)
         echo "<th>".$jour[$x]."</th>";
     echo "</tr>";
@@ -114,20 +114,20 @@ font-size: 20px;
 
 <form method="POST">
 <div class="input-group">
-	  <label>Jour : </label>
+	  <label><?= rdv::day ?></label>
 	  <select id="day" name="day">
-      <option value="Lundi">Lundi</option>
-      <option value="Mardi">Mardi</option>
-      <option value="Mercredi">Mercredi</option>
-      <option value="Jeudi">Jeudi</option>
-      <option value="Vendredi">Vendredi</option>
-      <option value="Samedi">Samedi</option>
-      <option value="Dimanche">Dimanche</option>
+      <option value="Lundi"><?= rdv::monday ?></option>
+      <option value="Mardi"><?= rdv::tuesday ?></option>
+      <option value="Mercredi"><?= rdv::wednesday ?></option>
+      <option value="Jeudi"><?= rdv::thursday ?></option>
+      <option value="Vendredi"><?= rdv::friday ?></option>
+      <option value="Samedi"><?= rdv::saturday ?></option>
+      <option value="Dimanche"><?= rdv::sunday ?></option>
 
     </select>
 		</div>
 		<div class="input-group">
-			<label>Heure : </label>
+			<label><?= rdv::hour ?></label>
 			<select id="hour" name="hour">
           <option value="4">4</option>
           <option value="04:30">4:30</option>
@@ -171,14 +171,14 @@ font-size: 20px;
     </select>
 		</div>
 		<div class="input-group">
-			<label>Motif : </label>
+			<label><?= rdv::reason ?> </label>
 			<input type="text" name="reason" >
 		</div>
 		<div class="input-group">
-			<label>Id de l'utilisateur: </label>
+			<label><?= rdv::userId ?></label>
 			<input type="number" step="1" name="userIdTech" >
 		</div>
-<input type="submit" name="validerRDV" value="Ajouter RDV" id="validerRDV">
+<input type="submit" name="validerRDV" value=<?= rdv::addRdv ?> id="validerRDV">
 </form>
 </body>
 </html>

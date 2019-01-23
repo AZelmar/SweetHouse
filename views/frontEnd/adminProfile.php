@@ -14,25 +14,25 @@ include './views/backEnd/notification.php';
 
 <body>
 	<div id="Profil">
-	<h2 id="title"> Votre profil :</h2>
+	<h2 id="title"> <?= profile::profileMan ?></h2>
       <hr>
       <form method="post" action="adminProfile">
         <p>
         
 		<div class="input-group">
-			<label>Modifier mail :</label>
+			<label><?= profile::modifyMail ?></label>
 			<input type="text" name="mail" value= "<?php echo htmlentities($resultat['email']) ?>" >
 		</div>
 		<div class="input-group">
-			<label>Modifier numero de telephone :</label>
+			<label><?= profile::modifyNumero ?></label>
 			<input type="text" name="phoneNumber" value= "<?php echo htmlentities($resultat['phone']) ?>" >
 		</div>
 		<div class="input-group">
-			<label>Entrez votre ancien mot de passe ( pour le changer ):</label>
+			<label><?= profile::modifyPassword ?></label>
 			<input type="password" name="oldPassword" >
 		</div>
 		<div class="input-group">
-			<label>Entrez votre nouveau mot de passe :</label>
+			<label><?= profile::modifyPassword2 ?></label>
 			<input type="password" name="newPassword" >
 		</div>
 		<input type="submit" name="valider" value= Modifier >
@@ -41,18 +41,18 @@ include './views/backEnd/notification.php';
     
    
 <div id="Infos">
-	<h2 id="title">Informations generales</h2>
+	<h2 id="title"><?= profile::infosGen ?></h2>
 		<hr>
 		<div class="infos-group">
-			<h1 id="titreinfos">Bonjour <?php echo htmlentities($resultat['firstName']) ?>  </h1>
+			<h1 id="titreinfos"><?= profile::hello ?> <?php echo htmlentities($resultat['firstName']) ?>  </h1>
 			<p id="texteinfos"> 
-				Aujourd'hui : 
+				<?= profile::today ?> 
 				<br><br>
-				Il y a <?php echo htmlentities($resultatQuestion) ?> nouvelles questions dans le forum 
+				<?= profile::thereIs ?> <?php echo htmlentities($resultatQuestion) ?> <?= profile::newQ ?> 
 				<br><br> 
-				Il y a <?php echo htmlentities($resultatMaison) ?> nouvelles maisons 
+				<?= profile::thereIs ?> <?php echo htmlentities($resultatMaison) ?> <?= profile::newH ?> 
 				<br><br>
-				Il y a <?php echo htmlentities($achatsCapteurs) ?> achats dans la boutique
+				<?= profile::thereIs ?> <?php echo htmlentities($achatsCapteurs) ?> <?= profile::buy ?>
 			</p>
 		</div>
 	</div>

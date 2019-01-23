@@ -109,6 +109,18 @@ const del="Modify";
 const man="man";
 const woman="woman";
 const other="other";
+const modifyMail= " Change your mail :";
+const modifyNumero= " Change your phone number :";
+const modifyPassword= "Enter your old password :";
+const modifyPassword2= "Enter your new password :";
+const today="Today :";
+const thereIs="There are";
+const newQ="new questions in the forum";
+const uHave="You have";
+const houseManage="houses to manage";
+const probManage="problems to manage";
+const newH="new Houses";
+const buy="purchases in the shop";
 }
 
 class shop{
@@ -201,5 +213,18 @@ class forumAmdmin{
     const supprimerCommentaireForumAdmin = "Click on the box if you want to delete this comment";
 }
 
-
+class rdv{
+    const monday="Monday";
+    const tuesday="Tuesday";
+    const wednesday="Wednesday";
+    const thursday="Thursday";
+    const friday="Friday";
+    const saturday="Saturday";
+    const sunday="Sunday";
+    const hour="Hour :";
+    const day="Day :";
+    const reason="Reason :";
+    const userId="User Id";
+    const addRdv="Add appointment";
+}
 ?>
