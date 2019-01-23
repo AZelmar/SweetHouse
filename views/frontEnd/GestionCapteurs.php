@@ -13,10 +13,10 @@
         <?php include './views/backEnd/header.php';?>
 <form method="post">
 <ul id="tabs">
-    <li><a href="#" name="tab1" id="1"><?= shop::livingRoom ?></a></li>
-    <li><a href="#" name="tab2" id="2"><?= shop::room ?></a></li>
-    <li><a href="#" name="tab3" id="3"><?= shop::kitchen ?></a></li>
-    <li><a href="#" name="tab4" id="4"><?= shop::bathroom ?></a></li>
+    <li><a href="#" name="tab1" id="1">Chambre</a></li>
+    <li><a href="#" name="tab2" id="2">Cuisine</a></li>
+    <li><a href="#" name="tab3" id="3">Salle de bain</a></li>
+    <li><a href="#" name="tab4" id="4">Salon</a></li>
 </ul>   
 
 <div class="main" >
@@ -37,11 +37,6 @@
                 <div class="desc"></div>
             </div>
 
-            <label class="switch1">
-                <input type="checkbox" name ="chambre_smoke" <?php  echo (displayStateSensor('chambres', 'fumee'));  ?>>
-                <span class="slider round"></span>
-            </label>
-
             <div class="gallery">
                 <img src="./public/images/lumen.png" id="lumen" >
                 <div class="desc"></div>
@@ -55,7 +50,10 @@
 
             </div>
 
-
+            <label class="switch1">
+                <input type="checkbox" name ="chambre_smoke" <?php  echo (displayStateSensor('chambres', 'fumee'));  ?>>
+                <span class="slider round"></span>
+            </label>
             <label class="switch2">
                 <input type="checkbox" name = "chambre_lumen" <?php echo displayStateSensor('chambres', 'lumiere')?>>
                 <span class="slider round"></span>
@@ -242,22 +240,18 @@
 
     $('#1').click(function() {
         $('#room').val("Chambre");
-        console.log('Chambre')
     });
 
     $('#2').click(function() {
         $('#room').val("Cuisine");
-        console.log('Cuisine');
     });
 
     $('#3').click(function() {
         $('#room').val("Salle de bain");
-        console.log('SSDB');
     });
 
     $('#4').click(function() {
         $('#room').val("Salon");
-        console.log('Ssalon');
     })
 
     $(document).ready(function() { $("#content").find("[id^='tab']").hide(); // Hide all content
