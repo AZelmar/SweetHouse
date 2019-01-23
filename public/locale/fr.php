@@ -109,6 +109,18 @@ const del="Modifier";
 const man="Homme";
 const woman="Femme";
 const other="Autre";
+const modifyMail= " Modifier votre mail :";
+const modifyNumero= " Modifier votre numero :";
+const modifyPassword= "Entrez votre ancien mot de passe ( pour le changer ):";
+const modifyPassword2= "Entrez votre nouveau mot de passe :";
+const today="Aujourd'hui :";
+const thereIs="Il y a";
+const newQ="nouvelles questions dans le forum";
+const uHave="Vous avez";
+const houseManage="maisons à gérer";
+const probManage="problemes à gérer";
+const newH="nouvelles maisons";
+const buy="achats dans la boutique";
 }
 
 class shop{
@@ -198,5 +210,20 @@ class forumAmdmin{
     const dateForumAdmin ="Date de publication";
     const adminAnswerForumAdmin = "L'administrateur n'a pas encore répondu à ce commentaire, il y répondra dès que possible !";
     const supprimerCommentaireForumAdmin = "Cliquez sur la case si vous voulez supprimer ce commentaire ";
+}
+
+class rdv{
+    const monday="Lundi";
+    const tuesday="Mardi";
+    const wednesday="Mercredi";
+    const thursday="Jeudi";
+    const friday="Vendredi";
+    const saturday="Samedi";
+    const sunday="Dimanche";
+    const hour="Heure :";
+    const day="Jour :";
+    const reason="Motif :";
+    const userId="Id de l'utilisateur";
+    const addRdv="Ajouter RDV";
 }
 ?>

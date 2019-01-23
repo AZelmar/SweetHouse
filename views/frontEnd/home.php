@@ -18,10 +18,6 @@
     <p>Découvrez SweetHouse</p>
 </div>
   </header>
-<main>
-  <h2>ATTENTION !</h2>
-  <p>Site bientôt disponible!</p>
-</main>
 <?php include './views/backEnd/footer.php' ?>
 </body>
 </html>
@@ -64,8 +60,5 @@ p {
   font-size: 1.5rem;
 }
 
-main {
-  max-width: 500px;
-  margin: 25px auto;
 
 </style>
