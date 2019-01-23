@@ -1,10 +1,10 @@
 <?php
 
-function submitFormulaire($id_client, $pseudo, $mail, $subject, $commentaire){
+function submitForum($id_client, $pseudo, $mail, $subject, $commentaire){
     require ("config.php");
     try{
         $date_commentaire = date('Y/m/d', time());
-        $req = $pdo -> prepare("INSERT INTO formulaire (id_client,pseudo, mail, subject, date_commentaire, commentaire) VALUES (:id_client,:pseudo,:mail,:subject,:date_commentaire,:commentaire)");
+        $req = $pdo -> prepare("INSERT INTO forum (id_client,pseudo, mail, subject, date_commentaire, commentaire) VALUES (:id_client,:pseudo,:mail,:subject,:date_commentaire,:commentaire)");
         $req -> execute (array("id_client" => $id_client, "pseudo"=>$pseudo, "mail" => $mail, "subject"=>$subject, "date_commentaire" => $date_commentaire, "commentaire"=>$commentaire));
     }
     catch (PDOException $e) {
@@ -27,11 +27,11 @@ function getUserId($email){
     }
 }
 
-function displayFormulaire (){
+function displayForum (){
 
     require 'config.php';
 
-    $request = $pdo->prepare('SELECT * FROM formulaire ORDER BY formulaire.id_sujet DESC LIMIT 10');
+    $request = $pdo->prepare('SELECT * FROM forum ORDER BY forum.id_sujet DESC LIMIT 10');
     $request ->execute(array());
     $result = $request->fetchAll();
     return $result;
@@ -42,7 +42,7 @@ function displayFormulaire (){
 function submitAdministratorForum($admin_answer, $id_sujet){
     try {
         require("config.php");
-        $request = $pdo->prepare('UPDATE formulaire SET admin_answer = :admin_answer WHERE formulaire.id_sujet = :id_sujet');
+        $request = $pdo->prepare('UPDATE forum SET admin_answer = :admin_answer WHERE forum.id_sujet = :id_sujet');
         $request->execute(array("admin_answer" => $admin_answer, "id_sujet"=>$id_sujet));
     }
 
@@ -53,7 +53,7 @@ function submitAdministratorForum($admin_answer, $id_sujet){
 
 function deleteCommentaire($id_sujet){
     require 'config.php';
-    $request = $pdo->prepare('DELETE FROM formulaire WHERE formulaire.id_sujet = :id_sujet');
+    $request = $pdo->prepare('DELETE FROM forum WHERE forum.id_sujet = :id_sujet');
     $request->execute(array("id_sujet" => $id_sujet));
 }
 ?>

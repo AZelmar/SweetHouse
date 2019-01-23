@@ -42,8 +42,6 @@
                 <div class="desc"></div>
             </div>
 
-
-
             <div class="gallery">
                 <img src="./public/images/temperature.png" id="temperature" >
                 <div class="desc"></div>

@@ -12,22 +12,23 @@ function gestion_capteurs($locale){
     if(isConnected($locale)) {
         require ('./views/frontEnd/GestionCapteurs.php');
 
+
         if (!empty($_POST['submit'])){
            if($_POST['room'] == "Chambre"){
                $room = 'chambres';
 
-               if(isset($_POST['chambre_smoke']) != null && getValueOfSensor($_POST['chambre_smoke']) != getStateSensor($_SESSION['email'], $room, "fumee" )){
-                   changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor($_POST['chambre_smoke']));
+               if((isset($_POST['chambre_smoke']) == true || (isset($_POST['chambre_smoke']) == false))  && getValueOfSensor(isset($_POST['chambre_smoke'])) != getStateSensor($_SESSION['email'], $room, "fumee" )){
+                   changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor(isset($_POST['chambre_smoke'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
                }
 
-               if (isset($_POST['chambre_lumen']) != null &&  getValueOfSensor($_POST['chambre_lumen']) != getStateSensor($_SESSION['email'], $room, "lumiere")){
-                   changeStateSensor($_SESSION['email'], $room, "lumiere", getValueOfSensor($_POST['chambre_lumen']));
+               if (isset($_POST['chambre_lumen']) == true || (isset($_POST['chambre_lumen']) == false) != null && getValueOfSensor($_POST['chambre_lumen']) != getStateSensor($_SESSION['email'], $room, "lumiere")){
+                   changeStateSensor($_SESSION['email'], $room, "lumiere", getValueOfSensor(isset($_POST['chambre_lumen'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
                }
 
-               if(isset($_POST['chambre_temperature'] )!= null && $_POST['chambre_temperature'] != getStateSensor($_SESSION['email'], $room, "temperature")){
-                   changeStateSensor($_SESSION['email'], $room, "temperature", getValueOfSensor($_POST['chambre_temperature']));
+               if((isset($_POST['chambre_temperature']) == true || (isset($_POST['chambre_temperature']) == false)) != null && $_POST['chambre_temperature'] != getStateSensor($_SESSION['email'], $room, "temperature")){
+                   changeStateSensor($_SESSION['email'], $room, "temperature", getValueOfSensor(isset($_POST['chambre_temperature'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
                }
            }
@@ -35,25 +36,25 @@ function gestion_capteurs($locale){
            else if($_POST['room'] == "Cuisine"){
                $room = 'cuisine';
 
-               if(isset($_POST['cuisine_smoke'] )!= null && getValueOfSensor($_POST['cuisine_smoke']) != getStateSensor($_SESSION['email'], $room, "fumee")){
-                    changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor($_POST['cuisine_smoke']));
+               if(isset($_POST['cuisine_smoke']) == true || (isset($_POST['cuisine_smoke']) == false)  && getValueOfSensor($_POST['cuisine_smoke']) != getStateSensor($_SESSION['email'], $room, "fumee")){
+                    changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor(isset($_POST['cuisine_smoke'])));
                     $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                }
 
-               if (isset($_POST['cuisine_lumen']) != null && getValueOfSensor($_POST['cuisine_lumen']) != getStateSensor($_SESSION['email'], $room, "lumiere")){
-                    changeStateSensor($_SESSION['email'], $room, "lumiere", getValueOfSensor($_POST['cuisine_lumen']));
+               if ((isset($_POST['cuisine_lumen']) == true || (isset($_POST['cuisine_lumen']) == false))  && getValueOfSensor($_POST['cuisine_lumen']) != getStateSensor($_SESSION['email'], $room, "lumiere")){
+                    changeStateSensor($_SESSION['email'], $room, "lumiere", getValueOfSensor(isset($_POST['cuisine_lumen'])));
                     $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                }
 
-               if(isset($_POST['cuisine_temperature'] )!= null && getValueOfSensor($_POST['cuisine_temperature']) != getStateSensor($_SESSION['email'], $room, "temperature")){
-                   changeStateSensor($_SESSION['email'], $room, "temperature", getValueOfSensor($_POST['cuisine_temperature']));
+               if(isset($_POST['chambre_smoke']) == true || (isset($_POST['chambre_smoke']) == false) && getValueOfSensor($_POST['cuisine_temperature']) != getStateSensor($_SESSION['email'], $room, "temperature")){
+                   changeStateSensor($_SESSION['email'], $room, "temperature", getValueOfSensor(isset($_POST['cuisine_temperature'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
                }
 
-               if (isset($_POST['cuisine_humidity']) != null && getValueOfSensor($_POST['cuisine_humidity']) != getStateSensor($_SESSION['email'], $room, "humidite")){
-                   changeStateSensor($_SESSION['email'], $room, "humidite", getValueOfSensor($_POST['cuisine_humidity']));                   $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
+               if (isset($_POST['cuisine_humidity']) == true || (isset($_POST['cuisine_humidity']) == false)  && getValueOfSensor($_POST['cuisine_humidity']) != getStateSensor($_SESSION['email'], $room, "humidite")){
+                   changeStateSensor($_SESSION['email'], $room, "humidite", getValueOfSensor(isset($_POST['cuisine_humidity'])));                   $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                }
@@ -62,19 +63,19 @@ function gestion_capteurs($locale){
            else if($_POST['room'] == "Salle de bain"){
                $room = 'salle_de_bain';
 
-               if (isset($_POST['sdb_lumen'] )!= null && getValueOfSensor($_POST['sdb_lumen']) != getStateSensor($_SESSION['email'], $room, "lumiere")){
-                   changeStateSensor($_SESSION['email'], $room, "lumiere", getValueOfSensor($_POST['sdb_lumen']));
+               if ((isset($_POST['sdb_lumen']) == true || (isset($_POST['sdb_lumen']) == false))  && getValueOfSensor($_POST['sdb_lumen']) != getStateSensor($_SESSION['email'], $room, "lumiere")){
+                   changeStateSensor($_SESSION['email'], $room, "lumiere", getValueOfSensor(isset($_POST['sdb_lumen'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                }
 
-               if (isset($_POST['sdb_temperature']) != null && getValueOfSensor($_POST['sdb_temperature']) != getStateSensor($_SESSION['email'], $room, "temperature")) {
-                   changeStateSensor($_SESSION['email'], $room, "temperature",getValueOfSensor( $_POST['sdb_temperature']));
+               if ((isset($_POST['sdb_temperature']) == true || (isset($_POST['sdb_temperature']) == false)) && getValueOfSensor($_POST['sdb_temperature']) != getStateSensor($_SESSION['email'], $room, "temperature")) {
+                   changeStateSensor($_SESSION['email'], $room, "temperature",getValueOfSensor(isset($_POST['sdb_temperature'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
                }
 
-               if (isset($_POST['sdb_humidity'] ) != null && getValueOfSensor($_POST['sdb_humidity'] )!= getStateSensor($_SESSION['email'], $room, "humidite")){
-                   changeStateSensor($_SESSION['email'], $room, "humidite", getValueOfSensor($_POST['sdb_humidity']));
+               if ((isset($_POST['sdb_humidity']) == true || (isset($_POST['sdb_humidity']) == false)) && getValueOfSensor($_POST['sdb_humidity'] )!= getStateSensor($_SESSION['email'], $room, "humidite")){
+                   changeStateSensor($_SESSION['email'], $room, "humidite", getValueOfSensor(isset($_POST['sdb_humidity'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                }
@@ -82,34 +83,34 @@ function gestion_capteurs($locale){
 
            else if($_POST['room'] == "Salon"){
                $room = 'salon';
-               if(isset($_POST['salon_smoke'] )!= null && getValueOfSensor($_POST['salon_smoke'] )!= getStateSensor($_SESSION['email'], $room, "fumee")){
-                   changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor($_POST['salon_smoke']));
+               if((isset($_POST['salon_smoke']) == true || (isset($_POST['salon_smoke']) == false)) && getValueOfSensor($_POST['salon_smoke'] )!= getStateSensor($_SESSION['email'], $room, "fumee")){
+                   changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor(isset($_POST['salon_smoke'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                }
-               if (isset($_POST['salon_lumen'] )!= null && getValueOfSensor($_POST['salon_lumen'] )!= getStateSensor($_SESSION['email'], $room, "lumiere")){
-                   changeStateSensor($_SESSION['email'], $room, "lumiere",getValueOfSensor($_POST['salon_lumen']));
+               if ((isset($_POST['salon_lumen']) == true || (isset($_POST['salon_lumen']) == false)) && getValueOfSensor($_POST['salon_lumen'] )!= getStateSensor($_SESSION['email'], $room, "lumiere")){
+                   changeStateSensor($_SESSION['email'], $room, "lumiere",getValueOfSensor(isset($_POST['salon_lumen'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                }
-               if (isset($_POST['salon_temperature']) != null && getValueOfSensor($_POST['salon_temperature']) != getStateSensor($_SESSION['email'], $room, "temperature")){
-                   changeStateSensor($_SESSION['email'], $room,"temperature", getValueOfSensor($_POST['salon_temperature']));
+               if ((isset($_POST['salon_temperature']) == true || (isset($_POST['salon_temperature']) == false))  && getValueOfSensor($_POST['salon_temperature']) != getStateSensor($_SESSION['email'], $room, "temperature")){
+                   changeStateSensor($_SESSION['email'], $room,"temperature", getValueOfSensor(isset($_POST['salon_temperature'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                }
-               if (isset($_POST['salon_humidity']) != null && getValueOfSensor($_POST['salon_humidity']) != getStateSensor($_SESSION['email'], $room, "humidite")){
+               if ((isset($_POST['salon_humidity']) == true || (isset($_POST['salon_humidity']) == false))  && getValueOfSensor($_POST['salon_humidity']) != getStateSensor($_SESSION['email'], $room, "humidite")){
                    changeStateSensor($_SESSION['email'], $room, "humidite", getValueOfSensor($_POST['salon_humidity']));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                }
-               if (isset($_POST['salon_security'] )!= null && getValueOfSensor($_POST['salon_security']) != getStateSensor($_SESSION['email'], $room, "mouvement")){
-                   changeStateSensor($_SESSION['email'], $room, "mouvement", getValueOfSensor($_POST['salon_security']));
+               if (($_POST['salon_security'] )!= null && getValueOfSensor($_POST['salon_security']) != getStateSensor($_SESSION['email'], $room, "mouvement")){
+                   changeStateSensor($_SESSION['email'], $room, "mouvement", getValueOfSensor(isset($_POST['salon_security'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
                }
 
            }
 
-           else if(isset($_POST['room']) == null){
+           else if(($_POST['room']) == null){
                $room  = 'chambres';
            }
        }
@@ -124,14 +125,19 @@ function displayStateSensor($room, $sensortype){
         return 'checked';
     }
 
+    if (getStateSensor($_SESSION['email'], $room, $sensortype) == '0'){
+        return "";
+    }
+
 }
 
 function getValueOfSensor($sensorValue){
-     if($sensorValue == 'on'){
+
+    if($sensorValue == 'on'){
          return '1';
      }
 
-     else{
+    else{
          return '0';
      }
 }

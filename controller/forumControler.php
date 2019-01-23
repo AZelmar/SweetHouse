@@ -15,7 +15,7 @@ function forum ($locale){
 
     if (!empty($_POST['submit'])) {
         if (!empty($_POST['subject'])  && !empty($_POST['pseudo'])  && !empty($_POST['commentaire'])) {
-            submitFormulaire($userId, $_POST['pseudo'], $_SESSION['email'], $_POST['subject'], $_POST['commentaire']);
+            submitForum($userId, $_POST['pseudo'], $_SESSION['email'], $_POST['subject'], $_POST['commentaire']);
             $notification = array("type" => "success","message" => "Votre message a bien été envoyé ! Merci ! ");
 
         }
@@ -33,7 +33,7 @@ function forum ($locale){
             }
 
         else {
-                $userdata = displayFormulaire();
+                $userdata = displayForum();
         }
 
     }
@@ -54,7 +54,7 @@ function forumAdministrateur($locale){
             "message" => "Vous devez être connecté !");
     }
     else {
-        $userdata = displayFormulaire();
+        $userdata = displayForum();
 
         if (!empty($_POST['submit'])) {
             if (!empty($_POST['commentaire_administrateur'] && !empty($_POST['numero_commentaire']))) {
