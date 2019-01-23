@@ -225,7 +225,7 @@
 
     <input type ="hidden" name="room" id="room">
 
-    <div class="boutton"> <input type="submit" value="Modifier mes l'état de mes capteurs" name="submit"> </div>
+    <div class="boutton"> <input type="submit" value="Modifier l'état de mes capteurs" name="submit"> </div>
 </div>
 </form>
 <br>
