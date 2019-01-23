@@ -37,7 +37,6 @@ function getStateSensor($email, $room, $sensortype){
     $request2->execute(array($room));
     $room = $request2->fetch();
 
-
     $request1 = $pdo->prepare('SELECT id_user_room FROM user_room WHERE userId = ? AND id_room = ?');
     $request1->execute(array($userId[0], $room[0]));
     $id_user_room = $request1->fetch();
@@ -49,7 +48,6 @@ function getStateSensor($email, $room, $sensortype){
     $request4 = $pdo->prepare('SELECT state FROM user_sensor WHERE id_user_room = ? AND id_sensor = ?');
     $request4 -> execute(array($id_user_room[0], $sensor[0]));
     $state = $request4->fetch();
-
     return $state[0];
 }
 
