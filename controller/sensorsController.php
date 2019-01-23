@@ -14,7 +14,7 @@ function gestion_capteurs($locale){
         getStateSensor($_SESSION['email'], "salon", "temperature");
         changeStateSensor($_SESSION['email'], "salon", "temperature", 1);
         displayStateSensor('chambres', 'fumee');
-
+        print_r($_POST);
         require ('./views/frontEnd/GestionCapteurs.php');
 
       if (!empty($_POST['submit'])){
