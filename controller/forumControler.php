@@ -32,13 +32,8 @@ function forum ($locale){
             }
 
         }
-
-        catch (Exception $e){
-            echo $e;
-        }
+        require ('./views/frontEnd/forum.php');
     }
-
-    require ('./views/frontEnd/forum.php');
 }
 
 function forumAdministrateur($locale){

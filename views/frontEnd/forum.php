@@ -19,45 +19,45 @@ include ('./public/locale/'.$locale.'.php');
     include './views/backEnd/notification.php';
     include './views/backEnd/footer.php';
 ?>
-<a href="./home" <button class="button"> <?= forum::boutton?></button> </a>
+<a href="./home" <button class="button"> <?= htmlentities(forum::boutton)?></button> </a>
 
 <h1>Forum </h1>
 
-<h2> <?= forum::title2 ?> </h2>
+<h2> <?= htmlentities(forum::title2) ?> </h2>
 
 <form method="post">
     <label>
-        <?= forum::sujet ?>
+        <?= htmlentities(forum::sujet )?>
         <select name="subject">
-            <option value="Technique"> <?= forum::technique ?></option>
-            <option value="Conseils"><?= forum::conseil ?></option>
-            <option value = "Entreprise "><?= forum::entreprise ?></option>
-            <option value="Autres "> <?= forum::other ?></option>
+            <option value="Technique"> <?= htmlentities(forum::technique) ?></option>
+            <option value="Conseils"><?= htmlentities(forum::conseil) ?></option>
+            <option value = "Entreprise "><?= htmlentities(forum::entreprise) ?></option>
+            <option value="Autres "> <?= htmlentities(forum::other )?></option>
         </select>
     </label>
     <br>
     <br>
-    <div class = id_client> <?= forum::numeroClient ?><?php echo htmlentities($userId) ?> </div>
+    <div class = id_client> <?= htmlentities(forum::numeroClient) ?><?php echo htmlentities($userId) ?> </div>
     <br>
-    <div class = email> <?= forum::adresseEmail ?><?php echo htmlentities($_SESSION['email']) ?> </div>
+    <div class = email> <?= htmlentities(forum::adresseEmail) ?><?php echo htmlentities($_SESSION['email']) ?> </div>
     <br>
     <label>
-        <?= forum::pseudo ?>
-        <input  class = "norm" type="text" name="pseudo" placeholder="<?= forum::pseudoPlacefolder ?>" required="required">
+        <?= htmlentities(forum::pseudo )?>
+        <input  class = "norm" type="text" name="pseudo" placeholder="<?= htmlentities(forum::pseudoPlacefolder )?>" required="required">
     </label>
     <br>
     <label>
         Message :
-        <textarea name = "commentaire" placeholder="<?= forum::messagePlaceholder ?>" required="required"></textarea>
+        <textarea name = "commentaire" placeholder="<?= htmlentities(forum::messagePlaceholder) ?>" required="required"></textarea>
     </label>
 
-    <div class="boutton"> <input type="submit" value="<?= forum::buttonSubmit ?>" name="submit"> </div>
+    <div class="boutton"> <input type="submit" value="<?= htmlentities(forum::buttonSubmit )?>" name="submit"> </div>
 
 </form>
 
-<h2><?= forum::title3 ?></h2>
+<h2><?= htmlentities(forum::title3) ?></h2>
 
-<h3> <?= forum::presentationForum ?></h3>
+<h3> <?= htmlentities(forum::presentationForum )?></h3>
 
 
 <!---------------------------------- Affichage commentaire ------------------------------------------>
@@ -72,23 +72,23 @@ include ('./public/locale/'.$locale.'.php');
 
 <table>
     <tr>
-        <th><?= forum::numeroCommentaireForum ?>
+        <th><?= htmlentities(forum::numeroCommentaireForum )?>
         </th>
         <th>
-            <?= forum::numeroClientForum ?>
+            <?= htmlentities(forum::numeroClientForum )?>
         </th>
         <th >
-           <?= forum::pseudoForum ?>
+           <?= htmlentities(forum::pseudoForum) ?>
         </th>
         <th>
-           <?= forum::mailForum ?>
+           <?= htmlentities(forum::mailForum )?>
         </th>
         <th>
-            <?= forum::sujetForum ?>
+            <?= htmlentities(forum::sujetForum )?>
         </th>
 
         <th>
-           <?= forum::dateForum ?>
+           <?= htmlentities(forum::dateForum) ?>
         </th>
     </tr>
     <tr>

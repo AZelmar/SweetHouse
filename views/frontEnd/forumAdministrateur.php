@@ -17,26 +17,26 @@ include './views/backEnd/header.php';
 include './views/backEnd/notification.php';
 include './views/backEnd/footer.php';
 ?>
-<a href="./home" <button class="button"> <?= forumAmdmin::button ?></button> </a>
+<a href="./home" <button class="button"> <?= htmlentities(forumAmdmin::button) ?></button> </a>
 
 <h1>Forum </h1>
 
-<h2> <?= forumAmdmin::title ?> </h2>
+<h2> <?= htmlentities(forumAmdmin::title )?> </h2>
 
 <form method="post" id ="forum">
 
     <label>
-        <?= forumAmdmin::numeroCommentaire ?>
+        <?= htmlentities(forumAmdmin::numeroCommentaire) ?>
         <input type="text" name ="numero_commentaire" placeholder="Numéro du commentaire" required="required">
     </label>
     <br>
     <br>
     <label>
-        <?= forumAmdmin::reponseAdmin ?>
+        <?= htmlentities(forumAmdmin::reponseAdmin) ?>
         <br>
         <textarea name = "commentaire_administrateur" placeholder="Tapez votre réponse ici" required="required"></textarea>
     </label>
-    <div class="boutton"> <input type="submit" value="<?= forumAmdmin::submit ?>" name="submit"> </div>
+    <div class="boutton"> <input type="submit" value="<?= htmlentities(forumAmdmin::submit) ?>" name="submit"> </div>
 </form>
 
 <?php
@@ -47,32 +47,32 @@ include './views/backEnd/footer.php';
 <table>
     <tr>
         <th>
-           <?= forumAmdmin::numeroCommentaireForumAdmin ?>
+           <?= htmlentities(forumAmdmin::numeroCommentaireForumAdmin) ?>
         </th>
         <th>
-           <?= forumAmdmin::numeroClientForumAdmin ?>
+           <?= htmlentities(forumAmdmin::numeroClientForumAdmin) ?>
         </th>
         <th>
-           <?= forumAmdmin::pseudoForumAdmin ?>
+           <?= htmlentities(forumAmdmin::pseudoForumAdmin) ?>
         </th>
         <th>
-           <?= forumAmdmin::mailForumAdmin ?>
+           <?= htmlentities(forumAmdmin::mailForumAdmin )?>
         </th>
         <th>
-           <?= forumAmdmin::subjectForumAdmin ?>
+           <?= htmlentities(forumAmdmin::subjectForumAdmin )?>
         </th>
 
         <th>
-            <?= forumAmdmin::dateForumAdmin ?>
+            <?= htmlentities(forumAmdmin::dateForumAdmin) ?>
         </th>
     </tr>
     <tr>
-        <td><?php echo $userdata[$counter]['id_sujet']; ?></td>
-        <td><?php echo $userdata[$counter]['id_client']; ?> </td>
-        <td><?php echo $userdata[$counter]['pseudo']; ?></td>
-        <td><?php echo $userdata[$counter]['mail']; ?></td>
-        <td><?php echo $userdata[$counter]['subject']; ?></td>
-        <td><?php echo $userdata[$counter]['date_commentaire']; ?></td>
+        <td><?php echo htmlentities($userdata[$counter]['id_sujet']); ?></td>
+        <td><?php echo htmlentities($userdata[$counter]['id_client']); ?> </td>
+        <td><?php echo htmlentities($userdata[$counter]['pseudo']); ?></td>
+        <td><?php echo htmlentities($userdata[$counter]['mail']); ?></td>
+        <td><?php echo htmlentities($userdata[$counter]['subject']); ?></td>
+        <td><?php echo htmlentities($userdata[$counter]['date_commentaire']); ?></td>
     </tr>
 
 </table>
@@ -82,7 +82,7 @@ include './views/backEnd/footer.php';
 <p class="titre1"> Question </p>
 
 <p class="commentaire">
-    <?php echo $userdata[$counter]['commentaire']; ?>
+    <?php echo htmlentities($userdata[$counter]['commentaire']); ?>
 </p>
 
 
@@ -91,11 +91,11 @@ include './views/backEnd/footer.php';
     <?php
 
     if ($userdata[$counter]['admin_answer'] == null) {
-        echo forumAmdmin::adminAnswerForumAdmin;
+        echo htmlentities(forumAmdmin::adminAnswerForumAdmin);
     }
 
     else {
-        echo $userdata[$counter]['admin_answer'];
+        echo htmlentities($userdata[$counter]['admin_answer']);
     }
 
     $counter++;
