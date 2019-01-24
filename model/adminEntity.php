@@ -11,6 +11,28 @@ function getAdminData($email)
   
 }
 
+function getUserSensorData($sensId)
+
+{
+  require("config.php");
+  $request = $pdo->prepare('SELECT userIdSensor FROM adminTechSensors WHERE userId= ? ');
+  $request->execute(array($sensId));
+  $result = $request->fetchColumn();
+  return $result;
+  
+}
+
+function changeUserSensorData($sensId)
+
+{
+  require("config.php");
+  $req= 'UPDATE adminTechSensors SET userIdSensor = :userIdSensor
+                WHERE userId = "'.$sensId.'"';
+  $reqp= $pdo->prepare($req);
+  $reqp ->execute(array('userIdSensor'=>$_POST['userId1']));
+
+}
+
 function changeAdmin($email)
 
 {

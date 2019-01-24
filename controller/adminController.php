@@ -74,6 +74,11 @@ function adminManagement($locale)
 {
     if(isConnected($locale))
     {
+        $email=$_SESSION['email'];
+        $resultat=getAdminData($email);
+        $resulSensor=$resultat['userId'];
+        $getSens=getUserSensorData($resulSensor);
+
     	if(isset($_POST['userSubmit']))
     	{
     		$errorInfo = updateUser();
@@ -93,6 +98,10 @@ function adminManagement($locale)
                                     );
     		}
     	}
+        if(isset($_POST['sensSubmit']))
+        {
+            changeUserSensorData($resulSensor);
+        }
         if(isset($_POST['technicianSubmit']))
         {
             $errorInfo = updateTechnician();
@@ -132,6 +141,7 @@ function adminManagement($locale)
         }
 
         $clients=getAllCLient();
+        $clients1=getAllCLient();
         $technicians=getAllTechnician();
         require('./views/frontEnd/adminManagement.php');
     }

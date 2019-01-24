@@ -26,6 +26,14 @@ function getUserById()
     $result = $request->fetch();
     return $result;
 }
+function getUserSensorById($userSens)
+{
+    require("config.php");
+    $request = $pdo->prepare('SELECT sensor1.sensor_name as sensors, room1.name_room as rooms,user1.lastName as lastName,user_sensor1.state as states,user_sensor1.functional as functionals FROM ((((user as user1 RIGHT JOIN user_room as user_room1 on user_room1.userId = user1.userId) LEFT JOIN user_sensor as user_sensor1 ON user_sensor1.id_user_room=user_room1.id_user_room) LEFT JOIN sensor as sensor1 ON sensor1.id_sensor=user_sensor1.id_sensor) LEFT JOIN room as room1 ON room1.id_room=user_room1.id_room) WHERE user1.userId = ?');
+    $request->execute(array($userSens));
+    $result = $request->fetchAll();
+    return $result;
+}
 function addLoginCookie($expirationDate,$userId,$userEmail,$ip)
 {
     require("config.php");

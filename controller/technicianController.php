@@ -105,5 +105,20 @@ function technicianProfile($locale)
 }
 }
 
-
+function technicianSensors($locale)
+{
+    if(isConnected($locale))
+    {
+        $email=$_SESSION['email'];
+        $resultat=getTechnicianData($email);
+        $resulSensor1=$resultat['userId'];
+        $getSens1=getUserTechSensorData($resulSensor1);
+        if(isset($_POST['sensTechSubmit']))
+        {
+            changeUserTechSensorData($resulSensor);
+        }
+        $clients1=getAllCLient();
+}
+require('./views/frontEnd/technicianSensors.php');
+}
 ?>

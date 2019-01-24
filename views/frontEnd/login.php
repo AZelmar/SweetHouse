@@ -37,7 +37,7 @@
 </html>
 <style>
 body{
-	text-align: center; 
+	text-align: center;
 }
 #form-container{
 	display: inline-block;
@@ -46,6 +46,7 @@ body{
 	background-color: #65c0ba;
 	padding: 15px;
 	border: 2px solid black;
+	align-items: center; 
 }
 #title{
 	text-align: center;

@@ -441,6 +441,12 @@ function getUserInfo(){
         echo json_encode(getUserById());
     }
 }
+/*function getUserSensor(){
+    if(isset($_POST['userId']))
+    {
+        echo json_encode(getUserSensorById());
+    }
+}*/
 function getTechnicianInfo(){
     if(isset($_POST['userId']))
     {
