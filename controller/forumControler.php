@@ -4,7 +4,7 @@ require ('./model/forumEntity.php');
 
 function forum ($locale){
 
-    if(isConnected($locale) == true) {
+    if(isConnected($locale)) {
 
         $userId = returnUserId($_SESSION['email'], $locale);
 
@@ -20,26 +20,18 @@ function forum ($locale){
             }
         }
 
-        try{
 
-            if ($_SESSION['email'] == null) {
-                    $notification = array("type" => "error", "message" => "Impossible de déterminer vos informations, vérifier que vous êtes bien connecté ! ");
-                    $num_client = 'Inconnu';
-                }
-
-            else {
-                    $userdata = displayForum();
+        if ($_SESSION['email'] == null) {
+                $notification = array("type" => "error", "message" => "Impossible de déterminer vos informations, vérifier que vous êtes bien connecté ! ");
+                $num_client = 'Inconnu';
             }
 
+        else {
+                $userdata = displayForum();
         }
-
-        catch (Exception $e){
-            echo $e;
+        require ('./views/frontEnd/forum.php');
         }
     }
-
-    require ('./views/frontEnd/forum.php');
-}
 
 function forumAdministrateur($locale){
 
