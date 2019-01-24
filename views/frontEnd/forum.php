@@ -9,7 +9,6 @@ include ('./public/locale/'.$locale.'.php');
     <meta charset="utf-8">
     <title>SweetHouse</title>
     <?php include ('./views/backEnd/globalHead.php'); ?>
-
     <link href="./public/css/style_forum.css" rel="stylesheet" media="all">
 </head>
 
