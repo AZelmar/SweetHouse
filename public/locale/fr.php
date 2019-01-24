@@ -191,7 +191,7 @@ class forum{
 
     const boutton = "Retour à la page d'acceuil";
 
-    const administratorAnswer = "L'administrateur n'a pas encore répondu à ce commentaire, il répondra bientôt ! ";
+    const administratorAnswer = "Les administrateurs ou techniciens n'ont pas encore répondu à ce commentaire, ils y répondront dès que possible !";
 
 
 }
@@ -208,7 +208,7 @@ class forumAmdmin{
     const mailForumAdmin ="Adresse mail";
     const subjectForumAdmin ="Sujet";
     const dateForumAdmin ="Date de publication";
-    const adminAnswerForumAdmin = "L'administrateur n'a pas encore répondu à ce commentaire, il y répondra dès que possible !";
+    const adminAnswerForumAdmin = "Les administrateurs ou techniciens n'ont pas encore répondu à ce commentaire, ils y répondront dès que possible !";
     const supprimerCommentaireForumAdmin = "Cliquez sur la case si vous voulez supprimer ce commentaire ";
 }
 

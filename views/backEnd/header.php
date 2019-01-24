@@ -28,7 +28,6 @@ else
    ?>
   <li><a href="././gestionSensor"><p><?= header::houseControl ?></p></a></li>
   <li><a href="././userProfile"><p><?= header::profileControl ?></p></a></li>
-   <li> <a href="././gestion-capteurs"><p><?= header::gestionCapteurs ?> </p></a> </li>
    <li><a href="././shop"><p><?= header::shop ?></p></a></li>
 
   <?php
@@ -39,7 +38,7 @@ else
   <li><a href=""><p><?= header::technicianHouseControl ?></p></a></li>
   <li><a href="././technicianProfile"><p><?= header::technicianProfileControl ?></p></a></li>
   <li><a href="././technicianRdv"><p><?= header::technicianRdv ?></p></a></li>
-  <li><a href=""><p><?= header::technicianForum ?></p></a></li>
+  <li><a href="././technicianForum"><p><?= header::technicianForum ?></p></a></li>
   <?php
   }
   elseif($_SESSION['role'] == 2)

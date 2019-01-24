@@ -92,6 +92,9 @@ switch ($route) {
     case 'technicianProfile':
         technicianProfile($locale);
         break;
+    case 'technicianForum':
+        forumTechnicien($locale);
+        break;
     default:
         error404($locale);
         break;

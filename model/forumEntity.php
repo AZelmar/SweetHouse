@@ -56,4 +56,12 @@ function deleteCommentaire($id_sujet){
     $request = $pdo->prepare('DELETE FROM forum WHERE forum.id_sujet = :id_sujet');
     $request->execute(array("id_sujet" => $id_sujet));
 }
+
+function getName($email){
+    require("config.php");
+    $request = $pdo->prepare('SELECT firstName FROM user WHERE email= ? ');
+    $request->execute(array($email));
+    $result = $request->fetch();
+    return $result[0];
+}
 ?>

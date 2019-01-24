@@ -23,7 +23,7 @@ include './views/backEnd/footer.php';
 
 <h2> <?= forumAmdmin::title ?> </h2>
 
-<form method="post">
+<form method="post" id ="forum">
 
     <label>
         <?= forumAmdmin::numeroCommentaire ?>
@@ -98,18 +98,14 @@ include './views/backEnd/footer.php';
         echo $userdata[$counter]['admin_answer'];
     }
 
-?>
-</p>
-<label name="delete_commit">
-    <?= forumAmdmin::supprimerCommentaireForumAdmin ?>
-    <input type="checkbox">
-</label>
-<?php
     $counter++;
     }
 
         ?>
-
+    <form method="post">
+        <input class="text" name="inputDeleteCommentaire" id ="inputDeleteCommentaire" placeholder="Entrez le numéro du commentaire que vous voulez supprimer">
+        <input class="button" type="submit"name ="supprimerCommentaire" value ="Envoyer">
+    </form>
 <hr>
 
 </br>

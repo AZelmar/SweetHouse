@@ -193,7 +193,7 @@ class forum{
 
     const boutton = "Back to the homepage";
 
-    const administratorAnswer = "The administrator has not yet replied to this comment, he will reply soon!";
+    const administratorAnswer = "Administrators and technicians have not yet replied to this comment, they will reply soon!";
 
 }
 
@@ -209,7 +209,7 @@ class forumAmdmin{
     const mailForumAdmin ="Email adress";
     const subjectForumAdmin ="Subject";
     const dateForumAdmin ="Publication date";
-    const adminAnswerForumAdmin = "The administrator has not yet responded to this comment, he will respond as soon as possible!";
+    const adminAnswerForumAdmin = "Administrators and technicians have not yet replied to this comment, they will reply soon!";
     const supprimerCommentaireForumAdmin = "Click on the box if you want to delete this comment";
 }
 

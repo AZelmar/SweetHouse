@@ -20,6 +20,15 @@ h3 {
     text-align: center;
 }
 
+.formDeleteComment{
+    width: 50px;
+    text-align: center;
+
+}
+
+.formDeleteComment{
+    text-align: center;
+}
 
 .button {
     background-color: #216583;
@@ -164,5 +173,11 @@ hr {
     font-family: Lato, Helvetica, sans-serif;
     font-weight: 300;
     font-size: 0.95em;
+}
+
+
+
+.inputDeleteCommentaire{
+    width: 20%;
 }
 
