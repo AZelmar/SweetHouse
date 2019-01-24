@@ -53,7 +53,7 @@ include './views/backEnd/footer.php';
 	<h2 id="title"> Gestion Technicien :</h2>
       <hr>
         
-              <select class="chosen-select" name="technicianId" style="width:300px" id="technicianId">
+        <select class="chosen-select" name="technicianId" style="width:300px" id="technicianId">
       	<?php foreach ($technicians as $output) {?>
       	<option value="<?= $output['userId'] ?>"><?php echo htmlentities($output["userId"]);echo " ";echo htmlentities($output["lastName"]);?></option>
       	<?php }?>
@@ -82,15 +82,33 @@ include './views/backEnd/footer.php';
 
   <div class="box" >
 	<h2 id="title"> Gestion Capteurs :</h2>
+	<hr>
+      <select class="chosen-select" name="userId1" style="width:300px" id="userId1">
+      	<?php foreach ($clients1 as $output1) {?>
+      	<option value="<?= $output1['userId'] ?>"><?php echo htmlentities($output1["userId"]);?></option>
+      	<?php }?>
+	  </select>
+	  <p>
+	  	<input type="submit" name="sensSubmit" value= Afficher action="adminManagement" >
+		<div class="input-group">
+			<label>Récapitulatif des capteurs :</label>
+			<select name="sensorsUser" style="width: 100%">
+				<?php foreach (getUserSensorById($getSens) as $output2) {?>
+      	<option value="<?= $output2['lastName'] ?>"><?php echo " Le capteur de ";echo htmlentities($output2["sensors"]);echo " de " ; echo htmlentities($output2["rooms"]);echo " de ";echo htmlentities($output2["lastName"]);echo " : état "; echo htmlentities($output2["states"]); echo ", fonctionel : "; echo htmlentities($output2["functionals"]);?></option>
+      	<?php }?>
+			</select>
+		</div>
   </div>
 </div>
 </form>
 <script type="text/javascript" src="./public/js/chosen/chosen.jquery.js"></script>
 <script type="text/javascript">
 	$("#userId").chosen();
+	$("#userId1").chosen();
 	$("#technicianId").chosen();
 	loadUserInfo();
 	loadTechnicianInfo();
+	/*loadUserSensors()*/;
 	  function loadUserInfo(){
 	    	$.ajax({
 			    type: "POST",
@@ -113,6 +131,37 @@ include './views/backEnd/footer.php';
 			    }
 			});
 	    }
+	/*function loadUserSensors(){
+	    	$.ajax({
+			    type: "POST",
+			    url: "<?= $basename ?>/ajax/getUserSensor",
+			    data: {userId:  $("#userId1").val()},
+			    success: function(data){
+			    	console.log(userData);
+			    	var userData = JSON.parse(data);
+		
+			    	$("[name='userNameSensors']").val(htmlEntities(userData[6]));	
+			    	var empty = true;
+			    		$("[name='sensorsUser']").empty();
+				    	$.each(userData,function(i){
+				    		if(userData[i]["rooms"])
+				    		{
+								empty = false;
+								$("[name='sensorsUser']").append('<option>[ '+htmlEntities(userData[i]["rooms"])+" "+htmlEntities(userData[i]["sensors"])+htmlEntities(userData[i]["states"])+htmlEntities(userData[i]["functionals"])+'</option>');
+				    		}
+				    	})
+				    	if(empty)
+				    	{
+				    		$("[name='sensorsUser']").append('<option>Pas de capteurs</option>');
+				    	}
+
+				    }
+
+
+			    
+			});
+	    }
+	    */
  		function loadTechnicianInfo(){
 	    	$.ajax({
 			    type: "POST",
@@ -150,9 +199,13 @@ include './views/backEnd/footer.php';
 			});
 	    }
 	$(document).ready(function(){
-	    $("#userId").change(function(){
+		$("#userId").change(function(){
 	    	loadUserInfo();
 	    });
+	    /*
+	    $("#userId1").change(function(){
+	    	loadUserSensors();
+	    });*/
 	    $("#technicianId").change(function(){
 	    	loadTechnicianInfo();
 	    });
