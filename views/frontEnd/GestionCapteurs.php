@@ -236,24 +236,24 @@
 <style>
 
 .switch1 {
-    margin-top: 28%;
+    margin-top: 20%;
 
 }
 .switch2 {
-    margin-top: 33%;
+    margin-top: 25%;
 
 }
 .switch3 {
-    margin-top: 38%;
+    margin-top: 30%;
 
 }
 .switch4 {
-    margin-top: 43%;
+    margin-top: 35%;
 
 }
 .switch5 {
-    margin-top: 44%;
-    margin-left: 73%;
+    margin-top: 40%;
+    margin-left: 45%;
 
 }
 
