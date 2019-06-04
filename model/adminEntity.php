@@ -81,7 +81,7 @@ function getNewSensors()
 function getNewQuestions()
 {
 	require("config.php");
-	$req= 'SELECT  COUNT(*) FROM `formulaire` WHERE formulaire.date_commentaire >= NOW() - INTERVAL 5 DAY' ;
+	$req= 'SELECT  COUNT(*) FROM `forum` WHERE forum.date_commentaire >= NOW() - INTERVAL 5 DAY' ;
 	$reqp= $pdo->prepare($req);
 	$reqp->execute();
 	$resultatQuestion = $reqp->fetchColumn();

@@ -189,7 +189,7 @@ class forum{
     const sujetForum = "Sujet";
     const dateForum = "Date de publication ";
 
-    const boutton = "Retour à la page d'acceuil";
+    const boutton = "Retour à la page d'accueil";
 
     const administratorAnswer = "Les administrateurs ou techniciens n'ont pas encore répondu à ce commentaire, ils y répondront dès que possible !";
 
@@ -197,7 +197,7 @@ class forum{
 }
 
 class forumAmdmin{
-    const button ="Retour à la page s'acceuil";
+    const button ="Retour à la page d'accueil";
     const title ="Répondre aux questions des utilisateurs";
     const numeroCommentaire ="Entrez le numéro du commentaire auquel vous voulez répondre :";
     const reponseAdmin ="Réponse administrateur : ";
