@@ -10,7 +10,7 @@
 </head>
 
 <body>
-        <?php include './views/backEnd/header.php';?>
+    <?php include './views/backEnd/header.php';?>
 <form method="post">
 <ul id="tabs">
     <li><a href="#" name="tab1" id="1">Chambre</a></li>
@@ -26,38 +26,31 @@
     <div id="content">
 
         <div id="tab1" value='chambres'>
-
-       
-
             <h4>Chambres</h4>
 
-
-            <div class="gallery">
-                <img src="./public/images/smoke.png" id="smoke" >
+            <div class="gallery" style="display: inline-block;vertical-align: baseline;">
+                <img src="./public/images/smoke.png" id="smoke">
                 <div class="desc"></div>
             </div>
-
-            <div class="gallery">
-                <img src="./public/images/lumen.png" id="lumen" >
-                <div class="desc"></div>
-            </div>
-
-            <div class="gallery">
-                <img src="./public/images/temperature.png" id="temperature" >
-                <div class="desc"></div>
-
-            </div>
-
-            <label class="switch1">
+            <label class="switch1" style="display: inline-block;vertical-align: baseline;">
                 <input type="checkbox" name ="chambre_smoke" <?php echo htmlentities(displayStateSensor('chambres', 'fumee'));  ?>>
                 <span class="slider round"></span>
             </label>
-            <label class="switch2">
+            <br>
+            <div class="gallery" style="display: inline-block;vertical-align: baseline;">
+                <img src="./public/images/lumen.png" id="lumen" >
+                <div class="desc"></div>
+            </div>
+            <label class="switch2" style="display: inline-block;vertical-align: baseline;">
                 <input type="checkbox" name = "chambre_lumen" <?php echo htmlentities(displayStateSensor('chambres', 'lumiere'))?>>
                 <span class="slider round"></span>
             </label>
-
-            <label class="switch3">
+            <br>
+            <div class="gallery" style="display: inline-block;vertical-align: baseline;">
+                <img src="./public/images/temperature.png" id="temperature" >
+                <div class="desc"></div>
+            </div>
+            <label class="switch3" style="display: inline-block;vertical-align: baseline;">
                 <input type="checkbox" name="chambre_temperature" <?php echo htmlentities(displayStateSensor('chambres', 'temperature') )?>>
                 <span class="slider round"></span>
             </label>
@@ -223,42 +216,10 @@
 
     <input type ="hidden" name="room" id="room">
 
-    <div class="boutton"> <input type="submit" value="Modifier l'état de mes capteurs" name="submit"> </div>
+    <div class="boutton"> <input type="submit" value="Modifier l'état de mes capteurs" name="submit" style="margin-top: 2%"> </div>
 </div>
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
 </body>
-
-<style>
-
-.switch1 {
-    margin-top: 20%;
-
-}
-.switch2 {
-    margin-top: 25%;
-
-}
-.switch3 {
-    margin-top: 30%;
-
-}
-.switch4 {
-    margin-top: 35%;
-
-}
-.switch5 {
-    margin-top: 40%;
-    margin-left: 45%;
-
-}
-
-</style>
-
 <script type="text/javascript">
 
     $('#1').click(function() {
