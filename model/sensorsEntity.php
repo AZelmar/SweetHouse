@@ -103,8 +103,8 @@ function addTimeSensor($email, $room, $sensortype, $timediff){
     $request3->execute(array($sensortype));
     $sensor = $request3->fetch();
 
-    $request4 = $pdo->prepare('UPDATE user_sensor SET use_time= use_time + ? WHERE id_user_room = ? AND id_sensor = ?');
-    $request4 -> execute(array($timediff,$id_user_room[0], $sensor[0]));
+    $request4 = $pdo->prepare('UPDATE user_sensor SET use_time = use_time + ? WHERE id_user_room = ? AND id_sensor = ?');
+    $request4 -> execute(array($timediff[0],$id_user_room[0], $sensor[0]));
     $state = $request4->fetch();
 }
 
@@ -128,7 +128,7 @@ function updateTimeSensor($email, $room, $sensortype, $starttime){
     $sensor = $request3->fetch();
 
     $request4 = $pdo->prepare('UPDATE user_sensor SET start_time= ? WHERE id_user_room = ? AND id_sensor = ?');
-    $request4 -> execute(array($starttime,$id_user_room[0], $sensor[0]));
+    $request4 -> execute(array($starttime[0],$id_user_room[0], $sensor[0]));
     $start_time = $request4->fetch();
 }
 
