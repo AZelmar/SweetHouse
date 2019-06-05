@@ -29,7 +29,7 @@
             <h4>Chambres</h4>
 
             <div class="gallery" style="display: inline-block;vertical-align: baseline;">
-                <img src="./public/images/smoke.png" id="smoke">
+                 <img src="./public/images/smoke.png" id="smoke">
                 <div class="desc"></div>
             </div>
             <label class="switch1" style="display: inline-block;vertical-align: baseline;">
@@ -221,7 +221,14 @@
 </form>
 </body>
 <script type="text/javascript">
-
+            $.ajax({
+                type: "POST",
+                url: "<?= $basename ?>/ajax/getTrameInfo",
+                data: {sensorRef:  '5'},
+                success: function(data){
+                    var trame = JSON.parse(data);
+                }
+            });
     $('#1').click(function() {
         $('#room').val("Chambre");
     });

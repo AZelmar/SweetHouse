@@ -180,4 +180,28 @@ function getValueOfSensor($sensorValue){
      }
 }
 
+function getLogs(){
+	$ch = curl_init();
+	curl_setopt($ch,CURLOPT_URL, "http://projets-tomcat.isep.fr:8080/appService/?ACTION=GETLOG&TEAM=004A");
+	curl_setopt($ch, CURLOPT_HEADER, FALSE); 
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); 
+	$data = curl_exec($ch);
+	curl_close($ch);
+	$data_tab = str_split($data,33);
+	return $data_tab;
+}
+function getSensorLog()
+{
+	$sensorRef = $_POST['sensorRef'];
+	$data_tab = getLogs();
+	foreach($data_tab as $key => $trame)
+   {
+		list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) = sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
+      	if ($c == $sensorRef){
+         	$id = $key;
+         	break;
+      	}
+   }
+   echo json_encode($data_tab[$id]);
+}
 ?>
