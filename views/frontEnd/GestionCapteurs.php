@@ -221,14 +221,24 @@
 </form>
 </body>
 <script type="text/javascript">
-            $.ajax({
-                type: "POST",
-                url: "<?= $basename ?>/ajax/getTrameInfo",
-                data: {sensorRef:  '5'},
-                success: function(data){
-                    var trame = JSON.parse(data);
+        $(document).ready(function(){
+            var sensorValue = new Array('5','1','a');
+            function refreshSensorValue(){
+            sensorValue.forEach(function(sensor) {
+                 $.ajax({
+                    type: "POST",
+                    url: "<?= $basename ?>/ajax/getTrameInfo",
+                    data: {sensorRef:  sensor},
+                    success: function(data){
+                     var trame = JSON.parse(data);
+                    console.log(trame);
                 }
             });
+        });
+            setTimeout(refreshSensorValue,3000);
+        }
+            refreshSensorValue();
+        });
     $('#1').click(function() {
         $('#room').val("Chambre");
     });
