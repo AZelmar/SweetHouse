@@ -103,12 +103,11 @@ function addTimeSensor($email, $room, $sensortype, $timediff){
     $request3->execute(array($sensortype));
     $sensor = $request3->fetch();
 
-    $request4 = $pdo->prepare('UPDATE user_sensor SET use_time = use_time + ? WHERE id_user_room = ? AND id_sensor = ?');
-    $request4 -> execute(array($timediff[0],$id_user_room[0], $sensor[0]));
-    $state = $request4->fetch();
+    $request4 = $pdo->prepare('UPDATE user_sensor SET use_time = ? WHERE id_user_room = ? AND id_sensor = ?');
+    $request4 -> execute(array($timediff,$id_user_room[0], $sensor[0]));
 }
 
-function updateTimeSensor($email, $room, $sensortype, $starttime){
+function updateTimeStart($email, $room, $sensortype, $starttime){
     require "config.php";
 
     $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
@@ -128,11 +127,34 @@ function updateTimeSensor($email, $room, $sensortype, $starttime){
     $sensor = $request3->fetch();
 
     $request4 = $pdo->prepare('UPDATE user_sensor SET start_time= ? WHERE id_user_room = ? AND id_sensor = ?');
-    $request4 -> execute(array($starttime[0],$id_user_room[0], $sensor[0]));
-    $start_time = $request4->fetch();
+    $request4 -> execute(array($starttime,$id_user_room[0], $sensor[0]));
 }
 
-function getTimeSensor($email, $room, $sensortype){
+function updateTimeEnd($email, $room, $sensortype, $endtime){
+    require "config.php";
+
+    $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
+    $request->execute(array($email));
+    $userId = $request->fetch();
+
+    $request2 = $pdo->prepare('SELECT id_room FROM room WHERE name_room = ?');
+    $request2->execute(array($room));
+    $room = $request2->fetch();
+
+    $request1 = $pdo->prepare('SELECT id_user_room FROM user_room WHERE userId = ? AND id_room = ?');
+    $request1->execute(array($userId[0], $room[0]));
+    $id_user_room = $request1->fetch();
+
+    $request3 = $pdo->prepare('SELECT id_sensor FROM sensor WHERE sensor_name = ?');
+    $request3->execute(array($sensortype));
+    $sensor = $request3->fetch();
+
+    $request4 = $pdo->prepare('UPDATE user_sensor SET end_time= ? WHERE id_user_room = ? AND id_sensor = ?');
+    $request4 -> execute(array($endtime,$id_user_room[0], $sensor[0]));
+
+}
+
+function getTimeStart($email, $room, $sensortype){
     require "config.php";
 
     $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
@@ -155,6 +177,56 @@ function getTimeSensor($email, $room, $sensortype){
     $request4 -> execute(array($id_user_room[0], $sensor[0]));
     $start_time = $request4->fetch();
     return $start_time[0];
+}
+
+function getTimeEnd($email, $room, $sensortype){
+    require "config.php";
+
+    $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
+    $request->execute(array($email));
+    $userId = $request->fetch();
+
+    $request2 = $pdo->prepare('SELECT id_room FROM room WHERE name_room = ?');
+    $request2->execute(array($room));
+    $room = $request2->fetch();
+
+    $request1 = $pdo->prepare('SELECT id_user_room FROM user_room WHERE userId = ? AND id_room = ?');
+    $request1->execute(array($userId[0], $room[0]));
+    $id_user_room = $request1->fetch();
+
+    $request3 = $pdo->prepare('SELECT id_sensor FROM sensor WHERE sensor_name = ?');
+    $request3->execute(array($sensortype));
+    $sensor = $request3->fetch();
+
+    $request4 = $pdo->prepare('SELECT end_time FROM user_sensor WHERE id_user_room = ? AND id_sensor = ?');
+    $request4 -> execute(array($id_user_room[0], $sensor[0]));
+    $end_time = $request4->fetch();
+    return $end_time[0];
+}
+
+function getTimeUse($email, $room, $sensortype){
+    require "config.php";
+
+    $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
+    $request->execute(array($email));
+    $userId = $request->fetch();
+
+    $request2 = $pdo->prepare('SELECT id_room FROM room WHERE name_room = ?');
+    $request2->execute(array($room));
+    $room = $request2->fetch();
+
+    $request1 = $pdo->prepare('SELECT id_user_room FROM user_room WHERE userId = ? AND id_room = ?');
+    $request1->execute(array($userId[0], $room[0]));
+    $id_user_room = $request1->fetch();
+
+    $request3 = $pdo->prepare('SELECT id_sensor FROM sensor WHERE sensor_name = ?');
+    $request3->execute(array($sensortype));
+    $sensor = $request3->fetch();
+
+    $request4 = $pdo->prepare('SELECT use_time FROM user_sensor WHERE id_user_room = ? AND id_sensor = ?');
+    $request4 -> execute(array($id_user_room[0], $sensor[0]));
+    $use_time = $request4->fetch();
+    return $use_time[0];
 }
 
 ?>
