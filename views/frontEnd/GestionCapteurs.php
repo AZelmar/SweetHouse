@@ -83,30 +83,30 @@
 
 
             <div class="gallery">
-                <img src="./public/images/humidity.jpg" id="humidity" >
+                <img src="./public/images/humidity.png" id="humidity" >
                 <div class="desc"></div>
             </div>
 
 
             <label class="switch1">
-                <input type="checkbox" name="cuisine_smoke" <?php echo htmlentities(displayStateSensor('cuisine', 'fumee'));  ?> >
+                <input type="checkbox" name="cuisine_smoke"  >
                 <span class="slider round"></span>
             </label>
 
 
             <label class="switch2">
-                <input type="checkbox" name="cuisine_lumen" <?php  echo htmlentities(displayStateSensor('cuisine', 'lumiere'));  ?>>
+                <input type="checkbox" name="cuisine_lumen" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch3">
-                <input type="checkbox" name="cuisine_temperature" <?php  echo htmlentities(displayStateSensor('cuisine', 'temperature'));  ?>>
+                <input type="checkbox" name="cuisine_temperature" >
                 <span class="slider round"></span>
             </label>
 
 
             <label class="switch4">
-                <input type="checkbox" name="cuisine_humidity" <?php  echo htmlentities(displayStateSensor('cuisine', 'humidite'));  ?>>
+                <input type="checkbox" name="cuisine_humidity" >
                 <span class="slider round"></span>
             </label>
 
@@ -131,23 +131,23 @@
 
 
             <div class="gallery">
-                <img src="./public/images/humidity.jpg" id="humidity" >
+                <img src="./public/images/humidity.png" id="humidity" >
                 <div class="desc"></div>
             </div>
 
 
             <label class="switch1">
-                <input type="checkbox" name="sdb_lumen" <?php  echo htmlentities(displayStateSensor('salle_de_bain', 'lumiere'));  ?>>
+                <input type="checkbox" name="sdb_lumen" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch2">
-                <input type="checkbox" name="sdb_temperature" <?php  echo htmlentities(displayStateSensor('salle_de_bain', 'temperature'));  ?>>
+                <input type="checkbox" name="sdb_temperature" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch3">
-                <input type="checkbox" name="sdb_humidity"<?php  echo htmlentities(displayStateSensor('salle_de_bain', 'humidite'));  ?>>
+                <input type="checkbox" name="sdb_humidity">
                 <span class="slider round"></span>
             </label>
 
@@ -176,7 +176,7 @@
 
 
             <div class="gallery">
-                <img src="./public/images/humidity.jpg" id="humidity" >
+                <img src="./public/images/humidity.png" id="humidity" >
                 <div class="desc"></div>
             </div>
 
@@ -187,31 +187,31 @@
 
 
             <label class="switch1">
-                <input type="checkbox" name="salon_smoke" <?php  echo htmlentities(displayStateSensor('salon', 'fumee'));  ?>>
+                <input type="checkbox" name="salon_smoke" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch2">
-                <input type="checkbox" name="salon_lumen" <?php  echo htmlentities(displayStateSensor('salon', 'lumiere'));  ?>>
+                <input type="checkbox" name="salon_lumen" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch3">
-                <input type="checkbox" name="salon_temperature" <?php echo htmlentities(displayStateSensor('salon', 'temperature')) ?> >
+                <input type="checkbox" name="salon_temperature"  >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch4">
-                <input type="checkbox" name="salon_humidity" <?php  echo htmlentities(displayStateSensor('salon', 'humidite'));  ?>>
+                <input type="checkbox" name="salon_humidity" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch5">
-                <input type="checkbox" name="salon_security"<?php  echo (displayStateSensor('salon', 'mouvement'));  ?>>
+                <input type="checkbox" name="salon_security">
                 <span class="slider round"></span>
 
             </label>
-        </div>
+        </div> 
     </div>
 
     <input type ="hidden" name="room" id="room">
