@@ -9,7 +9,7 @@ body {
     margin-bottom:75px;
 }
 
-ul {
+.navigation{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -18,20 +18,20 @@ ul {
     display: flex;
 }
 
-li {
+.navigation > li {
     float: left;
  	 display: flex;
   	align-items: center;
   	 border-left: 1px solid black;
     }
-li:last-child {
+.navigation > li:last-child {
     margin-left: auto;
 }
 .navigation > li:nth-last-child(2) {
 	border-right: 1px solid black;
 }
 
-li a {
+.navigation > li a {
     color: black;
     padding: 4px 16px;
     text-decoration: none;
@@ -40,18 +40,18 @@ li a {
     border-radius:10px;
     height: 100%;
 }
-li a p {
+.navigation > li a p {
     vertical-align: middle;
 }
-li:hover:not(.active) {
+.navigation > li:hover:not(.active) {
     background-color: #216583;
     transition: all 1s;
 }
 
-li a:focus {
+.navigation > li a:focus {
     border: 0;
 }
- li:a:active{
+ .navigation > li:a:active{
     color: #f76262;
  }
 

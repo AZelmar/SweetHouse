@@ -10,7 +10,7 @@
 </head>
 
 <body>
-        <?php include './views/backEnd/header.php';?>
+    <?php include './views/backEnd/header.php';?>
 <form method="post">
 <ul id="tabs">
     <li><a href="#" name="tab1" id="1">Chambre</a></li>
@@ -26,38 +26,31 @@
     <div id="content">
 
         <div id="tab1" value='chambres'>
-
-       
-
             <h4>Chambres</h4>
 
-
-            <div class="gallery">
-                <img src="./public/images/smoke.png" id="smoke" >
+            <div class="gallery" style="display: inline-block;vertical-align: baseline;">
+                 <img src="./public/images/smoke.png" id="smoke">
                 <div class="desc"></div>
             </div>
-
-            <div class="gallery">
-                <img src="./public/images/lumen.png" id="lumen" >
-                <div class="desc"></div>
-            </div>
-
-            <div class="gallery">
-                <img src="./public/images/temperature.png" id="temperature" >
-                <div class="desc"></div>
-
-            </div>
-
-            <label class="switch1">
+            <label class="switch1" style="display: inline-block;vertical-align: baseline;">
                 <input type="checkbox" name ="chambre_smoke" <?php echo htmlentities(displayStateSensor('chambres', 'fumee'));  ?>>
                 <span class="slider round"></span>
             </label>
-            <label class="switch2">
+            <br>
+            <div class="gallery" style="display: inline-block;vertical-align: baseline;">
+                <img src="./public/images/lumen.png" id="lumen" >
+                <div class="desc"></div>
+            </div>
+            <label class="switch2" style="display: inline-block;vertical-align: baseline;">
                 <input type="checkbox" name = "chambre_lumen" <?php echo htmlentities(displayStateSensor('chambres', 'lumiere'))?>>
                 <span class="slider round"></span>
             </label>
-
-            <label class="switch3">
+            <br>
+            <div class="gallery" style="display: inline-block;vertical-align: baseline;">
+                <img src="./public/images/temperature.png" id="temperature" >
+                <div class="desc"></div>
+            </div>
+            <label class="switch3" style="display: inline-block;vertical-align: baseline;">
                 <input type="checkbox" name="chambre_temperature" <?php echo htmlentities(displayStateSensor('chambres', 'temperature') )?>>
                 <span class="slider round"></span>
             </label>
@@ -90,30 +83,30 @@
 
 
             <div class="gallery">
-                <img src="./public/images/humidity.jpg" id="humidity" >
+                <img src="./public/images/humidity.png" id="humidity" >
                 <div class="desc"></div>
             </div>
 
 
             <label class="switch1">
-                <input type="checkbox" name="cuisine_smoke" <?php echo htmlentities(displayStateSensor('cuisine', 'fumee'));  ?> >
+                <input type="checkbox" name="cuisine_smoke"  >
                 <span class="slider round"></span>
             </label>
 
 
             <label class="switch2">
-                <input type="checkbox" name="cuisine_lumen" <?php  echo htmlentities(displayStateSensor('cuisine', 'lumiere'));  ?>>
+                <input type="checkbox" name="cuisine_lumen" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch3">
-                <input type="checkbox" name="cuisine_temperature" <?php  echo htmlentities(displayStateSensor('cuisine', 'temperature'));  ?>>
+                <input type="checkbox" name="cuisine_temperature" >
                 <span class="slider round"></span>
             </label>
 
 
             <label class="switch4">
-                <input type="checkbox" name="cuisine_humidity" <?php  echo htmlentities(displayStateSensor('cuisine', 'humidite'));  ?>>
+                <input type="checkbox" name="cuisine_humidity" >
                 <span class="slider round"></span>
             </label>
 
@@ -138,23 +131,23 @@
 
 
             <div class="gallery">
-                <img src="./public/images/humidity.jpg" id="humidity" >
+                <img src="./public/images/humidity.png" id="humidity" >
                 <div class="desc"></div>
             </div>
 
 
             <label class="switch1">
-                <input type="checkbox" name="sdb_lumen" <?php  echo htmlentities(displayStateSensor('salle_de_bain', 'lumiere'));  ?>>
+                <input type="checkbox" name="sdb_lumen" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch2">
-                <input type="checkbox" name="sdb_temperature" <?php  echo htmlentities(displayStateSensor('salle_de_bain', 'temperature'));  ?>>
+                <input type="checkbox" name="sdb_temperature" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch3">
-                <input type="checkbox" name="sdb_humidity"<?php  echo htmlentities(displayStateSensor('salle_de_bain', 'humidite'));  ?>>
+                <input type="checkbox" name="sdb_humidity">
                 <span class="slider round"></span>
             </label>
 
@@ -183,7 +176,7 @@
 
 
             <div class="gallery">
-                <img src="./public/images/humidity.jpg" id="humidity" >
+                <img src="./public/images/humidity.png" id="humidity" >
                 <div class="desc"></div>
             </div>
 
@@ -194,73 +187,58 @@
 
 
             <label class="switch1">
-                <input type="checkbox" name="salon_smoke" <?php  echo htmlentities(displayStateSensor('salon', 'fumee'));  ?>>
+                <input type="checkbox" name="salon_smoke" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch2">
-                <input type="checkbox" name="salon_lumen" <?php  echo htmlentities(displayStateSensor('salon', 'lumiere'));  ?>>
+                <input type="checkbox" name="salon_lumen" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch3">
-                <input type="checkbox" name="salon_temperature" <?php echo htmlentities(displayStateSensor('salon', 'temperature')) ?> >
+                <input type="checkbox" name="salon_temperature"  >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch4">
-                <input type="checkbox" name="salon_humidity" <?php  echo htmlentities(displayStateSensor('salon', 'humidite'));  ?>>
+                <input type="checkbox" name="salon_humidity" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch5">
-                <input type="checkbox" name="salon_security"<?php  echo (displayStateSensor('salon', 'mouvement'));  ?>>
+                <input type="checkbox" name="salon_security">
                 <span class="slider round"></span>
 
             </label>
-        </div>
+        </div> 
     </div>
 
     <input type ="hidden" name="room" id="room">
 
-    <div class="boutton"> <input type="submit" value="Modifier l'état de mes capteurs" name="submit"> </div>
+    <div class="boutton"> <input type="submit" value="Modifier l'état de mes capteurs" name="submit" style="margin-top: 2%"> </div>
 </div>
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
 </body>
-
-<style>
-
-.switch1 {
-    margin-top: 20%;
-
-}
-.switch2 {
-    margin-top: 25%;
-
-}
-.switch3 {
-    margin-top: 30%;
-
-}
-.switch4 {
-    margin-top: 35%;
-
-}
-.switch5 {
-    margin-top: 40%;
-    margin-left: 45%;
-
-}
-
-</style>
-
 <script type="text/javascript">
-
+        $(document).ready(function(){
+            var sensorValue = new Array('5','1','a');
+            function refreshSensorValue(){
+            sensorValue.forEach(function(sensor) {
+                 $.ajax({
+                    type: "POST",
+                    url: "<?= $basename ?>/ajax/getTrameInfo",
+                    data: {sensorRef:  sensor},
+                    success: function(data){
+                     var trame = JSON.parse(data);
+                    console.log(trame);
+                }
+            });
+        });
+            setTimeout(refreshSensorValue,3000);
+        }
+            refreshSensorValue();
+        });
     $('#1').click(function() {
         $('#room').val("Chambre");
     });

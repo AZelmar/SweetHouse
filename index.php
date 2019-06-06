@@ -98,6 +98,9 @@ switch ($route) {
     case 'technicianSensors':
         technicianSensors($locale);
         break;
+    case 'ajax/getTrameInfo':
+        getSensorLog();
+        break;
     default:
         error404($locale);
         break;

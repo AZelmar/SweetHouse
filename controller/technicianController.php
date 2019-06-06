@@ -115,7 +115,7 @@ function technicianSensors($locale)
         $getSens1=getUserTechSensorData($resulSensor1);
         if(isset($_POST['sensTechSubmit']))
         {
-            changeUserTechSensorData($resulSensor);
+            changeUserTechSensorData($resulSensor1);
         }
         $clients1=getAllCLient();
 }
