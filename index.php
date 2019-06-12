@@ -62,9 +62,6 @@ switch ($route) {
     case 'gestionSensor':
         gestion_capteurs($locale);
         break;
-    case 'cuisine':
-        cuisine($locale);
-        break;
     case 'shop':
         userShop($locale);
         break;
