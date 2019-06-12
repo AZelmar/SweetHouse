@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php include './views/backEnd/globalHead.php'; ?>
     <link href="./public/css/style_gestion_capteurs.css" rel="stylesheet" media="all">
-
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
     <li><a href="#" name="tab4" id="4">Salon</a></li>
 </ul>   
 
-<div class="main" >
+<div class="main">
 
     <h2>Capteurs</h2>
 
@@ -29,7 +30,7 @@
             <h4>Chambres</h4>
 
             <div class="gallery" style="display: inline-block;vertical-align: baseline;">
-                 <img src="./public/images/smoke.png" id="smoke">
+                 <img src="./public/images/distance-sensor.png" id="smoke">
                 <div class="desc"></div>
             </div>
             <label class="switch1" style="display: inline-block;vertical-align: baseline;">
@@ -41,7 +42,7 @@
             </div>
             <br>
             <div class="gallery" style="display: inline-block;vertical-align: baseline;">
-                <img src="./public/images/lumen.png" id="lumen" >
+                <img src="./public/images/illumination_sensor.png" id="lumen" >
                 <div class="desc"></div>
             </div>
             <label class="switch2" style="display: inline-block;vertical-align: baseline;">
@@ -53,7 +54,7 @@
             </div>
             <br>
             <div class="gallery" style="display: inline-block;vertical-align: baseline;">
-                <img src="./public/images/temperature.png" id="temperature" >
+                <img src="./public/images/bolt-silhouette.png" id="temperature" >
                 <div class="desc"></div>
             </div>
             <label class="switch3" style="display: inline-block;vertical-align: baseline;">
@@ -211,21 +212,20 @@
             </label>
 
             <label class="switch4">
-                <input type="checkbox" name="salon_humidity" >
+                <input type="checkbox" name="salon_humidity" data-toggle="toggle" >
                 <span class="slider round"></span>
             </label>
 
             <label class="switch5">
                 <input type="checkbox" name="salon_security">
                 <span class="slider round"></span>
-
             </label>
-        </div> 
+        </div>
     </div>
 
     <input type ="hidden" name="room" id="room">
 
-    <div class="boutton"> <input type="submit" value="Modifier l'état de mes capteurs" name="submit" style="margin-top: 2%"> </div>
+    <div class="boutton"> <input type="submit" value="Modifier l'état de mes capteurs" name="submit" style="margin-top: 2%; text-align: center;"> </div>
 </div>
 </form>
 </body>
