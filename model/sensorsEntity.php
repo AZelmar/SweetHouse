@@ -4,17 +4,13 @@
 function changeStateSensor($email, $room, $sensor, $state){
     require "config.php";
 
-    $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
-    $request->execute(array($email));
-    $userId = $request->fetch();
-
-    $request2 = $pdo->prepare('SELECT id_room FROM room WHERE name_room = ?');
-    $request2->execute(array($room));
-    $id_room = $request2->fetch();
-
-    $request1 = $pdo->prepare('SELECT id_user_room FROM user_room WHERE userId = ? AND id_room = ?');
-    $request1->execute(array($userId[0], $id_room[0]));
+    $request1 = $pdo->prepare('SELECT user.userId,room.id_room,user_room.id_user_room FROM user_room 
+INNER JOIN room ON room.id_room =user_room.id_room 
+INNER JOIN user ON user.userId = user_room.userId 
+WHERE room.name_room = ?  AND user.email= ?');
+    $request1->execute(array($room, $email));
     $id_user_room = $request1->fetch();
+
 
     $request3 = $pdo->prepare('SELECT id_sensor FROM sensor WHERE sensor_name = ?');
     $request3 -> execute(array($sensor));
@@ -29,20 +25,13 @@ function changeStateSensor($email, $room, $sensor, $state){
 function getStateSensor($email, $room, $sensortype){
     require "config.php";
 
-    $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
-    $request->execute(array($email));
-    $userId = $request->fetch();
-    ($userId[0]);
-
-    $request2 = $pdo->prepare('SELECT id_room FROM room WHERE name_room = ?');
-    $request2->execute(array($room));
-    $room = $request2->fetch();
-    echo($room[0]);
-
-    $request1 = $pdo->prepare('SELECT id_user_room FROM user_room WHERE userId = ? AND id_room = ?');
-    $request1->execute(array($userId[0], $room[0]));
+   $request1 = $pdo->prepare('SELECT user.userId,room.id_room,user_room.id_user_room FROM user_room 
+INNER JOIN room ON room.id_room =user_room.id_room 
+INNER JOIN user ON user.userId = user_room.userId 
+WHERE room.name_room = ?  AND user.email= ?');
+    $request1->execute(array($room, $email));
     $id_user_room = $request1->fetch();
-    echo($id_user_room[0]);
+
 
     $request3 = $pdo->prepare('SELECT id_sensor FROM sensor WHERE sensor_name = ?');
     $request3->execute(array($sensortype));
