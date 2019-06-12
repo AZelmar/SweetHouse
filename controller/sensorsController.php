@@ -20,7 +20,7 @@ function gestion_capteurs($locale){
                    $room = 'chambres';
 
                    if((isset($_POST['chambre_smoke']) == true || (isset($_POST['chambre_smoke']) == false))  && getValueOfSensor(isset($_POST['chambre_smoke'])) != getStateSensor($_SESSION['email'], $room, "fumee" )){
-                       calculateTimeSensors($_SESSION['email'],$room, "fumee");
+                      
                        changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor(isset($_POST['chambre_smoke'])));
                        $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
@@ -28,7 +28,6 @@ function gestion_capteurs($locale){
 
 
                     if (isset($_POST['chambre_lumen']) == true || (isset($_POST['chambre_lumen']) == false) != null && getValueOfSensor(isset($_POST['chambre_lumen'])) != getStateSensor($_SESSION['email'], $room, "lumiere")) {
-                        calculateTimeSensors($_SESSION['email'], $room, "lumiere");
                         changeStateSensor($_SESSION['email'], $room, "lumiere", getValueOfSensor(isset($_POST['chambre_lumen'])));
                         $notification = array("type" => "success", "message" => "Votre changement a bien été envoyé ! Merci ! ");
 
@@ -51,7 +50,6 @@ function gestion_capteurs($locale){
 
 
                    if((isset($_POST['chambre_temperature']) == true || (isset($_POST['chambre_temperature']) == false)) != null && getValueOfSensor(isset($_POST['chambre_temperature'])) != getStateSensor($_SESSION['email'], $room, "temperature")){
-                       calculateTimeSensors($_SESSION['email'], $room, "temperature");
                        changeStateSensor($_SESSION['email'], $room, "temperature", getValueOfSensor(isset($_POST['chambre_temperature'])));
                        $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
 
