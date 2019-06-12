@@ -36,6 +36,9 @@
                 <input type="checkbox" name ="chambre_smoke" <?php echo htmlentities(displayStateSensor('chambres', 'fumee'));  ?>>
                 <span class="slider round"></span>
             </label>
+            <div style="display: inline-block;vertical-align: baseline;">
+                <span id="chambre_distance_value">test</span>
+            </div>
             <br>
             <div class="gallery" style="display: inline-block;vertical-align: baseline;">
                 <img src="./public/images/lumen.png" id="lumen" >
@@ -45,6 +48,9 @@
                 <input type="checkbox" name = "chambre_lumen" <?php echo htmlentities(displayStateSensor('chambres', 'lumiere'))?>>
                 <span class="slider round"></span>
             </label>
+            <div style="display: inline-block;vertical-align: baseline;">
+                <span id="chambre_lumen_value">test</span>
+            </div>
             <br>
             <div class="gallery" style="display: inline-block;vertical-align: baseline;">
                 <img src="./public/images/temperature.png" id="temperature" >
@@ -54,6 +60,9 @@
                 <input type="checkbox" name="chambre_temperature" <?php echo htmlentities(displayStateSensor('chambres', 'temperature') )?>>
                 <span class="slider round"></span>
             </label>
+            <div style="display: inline-block;vertical-align: baseline;">
+                <span id="chambre_motor_value">test</span>
+            </div>
 
         </div>
 
@@ -231,11 +240,38 @@
                     data: {sensorRef:  sensor},
                     success: function(data){
                      var trame = JSON.parse(data);
-                    console.log(trame);
+                     console.log(trame);
+                     var tra = trame.substr(0, 1);
+                     var obj = trame.substr(1, 4);
+                     var req = trame.substr(5, 1);
+                     var typ = trame.substr(6, 1);
+                     var num = trame.substr(7, 2);
+                     var val= trame.substr(9, 4);
+                     var tim = trame.substr(13, 4);
+                     var chk = trame.substr(17, 2);
+                     var timestamp = trame.substr(19, 13);
+                     switch(typ){
+                        case '5':
+                            if(req == '2'){
+                                $("#chambre_lumen_value").text(htmlEntities(val));
+                            }
+                            break;
+                        case '1':
+                            if(req == '2'){
+                                $("#chambre_distance_value").text(htmlEntities(val));
+                            }
+                            break;
+                        case 'a':
+                            if(req == '1'){
+                                $("#chambre_motor_value").text(htmlEntities(val));
+                            }
+                            break;
+                     }
+                    console.log(req);
                 }
             });
         });
-            setTimeout(refreshSensorValue,3000);
+            setTimeout(refreshSensorValue,1000);
         }
             refreshSensorValue();
         });
