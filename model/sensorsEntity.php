@@ -50,7 +50,7 @@ function getStateSensor($email, $room, $sensortype){
     $state = $request4->fetch();
     return $state[0];
 }
-
+ 
 
 function addSensorBDD($email){
 
@@ -104,10 +104,10 @@ function addTimeSensor($email, $room, $sensortype, $timediff){
     $sensor = $request3->fetch();
 
     $request4 = $pdo->prepare('UPDATE user_sensor SET use_time = ? WHERE id_user_room = ? AND id_sensor = ?');
-    $request4 -> execute(array($timediff,$id_user_room[0], $sensor[0]));
+    $request4 -> execute(array($timediff[0],$id_user_room[0], $sensor[0]));
 }
 
-function updateTimeStart($email, $room, $sensortype, $starttime){
+function updateTimeStart($email, $room, $sensortype){
     require "config.php";
 
     $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
@@ -124,13 +124,13 @@ function updateTimeStart($email, $room, $sensortype, $starttime){
 
     $request3 = $pdo->prepare('SELECT id_sensor FROM sensor WHERE sensor_name = ?');
     $request3->execute(array($sensortype));
-    $sensor = $request3->fetch();
+    $id_sensor = $request3->fetch();
 
-    $request4 = $pdo->prepare('UPDATE user_sensor SET start_time= ? WHERE id_user_room = ? AND id_sensor = ?');
-    $request4 -> execute(array($starttime,$id_user_room[0], $sensor[0]));
+    $request4 = $pdo->prepare('UPDATE user_sensor SET start_time = NOW() WHERE id_user_room = ? AND id_sensor = ?');
+    $request4 -> execute(array($id_user_room[0], $id_sensor[0]));
 }
 
-function updateTimeEnd($email, $room, $sensortype, $endtime){
+function updateTimeEnd($email, $room, $sensortype){
     require "config.php";
 
     $request = $pdo->prepare('SELECT userId FROM user WHERE email= ? ');
@@ -147,10 +147,10 @@ function updateTimeEnd($email, $room, $sensortype, $endtime){
 
     $request3 = $pdo->prepare('SELECT id_sensor FROM sensor WHERE sensor_name = ?');
     $request3->execute(array($sensortype));
-    $sensor = $request3->fetch();
+    $id_sensor = $request3->fetch();
 
-    $request4 = $pdo->prepare('UPDATE user_sensor SET end_time= ? WHERE id_user_room = ? AND id_sensor = ?');
-    $request4 -> execute(array($endtime,$id_user_room[0], $sensor[0]));
+    $request4 = $pdo->prepare('UPDATE user_sensor SET end_time = NOW() WHERE id_user_room = ? AND id_sensor = ?');
+    $request4 -> execute(array($id_user_room[0], $id_sensor[0]));
 
 }
 
