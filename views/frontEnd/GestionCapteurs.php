@@ -32,6 +32,10 @@
                  <img src="./public/images/smoke.png" id="smoke">
                 <div class="desc"></div>
             </div>
+            <label class="switch1" style="display: inline-block;vertical-align: baseline;">
+                <input type="checkbox" name ="chambre_smoke" <?php echo htmlentities(displayStateSensor('chambres', 'fumee'));  ?>>
+                <span class="slider round"></span>
+            </label>
             <div style="display: inline-block;vertical-align: baseline;">
                 <span id="chambre_distance_value">test</span>
             </div>
@@ -40,6 +44,10 @@
                 <img src="./public/images/lumen.png" id="lumen" >
                 <div class="desc"></div>
             </div>
+            <label class="switch2" style="display: inline-block;vertical-align: baseline;">
+                <input type="checkbox" name = "chambre_lumen" <?php echo htmlentities(displayStateSensor('chambres', 'lumiere'))?>>
+                <span class="slider round"></span>
+            </label>
             <div style="display: inline-block;vertical-align: baseline;">
                 <span id="chambre_lumen_value">test</span>
             </div>
@@ -48,8 +56,8 @@
                 <img src="./public/images/temperature.png" id="temperature" >
                 <div class="desc"></div>
             </div>
-            <label class="switch" style="display: inline-block;vertical-align: baseline;">
-                <input type="checkbox" name="chambre_motor" <?php echo htmlentities(displayStateSensor('chambres', 'motor') )?>>
+            <label class="switch3" style="display: inline-block;vertical-align: baseline;">
+                <input type="checkbox" name="chambre_temperature" <?php echo htmlentities(displayStateSensor('chambres', 'temperature') )?>>
                 <span class="slider round"></span>
             </label>
             <div style="display: inline-block;vertical-align: baseline;">
@@ -263,7 +271,7 @@
                 }
             });
         });
-            setTimeout(refreshSensorValue,3000);
+            setTimeout(refreshSensorValue,1000);
         }
             refreshSensorValue();
         });
