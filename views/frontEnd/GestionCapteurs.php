@@ -17,7 +17,7 @@
     <li><a href="#" name="tab2" id="2">Cuisine</a></li>
     <li><a href="#" name="tab3" id="3">Salle de bain</a></li>
     <li><a href="#" name="tab4" id="4">Salon</a></li>
-</ul>   
+</ul>
 
 <div class="main" >
 
@@ -220,7 +220,7 @@
                 <span class="slider round"></span>
 
             </label>
-        </div> 
+        </div>
     </div>
 
     <input type ="hidden" name="room" id="room">
@@ -316,4 +316,3 @@
 
 <?php include './views/backEnd/footer.php' ?>
 </html>
-
