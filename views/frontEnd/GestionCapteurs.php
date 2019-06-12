@@ -271,9 +271,9 @@
                 }
             });
         });
-            setTimeout(refreshSensorValue,1000);
+            setTimeout(refreshSensorValue,2000);
         }
-            refreshSensorValue();
+            //refreshSensorValue();
         });
     $('#1').click(function() {
         $('#room').val("Chambre");
