@@ -65,35 +65,6 @@ function gestion_capteurs($locale){
                    
 
                }
-
-
-               else if($_POST['room'] == "Cuisine"){
-                   $room = 'cuisine';
-
-                   if(isset($_POST['cuisine_smoke']) == true || (isset($_POST['cuisine_smoke']) == false)  && getValueOfSensor(isset($_POST['cuisine_smoke'])) != getStateSensor($_SESSION['email'], $room, "fumee")){
-                        changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor(isset($_POST['cuisine_smoke'])));
-                        $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
-
-                   }
-
-                   if ((isset($_POST['cuisine_lumen']) == true || (isset($_POST['cuisine_lumen']) == false))  && getValueOfSensor(isset($_POST['cuisine_lumen'])) != getStateSensor($_SESSION['email'], $room, "lumiere")){
-                        changeStateSensor($_SESSION['email'], $room, "lumiere", getValueOfSensor(isset($_POST['cuisine_lumen'])));
-                        $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
-
-                   }
-
-                   if(isset($_POST['chambre_smoke']) == true || (isset($_POST['chambre_smoke']) == false) && getValueOfSensor(isset($_POST['cuisine_temperature'])) != getStateSensor($_SESSION['email'], $room, "temperature")){
-                       changeStateSensor($_SESSION['email'], $room, "temperature", getValueOfSensor(isset($_POST['cuisine_temperature'])));
-                       $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
-                   }
-
-                   if (isset($_POST['cuisine_humidity']) == true || (isset($_POST['cuisine_humidity']) == false)  && getValueOfSensor(isset($_POST['cuisine_humidity'])) != getStateSensor($_SESSION['email'], $room, "humidite")){
-                       changeStateSensor($_SESSION['email'], $room, "humidite", getValueOfSensor(isset($_POST['cuisine_humidity'])));                   $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
-                       $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
-
-                   }
-               }
-
            
 
 
