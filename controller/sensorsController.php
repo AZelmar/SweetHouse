@@ -155,38 +155,22 @@ function displayStateSensor($room, $sensortype){
 
 }
 
-<<<<<<< HEAD
 
-function calculateTimeSensors($room, $sensortype){
-
-    if (getStateSensor($_SESSION['email'], $room, $sensortype) == '1'){
-        $starttime = time();
-        print_r($starttime);
-        updateTimeStart($_SESSION['email'], $room, $sensortype, $starttime);
-    }
-
-    else {
-        echo "problem";
-=======
 function calculateTimeSensors($email, $room, $sensortype){
 
     if (getStateSensor($email, $room, $sensortype) == '1'){
         updateTimeStart($email, $room, $sensortype);
->>>>>>> 661f1edcba8b0d46c7d77be3627fcfd7061dbd6d
     }
 
     if (getStateSensor($email, $room, $sensortype) == '0'){
         updateTimeEnd($email, $room, $sensortype);
     }
-<<<<<<< HEAD
         $timeuse = getTimeUse($_SESSION['email'], $room, $sensortype);
         $timediff1 = abs (getTimeStart($_SESSION['email'], $room, $sensortype) - getTimeEnd($_SESSION['email'], $room, $sensortype));
         $seconds = $timediff1 + 5 + strtotime($timeuse);
         $timediff = gmdate("H:i:s",$seconds);
         addTimeSensor($_SESSION['email'], $room, $sensortype, $timediff);
-=======
 
->>>>>>> 661f1edcba8b0d46c7d77be3627fcfd7061dbd6d
 }
 
 function getValueOfSensor($sensorValue){
