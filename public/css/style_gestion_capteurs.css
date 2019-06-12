@@ -12,7 +12,7 @@
 
     background: #cffdf8;
     transition-duration: 0.4s;
-  }
+}
 /* Style the buttons inside the tab */
 
 
@@ -32,8 +32,8 @@
 }
 #smoke{
     height: 8vh;
-    width: 8vw;
-    top:60px;
+    width: 8vw ;
+    top:auto;
 }
 
 
@@ -48,7 +48,6 @@
     height: 8vh;
     width: 8vw;
     top: 60px;
-
 }
 
 #lumen{
@@ -64,3 +63,18 @@
     width: 8vw;
     top: 60px;
 }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
