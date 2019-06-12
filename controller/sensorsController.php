@@ -151,20 +151,26 @@ function displayStateSensor($room, $sensortype){
 
 }
 
+
 function calculateTimeSensors($room, $sensortype){
 
     if (getStateSensor($_SESSION['email'], $room, $sensortype) == '1'){
-        $starttime=time();
-        updateTimeStart($_SESSION['email'], $room, $sensortype,$starttime);
+        $starttime = time();
+        print_r($starttime);
+        updateTimeStart($_SESSION['email'], $room, $sensortype, $starttime);
+    }
+
+    else {
+        echo "problem";
     }
 
     if (getStateSensor($_SESSION['email'], $room, $sensortype) == '0'){
         $endtime=time();
         updateTimeEnd($_SESSION['email'], $room, $sensortype,$endtime);
     }
-        $timeuse=getTimeUse($_SESSION['email'], $room, $sensortype);
+        $timeuse = getTimeUse($_SESSION['email'], $room, $sensortype);
         $timediff1 = abs (getTimeStart($_SESSION['email'], $room, $sensortype) - getTimeEnd($_SESSION['email'], $room, $sensortype));
-        $seconds=$timediff1 + 5 + strtotime($timeuse);
+        $seconds = $timediff1 + 5 + strtotime($timeuse);
         $timediff = gmdate("H:i:s",$seconds);
         addTimeSensor($_SESSION['email'], $room, $sensortype, $timediff);
 }
