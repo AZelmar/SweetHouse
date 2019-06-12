@@ -33,7 +33,7 @@
             <h4>Cuisine</h4>
             <div id= "tab1">
             	<div class="gallery">
-                	<img src="./public/images/smoke.png" id="smoke" >
+                	<img src="./public/images/smoke.png" id="cuisine_smoke" >
                 <div class="desc"></div>
             	</div>
 			</div>
@@ -41,7 +41,7 @@
 
 			<div id= "tab5">
             	<div class="gallery">
-                	<img src="./public/images/lumen.png" id="lumen" >
+                	<img src="./public/images/lumen.png" id="cuisine_lumen" >
                 <div class="desc"></div>
             	</div>
             </div>
@@ -49,7 +49,7 @@
 
             <div id= "tab3">
             	<div class="gallery">
-                	<img src="./public/images/temperature.png" id="temperature" >
+                	<img src="./public/images/temperature.png" id="cuisine_temperature" >
                 <div class="desc"></div>
             	</div>
         	</div>
@@ -57,7 +57,7 @@
 
         	<div id = "tab4">
             	<div class="gallery">
-                	<img src="./public/images/humidity.png" id="humidity" >
+                	<img src="./public/images/humidity.png" id="cuisine_humidity" >
                 <div class="desc"></div>
             	</div>
             </div>
