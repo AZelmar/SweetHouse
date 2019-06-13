@@ -53,11 +53,11 @@
             </div>
             <br>
             <div class="gallery" style="display: inline-block;vertical-align: baseline;">
-                <img src="./public/images/temperature.png" id="temperature" >
+                <img src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.icons8.com%2Fmetro%2F1600%2Fengine.png&f=1" id="temperature" >
                 <div class="desc"></div>
             </div>
             <label class="switch3" style="display: inline-block;vertical-align: baseline;">
-                <input type="checkbox" name="chambre_temperature" <?php echo htmlentities(displayStateSensor('chambres', 'temperature') )?>>
+                <input type="checkbox" name="chambre_motor" <?php echo htmlentities(displayStateSensor('chambres', 'motor') )?>>
                 <span class="slider round"></span>
             </label>
             <div style="display: inline-block;vertical-align: baseline;">
@@ -267,8 +267,9 @@
         });
             setTimeout(refreshSensorValue,2000);
         }
-            refreshSensorValue();
+            //refreshSensorValue();
         });
+        $('#room').val("Chambre");
     $('#1').click(function() {
         $('#room').val("Chambre");
     });
