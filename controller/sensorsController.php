@@ -275,13 +275,15 @@ function getSensorLog()
 {
 	$sensorRef = $_POST['sensorRef'];
 	$data_tab = getLogs();
-	foreach($data_tab as $key => $trame)
-   {
-		list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) = sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
-      	if ($c == $sensorRef){
-         	$id = $key;
-      	}
-   }
+  for($i = count($data_tab);$i > 0;$i--)
+  {
+    $trame = $data_tab[$i];
+    list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) = sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
+      if ($c == $sensorRef){
+              $id = $i;
+              break;
+      }    
+  }
    echo json_encode($data_tab[$id]);
 }
 ?>

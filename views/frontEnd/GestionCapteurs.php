@@ -231,7 +231,7 @@
 </body>
 <script type="text/javascript">
         $(document).ready(function(){
-            var sensorValue = new Array('5','1','a');
+            var sensorValue = new Array('5','1');
             function refreshSensorValue(){
             sensorValue.forEach(function(sensor) {
                  $.ajax({
@@ -261,19 +261,13 @@
                                 $("#chambre_distance_value").text(htmlEntities(val));
                             }
                             break;
-                        case 'a':
-                            if(req == '1'){
-                                $("#chambre_motor_value").text(htmlEntities(val));
-                            }
-                            break;
                      }
-                    console.log(req);
                 }
             });
         });
             setTimeout(refreshSensorValue,2000);
         }
-            //refreshSensorValue();
+            refreshSensorValue();
         });
     $('#1').click(function() {
         $('#room').val("Chambre");
