@@ -62,7 +62,7 @@ function gestion_capteurs($locale){
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
                    
 
-               }
+               } }
            
 
 
@@ -93,7 +93,7 @@ function gestion_capteurs($locale){
                    if((isset($_POST['salon_smoke']) == true || (isset($_POST['salon_smoke']) == false)) && getValueOfSensor(isset($_POST['salon_smoke']))!= getStateSensor($_SESSION['email'], $room, "fumee")){
                        changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor(isset($_POST['salon_smoke'])));
                        $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
-
+                     }
                if ((isset($_POST['sdb_humidity']) == true || (isset($_POST['sdb_humidity']) == false)) && getValueOfSensor(isset($_POST['sdb_humidity']))!= getStateSensor($_SESSION['email'], $room, "humidite")){
                    changeStateSensor($_SESSION['email'], $room, "humidite", getValueOfSensor(isset($_POST['sdb_humidity'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
@@ -152,8 +152,9 @@ function gestion_capteurs($locale){
            }
 
         }
-}}}
+}
 
+/*
 function cuisine($locale){
   if(isConnected($locale)) {
       require('./views/frontEnd/cuisine.php');
@@ -180,12 +181,11 @@ function cuisine($locale){
           if (isset($_POST['cuisine_humidity']) == true || (isset($_POST['cuisine_humidity']) == false) && getValueOfSensor(isset($_POST['cuisine_humidity'])) != getStateSensor($_SESSION['email'], $room, "humidite")) {
               changeStateSensor($_SESSION['email'], $room, "humidite", getValueOfSensor(isset($_POST['cuisine_humidity'])));
               $notification = array("type" => "success", "message" => "Votre changement a bien été envoyé ! Merci ! ");
-              $notification = array("type" => "success", "message" => "Votre changement a bien été envoyé ! Merci ! ");
 
           }
       }
   }}
-
+*/
 
 
 
@@ -213,7 +213,6 @@ function calculateTimeSensors($email, $room, $sensortype){
     }
         $timeuse = getTimeUse($_SESSION['email'], $room, $sensortype);
         $timediff1 = abs (getTimeStart($_SESSION['email'], $room, $sensortype) - getTimeEnd($_SESSION['email'], $room, $sensortype));
-        $seconds = $timediff1 + 5 + strtotime($timeuse);
         $timediff = gmdate("H:i:s",$seconds);
         addTimeSensor($_SESSION['email'], $room, $sensortype, $timediff);
 
