@@ -32,24 +32,16 @@
                  <img src="./public/images/smoke.png" id="smoke">
                 <div class="desc"></div>
             </div>
-            <label class="switch1" style="display: inline-block;vertical-align: baseline;">
-                <input type="checkbox" name ="chambre_smoke" <?php echo htmlentities(displayStateSensor('chambres', 'fumee'));  ?>>
-                <span class="slider round"></span>
-            </label>
             <div style="display: inline-block;vertical-align: baseline;">
-                <span id="chambre_distance_value">test</span>
+                <span id="chambre_distance_value"></span>
             </div>
             <br>
             <div class="gallery" style="display: inline-block;vertical-align: baseline;">
                 <img src="./public/images/lumen.png" id="lumen" >
                 <div class="desc"></div>
             </div>
-            <label class="switch2" style="display: inline-block;vertical-align: baseline;">
-                <input type="checkbox" name = "chambre_lumen" <?php echo htmlentities(displayStateSensor('chambres', 'lumiere'))?>>
-                <span class="slider round"></span>
-            </label>
             <div style="display: inline-block;vertical-align: baseline;">
-                <span id="chambre_lumen_value">test</span>
+                <span id="chambre_lumen_value"></span>
             </div>
             <br>
             <div class="gallery" style="display: inline-block;vertical-align: baseline;">
@@ -60,10 +52,6 @@
                 <input type="checkbox" name="chambre_motor" <?php echo htmlentities(displayStateSensor('chambres', 'motor') )?>>
                 <span class="slider round"></span>
             </label>
-            <div style="display: inline-block;vertical-align: baseline;">
-                <span id="chambre_motor_value">test</span>
-            </div>
-
         </div>
 
 
@@ -239,35 +227,38 @@
                     url: "<?= $basename ?>/ajax/getTrameInfo",
                     data: {sensorRef:  sensor},
                     success: function(data){
-                     var trame = JSON.parse(data);
-                     console.log(trame);
-                     var tra = trame.substr(0, 1);
-                     var obj = trame.substr(1, 4);
-                     var req = trame.substr(5, 1);
-                     var typ = trame.substr(6, 1);
-                     var num = trame.substr(7, 2);
-                     var val= trame.substr(9, 4);
-                     var tim = trame.substr(13, 4);
-                     var chk = trame.substr(17, 2);
-                     var timestamp = trame.substr(19, 13);
-                     switch(typ){
-                        case '5':
-                            if(req == '2'){
-                                $("#chambre_lumen_value").text(htmlEntities(val));
-                            }
-                            break;
-                        case '1':
-                            if(req == '2'){
-                                $("#chambre_distance_value").text(htmlEntities(val));
-                            }
-                            break;
-                     }
+                    var trame = JSON.parse(data);
+                    if(trame != null)
+                    {
+                         console.log(trame);
+                         var tra = trame.substr(0, 1);
+                         var obj = trame.substr(1, 4);
+                         var req = trame.substr(5, 1);
+                         var typ = trame.substr(6, 1);
+                         var num = trame.substr(7, 2);
+                         var val= trame.substr(9, 4);
+                         var tim = trame.substr(13, 4);
+                         var chk = trame.substr(17, 2);
+                         var timestamp = trame.substr(19, 13);
+                         switch(typ){
+                            case '5':
+                                if(req == '2'){
+                                    $("#chambre_lumen_value").text(htmlEntities(val));
+                                }
+                                break;
+                            case '1':
+                                if(req == '2'){
+                                    $("#chambre_distance_value").text(htmlEntities(val));
+                                }
+                                break;
+                         }
+                    }
                 }
             });
         });
-            setTimeout(refreshSensorValue,2000);
+            setTimeout(refreshSensorValue,500);
         }
-            //refreshSensorValue();
+            refreshSensorValue();
         });
         $('#room').val("Chambre");
     $('#1').click(function() {
