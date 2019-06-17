@@ -15,9 +15,10 @@ function gestion_capteurs($locale){
         if(isConnected($locale)) {
             require ('./views/frontEnd/GestionCapteurs.php');
             if (!empty($_POST['submit'])){
+
                if($_POST['room'] == "Chambre"){
                    $room = 'chambres';
-
+                   changeStateSensor($_SESSION['email'], $room, "motor", getValueOfSensor(isset($_POST['chambre_motor'])));
                    if((isset($_POST['chambre_smoke']) == true || (isset($_POST['chambre_smoke']) == false))  && getValueOfSensor(isset($_POST['chambre_smoke'])) != getStateSensor($_SESSION['email'], $room, "fumee" )){
                       
                        changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor(isset($_POST['chambre_smoke'])));
@@ -172,11 +173,14 @@ function cuisine($locale){
 function displayStateSensor($room, $sensortype){
 
     if (getStateSensor($_SESSION['email'], $room, $sensortype) == '1'){
-        return 'checked';
+        return '1';
     }
 
+    if (getStateSensor($_SESSION['email'], $room, $sensortype) == '2'){
+        return "2";
+    }
     if (getStateSensor($_SESSION['email'], $room, $sensortype) == '0'){
-        return "";
+        return "0";
     }
 
 }

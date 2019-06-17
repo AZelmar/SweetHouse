@@ -50,8 +50,8 @@
                 <div class="desc"></div>
             </div>
             <label class="switch3" style="display: inline-block;vertical-align: baseline;">
-                <input type="checkbox" class="jtoggler" data-jtmulti-state name="chambre_motor" <?php echo htmlentities(displayStateSensor('chambres', 'motor') )?>>
-                <span class="slider round"></span>
+                <input type="checkbox" name="chambre_motor" class="jtoggler" data-jtmulti-state <?php echo htmlentities(displayStateSensor('chambres', 'motor') )?>>
+                <span class="slider round"></span> 
             </label>
         </div>
 
