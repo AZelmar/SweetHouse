@@ -232,6 +232,10 @@ function createTrame($sensorType,$sensorValue){
   $TrameEnvoi[18] = '0';      // deuxieme chiffre (poid faible) du checksum
   return implode($TrameEnvoi);
 }
+function sendTrame($value){
+  $trame = createTrame('a',$value);
+  sendLogs($trame);
+}
 function sendLogs($trame){
   $ch = curl_init();
     curl_setopt($ch,CURLOPT_URL, "http://projets-tomcat.isep.fr:8080/appService/?ACTION=COMMAND&TEAM=004A&TRAME=".$trame);

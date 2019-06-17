@@ -50,8 +50,7 @@
                 <div class="desc"></div>
             </div>
             <label class="switch3" style="display: inline-block;vertical-align: baseline;">
-                <input type="checkbox" class="jtoggler" data-jtmulti-state name="chambre_motor" <?php echo htmlentities(displayStateSensor('chambres', 'motor') )?>>
-                <span class="slider round"></span>
+                <input type="checkbox" id="chambres_motor" class="jtoggler" data-jtmulti-state name="chambre_motor" <?php echo htmlentities(displayStateSensor('chambres', 'motor') )?>>
             </label>
         </div>
 
@@ -257,9 +256,22 @@
                 }
             });
         });
-            setTimeout(refreshSensorValue,500);
+        setTimeout(refreshSensorValue,1000);
         }
-            refreshSensorValue();
+        refreshSensorValue();
+        $(document).on('jt:toggled:multi', function (event, target) {
+            var motorVal = $(target).parent().index();
+            console.log($(target).parent().index());
+            $.ajax({
+                    type: "POST",
+                    url: "<?= $basename ?>/ajax/sendTrame",
+                    data: {motorValue:  $(target).parent().index()},
+                    success: function(data){
+                        console.log(data);
+                }
+            });
+        });
+
         });
         $('#room').val("Chambre");
     $('#1').click(function() {

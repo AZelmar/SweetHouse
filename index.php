@@ -101,6 +101,9 @@ switch ($route) {
     case 'ajax/getTrameInfo':
         getSensorLog();
         break;
+    case 'ajax/sendTrame':
+        sendTrame($_POST['motorValue']);
+        break;
     default:
         error404($locale);
         break;
