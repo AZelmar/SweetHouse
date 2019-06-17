@@ -50,7 +50,7 @@
                 <div class="desc"></div>
             </div>
             <label class="switch3" style="display: inline-block;vertical-align: baseline;">
-                <input type="checkbox" id="chambres_motor" class="jtoggler" data-jtmulti-state name="chambre_motor" <?php echo htmlentities(displayStateSensor('chambres', 'motor') )?>>
+                <input type="checkbox" id="chambres_motor" class="jtoggler" data-jtmulti-state name="chambre_motor">
             </label>
         </div>
 
@@ -213,7 +213,6 @@
 
     <input type ="hidden" name="room" id="room">
 
-    <div class="boutton"> <input type="submit" value="Modifier l'état de mes capteurs" name="submit" style="margin-top: 2%"> </div>
 </div>
 </form>
 </body>
@@ -256,7 +255,7 @@
                 }
             });
         });
-        setTimeout(refreshSensorValue,1000);
+        setTimeout(refreshSensorValue,500);
         }
         refreshSensorValue();
         $(document).on('jt:toggled:multi', function (event, target) {
@@ -271,7 +270,6 @@
                 }
             });
         });
-
         });
         $('#room').val("Chambre");
     $('#1').click(function() {
