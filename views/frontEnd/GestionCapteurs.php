@@ -242,7 +242,7 @@
                          switch(typ){
                             case '5':
                                 if(req == '2'){
-                                    $("#chambre_lumen_value").text(htmlEntities(val));
+                                    $("#chambre_lumen_value").text(htmlEntities(Math.round(parseInt(val)/4095*100 ))+" %");
                                 }
                                 break;
                             case '1':
