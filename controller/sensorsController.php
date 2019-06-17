@@ -18,7 +18,6 @@ function gestion_capteurs($locale){
 
                if($_POST['room'] == "Chambre"){
                    $room = 'chambres';
-                   changeStateSensor($_SESSION['email'], $room, "motor", getValueOfSensor(isset($_POST['chambre_motor'])));
                    if((isset($_POST['chambre_smoke']) == true || (isset($_POST['chambre_smoke']) == false))  && getValueOfSensor(isset($_POST['chambre_smoke'])) != getStateSensor($_SESSION['email'], $room, "fumee" )){
                       
                        changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor(isset($_POST['chambre_smoke'])));
@@ -239,6 +238,8 @@ function createTrame($sensorType,$sensorValue){
 function sendTrame($value){
   $trame = createTrame('a',$value);
   sendLogs($trame);
+  $room = "chambres";
+   changeStateSensor($_SESSION['email'], $room, "motor", $value);
 }
 function sendLogs($trame){
   $ch = curl_init();
