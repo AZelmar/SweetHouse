@@ -6,7 +6,7 @@
 	<?php include './views/backEnd/globalHead.php'; ?>
 	<title><?= base::websiteName ?>| <?= profile::pageName ?></title>
 </head>
-<?php 
+<?php
 include './views/backEnd/header.php';
 $email=$_SESSION['email'];
 $resultat = getUserData($email);
@@ -19,7 +19,7 @@ changeUserData($email);
       <hr>
       <form method="post" action="userProfile">
         <p>
-        
+
 		<div class="input-group">
 			<label><?= profile::modifyHome ?></label>
 			<input type="text" name="adress" value= "<?php echo htmlentities($resultat['adress']) ?>" >
@@ -47,7 +47,7 @@ changeUserData($email);
 		</div>
 		<div class="input-group">
 			<label><?= profile::contact ?></label>
-			<input type="text" 
+			<input type="text"
 				   value="Pierre Louis, 0684759562, pierrelouis158@gmail.com"
 				   size="50">
 		</div>
@@ -58,27 +58,27 @@ changeUserData($email);
        <input type="submit" name="valider" value=<?= profile::del ?>>
       	</form>
   </div>
-    
+
     <div id="aside">
 
-      </div>    
+      </div>
 	<div id="Infos">
 	<h2 id="title"><?= profile::infosGen ?></h2>
 		<hr>
 		<div class="infos-group">
 			<h1 id="titreinfos"><?= profile::hello ?> <?php echo htmlentities($resultat['firstName']) ?>  </h1>
-			<p id="texteinfos"> 
+			<p id="texteinfos">
 				<?= profile::domHouse ?>
 				<br><br>
-				<?= profile::house ?> <?php echo htmlentities($resultat['adress']) ?>  
-				<br><br> 
+				<?= profile::house ?> <?php echo htmlentities($resultat['adress']) ?>
+				<br><br>
 				<?= profile::work ?>
 				<br><br><br>
 				<?= profile::tech ?>
 				<br>
 				<?= profile::intrus?>
 				<br>
-				Vous avez commandé <?php echo htmlentities($resultat2['lumiere']) ?> capteurs de lumiere, <?php echo htmlentities($resultat2['temperature']) ?> capteurs de température, <?php echo htmlentities($resultat2['mouvement']) ?> capteurs de mouvement et <?php echo htmlentities($resultat2['fumee']) ?> capteurs de fumée ! 
+				Vous avez commandé <?php echo htmlentities($resultat2['lumiere']) ?> capteurs de lumiere, <?php echo htmlentities($resultat2['temperature']) ?> capteurs de température, <?php echo htmlentities($resultat2['mouvement']) ?> capteurs de mouvement et <?php echo htmlentities($resultat2['fumee']) ?> capteurs de fumée !
 			</p>
 		</div>
 	</div>

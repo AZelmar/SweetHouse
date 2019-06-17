@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" content="width=device-width, initial-scale=1">
   <?php include './views/backEnd/globalHead.php'; ?>
-	<title> SweetHouse | Magasin </title>  
+	<title> SweetHouse | Magasin </title>
 
 <style>
 
@@ -55,7 +55,7 @@ div.desc {
 /* Create an active/current tablink class */
 #tabs a {
     position: relative;
-    background-image: linear-gradient(to bottom, #65c0ba, #cffdf8); 
+    background-image: linear-gradient(to bottom, #65c0ba, #cffdf8);
     padding:7px 15px;
     float: left;
     color: #444;
@@ -85,7 +85,7 @@ div.desc {
 </head>
 
 <body>
-  
+
 <?php include './views/backEnd/header.php' ?>
 <?PHP include './views/backEnd/notification.php' ?>
 
@@ -96,8 +96,8 @@ div.desc {
     <li><a href="#" name="tab2"><?= shop::room ?></a></li>
     <li><a href="#" name="tab3"><?= shop::kitchen ?></a></li>
     <li><a href="#" name="tab4"><?= shop::bathroom ?></a></li>
-</ul>	
-	
+</ul>
+
 		<div id="content">
 			<div id="tab1">
         <div class="gallery">
@@ -124,7 +124,7 @@ div.desc {
   					<label>
               <h3>Capteur de température</h3>
               <br>
-    					Nombre de capteurs :
+    					Nombre de captcdcdcdeurs :
     					<input
         				type="number"
         				name="number1_1"
@@ -416,13 +416,13 @@ div.desc {
     $("#content").find("[id^='tab']").hide(); // Hide all content
     $("#tabs li:first").attr("id","current");
     $("#content #tab1").fadeIn(); // Show first tab's content
-    
+
     $('#tabs a').click(function(e) {
       e.preventDefault();
       if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
-       return;       
+       return;
       }
-      else{            
+      else{
         $("#content").find("[id^='tab']").hide(); // Hide all content
         $("#tabs li").attr("id",""); //Reset id's
         $(this).parent().attr("id","current"); // Activate this
