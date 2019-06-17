@@ -4,10 +4,7 @@
 function changeStateSensor($email, $room, $sensor, $state){
     require "config.php";
 
-    $request1 = $pdo->prepare('SELECT user.userId,room.id_room,user_room.id_user_room FROM user_room 
-INNER JOIN room ON room.id_room =user_room.id_room 
-INNER JOIN user ON user.userId = user_room.userId 
-WHERE room.name_room = ?  AND user.email= ?');
+    $request1 = $pdo->prepare('SELECT user_room.id_user_room FROM user_room INNER JOIN room ON room.id_room =user_room.id_room INNER JOIN user ON user.userId = user_room.userId WHERE room.name_room = ?  AND user.email= ? ');
     $request1->execute(array($room, $email));
     $id_user_room = $request1->fetch();
 
@@ -25,10 +22,7 @@ WHERE room.name_room = ?  AND user.email= ?');
 function getStateSensor($email, $room, $sensortype){
     require "config.php";
 
-   $request1 = $pdo->prepare('SELECT user.userId,room.id_room,user_room.id_user_room FROM user_room 
-INNER JOIN room ON room.id_room =user_room.id_room 
-INNER JOIN user ON user.userId = user_room.userId 
-WHERE room.name_room = ?  AND user.email= ?');
+   $request1 = $pdo->prepare('SELECT user_room.id_user_room FROM user_room INNER JOIN room ON room.id_room =user_room.id_room INNER JOIN user ON user.userId = user_room.userId WHERE room.name_room = ?  AND user.email= ?');
     $request1->execute(array($room, $email));
     $id_user_room = $request1->fetch();
 
@@ -36,12 +30,12 @@ WHERE room.name_room = ?  AND user.email= ?');
     $request3 = $pdo->prepare('SELECT id_sensor FROM sensor WHERE sensor_name = ?');
     $request3->execute(array($sensortype));
     $sensor = $request3->fetch();
-    echo($sensor[0]);
+    
 
     $request4 = $pdo->prepare('SELECT state FROM user_sensor WHERE id_user_room = ? AND id_sensor = ?');
     $request4 -> execute(array($id_user_room[0], $sensor[0]));
     $state = $request4->fetch();
-    echo($state[0]);
+    
     return $state[0];
 }
  

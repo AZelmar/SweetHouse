@@ -14,7 +14,6 @@ require ('./model/sensorsEntity.php');
 function gestion_capteurs($locale){
         if(isConnected($locale)) {
             require ('./views/frontEnd/GestionCapteurs.php');
-
             if (!empty($_POST['submit'])){
                if($_POST['room'] == "Chambre"){
                    $room = 'chambres';
@@ -32,35 +31,16 @@ function gestion_capteurs($locale){
                         $notification = array("type" => "success", "message" => "Votre changement a bien été envoyé ! Merci ! ");
 
                     }
-
-
-               if((isset($_POST['chambre_smoke']) == true || (isset($_POST['chambre_smoke']) == false))  && getValueOfSensor(isset($_POST['chambre_smoke'])) != getStateSensor($_SESSION['email'], $room, "fumee" )){
-                  
-                   changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor(isset($_POST['chambre_smoke'])));
-                   $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
-                
-               }
-
-                if (isset($_POST['chambre_lumen']) == true || (isset($_POST['chambre_lumen']) == false) != null && getValueOfSensor(isset($_POST['chambre_lumen'])) != getStateSensor($_SESSION['email'], $room, "lumiere")) {
-                    
-                    changeStateSensor($_SESSION['email'], $room, "lumiere", getValueOfSensor(isset($_POST['chambre_lumen'])));
-                    $notification = array("type" => "success", "message" => "Votre changement a bien été envoyé ! Merci ! ");
-                    
-                }
-
-
-                   if((isset($_POST['chambre_temperature']) == true || (isset($_POST['chambre_temperature']) == false)) != null && getValueOfSensor(isset($_POST['chambre_temperature'])) != getStateSensor($_SESSION['email'], $room, "temperature")){
-                       changeStateSensor($_SESSION['email'], $room, "temperature", getValueOfSensor(isset($_POST['chambre_temperature'])));
-                       $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
-
-
-                   }
-
-               if((isset($_POST['chambre_temperature']) == true || (isset($_POST['chambre_temperature']) == false)) != null && getValueOfSensor(isset($_POST['chambre_temperature'])) != getStateSensor($_SESSION['email'], $room, "temperature")){
-                  
-                   changeStateSensor($_SESSION['email'], $room, "temperature", getValueOfSensor(isset($_POST['chambre_temperature'])));
-                   $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
-                   
+                  if(isset($_POST['chambre_motor']))
+                  {
+                    $trame = createTrame('a','1');
+                    sendLogs($trame);
+                  }
+                  else
+                  {
+                     $trame = createTrame('a','0');
+                    sendLogs($trame);                   
+                  }
 
                }
            
@@ -93,7 +73,7 @@ function gestion_capteurs($locale){
                    if((isset($_POST['salon_smoke']) == true || (isset($_POST['salon_smoke']) == false)) && getValueOfSensor(isset($_POST['salon_smoke']))!= getStateSensor($_SESSION['email'], $room, "fumee")){
                        changeStateSensor($_SESSION['email'], $room, "fumee", getValueOfSensor(isset($_POST['salon_smoke'])));
                        $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
-
+                     }
                if ((isset($_POST['sdb_humidity']) == true || (isset($_POST['sdb_humidity']) == false)) && getValueOfSensor(isset($_POST['sdb_humidity']))!= getStateSensor($_SESSION['email'], $room, "humidite")){
                    changeStateSensor($_SESSION['email'], $room, "humidite", getValueOfSensor(isset($_POST['sdb_humidity'])));
                    $notification = array("type" => "success","message" => "Votre changement a bien été envoyé ! Merci ! ");
@@ -152,8 +132,9 @@ function gestion_capteurs($locale){
            }
 
         }
-}}}
+}
 
+/*
 function cuisine($locale){
   if(isConnected($locale)) {
       require('./views/frontEnd/cuisine.php');
@@ -180,12 +161,11 @@ function cuisine($locale){
           if (isset($_POST['cuisine_humidity']) == true || (isset($_POST['cuisine_humidity']) == false) && getValueOfSensor(isset($_POST['cuisine_humidity'])) != getStateSensor($_SESSION['email'], $room, "humidite")) {
               changeStateSensor($_SESSION['email'], $room, "humidite", getValueOfSensor(isset($_POST['cuisine_humidity'])));
               $notification = array("type" => "success", "message" => "Votre changement a bien été envoyé ! Merci ! ");
-              $notification = array("type" => "success", "message" => "Votre changement a bien été envoyé ! Merci ! ");
 
           }
       }
   }}
-
+*/
 
 
 
@@ -213,7 +193,6 @@ function calculateTimeSensors($email, $room, $sensortype){
     }
         $timeuse = getTimeUse($_SESSION['email'], $room, $sensortype);
         $timediff1 = abs (getTimeStart($_SESSION['email'], $room, $sensortype) - getTimeEnd($_SESSION['email'], $room, $sensortype));
-        $seconds = $timediff1 + 5 + strtotime($timeuse);
         $timediff = gmdate("H:i:s",$seconds);
         addTimeSensor($_SESSION['email'], $room, $sensortype, $timediff);
 
@@ -230,14 +209,14 @@ function getValueOfSensor($sensorValue){
      }
 }
 function createTrame($sensorType,$sensorValue){
-  $TrameEnvoi = array_fill(0,18,'0');
+  $TrameEnvoi = array_fill(0,33,'0');
   $TrameEnvoi[0] = '1';  // le champ TRA. choisir toujours "Trame courante = 1"
                           // le champ OBJ (4 octets) = numero de groupe. ex 007A 007B ...
   $TrameEnvoi[1] = '0';  // mettre le chiffre du numero de groupe (0)
   $TrameEnvoi[2] = '0';  // mettre le chiffre du numero de groupe (0)
   $TrameEnvoi[3] = '4';  // mettre le chiffre du numero de groupe (7)
   $TrameEnvoi[4] = 'A';  // mettre la lettre  du numero de groupe (A, B, ... E)
-  $TrameEnvoi[5] = '2';  // champ REQ. 1= Requete en ecriture
+  $TrameEnvoi[5] = '1';  // champ REQ. 1= Requete en ecriture
   $TrameEnvoi[6] = $sensorType;     // champ TYP. remplir dans la boucle (voir Doc)
   $TrameEnvoi[7] = '0';  // champ NUM (2 octets). Numero du capteur
   $TrameEnvoi[8] = '1';  // On choisit par exemple le numero 01.
@@ -251,7 +230,7 @@ function createTrame($sensorType,$sensorValue){
   $TrameEnvoi[16] = 'A';
   $TrameEnvoi[17] = '0';      // premier  chiffre (poid fort)   du checksum
   $TrameEnvoi[18] = '0';      // deuxieme chiffre (poid faible) du checksum
-  //return $trame;
+  return implode($TrameEnvoi);
 }
 function sendLogs($trame){
   $ch = curl_init();
@@ -275,13 +254,15 @@ function getSensorLog()
 {
 	$sensorRef = $_POST['sensorRef'];
 	$data_tab = getLogs();
-	foreach($data_tab as $key => $trame)
-   {
-		list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) = sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
-      	if ($c == $sensorRef){
-         	$id = $key;
-      	}
-   }
+  for($i = count($data_tab);$i > 0;$i--)
+  {
+    $trame = $data_tab[$i];
+    list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) = sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
+      if ($c == $sensorRef){
+              $id = $i;
+              break;
+      }    
+  }
    echo json_encode($data_tab[$id]);
 }
 ?>
