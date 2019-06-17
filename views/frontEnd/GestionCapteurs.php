@@ -30,7 +30,7 @@
             <h4>Chambres</h4>
 
             <div class="gallery" style="display: inline-block;vertical-align: baseline;">
-                 <img src="./public/images/smoke.png" id="smoke">
+                 <img src="./public/images/distance.png" id="smoke">
                 <div class="desc"></div>
             </div>
             <div style="display: inline-block;vertical-align: baseline;">
