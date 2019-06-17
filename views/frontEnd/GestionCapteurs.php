@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php include './views/backEnd/globalHead.php'; ?>
     <link href="./public/css/style_gestion_capteurs.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="./public/js/jtogglerjs/jtoggler.styles.css">
 
 </head>
 
@@ -49,7 +50,7 @@
                 <div class="desc"></div>
             </div>
             <label class="switch3" style="display: inline-block;vertical-align: baseline;">
-                <input type="checkbox" name="chambre_motor" <?php echo htmlentities(displayStateSensor('chambres', 'motor') )?>>
+                <input type="checkbox" class="jtoggler" data-jtmulti-state name="chambre_motor" <?php echo htmlentities(displayStateSensor('chambres', 'motor') )?>>
                 <span class="slider round"></span>
             </label>
         </div>
@@ -298,6 +299,17 @@
     //----------------------------------------------Fonction pour récupérer le type de room------------------------------//
 
 
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="./public/js/jtogglerjs/jtoggler.js"></script>
+<script>
+    $(function(){
+
+  $('.jtoggler').jtoggler();
+
+});
 </script>
 
 <?php include './views/backEnd/footer.php' ?>
