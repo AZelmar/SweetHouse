@@ -247,7 +247,14 @@
                                 break;
                             case '1':
                                 if(req == '2'){
-                                    $("#chambre_distance_value").text(htmlEntities(val));
+                                    if(parseInt(val) > 2000)
+                                    {
+                                        $("#chambre_distance_value").text("Présence");
+                                    }
+                                    else
+                                    {
+                                        $("#chambre_distance_value").text("Pas de présence");
+                                    }
                                 }
                                 break;
                          }
