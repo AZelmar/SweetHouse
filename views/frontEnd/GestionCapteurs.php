@@ -222,18 +222,18 @@
 
 <script type="text/javascript">
 
-var smoothie1 = new SmoothieChart({
+var smoothie1 = new SmoothieChart({millisPerPixel:30,timestampFormatter:SmoothieChart.timeFormatter,
   grid: { strokeStyle:'rgb(125, 0, 0)', fillStyle:'rgb(200, 200, 200)',
-          lineWidth: 0.5, millisPerLine: 250, verticalSections: 10, },
+          lineWidth: 0.5, millisPerLine: 5000, verticalSections: 10, },
   labels: { fillStyle:'rgb(60, 0, 0)' }
 });
 
 smoothie1.streamTo(document.getElementById("mycanvas1"), 1000 /*delay*/); 
 
 
-var smoothie2 = new SmoothieChart({
+var smoothie2 = new SmoothieChart({millisPerPixel:30,timestampFormatter:SmoothieChart.timeFormatter,
   grid: { strokeStyle:'rgb(0, 125, 0)', fillStyle:'rgb(200, 200, 200)',
-          lineWidth: 0.5, millisPerLine: 250, verticalSections: 10, },
+          lineWidth: 0.5, millisPerLine: 5000, verticalSections: 10, },
   labels: { fillStyle:'rgb(0, 0, 0)' }
 });
 
