@@ -7,6 +7,7 @@
     <?php include './views/backEnd/globalHead.php'; ?>
     <link href="./public/css/style_gestion_capteurs.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="./public/js/jtogglerjs/jtoggler.styles.css">
+    <script type="text/javascript" src="./public/js/smoothie1/smoothie.js"></script>
 
 </head>
 
@@ -33,6 +34,7 @@
                  <img src="./public/images/distance.png" id="smoke">
                 <div class="desc"></div>
             </div>
+            <canvas id="mycanvas1" width="400" height="100" ></canvas>
             <div style="display: inline-block;vertical-align: baseline;">
                 <span id="chambre_distance_value"></span>
             </div>
@@ -41,6 +43,7 @@
                 <img src="./public/images/lumen.png" id="lumen" >
                 <div class="desc"></div>
             </div>
+            <canvas id="mycanvas2" width="400" height="100" ></canvas>
             <div style="display: inline-block;vertical-align: baseline;">
                 <span id="chambre_lumen_value"></span>
             </div>
@@ -216,6 +219,50 @@
     <div class="boutton"> <input type="submit" value="Modifier l'état de mes capteurs" name="submit" style="margin-top: 2%"> </div>
 </div>
 </form>
+
+<script type="text/javascript">
+
+var smoothie1 = new SmoothieChart({
+  grid: { strokeStyle:'rgb(125, 0, 0)', fillStyle:'rgb(200, 200, 200)',
+          lineWidth: 0.5, millisPerLine: 250, verticalSections: 10, },
+  labels: { fillStyle:'rgb(60, 0, 0)' }
+});
+
+smoothie1.streamTo(document.getElementById("mycanvas1"), 1000 /*delay*/); 
+
+
+var smoothie2 = new SmoothieChart({
+  grid: { strokeStyle:'rgb(0, 125, 0)', fillStyle:'rgb(200, 200, 200)',
+          lineWidth: 0.5, millisPerLine: 250, verticalSections: 10, },
+  labels: { fillStyle:'rgb(0, 0, 0)' }
+});
+
+smoothie2.streamTo(document.getElementById("mycanvas2"), 1000 /*delay*/); 
+    // Data
+var line1 = new TimeSeries();
+var line2 = new TimeSeries();
+
+// Add a random value to each line every second
+setInterval(function() {
+  line1.append(new Date().getTime(), Math.random());
+}, 1000);
+
+setInterval(function() {
+  line2.append(new Date().getTime(), Math.random());
+}, 1000);
+
+// Add to SmoothieChart
+smoothie1.addTimeSeries(line1,
+  { strokeStyle:'rgb(0, 0, 0)', fillStyle:'rgba(255, 8, 0, 0.4)', lineWidth:3 });
+
+smoothie2.addTimeSeries(line2,
+  { strokeStyle:'rgb(0, 0, 0)', fillStyle:'rgba(248, 222, 126, 0.3)', lineWidth:3 });
+
+
+
+</script>
+
+
 </body>
 <script type="text/javascript">
         $(document).ready(function(){
@@ -330,6 +377,7 @@
 
 });
 </script>
+
 
 <?php include './views/backEnd/footer.php' ?>
 </html>
